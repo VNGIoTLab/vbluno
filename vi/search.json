@@ -1,0 +1,592 @@
+[
+
+
+
+
+
+
+
+
+
+
+
+{
+"title": "Wiki pages for VNG VBLUno51 board (nRF51822)",
+"tags": "",
+"keywords": "homepage",
+"url": "index.html",
+"summary": "VBLUno51 = VNG Bluetooth Low Energy UNO nRF51822."
+}
+,
+
+
+
+
+
+{
+"title": "Trang tài liệu cho mạch VNG VBLUno51 (nRF51822)",
+"tags": "",
+"keywords": "homepage",
+"url": "index_vi.html",
+"summary": "VBLUno51 = VNG Bluetooth Low Energy UNO nRF51822."
+}
+,
+
+
+
+
+
+{
+"title": "Thiết bị theo dõi nhịp tim với VBLUno",
+"tags": "tutorials",
+"keywords": "",
+"url": "mydoc_arduino_tut1.html",
+"summary": ""
+}
+,
+
+
+
+
+
+
+
+{
+"title": "Thiết bị phát Beacons với VBLUno",
+"tags": "tutorials",
+"keywords": "",
+"url": "mydoc_arduino_tut2.html",
+"summary": ""
+}
+,
+
+
+
+
+
+
+
+{
+"title": "Đo nhiệt độ bên trong chip nRF51822",
+"tags": "tutorials",
+"keywords": "",
+"url": "mydoc_arduino_tut3.html",
+"summary": ""
+}
+,
+
+
+
+
+
+
+
+{
+"title": "Nhiệt kế y tế với VBLUno (HTM)",
+"tags": "tutorials",
+"keywords": "",
+"url": "mydoc_arduino_tut4.html",
+"summary": ""
+}
+,
+
+
+
+
+
+
+
+{
+"title": "Truyền thông giữa Smartphone và máy tính qua “UART over BLE”",
+"tags": "tutorials",
+"keywords": "",
+"url": "mydoc_arduino_tut5.html",
+"summary": ""
+}
+,
+
+
+
+
+
+
+
+{
+"title": "Điều khiển/Giám sát một thiết bị bất kỳ bằng Smartphone qua BLE",
+"tags": "tutorials",
+"keywords": "",
+"url": "mydoc_arduino_tut6.html",
+"summary": ""
+}
+,
+
+
+
+
+
+
+
+{
+"title": "Giới thiệu công nghệ BLE",
+"tags": "ble",
+"keywords": "",
+"url": "mydoc_ble.html",
+"summary": ""
+}
+,
+
+
+
+
+
+
+
+{
+"title": "Mã nguồn Arduino tham khảo cho VBLUno51",
+"tags": "examples",
+"keywords": "",
+"url": "mydoc_code_arduino.html",
+"summary": ""
+}
+,
+
+
+
+
+
+
+
+{
+"title": "Mã nguồn mbed-OS tham khảo cho VBLUno51",
+"tags": "examples",
+"keywords": "",
+"url": "mydoc_code_mbed.html",
+"summary": ""
+}
+,
+
+
+
+
+
+
+
+{
+"title": "Fritzing Part",
+"tags": "documents",
+"keywords": "",
+"url": "mydoc_doc_fritzing.html",
+"summary": ""
+}
+,
+
+
+
+
+
+
+
+{
+"title": "Pinout",
+"tags": "documents",
+"keywords": "",
+"url": "mydoc_doc_pinout.html",
+"summary": ""
+}
+,
+
+
+
+
+
+
+
+{
+"title": "Bắt đầu với Arduino IDE",
+"tags": "getting_started",
+"keywords": "",
+"url": "mydoc_getstart_arduino.html",
+"summary": ""
+}
+,
+
+
+
+
+
+
+
+{
+"title": "Bắt đầu với mbed-OS và Eclipse IDE",
+"tags": "getting_started",
+"keywords": "",
+"url": "mydoc_getstart_gnuarm_eclipse.html",
+"summary": ""
+}
+,
+
+
+
+
+
+
+
+{
+"title": "Bắt đầu với mbed-OS và Keil uVision",
+"tags": "getting_started",
+"keywords": "",
+"url": "mydoc_getstart_keil.html",
+"summary": ""
+}
+,
+
+
+
+
+
+
+
+{
+"title": "Bắt đầu với mbed-OS",
+"tags": "getting_started",
+"keywords": "",
+"url": "mydoc_getstart_mbed.html",
+"summary": ""
+}
+,
+
+
+
+
+
+
+
+{
+"title": "Bắt đầu với mbed-OS và mbed Online Compiler",
+"tags": "getting_started",
+"keywords": "",
+"url": "mydoc_getstart_mbedonline.html",
+"summary": ""
+}
+,
+
+
+
+
+
+
+
+{
+"title": "Bắt đầu với Apache MyNewt-OS",
+"tags": "getting_started",
+"keywords": "",
+"url": "mydoc_getstart_mynewt.html",
+"summary": ""
+}
+,
+
+
+
+
+
+
+
+{
+"title": "Bắt đầu với Nordic SDK",
+"tags": "getting_started",
+"keywords": "",
+"url": "mydoc_getstart_nordicsdk.html",
+"summary": ""
+}
+,
+
+
+
+
+
+
+
+{
+"title": "Bắt đầu với Riot-OS",
+"tags": "getting_started",
+"keywords": "",
+"url": "mydoc_getstart_riot.html",
+"summary": ""
+}
+,
+
+
+
+
+
+
+
+{
+"title": "Bắt đầu với Zephyr",
+"tags": "getting_started",
+"keywords": "",
+"url": "mydoc_getstart_zephyr.html",
+"summary": ""
+}
+,
+
+
+
+
+
+
+
+{
+"title": "Introduction to VNG VBLUno51 board",
+"tags": "getting_started",
+"keywords": "",
+"url": "mydoc_introduction.html",
+"summary": ""
+}
+,
+
+
+
+
+
+
+
+{
+"title": "Nạp/Gỡ lỗi cho VBLUno bằng pyOCD và OpenOCD trên GNU ARM Embedded + Eclipse",
+"tags": "tutorials",
+"keywords": "",
+"url": "mydoc_mbed_tut1.html",
+"summary": ""
+}
+,
+
+
+
+
+
+
+
+{
+"title": "BLE Beacons",
+"tags": "tutorials",
+"keywords": "",
+"url": "mydoc_mbed_tut2.html",
+"summary": ""
+}
+,
+
+
+
+
+
+
+
+{
+"title": "Bạn có thể tạo ứng dụng gì với VBLUno51?",
+"tags": "",
+"keywords": "",
+"url": "mydoc_over_appcanmake.html",
+"summary": ""
+}
+,
+
+
+
+
+
+
+
+{
+"title": "Note about the hardware versions",
+"tags": "",
+"keywords": "",
+"url": "mydoc_over_hardware.html",
+"summary": ""
+}
+,
+
+
+
+
+
+
+
+{
+"title": "Software Development Kit",
+"tags": "",
+"keywords": "",
+"url": "mydoc_over_sdk.html",
+"summary": ""
+}
+,
+
+
+
+
+
+
+
+{
+"title": "Scroll layout",
+"tags": "special_layouts",
+"keywords": "json, scrolling, scrollto, jquery plugin",
+"url": "jsmydoc_scroll.html",
+"summary": "This page demonstrates how you the integration of a script called ScrollTo, which is used here to link definitions of a JSON code sample to a list of definitions for that particular term. The scenario here is that the JSON blocks are really long, with extensive nesting and subnesting, which makes it difficult for tables below the JSON to adequately explain the term in a usable way."
+}
+,
+
+
+
+
+
+{
+"title": "News",
+"tags": "",
+"keywords": "news, blog, updates, release notes, announcements",
+"url": "news.html",
+"summary": ""
+}
+,
+
+
+
+
+
+{
+"title": "News archive",
+"tags": "",
+"keywords": "news, blog, updates, release notes, announcements",
+"url": "news_archive.html",
+"summary": ""
+}
+,
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{
+"title": "",
+"tags": "",
+"keywords": "",
+"url": "feed.xslt.xml",
+"summary": ""
+}
+,
+
+
+
+
+
+
+{
+"title": "Giới thiệu bo mạch VBLUno51 đến cộng đồng IoT",
+"tags": "tin_tuc",
+"keywords": "",
+"url": "/preparevbluno51.html",
+"summary": "Chuẩn bị các nội dung cần thiết để giới thiệu bo mạch VBLUno51 đến cộng đồng IoT."
+}
+
+
+
+]

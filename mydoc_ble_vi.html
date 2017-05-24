@@ -1,0 +1,1426 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content="ble,  ">
+<title>Giới thiệu công nghệ BLE | VBLUno51 board</title>
+<link rel="stylesheet" href="css/syntax.css">
+
+
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<!--<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">-->
+<link rel="stylesheet" href="css/modern-business.css">
+<link rel="stylesheet" href="css/lavish-bootstrap.css">
+<link rel="stylesheet" href="css/customstyles.css">
+<link rel="stylesheet" href="css/theme-orange.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="js/jquery.navgoco.min.js"></script>
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/2.0.0/anchor.min.js"></script>
+<script src="js/toc.js"></script>
+<script src="js/customscripts.js"></script>
+
+<link rel="shortcut icon" href="images/vbluno2_small.png">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<link rel="alternate" type="application/rss+xml" title="" href="http://localhost:4000feed.xml">
+
+    <script>
+        $(document).ready(function() {
+            // Initialize navgoco with default options
+            $("#mysidebar").navgoco({
+                caretHtml: '',
+                accordion: true,
+                openClass: 'active', // open
+                save: false, // leave false or nav highlighting doesn't work right
+                cookie: {
+                    name: 'navgoco',
+                    expires: false,
+                    path: '/'
+                },
+                slide: {
+                    duration: 400,
+                    easing: 'swing'
+                }
+            });
+            $("#collapseAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', false);
+            });
+            $("#expandAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', true);
+            });
+        });
+    </script>
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+    <script>
+        $(document).ready(function() {
+            $("#tg-sb-link").click(function() {
+                $("#tg-sb-sidebar").toggle();
+                $("#tg-sb-content").toggleClass('col-md-9');
+                $("#tg-sb-content").toggleClass('col-md-12');
+                $("#tg-sb-icon").toggleClass('fa-toggle-on');
+                $("#tg-sb-icon").toggleClass('fa-toggle-off');
+            });
+        });
+    </script>
+    
+
+</head>
+<body>
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container topnavlinks">
+
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+                        
+            <img src="images/pic_topnav.png" alt="VBLUno51 board">
+            <a class="fa fa-home fa-lg navbar-brand" href="index.html">&nbsp;<span class="projectTitle"> VBLUno51 - VNG Bluetooth Low Energy UNO nRF51822 - IoT development board</span>            
+            
+            </a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <!-- toggle sidebar button -->
+                <li><a id="tg-sb-link" href="#"><i id="tg-sb-icon" class="fa fa-toggle-on"></i></a></li>
+                <!-- entries without drop-downs appear here -->
+                                                    
+                                
+                    
+                    
+                    <li><a href="news">News</a></li>
+                    
+                    
+                                        
+                               
+                <!-- entries with drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+                
+                    
+                    
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Resources<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+                            
+                            <li><a href="https://goo.gl/bISeQl" target="_blank">VBLUno51 on Facebook</a></li>
+                            
+                            
+                            
+                            <li><a href="https://goo.gl/w8gQHT" target="_blank">VBLUno51 on store</a></li>
+                            
+                            
+                            
+                            <li><a href="https://goo.gl/kpLmQs" target="_blank">DAPLink (CMSIS-DAP) interface</a></li>
+                            
+                            
+                            
+                            <li><a href="https://goo.gl/1nj0LZ" target="_blank">VBLUno on Arduino.vn forum</a></li>
+                            
+                            
+                        </ul>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">SDK & OS Supports<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+                            
+                            <li><a href="mydoc_getstart_arduino.html">Arduino IDE</a></li>
+                            
+                            
+                            
+                            <li><a href="mydoc_getstart_mbed.html">mbed-OS</a></li>
+                            
+                            
+                            
+                            <li><a href="mydoc_getstart_mynewt.html">Apache Mynewt-OS</a></li>
+                            
+                            
+                            
+                            <li><a href="mydoc_getstart_zephyr.html">Zephyr</a></li>
+                            
+                            
+                            
+                            <li><a href="mydoc_getstart_riot.html">RIOT-OS</a></li>
+                            
+                            
+                            
+                            <li><a href="mydoc_getstart_nordicsdk.html">Nordic SDK</a></li>
+                            
+                            
+                        </ul>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Feedback<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+                            
+                            <li><a href="https://github.com/VNGIoTLab/vbluno/issues" target="_blank">Github issues tracker</a></li>
+                            
+                            
+                            
+                            <li><a href="https://www.facebook.com/bleviet/messages" target="_blank">Send Facebook messages</a></li>
+                            
+                            
+                        </ul>
+                    </li>
+                    
+                    
+                    <li><a class="link-vi" href="/vbluno/vi/index_vi.html">TIẾNG VIỆT</a></li>
+                
+                
+
+                <!--comment out this block if you want to hide search-->
+                <li>
+                
+                    <!--start search-->
+                    <div id="search-demo-container">                    
+                        <input type="text" id="search-input" placeholder="search...">
+                        <ul id="results-container"></ul>
+                    </div>
+
+                    <script src="js/jekyll-search.js" type="text/javascript"></script>
+                    <script type="text/javascript">
+                            SimpleJekyllSearch.init({
+                                searchInput: document.getElementById('search-input'),
+                                resultsContainer: document.getElementById('results-container'),
+                                dataSource: 'search.json',
+                                searchResultTemplate: '<li><a href="{url}" title="Giới thiệu công nghệ BLE">{title}</a></li>',
+                    noResultsText: 'No results found.',
+                            limit: 10,
+                            fuzzy: true,
+                    })
+                    </script>
+                    <!--end search-->
+                
+
+                </li>                
+            </ul>    
+
+        </div>
+        </div>
+        <!-- /.container -->
+</nav>
+
+<!-- Page Content -->
+<div class="container">
+    <div class="col-lg-12">&nbsp;</div>
+    <!-- Content Row -->
+    <div class="row">
+        
+        
+            <!-- Sidebar Column -->
+            <div class="col-md-3" id="tg-sb-sidebar">
+                
+
+<ul id="mysidebar" class="nav">
+    <li class="sidebarTitle">VBLUno51 board </li>
+    
+    
+            
+        
+    
+    <li>
+        <a href="#">Overview</a>
+        <ul>
+            
+
+            
+
+            
+            
+            
+            <li><a href="mydoc_introduction.html">Introduction</a></li>
+            
+            
+            
+
+            
+
+
+            
+            
+            
+            
+            <li><a href="mydoc_over_hardware.html">Note about the hardware versions (important)</a></li>
+            
+            
+            
+
+            
+
+
+            
+            
+            
+            
+            <li><a href="mydoc_over_sdk.html">Software Development Kit</a></li>
+            
+            
+            
+
+            
+
+
+            
+            
+            
+            
+            <li><a href="mydoc_over_appcanmake.html">What applications can you make with VBLUno51?</a></li>
+            
+            
+            
+
+            
+
+
+            
+            
+        </ul>
+    </li>
+                
+        
+    
+    <li>
+        <a href="#">Documents</a>
+        <ul>
+            
+
+            
+
+            
+            
+            
+            <li><a href="https://goo.gl/HUdV1Q" target="_blank">Nordic nRF51822 specification</a></li>
+            
+            
+            
+
+            
+
+
+            
+            
+            
+            
+            <li><a href="https://goo.gl/byqaK0" target="_blank">Schematic</a></li>
+            
+            
+            
+
+            
+
+
+            
+            
+            
+            
+            <li><a href="mydoc_doc_pinout.html">Pinout</a></li>
+            
+            
+            
+
+            
+
+
+            
+            
+            
+            
+            <li><a href="mydoc_doc_fritzing.html">Fritzing Part</a></li>
+            
+            
+            
+
+            
+
+
+            
+            
+            
+            
+            <li><a href="https://goo.gl/oVdvcv" target="_blank">mbed Serial driver (Only Windows)</a></li>
+            
+            
+            
+
+            
+
+
+            
+            
+        </ul>
+    </li>
+                
+        
+    
+    <li>
+        <a href="#">Getting Start</a>
+        <ul>
+            
+
+            
+
+            
+            
+            
+            <li><a href="mydoc_getstart_arduino.html">Using Arduino IDE</a></li>
+            
+            
+            
+            
+            <li class="subfolders">
+                <a href="#">Using mbed-OS</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="mydoc_getstart_mbedonline.html">mbed Online Compiler</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="mydoc_getstart_gnuarm_eclipse.html">GNU ARM Embedded & Eclipse IDE (recommend)</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="mydoc_getstart_keil.html">Keil uVision</a></li>
+                    
+                    
+                    
+                </ul>
+            </li>
+            
+            
+
+            
+
+
+            
+            
+        </ul>
+    </li>
+                
+        
+    
+    <li>
+        <a href="#">Bluetooth Low Energy (BLE)</a>
+        <ul>
+            
+
+            
+
+            
+            
+            
+            <li><a href="mydoc_ble.html">Introduction to Bluetooth Low Energy</a></li>
+            
+            
+            
+
+            
+
+
+            
+            
+            
+            
+            <li><a href="https://goo.gl/5q7jC4" target="_blank">BLE manual for mbed-OS</a></li>
+            
+            
+            
+
+            
+
+
+            
+            
+        </ul>
+    </li>
+                
+        
+    
+    <li>
+        <a href="#">Tutorials</a>
+        <ul>
+            
+            
+            <li class="subfolders">
+                <a href="#">Adruino</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="mydoc_arduino_tut1.html">Tut1 - Heart rate monitor device (HRM) with VBLUno51</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="mydoc_arduino_tut2.html">Tut2 - iBeacons device with VBLUno51</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="mydoc_arduino_tut3.html">Tut3 - Measure the temperature inside nRF51822 (SoC)</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="mydoc_arduino_tut4.html">Tut4 - Health thermometer with VBLUno (HTM)</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="mydoc_arduino_tut5.html">Tut5 - Communicate between smartphone and PC by “UART over BLE”</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="mydoc_arduino_tut6.html">Tut6 - Controlling/monitoring a device by Smartphone over BLE</a></li>
+                    
+                    
+                    
+                </ul>
+            </li>
+            
+            
+
+            
+            
+            <li class="subfolders">
+                <a href="#">mbed-OS</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="mydoc_mbed_tut1.html">Tut1 - Program/debug for VBLUno by pyOCD and OpenOCD on GNU ARM Embedded + Eclipse</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="mydoc_mbed_tut2.html">Tut2 - BLE Beacons</a></li>
+                    
+                    
+                    
+                </ul>
+            </li>
+            
+            
+
+            
+        </ul>
+    </li>
+                
+        
+    
+    <li>
+        <a href="#">Code Examples</a>
+        <ul>
+            
+
+            
+
+            
+            
+            
+            <li><a href="mydoc_code_arduino.html">Arduino</a></li>
+            
+            
+            
+
+            
+
+
+            
+            
+            
+            
+            <li><a href="mydoc_code_mbed.html">mbed-OS</a></li>
+            
+            
+            
+
+            
+
+
+            
+            
+        </ul>
+    </li>
+                
+        
+    
+    <li>
+        <a href="#">Video</a>
+        <ul>
+            
+
+            
+
+            
+            
+            
+            <li><a href="https://goo.gl/Vi0mpo" target="_blank">BLE Serial application</a></li>
+            
+            
+            
+
+            
+
+
+            
+            
+            
+            
+            <li><a href="https://goo.gl/01X4oM" target="_blank">Controlling a robot over BLE with VBLUno</a></li>
+            
+            
+            
+
+            
+
+
+            
+            
+        </ul>
+    </li>
+                
+        
+    
+    <li>
+        <a href="#">Mobile applications for BLE</a>
+        <ul>
+            
+
+            
+
+            
+            
+            
+            <li><a href="https://goo.gl/i6DNtP" target="_blank">iBeacon & Eddystone Scanner (Android)</a></li>
+            
+            
+            
+            
+            <li class="subfolders">
+                <a href="#">Nordic nRF Toolbox</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="https://goo.gl/s3fbVW" target="_blank">Android</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="https://goo.gl/GH8gom" target="_blank">iOS</a></li>
+                    
+                    
+                    
+                </ul>
+            </li>
+            
+            
+
+            
+
+
+            
+            
+            
+            
+            <li><a href="https://goo.gl/sFbubD" target="_blank">nRF UART 2.0 (Android)</a></li>
+            
+            
+            
+            
+            <li class="subfolders">
+                <a href="#">Open source softwares</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="https://goo.gl/Et1atP" target="_blank">Nordic nRFToolbox (Android)</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="https://goo.gl/rdTll8" target="_blank">BluetoohLeGatt Example (Android)</a></li>
+                    
+                    
+                    
+                </ul>
+            </li>
+            
+            
+
+            
+
+
+            
+            
+        </ul>
+    </li>
+                
+        
+    
+    <li>
+        <a href="#">Links</a>
+        <ul>
+            
+
+            
+
+            
+            
+            
+            <li><a href="http://iotviet.com.vn" target="_blank">IoT Vietnam Store</a></li>
+            
+            
+            
+
+            
+
+
+            
+            
+            
+            
+            <li><a href="https://goo.gl/YCxUeK" target="_blank">CSM Router (VNG)</a></li>
+            
+            
+            
+
+            
+
+
+            
+            
+            
+            
+            <li><a href="https://zalopay.vn" target="_blank">ZaloPay – (Auto payment application)</a></li>
+            
+            
+            
+
+            
+
+
+            
+            
+            
+            
+            <li><a href="https://www.facebook.com/groups/iotalliancevn/" target="_blank">Vietnam IoT Alliance page</a></li>
+            
+            
+            
+
+            
+
+
+            
+            
+            
+            
+            <li><a href="https://developer.mbed.org/" target="_blank">ARM mbed  OS developer site</a></li>
+            
+            
+            
+
+            
+
+
+            
+            
+        </ul>
+    </li>
+                
+        
+    
+    <li>
+        <a href="#">About</a>
+        <ul>
+            
+
+            
+
+            
+            
+            
+            <li><a href="https://goo.gl/c3sbnk" target="_blank">Contact our store</a></li>
+            
+            
+            
+
+            
+
+
+            
+            
+            
+            
+            <li><a href="https://www.facebook.com/bleviet/" target="_blank">Bluetooth Low Energy – BLE Vietnam page</a></li>
+            
+            
+            
+
+            
+
+
+            
+            
+        </ul>
+    </li>
+                
+        
+        
+        <!-- if you aren't using the accordion, uncomment this block:
+           <p class="external">
+               <a href="#" id="collapseAll">Collapse All</a> | <a href="#" id="expandAll">Expand All</a>
+           </p>
+           -->    
+</ul>
+
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+
+            </div>
+            
+        
+
+        <!-- Content Column -->
+        <div class="col-md-9" id="tg-sb-content">
+            <div class="post-header">
+   <h1 class="post-title-main">Giới thiệu công nghệ BLE</h1>
+</div>
+
+
+
+<div class="post-content">
+
+   
+
+    
+    
+<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
+
+
+
+	<script>
+	$( document ).ready(function() {
+	  // Handler for .ready() called.
+
+	$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2,h3,h4' });
+
+	/* this offset helps account for the space taken up by the floating toolbar. */
+	$('#toc').on('click', 'a', function() {
+	  var target = $(this.getAttribute('href'))
+	    , scroll_target = target.offset().top
+
+	  $(window).scrollTop(scroll_target - 10);
+	  return false
+	})
+	  
+	});
+	</script>
+
+	<div id="toc"></div>
+
+
+
+    
+
+
+    
+
+    <a target="_blank" href="https://github.com/VNGIoTLab/vbluno/tree/master/pages/mydoc/mydoc_ble_vi.md" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
+
+    
+
+  <hr />
+<h2 id="giới-thiệu-công-nghệ-bluetooth-low-energy">Giới thiệu công nghệ Bluetooth Low Energy</h2>
+
+<ul>
+  <li>
+    <p>Trước hết cần nói rằng BLE không phải là tất cả, nó không thay thế hoàn toàn các chuẩn truyền thông không dây khác như Wifi, Zigbee,… hay thậm chí là Classic Bluetooth (2.0). Nó được thiết kế với mục đích chuyên biệt hơn, với miền ứng dụng cụ thể hơn.</p>
+  </li>
+  <li>
+    <p>BLE (Bluetooth 4.0 trở đi) được thiết kế cho các ứng dụng:</p>
+
+    <ul>
+      <li>
+        <p>Siêu tiết kiệm năng lượng, cho phép thiết bị hoạt động trong vài tháng hoặc vài năm chỉ với một viên pin đồng xu (coin-cell battery);</p>
+      </li>
+      <li>
+        <p>Khoảng cách ngắn, hoạt động ổn định trong phạm vi 10m;</p>
+      </li>
+      <li>
+        <p>Dữ liệu truyền tải không lớn, thích hợp cho các ứng dụng điều khiển không liên tục, cảm biến.</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>Các ứng dụng điển hình sử dụng BLE như thiết bị theo dõi sức khỏe, beacons, nhà thông minh, an ninh, giải trí, cảm biến tiệm cận, ô tô. Trung tâm của một hệ thống ứng dụng BLE thường là Smart phones, tablets và PCs.</p>
+  </li>
+</ul>
+
+<h3 id="lịch-sử-phát-triển-công-nghệ-bluetooth">Lịch sử phát triển công nghệ Bluetooth</h3>
+
+<p><img src="images/ble/introduce/0.png" alt="" /></p>
+
+<p>Bo mạch VBLUno của VNGIoTLab sử dụng chip Nordic nRF51822, hiện tại hỗ trợ đến chuẩn Bluetooth 4.2</p>
+
+<h3 id="Điều-gì-làm-ble-trở-nên-khác-biệt">Điều gì làm BLE trở nên khác biệt?</h3>
+
+<ul>
+  <li>
+    <p>Sự phát triển mạnh của các thiết bị thông minh dẫn đến nhu cầu kết nối các thiết bị với bên ngoài tăng mạnh. Trong khi BLE được tích hợp trong hầu hết các điện thoại thông minh.</p>
+  </li>
+  <li>
+    <p>Giá thành thấp.</p>
+  </li>
+  <li>
+    <p>BLE cho phép các thiết bị có thể “nói chuyện” với các nền tảng di động hiện đại.</p>
+  </li>
+  <li>
+    <p>Một số thiết bị chỉ cần truyền nhận một lượng nhỏ dữ liệu cho mỗi chu kỳ kết nối và chúng cũng cần tiết kiệm năng lượng, ví dụ như thiết bị theo dõi nhịp tim, thiết bị quản lý trẻ em,…</p>
+  </li>
+  <li>
+    <p>BLE có mô hình dữ liệu tương đối dễ hiểu, không cần chi phí giấy phép với một Protocol stack không quá phức tạp.</p>
+  </li>
+</ul>
+
+<h3 id="các-kiểu-thiết-bị-bluetooth">Các kiểu thiết bị Bluetooth.</h3>
+
+<ul>
+  <li>Tài liệu Bluetooth Specification (4.0 trở đi) định nghĩa hai công nghệ không dây sau:
+    <ul>
+      <li>BR/EDR (Classic Bluetooth)</li>
+      <li>BLE (Bluetooth Low Energy)</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Các kiểu thiết bị Bluetooth phổ biến hiện nay được khái quát trong hình dưới:</p>
+
+<p><img src="images/ble/introduce/1.png" alt="" /></p>
+
+<p>Như hình trên ta thấy, thiết bị BLE gồm hai loại là Bluetooth Smart và Bluetooth Smart Ready.</p>
+
+<ul>
+  <li>
+    <p>Bluetooth Smart (Single mode): Chỉ có thể giao tiếp với thiết bị Bluetooth Smart hoặc Bluetooth Smart Ready</p>
+  </li>
+  <li>
+    <p>Bluetooth Smart  Ready (Dual mode): Có thể giao tiếp được các loại thiết bị Bluetooth như Bluetooth Smart, Bluetooth Smart Ready và Classic Bluetooth.</p>
+  </li>
+</ul>
+
+<p>Chip nRF51822 thuộc loại Bluetooth Smart.</p>
+
+<h3 id="các-khối-chính-của-một-thiết-bị-bluetooth">Các khối chính của một thiết bị Bluetooth</h3>
+
+<ul>
+  <li>
+    <p>Mỗi thiết bị Bluetooth gồm 3 khối chính sau:</p>
+
+    <ul>
+      <li>
+        <p>Application: Ứng dụng người dùng giao tiếp với Bluetooth protocol stack.</p>
+      </li>
+      <li>
+        <p>Host: Các lớp trên của Bluetooth protocol stack.</p>
+      </li>
+      <li>
+        <p>Controller: Các lớp dưới của Bluetooth protocol stack, bao gồm chức năng truyền nhận radio.</p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><em>(Bluetooth Protocol Stack: Bộ giao thức dạng stack cho phép các thiết bị Bluetooth thiết lập, kết nối, truyền nhận dữ liệu với nhau)</em></p>
+
+<p>Ba khối chính của một thiết bị Bluetooth được tích hợp vào phần cứng theo nhiều kiểu khác nhau, dưới đây là 3 kiểu cấu hình phần cứng chính:</p>
+
+<p><img src="images/ble/introduce/2.png" alt="" /></p>
+
+<p>Chip nRF51822 thuộc loại System on Chip (SoC), các thành phần của Bluetooth được tích hợp trong một chip duy nhất.</p>
+
+<h3 id="các-giới-hạn-chính-của-ble">Các giới hạn chính của BLE</h3>
+
+<p><strong>- Thông lượng dữ liệu nhỏ:</strong></p>
+
+<p>Tần số điều chế của sóng BLE trong không gian là 1Mbps. Đây là giới hạn trên của thông lượng theo lý thuyết. Tuy nhiên trong thực tế tham số này nhỏ hơn do ảnh hưởng của nhiều yếu tố.</p>
+
+<p>Để minh họa ta đặt giả thiết là một thiết bị trung tâm (Master) được khởi tạo và thiết lập kết nối đến một ngoại vi (Slave) qua giao diện BLE:</p>
+
+<ul>
+  <li>
+    <p>Ta có khái niệm về chu kỳ kết nối (Conneciton interval), đây là khoảng thời gian giữa 2 sự kiện kết nối liên tiếp. Với BLE, khi một sự kiện kết nối diễn ra, các thiết bị trong kết nối sẽ trao đổi dữ liệu với nhau, sau đó trở về trạng thái IDLE để tiết kiệm năng lượng, và chờ đến thời điểm thì thực hiện sự kiện kết nối tiếp theo. Tham số này nằm trong khoảng 7.5ms đến 4s.</p>
+  </li>
+  <li>
+    <p>nRF51822 có thể truyền đến 6 gói dữ liệu trong mỗi sự kiện kết nối. Mỗi gói có thể chứa 20 bytes dữ liệu của người dùng.</p>
+  </li>
+  <li>
+    <p>Giả sử tần số sự kiện kết nối là lớn nhất (chu kỳ kết nối nhỏ nhất = 7.5ms). Khi đó mỗi giây có thể xảy ra tối đa 133 sự kiện kết nối</p>
+  </li>
+</ul>
+
+<p>–&gt; Công thức tính thông lượng: 133 * 120 = 15960 bytes/s (125Kbit/s)</p>
+
+<p><em>Theo khuyến cáo thì ta nên lựa chọn thông lượng khoảng 80 Kbit/s. Điều này cũng nói lên vì sao Wifi, classic bluetooth vẫn có chỗ đứng.</em></p>
+
+<p><strong>- Khoảng cách gần</strong></p>
+
+<p>Các yếu tố ảnh hưởng đến khoảng cách truyền thông như môi trường hoạt động, thiết kế anten, vật cản, hướng thiết bị,…. BLE tập trung vào các ứng dụng truyền thông trong phạm vi gần.</p>
+
+<ul>
+  <li>
+    <p>Với BLE ta có:</p>
+
+    <ul>
+      <li>
+        <p>Khoảng cách lý thuyết: 100m (điều kiện tốt).</p>
+      </li>
+      <li>
+        <p>Khoảng cách khả thi: 30m.</p>
+      </li>
+      <li>
+        <p>Khoảng cách thường được sử dụng: 2-5m.</p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+<h2 id="mô-hình-mạng-truyền-thông-cho-ble">Mô hình mạng truyền thông cho BLE</h2>
+
+<p>Một thiết bị BLE có thể giao tiếp với bên ngoài thông qua 2 cơ chế: Broadcasting hoặc Connection. Mỗi cơ chế có thế mạnh và giới hạn riêng, cả hai được thiết lập bởi GAP (Generic Access Profile).</p>
+
+<h3 id="broadcasting-và-observing">Broadcasting và Observing</h3>
+
+<p><img src="images/ble/introduce/3.png" alt="" /></p>
+
+<ul>
+  <li>
+    <p>Thiết bị Broadcaster: Gửi các gói tin quảng bá phi kết nối đến bất kỳ thiết bị nào có thể nhận.</p>
+  </li>
+  <li>
+    <p>Thiết bị Observer: Quét liên tục theo tần số đặt trước để nhận các gói tin quảng bá phi kết nối</p>
+  </li>
+</ul>
+
+<p>Đây là kiểu truyền thông cho phép một thiết bị có thể truyền dữ liệu đến nhiều thiết bị khác nhau cùng lúc (một chiều). Đây là cơ chế nhanh chóng và dễ sử dụng, là lựa chọn tốt nếu muốn truyền lượng nhỏ dữ liệu đến nhiều thiết bị cùng lúc. Hạn chế là dữ liệu không được bảo đảm an ninh, vì thế không phù hợp để truyền các dữ liệu nhạy cảm.</p>
+
+<h3 id="connection">Connection</h3>
+
+<p><img src="images/ble/introduce/4.png" alt="" /></p>
+
+<ul>
+  <li>
+    <p>Thiết bị Central (Master): Quét các gói tin quảng bá hướng kết nối theo tần số đặt trước, khi phù hợp thì khởi tạo một kết nối với một peripheral. Central quản lý timing và bắt đầu những sự trao đổi dữ liệu theo chu kỳ.</p>
+  </li>
+  <li>
+    <p>Thiết bị Peripheral (Slave): Phát các gói tin quảng bá hướng kết nối theo chu kỳ và chấp nhận kết nối do central yêu cầu.</p>
+  </li>
+  <li>
+    <p>Khởi tạo kết nối:</p>
+
+    <ul>
+      <li>
+        <p>Khi muốn kết nối, slave phát các gói tin quảng bá ra không gian.</p>
+      </li>
+      <li>
+        <p>Central nhận được các gói tin quảng bá của slave, trong đó chứa các thông tin cần thiết cho phép kết nối với slave đó.</p>
+      </li>
+      <li>
+        <p>Dựa trên đó, central gửi yêu cầu kết nối đến slave để thiết lập một kết nối riêng giữa hai thiết bị.</p>
+      </li>
+      <li>
+        <p>Khi kết nối được thiết lập, slave dừng quảng bá và hai thiết bị có thể bắt đầu trao đổi dữ liệu hai chiều.
+Vai trò Master và Slave không ảnh hưởng đến việc truyền dữ liệu, mặc dù Master là bên quản lý thiết lập kết nối. 
+Lợi thế của Connection so với Broadcasting là:</p>
+      </li>
+      <li>
+        <p>Thông lượng cao.</p>
+      </li>
+      <li>
+        <p>Khả năng thiết lập kết nối liên kết mã hóa an ninh.</p>
+      </li>
+      <li>
+        <p>Khả năng quản lý năng lượng tối ưu hơn.</p>
+      </li>
+      <li>
+        <p>Khả năng tổ chức dữ liệu với nhiều sự thay đổi phù hợp cho các thuộc tính thông qua việc sử dụng các lớp giao thức bổ sung thêm, đặc biệt là Generic Attribute Profile (GATT). Dữ liệu được tổ chức theo cấu trúc có ý nghĩa xoay quanh cái gọi là services và characteristics.</p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+<h2 id="protocols-và-profiles">Protocols và Profiles</h2>
+
+<p>Để hai thiết bị có thể giao tiếp với nhau thông qua chuẩn BLE, các thiết bị BLE cần tuân thủ một số quy định. Các quy định này được khái quát hóa thành các giao thức và cấu hình.</p>
+
+<ul>
+  <li>
+    <p><strong>Protocol</strong> (Giao thức): Tập các luật quy định việc định dạng gói tin, định tuyến, dồn kênh, mã hóa,… để trao đổi dữ liệu giữa các bên.</p>
+  </li>
+  <li>
+    <p><strong>Profile</strong> (Cấu hình): Định nghĩa cách mà giao thức được dùng để đạt các mục tiêu cụ thể. Có hai loại cấu hình là cấu hình chung (generic profiles) và cấu hình cụ thể theo trường hợp sử dụng (use-case profiles)</p>
+
+    <ul>
+      <li>
+        <p><em>Generic profiles</em>: các profile cơ sở được định nghĩa trong tài liệu Bluetooth Specifications, đặc biệt là hai profiles không thể thiếu giúp các thiết bị BLE kết nối và trao đổi dữ liệu với nhau, GAP và GATT.</p>
+      </li>
+      <li>
+        <p><em>Use-case profile</em>: Các profile cho các trường hợp sử dụng cụ thể</p>
+
+        <ul>
+          <li>
+            <p>Các profile do Bluetooth Special Interest Group (SIG) định nghĩa</p>
+          </li>
+          <li>
+            <p>Các profile do vendor tự định nghĩa</p>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+<h2 id="the-ble-protocols-stack">The BLE Protocols Stack</h2>
+
+<p>Để lập trình cho thiết bị BLE, có thể chỉ cần quan tâm đến các hàm API ở lớp trên của bộ giao thức BLE (BLE protocol stack), nhưng tốt hơn hết chúng ta nên bắt đầu với một cái nhìn cơ bản về bộ giao thức cho BLE, giúp cung cấp kiến thức nền tảng để có thể nghiên cứu sâu hơn về BLE.</p>
+
+<p>Hình dưới thể hiện đầy đủ về các thành phần bên trong bộ giao thức BLE cho thiết bị Bluetooth Smart.</p>
+
+<p><img src="images/ble/introduce/5.png" alt="" /></p>
+
+<ul>
+  <li>
+    <p>Bộ giao thức cho thiết bị BLE được chia thành 3 phần chính: controller, host và application. Mỗi phần bao gồm một hoặc nhiều lớp (layer) theo chức năng:</p>
+
+    <ul>
+      <li>
+        <p>Application:
+Là lớp cao nhất của bộ giao thức, cung cấp giao diện người dùng, xử lý logic, và điều khiển dữ liệu của mọi thứ liên quan đến các trường hợp hoạt động của ứng dụng. Kiến trúc của application phụ thuộc nhiều vào từng bài toán cụ thể.</p>
+      </li>
+      <li>
+        <p>Host: bao gồm các lớp sau</p>
+
+        <ul>
+          <li>
+            <p>Generic Access Profile (GAP)</p>
+          </li>
+          <li>
+            <p>Generic Attribute Profile (GATT)</p>
+          </li>
+          <li>
+            <p>Attribute Protocol (ATT)</p>
+          </li>
+          <li>
+            <p>Security Manager (SM)</p>
+          </li>
+          <li>
+            <p>Logical Link Control and Adaptation Protocol (L2CAP)</p>
+          </li>
+          <li>
+            <p>Host Controller Interface (HCI), Host side</p>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p>Controller: bao gồm các lớp sau</p>
+
+        <ul>
+          <li>
+            <p>Host Controller Interface (HCI), Controller side</p>
+          </li>
+          <li>
+            <p>Link Layer (LL)</p>
+          </li>
+          <li>
+            <p>Physical Layer (PHY)</p>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p>Bảng tổng hợp chức năng của các lớp trong stack</p>
+
+<p><img src="images/ble/introduce/6.png" alt="" /></p>
+
+<p><img src="images/ble/introduce/7.png" alt="" /></p>
+
+<p><img src="images/ble/introduce/8.png" alt="" /></p>
+
+<p>Tóm lại, BLE protocol stack bao gồm nhiều lớp, mỗi lớp đảm nhiệm một vài chức năng nhất định giúp thực hiện quá trình giao tiếp giữa các thiết bị BLE với nhau.</p>
+
+<hr />
+<h2 id="các-profiles-cơ-sở-gap-và-gatt">Các profiles cơ sở: GAP và GATT</h2>
+
+<h3 id="gap-advertising-and-connections">GAP (Advertising and Connections)</h3>
+
+<ul>
+  <li>
+    <p>GAP (Generic Access Profile) là nền tảng cho phép các thiết bị BLE giao tiếp với nhau. Nó cung cấp một framework mà bất cứ thiết bị BLE nào cũng phải tuân theo để có thể tìm kiếm các thiết bị BLE (Bluetooth) khác, quảng bá dữ liệu, thiết lập kết nối an ninh, thực hiện nhiều hoạt động nền tảng theo một chuẩn.</p>
+  </li>
+  <li>
+    <p>Tài liệu BLE Specifications định nghĩa các khái niệm sau khi xét đến sự tương tác giữa các thiết bị:</p>
+
+    <ul>
+      <li>
+        <p>Roles: Mỗi thiết bị có thể hoạt động theo một hoặc nhiều vai trò khác nhau tại cùng một thời điểm: broadcaster, observer, central, peripheral.</p>
+      </li>
+      <li>
+        <p>Modes: Một mode là một trạng thái mà thiết bị có thể chuyển đến trong một khoảng thời gian để đạt được một mục đích cụ thể hoặc nhiều điều đặc biệt, để cho phép một peer thực hiện một thủ tục cụ thể.</p>
+      </li>
+      <li>
+        <p>Procedures: Là các thủ tục (thường thì Link Layer điều khiển sự trao đổi gói tin) để cho phép một thiết bị đạt được một mục đích chắc chắn. Một thủ tục thường được liên kết với một mode, nên mode và procedure thường được xem xét cùng nhau.</p>
+      </li>
+      <li>
+        <p>Security: GAP xây dựng dựa trên Security Manager và Security Manager Protocol (định nghĩa các modes và procedures an ninh để xác định cách mà các thiết bị đặt mức an ninh khi trao đổi dữ liệu). Ngoài ra GAP định nghĩa thêm các tính năng an ninh cao hơn mà không gắn với modes và procedures cụ thể nào, tăng cường mức bảo vệ dữ liệu được yêu cầu bởi mỗi ứng dụng.</p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="images/ble/introduce/9.png" alt="" /></p>
+
+<p><img src="images/ble/introduce/10.png" alt="" /></p>
+
+<p>Xét một cách bản chất thì GAP là lớp điều khiển cao nhất của BLE (Topmost control layer) và là cấu hình bắt buộc cho tất cả thiết bị BLE.</p>
+
+<h3 id="gatt-services-and-characteristics">GATT (Services and Characteristics)</h3>
+
+<ul>
+  <li>
+    <p>GATT thiết lập chi tiết cách trao đổi tất cả profile và dữ liệu người dùng qua kết nối BLE. Ngược lại với GAP (định nghĩa sự tương tác mức thấp với các thiết bị), GATT chỉ trình bày các thủ tục truyền và định dạng dữ liệu thực tế</p>
+  </li>
+  <li>
+    <p>GATT sử dụng ATT và giao thức truyền của nó để trao đổi dữ liệu giữa các thiết bị. Dữ liệu này được tổ chức phân cấp thành các phần gọi là services, nó nhóm các phần khái niệm liên quan của dữ liệu người dùng gọi là characteristic. Nói một cách ngắn gọn thì dữ liệu truyền qua BLE là dữ liệu có cấu trúc, mà cụ thể là được tổ chức phân cấp thành services và characteristics.</p>
+  </li>
+</ul>
+
+<p><strong>Roles</strong></p>
+
+<ul>
+  <li>
+    <p>GATT Client: tương ứng với ATT client, gửi yêu cầu đến server và nhận kết quả phản hồi. Ban đầu, GATT Client không biết server hỗ trợ những thuộc tính nào vì thế nó cần phải thực hiện service discovery.</p>
+  </li>
+  <li>
+    <p>GATT Server: tương ứng ATT server, nhận yêu cầu từ client và gửi những nội dung tương ứng.</p>
+  </li>
+  <li>
+    <p>Chú ý rằng các vai trò của GATT không phụ thuộc vào vai trò của GAP. Có nghĩa là cả GAP Central và GAP Peripheral có thể hoạt động như GATT Client hoặc GATT Server hoặc thậm chí là cả hai tại cùng một thời điểm.</p>
+  </li>
+</ul>
+
+<p><strong>UUIDs</strong></p>
+
+<ul>
+  <li>Là một số định danh thiết bị, dài 128 bit (16 byte) duy nhất trên thế giới. Vì độ dài quá lớn, chiếm phần lớn trong gói dữ liệu, BLE Specification định nghĩa thêm 2 định dạng UUID: 16bit và 32 bit. Các định dạng ngắn này có thể chỉ được sử dụng với UUID được định nghĩa trong BT Specification.</li>
+</ul>
+
+<p><strong>Attributes</strong></p>
+
+<ul>
+  <li>
+    <p>Là thực thể dữ liệu nhỏ nhất được định nghĩa bởi GATT (và ATT).</p>
+  </li>
+  <li>
+    <p>Cả GATT và ATT chỉ làm việc với attributes nên để tương tác giữa client và server tất cả dữ liệu phải được tổ chức theo định dạng này.</p>
+  </li>
+  <li>
+    <p>Mỗi attribute chứa thông tin về chính nó là dữ liệu người dùng và được mô tả như sau:</p>
+
+    <ul>
+      <li>
+        <p>Handle: số 16 bit duy nhất trên mỗi server để địa chỉ hóa attribute</p>
+      </li>
+      <li>
+        <p>Type:là kiểu UUID, 16bit – 32bit – 128 bit</p>
+      </li>
+      <li>
+        <p>Permission: xác định các ATT opertation có thể thực thi trên attribute cụ thể</p>
+      </li>
+      <li>
+        <p>Value: chứa phần dữ liệu thực tế trong attribute, giới hạn 512 byte</p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>Services và Characteristics</strong></p>
+
+<p>Dữ liệu trao đổi thông qua kết nối BLE là dữ liệu có cấu trúc, được tổ chức phân cấp thành các services, bản thân services lại bao gồm các characteristics.</p>
+
+<p><img src="images/ble/introduce/11.png" alt="" /></p>
+
+<hr />
+<h2 id="các-profiles-cho-từng-ứng-dụng-cụ-thể">Các profiles cho từng ứng dụng cụ thể</h2>
+
+<p>GAP và GATT là hai profiles nền tảng cho mọi ứng dụng BLE. Ngoài ra, tùy ứng dụng mà các thiết bị sẽ cung cấp các profile khác (dựa trên GAP và GATT). Các services chính là các dịch vụ mà thiết bị cung cấp như: Heart Rate Monitor, Battery, Health Thermometer, HID,…</p>
+
+<p>Để biết thông tin chi tiết các services, truy cập các đường dẫn sau:</p>
+
+<p>https://www.bluetooth.com/specifications/adopted-specifications
+https://www.bluetooth.com/specifications/gatt/services</p>
+
+<p>Các đường dẫn trên trình bày các profiles đã được tổ chức Bluetooth SIG định nghĩa. Ngoài ra các nhà sản xuất thiết bị có thể tự định nghĩa thêm các profiles khác.</p>
+
+<hr />
+<h2 id="ví-dụ-minh-họa-thiết-bị-theo-dõi-nhịp-tim-với-vbluno-v2-trên-arduino">Ví dụ minh họa thiết bị theo dõi nhịp tim với VBLUno v2 trên Arduino</h2>
+
+<ul>
+  <li>Thiết bị theo dõi nhịp tim: Heart Rate Monitor– HRM</li>
+</ul>
+
+<p>Hình dưới thể hiện cấu trúc của Heart Rate Service (HRS)</p>
+
+<p><img src="images/ble/introduce/12.png" alt="" /></p>
+
+<ul>
+  <li>Ta thấy, HRS bao gồm 2 characteristics giúp cung cấp thông tin về nhịp tim và vị trí gắn cảm biến trên cơ thể. Chi tiết có thể xem tại đường dẫn sau:</li>
+</ul>
+
+<p>https://www.bluetooth.com/specifications/gatt/viewer?attributeXmlFile=org.bluetooth.service.heart_rate.xml</p>
+
+<ul>
+  <li>
+    <p>Ví dụ sau minh họa một thiết bị BLE có chức năng đo nhịp tim và truyền về BLE Central (Smartphones, tablets, PC). Vì không có cảm biến hỗ trợ tính năng này nên trong ví dụ này mình chỉ tạo giả tín hiệu theo mô tả sau:</p>
+
+    <ul>
+      <li>
+        <p>Giá trị nhịp tim thay đổi tuyến tính từ 100 đến 175 với độ tăng là 1</p>
+      </li>
+      <li>
+        <p>Vị trí cảm biến trên cơ thể: Finger (mã = 0x03)</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>Thực hiện:</p>
+
+    <ul>
+      <li>
+        <p>Mở ví dụ HRM: <code class="highlighter-rouge">File =&gt; Examples =&gt; BLE_Examples =&gt; BLE_HRM</code></p>
+      </li>
+      <li>
+        <p>Tiến hành biên dịch và upload xuống bo mạch VBLUno. Nếu thành công bạn đã có một thiết bị BLE minh họa tính năng theo dõi nhịp tim.</p>
+      </li>
+      <li>
+        <p>Để kết nối đến thiết bị này, bạn cần một BLE Central (Smart phone, tablet, PC). Ở đây mình dùng phần mềm nRF Toolbox của Nordic và phần mềm BLE Tool để minh họa.</p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="images/ble/introduce/13.png" alt="" /></p>
+
+<p>Trên điện thoại Android hoặc iPhone, chạy phần mềm nRF Toolbox, chọn mục HRM, nhấn Connect để tìm kiếm thiết bị HRM và yêu cầu kết nối.</p>
+
+<p><img src="images/ble/introduce/14.png" alt="" /></p>
+
+<p><img src="images/ble/introduce/15.png" alt="" /></p>
+
+<p><img src="images/ble/introduce/16.png" alt="" /></p>
+
+<p>Mã nguồn của chương trình ví dụ khá đơn giản, bạn có thể tự đọc và tìm hiểu.</p>
+
+<hr />
+<h2 id="sách-giới-thiệu-về-ble">Sách giới thiệu về BLE</h2>
+
+<p>Để tìm hiểu thêm về BLE các bạn có thể tham khảo một số tài liệu sau:</p>
+
+<ul>
+  <li>
+    <p>Getting started with Bluetooth Low Energy – Tool and techniques for low-power networking của Kevin Townsend, Carles Cufí, Akiba &amp; Robert Davidson.</p>
+  </li>
+  <li>
+    <p>Bluetooth Low Energy – The developer’s handbook, Robin Heydon</p>
+  </li>
+</ul>
+
+
+    <div class="tags">
+        
+        <b>Tags: </b>
+        
+        
+        
+        <a href="tag_ble.html" class="btn btn-default navbar-btn cursorNorm" role="button">ble</a>
+        
+        
+        
+    </div>
+
+    
+
+</div>
+
+<hr class="shaded"/>
+
+<footer>
+            <div class="row">
+                <div class="col-lg-12 footer">
+               &copy;2017 VNG Corporation. All rights reserved. <br />
+ Site last generated: May 24, 2017 <br />
+<p><img src="images/company_logo_medium.png" alt="Company logo"/></p>
+                </div>
+            </div>
+</footer>
+
+
+        </div>
+    <!-- /.row -->
+</div>
+<!-- /.container -->
+    </div>
+
+</body>
+
+</html>

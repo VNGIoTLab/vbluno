@@ -1,0 +1,1250 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content=" ">
+<title>Các tut hướng dẫn cụ thể cho VBLUno51 | VBLUno51 board</title>
+<link rel="stylesheet" href="css/syntax.css">
+
+
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<!--<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">-->
+<link rel="stylesheet" href="css/modern-business.css">
+<link rel="stylesheet" href="css/lavish-bootstrap.css">
+<link rel="stylesheet" href="css/customstyles.css">
+<link rel="stylesheet" href="css/theme-orange.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="js/jquery.navgoco.min.js"></script>
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/2.0.0/anchor.min.js"></script>
+<script src="js/toc.js"></script>
+<script src="js/customscripts.js"></script>
+
+<link rel="shortcut icon" href="images/vbluno2_small.png">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<link rel="alternate" type="application/rss+xml" title="" href="http://localhost:4000feed.xml">
+
+    <script>
+        $(document).ready(function() {
+            // Initialize navgoco with default options
+            $("#mysidebar").navgoco({
+                caretHtml: '',
+                accordion: true,
+                openClass: 'active', // open
+                save: false, // leave false or nav highlighting doesn't work right
+                cookie: {
+                    name: 'navgoco',
+                    expires: false,
+                    path: '/'
+                },
+                slide: {
+                    duration: 400,
+                    easing: 'swing'
+                }
+            });
+            $("#collapseAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', false);
+            });
+            $("#expandAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', true);
+            });
+        });
+    </script>
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+    <script>
+        $(document).ready(function() {
+            $("#tg-sb-link").click(function() {
+                $("#tg-sb-sidebar").toggle();
+                $("#tg-sb-content").toggleClass('col-md-9');
+                $("#tg-sb-content").toggleClass('col-md-12');
+                $("#tg-sb-icon").toggleClass('fa-toggle-on');
+                $("#tg-sb-icon").toggleClass('fa-toggle-off');
+            });
+        });
+    </script>
+    
+
+</head>
+<body>
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container topnavlinks">
+
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+                        
+            <img src="images/pic_topnav.png" alt="Bo mạch VBLUno51">
+            <a class="fa fa-home fa-lg navbar-brand" href="index_vi.html">&nbsp;<span class="projectTitle"> VBLUno51 - VNG Bluetooth Low Energy UNO nRF51822 - Mạch phát triển ứng dụng cho IoT</span>                        
+            
+            </a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <!-- toggle sidebar button -->
+                <li><a id="tg-sb-link" href="#"><i id="tg-sb-icon" class="fa fa-toggle-on"></i></a></li>
+                <!-- entries without drop-downs appear here -->
+                                                        
+                                
+                    
+                    
+                    <li><a href="news">Tin mới</a></li>
+                    
+                    
+                                        
+                               
+                <!-- entries with drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+                
+                    
+                    
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tài nguyên liên kết<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+                            
+                            <li><a href="https://goo.gl/bISeQl" target="_blank">VBLUno trên Facebook</a></li>
+                            
+                            
+                            
+                            <li><a href="https://goo.gl/w8gQHT" target="_blank">Cửa hàng bán VBLUno</a></li>
+                            
+                            
+                            
+                            <li><a href="https://goo.gl/kpLmQs" target="_blank">Mô đun DAPLink (CMSIS-DAP)</a></li>
+                            
+                            
+                            
+                            <li><a href="https://goo.gl/1nj0LZ" target="_blank">VBLUno trên diễn đàn Arduino.vn</a></li>
+                            
+                            
+                        </ul>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">SDK & OS hỗ trợ<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+                            
+                            <li><a href="mydoc_getstart_arduino.html">Arduino IDE</a></li>
+                            
+                            
+                            
+                            <li><a href="mydoc_getstart_mbed.html">ARM mbed-OS</a></li>
+                            
+                            
+                            
+                            <li><a href="mydoc_getstart_mynewt.html">Apache Mynewt-OS</a></li>
+                            
+                            
+                            
+                            <li><a href="mydoc_getstart_zephyr.html">Zephyr</a></li>
+                            
+                            
+                            
+                            <li><a href="mydoc_getstart_riot.html">RIOT-OS</a></li>
+                            
+                            
+                            
+                            <li><a href="mydoc_getstart_nordicsdk.html">Nordic SDK</a></li>
+                            
+                            
+                        </ul>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Ý kiến<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+                            
+                            <li><a href="https://github.com/VNGIoTLab/vbluno/issues" target="_blank">Gửi yêu cầu trên Github</a></li>
+                            
+                            
+                            
+                            <li><a href="https://www.facebook.com/bleviet/messages" target="_blank">Gửi tin nhắn trực tiếp trên Facebook</a></li>
+                            
+                            
+                        </ul>
+                    </li>
+                    
+                    
+                    <li><a class="link-vi" href="/vbluno/index.html">ENGLISH</a></li>
+                
+                
+
+                <!--comment out this block if you want to hide search-->
+                <li>
+                
+                    <!--start search-->
+                    <div id="search-demo-container">                    
+                        <input type="text" id="search-input" placeholder="tìm kiếm...">
+                        <ul id="results-container"></ul>
+                    </div>
+
+                    <script src="js/jekyll-search.js" type="text/javascript"></script>
+                    <script type="text/javascript">
+                            SimpleJekyllSearch.init({
+                                searchInput: document.getElementById('search-input'),
+                                resultsContainer: document.getElementById('results-container'),
+                                dataSource: 'search_vi.json',
+                                searchResultTemplate: '<li><a href="{url}" title="Các tut hướng dẫn cụ thể cho VBLUno51">{title}</a></li>',
+                    noResultsText: 'Không có kết quả nào được tìm thấy.',
+                            limit: 10,
+                            fuzzy: true,
+                    })
+                    </script>
+                    <!--end search-->
+                
+
+                </li>                
+            </ul>    
+
+        </div>
+        </div>
+        <!-- /.container -->
+</nav>
+
+<!-- Page Content -->
+<div class="container">
+    <div class="col-lg-12">&nbsp;</div>
+    <!-- Content Row -->
+    <div class="row">
+        
+        
+            <!-- Sidebar Column -->
+            <div class="col-md-3" id="tg-sb-sidebar">
+                
+
+<ul id="mysidebar" class="nav">
+    <li class="sidebarTitle">Bo mạch VBLUno51 </li>
+    
+    
+            
+        
+    
+    <li>
+        <a href="#">Tổng quan</a>
+        <ul>
+            
+
+            
+
+            
+            
+            
+            <li><a href="mydoc_introduction_vi.html">Giới thiệu VBLUno51</a></li>
+            
+            
+            
+
+            
+
+
+            
+            
+            
+            
+            <li><a href="mydoc_over_hardware_vi.html">Chú ý các phiên bản phần cứng (quan trọng)</a></li>
+            
+            
+            
+
+            
+
+
+            
+            
+            
+            
+            <li><a href="mydoc_over_sdk_vi.html">Software Development Kit</a></li>
+            
+            
+            
+
+            
+
+
+            
+            
+            
+            
+            <li><a href="mydoc_over_appcanmake_vi.html">Bạn có thể tạo được các ứng dụng gì với VBLUno51?</a></li>
+            
+            
+            
+
+            
+
+
+            
+            
+        </ul>
+    </li>
+                
+        
+    
+    <li>
+        <a href="#">Tài liệu</a>
+        <ul>
+            
+
+            
+
+            
+            
+            
+            <li><a href="https://goo.gl/HUdV1Q" target="_blank">Đặc tả Nordic nRF51822</a></li>
+            
+            
+            
+
+            
+
+
+            
+            
+            
+            
+            <li><a href="https://goo.gl/byqaK0" target="_blank">Sơ đồ nguyên lý</a></li>
+            
+            
+            
+
+            
+
+
+            
+            
+            
+            
+            <li><a href="mydoc_doc_pinout_vi.html">Pinout</a></li>
+            
+            
+            
+
+            
+
+
+            
+            
+            
+            
+            <li><a href="mydoc_doc_fritzing_vi.html">Fritzing Part</a></li>
+            
+            
+            
+
+            
+
+
+            
+            
+            
+            
+            <li><a href="https://goo.gl/oVdvcv" target="_blank">mbed Serial driver (Chỉ với Windows)</a></li>
+            
+            
+            
+
+            
+
+
+            
+            
+        </ul>
+    </li>
+                
+        
+    
+    <li>
+        <a href="#">Bắt đầu thôi!</a>
+        <ul>
+            
+
+            
+
+            
+            
+            
+            <li><a href="mydoc_getstart_arduino_vi.html">Sử dụng Arduino IDE</a></li>
+            
+            
+            
+            
+            <li class="subfolders">
+                <a href="#">Sử dụng mbed-OS</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="mydoc_getstart_mbedonline_vi.html">mbed Online Compiler</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="mydoc_getstart_gnuarm_eclipse_vi.html">GNU ARM Embedded & Eclipse IDE (khuyên dùng)</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="mydoc_getstart_keil_vi.html">Keil uVision</a></li>
+                    
+                    
+                    
+                </ul>
+            </li>
+            
+            
+
+            
+
+
+            
+            
+        </ul>
+    </li>
+                
+        
+    
+    <li>
+        <a href="#">Công nghệ Bluetooth Low Energy (BLE)</a>
+        <ul>
+            
+
+            
+
+            
+            
+            
+            <li><a href="mydoc_ble_vi.html">Giới thiệu công nghệ Bluetooth Low Energy</a></li>
+            
+            
+            
+
+            
+
+
+            
+            
+            
+            
+            <li><a href="https://goo.gl/5q7jC4" target="_blank">Hướng dẫn BLE với mbed-OS</a></li>
+            
+            
+            
+
+            
+
+
+            
+            
+        </ul>
+    </li>
+                
+        
+    
+    <li>
+        <a href="#">Loạt bài hướng dẫn</a>
+        <ul>
+            
+            
+            <li class="subfolders">
+                <a href="#">Adruino</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="mydoc_arduino_tut1_vi.html">Tut1 - Thiết bị đo nhịp tim (HRM) với VBLUno51</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="mydoc_arduino_tut2_vi.html">Tut2 - Thiết bị Beacons với VBLUno</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="mydoc_arduino_tut3_vi.html">Tut3 - Đo nhiệt độ bên trong chip nRF51822</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="mydoc_arduino_tut4_vi.html">Tut4 - Nhiệt kế y tế (HTM) với VBLUno</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="mydoc_arduino_tut5_vi.html">Tut5 - Truyền thông giữa Smartphone và máy tính với “UART over BLE”</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="mydoc_arduino_tut6_vi.html">Tut6 - Điều khiển/Giám sát một thiết bị bất kỳ bằng Smartphone thông qua BLE</a></li>
+                    
+                    
+                    
+                </ul>
+            </li>
+            
+            
+
+            
+            
+            <li class="subfolders">
+                <a href="#">mbed-OS</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="mydoc_mbed_tut1_vi.html">Tut1 - Lập trình/Gỡ lỗi cho VBLUno bằng pyOCD, OpenOCD trên GNU ARM Embedded + Eclipse</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="mydoc_mbed_tut2_vi.html">Tut2 - BLE Beacons</a></li>
+                    
+                    
+                    
+                </ul>
+            </li>
+            
+            
+
+            
+        </ul>
+    </li>
+                
+        
+    
+    <li>
+        <a href="#">Mã nguồn ví dụ</a>
+        <ul>
+            
+
+            
+
+            
+            
+            
+            <li><a href="mydoc_code_arduino_vi.html">Arduino</a></li>
+            
+            
+            
+
+            
+
+
+            
+            
+            
+            
+            <li><a href="mydoc_code_mbed_vi.html">mbed-OS</a></li>
+            
+            
+            
+
+            
+
+
+            
+            
+        </ul>
+    </li>
+                
+        
+    
+    <li>
+        <a href="#">Video</a>
+        <ul>
+            
+
+            
+
+            
+            
+            
+            <li><a href="https://goo.gl/Vi0mpo" target="_blank">Ví dụ BLE Serial</a></li>
+            
+            
+            
+
+            
+
+
+            
+            
+            
+            
+            <li><a href="https://goo.gl/01X4oM" target="_blank">Robot điều khiển từ xa qua BLE với VBLUno</a></li>
+            
+            
+            
+
+            
+
+
+            
+            
+        </ul>
+    </li>
+                
+        
+    
+    <li>
+        <a href="#">Ứng dụng mobile cho BLE</a>
+        <ul>
+            
+
+            
+
+            
+            
+            
+            <li><a href="https://goo.gl/i6DNtP" target="_blank">iBeacon & Eddystone Scanner (Android)</a></li>
+            
+            
+            
+            
+            <li class="subfolders">
+                <a href="#">Nordic nRF Toolbox</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="https://goo.gl/s3fbVW" target="_blank">Android</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="https://goo.gl/GH8gom" target="_blank">iOS</a></li>
+                    
+                    
+                    
+                </ul>
+            </li>
+            
+            
+
+            
+
+
+            
+            
+            
+            
+            <li><a href="https://goo.gl/sFbubD" target="_blank">nRF UART 2.0 (Android)</a></li>
+            
+            
+            
+            
+            <li class="subfolders">
+                <a href="#">Mã nguồn (mở)</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="https://goo.gl/Et1atP" target="_blank">Nordic nRFToolbox (Android)</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="https://goo.gl/rdTll8" target="_blank">BluetoohLeGatt Example (Android)</a></li>
+                    
+                    
+                    
+                </ul>
+            </li>
+            
+            
+
+            
+
+
+            
+            
+        </ul>
+    </li>
+                
+        
+    
+    <li>
+        <a href="#">Liên kết</a>
+        <ul>
+            
+
+            
+
+            
+            
+            
+            <li><a href="http://iotviet.com.vn" target="_blank">Cửa hàng IoTViet</a></li>
+            
+            
+            
+
+            
+
+
+            
+            
+            
+            
+            <li><a href="https://zalopay.vn" target="_blank">VNG ZaloPay – (Ứng dụng thanh toán tự động, có dùng BLE)</a></li>
+            
+            
+            
+
+            
+
+
+            
+            
+            
+            
+            <li><a href="https://goo.gl/YCxUeK" target="_blank">VNG CSM Router (Chuyên dụng cho Phòng máy)</a></li>
+            
+            
+            
+
+            
+
+
+            
+            
+            
+            
+            <li><a href="https://www.facebook.com/groups/iotalliancevn/" target="_blank">Vietnam IoT Alliance page</a></li>
+            
+            
+            
+
+            
+
+
+            
+            
+            
+            
+            <li><a href="https://developer.mbed.org/" target="_blank">ARM mbed  OS developer site</a></li>
+            
+            
+            
+
+            
+
+
+            
+            
+            
+            
+            <li><a href="https://iotmaker.vn" target="_blank">Cửa hàng IoTMakerVN</a></li>
+            
+            
+            
+
+            
+
+
+            
+            
+        </ul>
+    </li>
+                
+        
+    
+    <li>
+        <a href="#">Liên hệ</a>
+        <ul>
+            
+
+            
+
+            
+            
+            
+            <li><a href="https://goo.gl/c3sbnk" target="_blank">Cửa hàng</a></li>
+            
+            
+            
+
+            
+
+
+            
+            
+            
+            
+            <li><a href="https://www.facebook.com/bleviet/" target="_blank">Bluetooth Low Energy – BLE Vietnam page</a></li>
+            
+            
+            
+
+            
+
+
+            
+            
+        </ul>
+    </li>
+                
+        
+        
+        <!-- if you aren't using the accordion, uncomment this block:
+           <p class="external">
+               <a href="#" id="collapseAll">Collapse All</a> | <a href="#" id="expandAll">Expand All</a>
+           </p>
+           -->    
+</ul>
+
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+
+            </div>
+            
+        
+
+        <!-- Content Column -->
+        <div class="col-md-9" id="tg-sb-content">
+            <div class="post-header">
+   <h1 class="post-title-main">Các tut hướng dẫn cụ thể cho VBLUno51</h1>
+</div>
+
+
+
+<div class="post-content">
+
+   
+
+    
+    
+<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
+
+
+
+	<script>
+	$( document ).ready(function() {
+	  // Handler for .ready() called.
+
+	$('#toc_vi').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2,h3,h4' });
+
+	/* this offset helps account for the space taken up by the floating toolbar. */
+	$('#toc_vi').on('click', 'a', function() {
+	  var target = $(this.getAttribute('href'))
+	    , scroll_target = target.offset().top
+
+	  $(window).scrollTop(scroll_target - 10);
+	  return false
+	})
+	  
+	});
+	</script>
+
+	<div id="toc_vi"></div>
+
+
+
+    
+
+
+    
+
+    <a target="_blank" href="https://github.com/VNGIoTLab/vbluno/tree/master/pages/tags/tag_huong_dan.md" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
+
+    
+
+  <p>The following pages and posts are tagged with <button type="button" style="cursor: default" class="btn btn-default navbar-btn">huong_dan</button></p>
+<table><thead><tr><th>Title</th><th>Type</th><th>Excerpt</th></tr></thead>
+    <tbody>
+    
+  
+    
+   
+    
+   
+    
+   
+    
+   
+    
+        
+     
+   
+    
+        
+
+        <tr><td><a href="mydoc_arduino_tut1_vi.html">Thiết bị theo dõi nhịp tim với VBLUno</a></td>
+            <td><span class="label label-default">Page</span></td>
+          <td> VÍ DỤ MINH HỌA THIẾT BỊ THEO DÕI NHỊP TIM VỚI VBLUNO V2  Thiết bị theo dõi nhịp tim: Heart Rate Monitor– HRM  Hình dưới thể hiện cấu trúc của Heart Rate Service (HRS)   Ta thấy, HRS bao gồm 2 characteristics giúp... </td>
+        </tr>
+        
+     
+   
+    
+        
+     
+   
+    
+        
+
+        <tr><td><a href="mydoc_arduino_tut2_vi.html">Thiết bị phát Beacons với VBLUno</a></td>
+            <td><span class="label label-default">Page</span></td>
+          <td> TỰ LÀM MỘT THIẾT BỊ PHÁT BEACONS VỚI VBLUNO V2  Những nét cơ bản về công nghệ Beacons   Về công nghệ Beacons nhiều bạn đã được nghe đến hoặc trực tiếp sử dụng nó. Vậy beacons là gì và lợi ích của nó ra... </td>
+        </tr>
+        
+     
+   
+    
+        
+     
+   
+    
+        
+
+        <tr><td><a href="mydoc_arduino_tut3_vi.html">Đo nhiệt độ bên trong chip nRF51822</a></td>
+            <td><span class="label label-default">Page</span></td>
+          <td> ĐO NHIỆT ĐỘ BÊN TRONG CHIP nRF51822  Cảm biến nhiệt độ bên trong chip nRF51822   Bên trong chip nRF51822 của Nordic có tích hợp sẵn một cảm biến nhiệt độ giúp đo nhiệt độ hoạt động của chip. Cảm biến này có độ chính... </td>
+        </tr>
+        
+     
+   
+    
+        
+     
+   
+    
+        
+
+        <tr><td><a href="mydoc_arduino_tut4_vi.html">Nhiệt kế y tế với VBLUno (HTM)</a></td>
+            <td><span class="label label-default">Page</span></td>
+          <td> Demo thiết bị nhiệt kế y tế với VBLUno v2  Giới thiệu các nét chính về nhiệt kế y tế - HTM  Nhiệt kế y tế là thiết bị có chức năng đo nhiệt độ cơ thể, phục vụ chuẩn đoán sức khỏe và các... </td>
+        </tr>
+        
+     
+   
+    
+        
+     
+   
+    
+        
+
+        <tr><td><a href="mydoc_arduino_tut5_vi.html">Truyền thông giữa Smartphone và máy tính qua “UART over BLE”</a></td>
+            <td><span class="label label-default">Page</span></td>
+          <td> TRUYỀN THÔNG GIỮA SMARTPHONE VÀ MÁY TÍNH VỚI “UART over BLE”  Mô hình hoạt động của UART over BLE (BLE Serial)  Phần này trình bày một ứng dụng rất thú vị của Bluetooth Low Energy (BLE), đó là UART over BLE. Với ứng dụng này,... </td>
+        </tr>
+        
+     
+   
+    
+        
+     
+   
+    
+        
+
+        <tr><td><a href="mydoc_arduino_tut6_vi.html">Điều khiển/Giám sát một thiết bị bất kỳ bằng Smartphone qua BLE</a></td>
+            <td><span class="label label-default">Page</span></td>
+          <td> ĐIỀU KHIỂN VÀ GIÁM SÁT THIẾT BỊ BẰNG SMARTPHONE QUA BLE  Điều khiển thiết bị qua BLE với VBLUno-LED BUTTON Service   Trong các bài viết trước, chúng tôi đã trình bày một số ứng dụng điển hình của giao tiếp Bluetooth Low Energy (BLE)... </td>
+        </tr>
+        
+     
+   
+    
+        
+     
+   
+    
+        
+     
+   
+    
+        
+     
+   
+    
+        
+     
+   
+    
+        
+     
+   
+    
+        
+     
+   
+    
+        
+     
+   
+    
+        
+     
+   
+    
+        
+     
+   
+    
+        
+     
+   
+    
+        
+     
+   
+    
+        
+     
+   
+    
+        
+     
+   
+    
+        
+     
+   
+    
+        
+     
+   
+    
+        
+     
+   
+    
+        
+     
+   
+    
+        
+     
+   
+    
+        
+     
+   
+    
+        
+     
+   
+    
+        
+     
+   
+    
+        
+     
+   
+    
+        
+     
+   
+    
+        
+     
+   
+    
+        
+     
+   
+    
+        
+     
+   
+    
+        
+     
+   
+    
+        
+     
+   
+    
+        
+     
+   
+    
+        
+     
+   
+    
+        
+     
+   
+    
+        
+
+        <tr><td><a href="mydoc_mbed_tut1_vi.html">Nạp/Gỡ lỗi cho VBLUno bằng pyOCD và OpenOCD trên GNU ARM Embedded + Eclipse</a></td>
+            <td><span class="label label-default">Page</span></td>
+          <td> NẠP CHƯƠNG TRÌNH/GỠ LỖI CHO VBLUNO V2 BẰNG pyOCD VÀ OpenOCD TRONG MÔI TRƯỜNG GNU_ARM + ECLIPSE  0. Lưu ý: Bài viết này tiếp tục cho nội dung tại Getting Start --&gt; Using mbed-OS --&gt; GNU ARM Embedded &amp; Eclipse IDE  1.... </td>
+        </tr>
+        
+     
+   
+    
+        
+     
+   
+    
+        
+
+        <tr><td><a href="mydoc_mbed_tut2_vi.html">BLE Beacons</a></td>
+            <td><span class="label label-default">Page</span></td>
+          <td> SỬ DỤNG MBED-OS ĐỂ LẬP TRÌNH THIẾT BỊ PHÁT BEACONS VỚI VBLUNO V2  Giới thiệu công nghệ Beacons Bạn có thể tham khảo Tut 2 trong loạt bài Tutorials --&gt; Arduino --&gt; Tut2 và bài viết tại các link sau: https://developer.mbed.org/teams/Bluetooth-Low-Energy/code/BLE_iBeacon/?platform=Nordic-nRF51822 http://www.havlena.net/en/location-technologies/ibeacons-how-do-they-technically-work/ http://www.warski.org/blog/2014/01/how-ibeacons-work/ &lt;img src="images/mbed/tut/tut2/1.png"... </td>
+        </tr>
+        
+     
+   
+    
+   
+    
+   
+    
+   
+    
+   
+    
+   
+    
+   
+    
+        
+     
+   
+    
+   
+    
+   
+    
+   
+    
+   
+    
+   
+    
+   
+    
+   
+    
+   
+    
+   
+    
+   
+    
+   
+    
+   
+    
+   
+    
+   
+    
+   
+    
+   
+    
+   
+    
+   
+    
+   
+    
+   
+    
+   
+    
+   
+    
+   
+    
+   
+    
+   
+    
+   
+    
+   
+    
+   
+
+        
+        
+        
+        
+        
+        
+
+   </tbody>
+</table>
+
+
+
+    <div class="tags">
+        
+    </div>
+
+    
+
+</div>
+
+<hr class="shaded"/>
+
+<footer>
+            <div class="row">
+                <div class="col-lg-12 footer">
+               &copy;2017 VNG Corporation. All rights reserved. <br />
+ Site last generated: May 24, 2017 <br />
+<p><img src="images/company_logo_medium.png" alt="Company logo"/></p>
+                </div>
+            </div>
+</footer>
+
+
+        </div>
+    <!-- /.row -->
+</div>
+<!-- /.container -->
+    </div>
+
+</body>
+
+</html>
