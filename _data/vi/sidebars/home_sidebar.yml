@@ -1,0 +1,28 @@
+# This is your sidebar TOC. The sidebar code loops through sections here and provides the appropriate formatting.
+
+entries:
+- title: Sidebar
+  levels: one
+  folders:
+
+  - title: NỘI DUNG
+    output: web
+    folderitems:
+    - title: Tin mới
+      url: /news.html
+      output: web
+    - title: Trang chủ
+      url: /index_vi.html
+      output: web
+    - title: Giới thiệu mạch VBLUno51
+      url: /mydoc_introduction.html
+      output: web
+    - title: Bắt đầu với Arduino IDE
+      url: /mydoc_getstart_arduino.html
+      output: web
+    - title: Bắt đầu với with mbed-OS
+      url: /mydoc_getstart_mbed.html
+      output: web
+    - title: Liên hệ với cửa hàng
+      external_url: https://goo.gl/c3sbnk
+      output: web

@@ -1,0 +1,73 @@
+{% if site.lang == site.default_lang %}
+
+	{% if page.sidebar == "home_sidebar" %}
+	{% assign sidebar = site.data.en.sidebars.home_sidebar.entries %}
+
+	{% elsif page.sidebar == "product1_sidebar" %}
+	{% assign sidebar = site.data.en.sidebars.product1_sidebar.entries %}
+
+	{% elsif page.sidebar == "product2_sidebar" %}
+	{% assign sidebar = site.data.en.sidebars.product2_sidebar.entries %}
+
+	{% elsif page.sidebar == "mydoc_sidebar" %}
+	{% assign sidebar = site.data.en.sidebars.mydoc_sidebar.entries %}
+
+	{% else %}
+	{% assign sidebar = site.data.en.sidebars.home_sidebar.entries %}
+	{% endif %}
+
+
+
+	{% comment %}
+	sidebar configuration for print files
+	{% endcomment %}
+
+	{% if site.product == "mydoc" %}
+	{% assign sidebar_pdf = site.data.en.sidebars.mydoc_sidebar.entries %}
+	{% endif %}
+
+	{% if site.product == "product1" %}
+	{% assign sidebar_pdf = site.data.en.sidebars.product1_sidebar.entries %}
+	{% endif %}
+
+	{% if site.product == "product2" %}
+	{% assign sidebar_pdf = site.data.en.sidebars.product2_sidebar.entries %}
+	{% endif %}
+
+{% else %}
+
+	{% if page.sidebar == "home_sidebar" %}
+	{% assign sidebar = site.data.vi.sidebars.home_sidebar.entries %}
+
+	{% elsif page.sidebar == "product1_sidebar" %}
+	{% assign sidebar = site.data.vi.sidebars.product1_sidebar.entries %}
+
+	{% elsif page.sidebar == "product2_sidebar" %}
+	{% assign sidebar = site.data.vi.sidebars.product2_sidebar.entries %}
+
+	{% elsif page.sidebar == "mydoc_sidebar" %}
+	{% assign sidebar = site.data.vi.sidebars.mydoc_sidebar.entries %}
+
+	{% else %}
+	{% assign sidebar = site.data.vi.sidebars.home_sidebar.entries %}
+	{% endif %}
+
+
+
+	{% comment %}
+	sidebar configuration for print files
+	{% endcomment %}
+
+	{% if site.product == "mydoc" %}
+	{% assign sidebar_pdf = site.data.vi.sidebars.mydoc_sidebar.entries %}
+	{% endif %}
+
+	{% if site.product == "product1" %}
+	{% assign sidebar_pdf = site.data.vi.sidebars.product1_sidebar.entries %}
+	{% endif %}
+
+	{% if site.product == "product2" %}
+	{% assign sidebar_pdf = site.data.vi.sidebars.product2_sidebar.entries %}
+	{% endif %}
+
+{% endif %}

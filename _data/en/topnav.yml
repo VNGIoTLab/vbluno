@@ -1,0 +1,45 @@
+## Topnav single links
+## if you want to list an external url, use external_url instead of url. the theme will apply a different link base.
+topnav:
+- title: Topnav
+  items:
+    - title: News
+      url: /news
+
+#Topnav dropdowns
+topnav_dropdowns:
+- title: Topnav dropdowns
+  folders:
+    - title: Resources
+      folderitems:
+        
+        - title: VBLUno51 on Facebook
+          external_url: https://goo.gl/bISeQl
+        - title: VBLUno51 on store
+          external_url: https://goo.gl/w8gQHT
+        - title: DAPLink (CMSIS-DAP) interface
+          external_url: https://goo.gl/kpLmQs
+        - title: VBLUno on Arduino.vn forum
+          external_url: https://goo.gl/1nj0LZ
+
+    - title: SDK & OS Supports
+      folderitems:
+        - title: Arduino IDE
+          url: /mydoc_getstart_arduino.html
+        - title: mbed-OS
+          url: /mydoc_getstart_mbed.html
+        - title: Apache Mynewt-OS
+          url: /mydoc_getstart_mynewt.html
+        - title: Zephyr
+          url: /mydoc_getstart_zephyr.html
+        - title: RIOT-OS
+          url: /mydoc_getstart_riot.html
+        - title: Nordic SDK
+          url: /mydoc_getstart_nordicsdk.html
+
+    - title: Feedback
+      folderitems:        
+        - title: Github issues tracker
+          external_url: https://github.com/VNGIoTLab/vbluno/issues
+        - title: Send Facebook messages
+          external_url: https://www.facebook.com/bleviet/messages

@@ -1,0 +1,248 @@
+# This is your sidebar TOC. The sidebar code loops through sections here and provides the appropriate formatting.
+
+entries:
+- title: sidebar
+  product: VBLUno51 board
+  version: 
+  folders:
+
+  - title:
+    output: pdf
+    type: frontmatter
+    folderitems:
+    - title:
+      url: /titlepage
+      output: pdf
+      type: frontmatter
+    - title:
+      url: /tocpage
+      output: pdf
+      type: frontmatter
+
+  - title: Overview
+    output: web
+    folderitems:
+
+    - title: Introduction
+      url: /mydoc_introduction.html
+      output: web
+      type: homepage
+
+    - title: Note about the hardware versions (important)
+      url: /mydoc_over_hardware.html
+      output: web
+
+    - title: Software Development Kit
+      url: /mydoc_over_sdk.html
+      output: web
+
+    - title: What applications can you make with VBLUno51?
+      url: /mydoc_over_appcanmake.html
+      output: web
+
+  - title: Documents
+    output: web
+    folderitems:
+
+    - title: Nordic nRF51822 specification
+      external_url: https://goo.gl/HUdV1Q
+      output: web
+    
+    - title: Schematic
+      external_url: https://goo.gl/byqaK0
+      output: web
+
+    - title: Pinout
+      url: /mydoc_doc_pinout.html
+      output: web
+    
+    - title: Fritzing Part
+      url: /mydoc_doc_fritzing.html
+      output: web
+
+    - title: mbed Serial driver (Only Windows)
+      external_url: https://goo.gl/oVdvcv
+      output: web
+      
+  - title: Getting Start
+    output: web
+    folderitems:
+
+    - title: Using Arduino IDE
+      url: /mydoc_getstart_arduino.html
+      output: web
+    
+      subfolders:
+      - title: Using mbed-OS
+        output: web
+        subfolderitems:
+
+          - title: mbed Online Compiler
+            url: /mydoc_getstart_mbedonline.html
+            output: web
+
+          - title: GNU ARM Embedded & Eclipse IDE (recommend)
+            url: /mydoc_getstart_gnuarm_eclipse.html
+            output: web
+
+          - title: Keil uVision
+            url: /mydoc_getstart_keil.html
+            output: web
+
+
+  - title: Bluetooth Low Energy (BLE)
+    output: web
+    folderitems:
+
+    - title: Introduction to Bluetooth Low Energy
+      url: /mydoc_ble.html
+      output: web
+
+    - title: BLE manual for mbed-OS
+      external_url: https://goo.gl/5q7jC4
+      output: web
+
+
+  - title: Tutorials
+    output: web
+    folderitems:
+
+    subfolders:
+    - title: Adruino
+      output: web
+      subfolderitems:
+
+      - title: Tut1 - Heart rate monitor device (HRM) with VBLUno51
+        url: /mydoc_arduino_tut1.html
+        output: web
+
+      - title: Tut2 - iBeacons device with VBLUno51 
+        url: /mydoc_arduino_tut2.html
+        output: web
+
+      - title: Tut3 - Measure the temperature inside nRF51822 (SoC)
+        url: /mydoc_arduino_tut3.html
+        output: web
+
+      - title: Tut4 - Health thermometer with VBLUno (HTM)
+        url: /mydoc_arduino_tut4.html
+        output: web
+
+      - title: Tut5 - Communicate between smartphone and PC by “UART over BLE”
+        url: /mydoc_arduino_tut5.html
+        output: web
+
+      - title: Tut6 - Controlling/monitoring a device by Smartphone over BLE
+        url: /mydoc_arduino_tut6.html
+        output: web                
+
+    subfolders1:
+    - title: mbed-OS
+      output: web
+      subfolderitems:
+
+      - title: Tut1 - Program/debug for VBLUno by pyOCD and OpenOCD on GNU ARM Embedded + Eclipse
+        url: /mydoc_mbed_tut1.html
+        output: web
+
+      - title: Tut2 - BLE Beacons
+        url: /mydoc_mbed_tut2.html
+        output: web
+
+  - title: Code Examples
+    output: web
+    folderitems:
+
+    - title: Arduino
+      url: /mydoc_code_arduino.html
+      output: web
+
+    - title: mbed-OS
+      url: /mydoc_code_mbed.html
+      output: web
+
+  - title: Video
+    output: web
+    folderitems:
+
+    - title: BLE Serial application
+      external_url: https://goo.gl/Vi0mpo
+      output: web
+
+    - title: Controlling a robot over BLE with VBLUno
+      external_url: https://goo.gl/01X4oM
+      output: web
+
+  - title: Mobile applications for BLE
+    output: web
+    folderitems:
+
+    - title: iBeacon & Eddystone Scanner (Android)
+      external_url: https://goo.gl/i6DNtP  
+      output: web  
+
+      subfolders:
+      - title: Nordic nRF Toolbox
+        output: web
+        subfolderitems:
+
+        - title: Android
+          external_url: https://goo.gl/s3fbVW
+          output: web
+
+        - title: iOS
+          external_url: https://goo.gl/GH8gom     
+          output: web
+
+    - title: nRF UART 2.0 (Android)
+      external_url: https://goo.gl/sFbubD
+      output: web
+    
+      subfolders:
+      - title: Open source softwares
+        output: web
+        subfolderitems:
+
+        - title: Nordic nRFToolbox (Android)
+          external_url: https://goo.gl/Et1atP
+          output: web        
+
+        - title: BluetoohLeGatt Example (Android)
+          external_url: https://goo.gl/rdTll8
+          output: web        
+
+  - title: Links
+    output: web
+    folderitems:    
+
+    - title: IoT Vietnam Store
+      external_url: http://iotviet.com.vn
+      output: web         
+
+    - title: CSM Router (VNG)
+      external_url: https://goo.gl/YCxUeK
+      output: web      
+
+    - title: ZaloPay – (Auto payment application)
+      external_url: https://zalopay.vn
+      output: web      
+
+    - title: Vietnam IoT Alliance page
+      external_url: https://www.facebook.com/groups/iotalliancevn/
+      output: web      
+
+    - title: ARM mbed  OS developer site
+      external_url: https://developer.mbed.org/    
+      output: web                             
+
+  - title: About
+    output: web
+    folderitems:
+
+    - title: Contact our store
+      external_url: https://goo.gl/c3sbnk
+      output: web   
+
+    - title: Bluetooth Low Energy – BLE Vietnam page
+      external_url: https://www.facebook.com/bleviet/
+      output: web    

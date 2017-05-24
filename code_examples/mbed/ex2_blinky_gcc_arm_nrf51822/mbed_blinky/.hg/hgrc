@@ -1,0 +1,4 @@
+[ui]
+ignore.local = .hg/hgignore
+[paths]
+default = http://mbed.org/teams/mbed/code/mbed_blinky/

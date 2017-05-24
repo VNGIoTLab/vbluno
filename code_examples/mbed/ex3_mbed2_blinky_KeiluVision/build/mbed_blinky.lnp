@@ -1,0 +1,13 @@
+--cpu Cortex-M0
+"mbed/TARGET_NRF51822/TOOLCHAIN_ARM_STD/board.o"
+"mbed/TARGET_NRF51822/TOOLCHAIN_ARM_STD/cmsis_nvic.o"
+".\build\main.o"
+"mbed/TARGET_NRF51822/TOOLCHAIN_ARM_STD/mbed.ar"
+"mbed/TARGET_NRF51822/TOOLCHAIN_ARM_STD/retarget.o"
+"mbed/TARGET_NRF51822/TOOLCHAIN_ARM_STD/startup_nRF51822.o"
+"mbed/TARGET_NRF51822/TOOLCHAIN_ARM_STD/sys.o"
+"mbed/TARGET_NRF51822/TOOLCHAIN_ARM_STD/system_nrf51.o"
+--strict --scatter "mbed/TARGET_NRF51822/TOOLCHAIN_ARM_STD/nRF51822.sct"
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\build\mbed_blinky.map" -o .\build\mbed_blinky.axf
