@@ -71,7 +71,7 @@
                     </li>
                     {% endfor %}
                     {% endfor %}
-                    <li><a class="link-vi" href="{{ site.url }}/vi/index_vi.html">TIẾNG VIỆT</a></li>
+                    <li><a class="link-vi" href="{{ site.baseurl_root }}/vbluno/vi/index_vi.html">TIẾNG VIỆT</a></li>
                 {% else %}
                     {% for entry in site.data.vi.topnav.topnav_dropdowns %}
                     {% for folder in entry.folders %}
@@ -91,7 +91,7 @@
                     </li>
                     {% endfor %}
                     {% endfor %}
-                    <li><a class="link-vi" href="{{ site.url }}/index.html">ENGLISH</a></li>
+                    <li><a class="link-vi" href="{{ site.baseurl_root }}/vbluno/index.html">ENGLISH</a></li>
                 {% endif %}
                 {% if site.feedback_disable == null or site.feedback_disable == false %}
 			       {% include feedback2.html %}
