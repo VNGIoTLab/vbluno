@@ -1,34 +1,471 @@
----
-title: search_vi
-layout: none
-search: exclude
----
-
 [
-{% for page in site.pages %}
-{% if page.language == "vi" %}
-{% unless page.search == "exclude" %}
-{
-"title": "{{ page.title | escape }}",
-"tags": "{{ page.tags }}",
-"keywords": "{{page.keywords}}",
-"url": "{{ page.url | remove: "/"}}",
-"summary": "{{page.summary | strip }}"
-}
-{% unless forloop.last and site.posts.size < 1 %},{% endunless %}
-{% endunless %}
-{% endif %}
-{% endfor %}
 
-{% for post in site.posts %}
+
+
+
+
+
+
+
+
+
+
+
+
 {
-"title": "{{ post.title | escape }}",
-"tags": "{{ post.tags }}",
-"keywords": "{{post.keywords}}",
-"url": "{{ post.url }}",
-"summary": "{{post.summary | strip }}"
+"title": "Thiết bị theo dõi nhịp tim với VBLUno",
+"tags": "huong_dan",
+"keywords": "",
+"url": "mydoc_arduino_tut1_vi.html",
+"summary": ""
 }
-{% unless forloop.last %},{% endunless %}
-{% endfor %}
+,
+
+
+
+
+
+
+
+{
+"title": "Thiết bị phát Beacons với VBLUno",
+"tags": "huong_dan",
+"keywords": "",
+"url": "mydoc_arduino_tut2_vi.html",
+"summary": ""
+}
+,
+
+
+
+
+
+
+
+{
+"title": "Đo nhiệt độ bên trong chip nRF51822",
+"tags": "huong_dan",
+"keywords": "",
+"url": "mydoc_arduino_tut3_vi.html",
+"summary": ""
+}
+,
+
+
+
+
+
+
+
+{
+"title": "Nhiệt kế y tế với VBLUno (HTM)",
+"tags": "huong_dan",
+"keywords": "",
+"url": "mydoc_arduino_tut4_vi.html",
+"summary": ""
+}
+,
+
+
+
+
+
+
+
+{
+"title": "Truyền thông giữa Smartphone và máy tính qua “UART over BLE”",
+"tags": "huong_dan",
+"keywords": "",
+"url": "mydoc_arduino_tut5_vi.html",
+"summary": ""
+}
+,
+
+
+
+
+
+
+
+{
+"title": "Điều khiển/Giám sát một thiết bị bất kỳ bằng Smartphone qua BLE",
+"tags": "huong_dan",
+"keywords": "",
+"url": "mydoc_arduino_tut6_vi.html",
+"summary": ""
+}
+,
+
+
+
+
+
+
+
+{
+"title": "Giới thiệu công nghệ BLE",
+"tags": "ble",
+"keywords": "",
+"url": "mydoc_ble_vi.html",
+"summary": ""
+}
+,
+
+
+
+
+
+
+
+{
+"title": "Mã nguồn Arduino tham khảo cho VBLUno51",
+"tags": "vi_du",
+"keywords": "",
+"url": "mydoc_code_arduino_vi.html",
+"summary": ""
+}
+,
+
+
+
+
+
+
+
+{
+"title": "Mã nguồn mbed-OS tham khảo cho VBLUno51",
+"tags": "vi_du",
+"keywords": "",
+"url": "mydoc_code_mbed_vi.html",
+"summary": ""
+}
+,
+
+
+
+
+
+
+
+{
+"title": "Fritzing Part",
+"tags": "tai_lieu",
+"keywords": "",
+"url": "mydoc_doc_fritzing_vi.html",
+"summary": ""
+}
+,
+
+
+
+
+
+
+
+{
+"title": "Pinout",
+"tags": "tai_lieu",
+"keywords": "",
+"url": "mydoc_doc_pinout_vi.html",
+"summary": ""
+}
+,
+
+
+
+
+
+
+
+{
+"title": "Bắt đầu với Arduino IDE",
+"tags": "bat_dau",
+"keywords": "",
+"url": "mydoc_getstart_arduino_vi.html",
+"summary": ""
+}
+,
+
+
+
+
+
+
+
+{
+"title": "Bắt đầu với mbed-OS và Eclipse IDE",
+"tags": "bat_dau",
+"keywords": "",
+"url": "mydoc_getstart_gnuarm_eclipse_vi.html",
+"summary": ""
+}
+,
+
+
+
+
+
+
+
+{
+"title": "Bắt đầu với mbed-OS và Keil uVision",
+"tags": "bat_dau",
+"keywords": "",
+"url": "mydoc_getstart_keil_vi.html",
+"summary": ""
+}
+,
+
+
+
+
+
+
+
+{
+"title": "Bắt đầu với mbed-OS",
+"tags": "bat_dau",
+"keywords": "",
+"url": "mydoc_getstart_mbed_vi.html",
+"summary": ""
+}
+,
+
+
+
+
+
+
+
+{
+"title": "Bắt đầu với mbed-OS và mbed Online Compiler",
+"tags": "bat_dau",
+"keywords": "",
+"url": "mydoc_getstart_mbedonline_vi.html",
+"summary": ""
+}
+,
+
+
+
+
+
+
+
+{
+"title": "Bắt đầu với Apache MyNewt-OS",
+"tags": "bat_dau",
+"keywords": "",
+"url": "mydoc_getstart_mynewt_vi.html",
+"summary": ""
+}
+,
+
+
+
+
+
+
+
+{
+"title": "Bắt đầu với Nordic SDK",
+"tags": "bat_dau",
+"keywords": "",
+"url": "mydoc_getstart_nordicsdk_vi.html",
+"summary": ""
+}
+,
+
+
+
+
+
+
+
+{
+"title": "Bắt đầu với Riot-OS",
+"tags": "bat_dau",
+"keywords": "",
+"url": "mydoc_getstart_riot_vi.html",
+"summary": ""
+}
+,
+
+
+
+
+
+
+
+{
+"title": "Bắt đầu với Zephyr",
+"tags": "bat_dau",
+"keywords": "",
+"url": "mydoc_getstart_zephyr_vi.html",
+"summary": ""
+}
+,
+
+
+
+
+
+
+
+{
+"title": "Giới thiệu bo mạch VBLUno51",
+"tags": "bat_dau",
+"keywords": "",
+"url": "mydoc_introduction_vi.html",
+"summary": ""
+}
+,
+
+
+
+
+
+
+
+{
+"title": "Nạp/Gỡ lỗi cho VBLUno bằng pyOCD và OpenOCD trên GNU ARM Embedded + Eclipse",
+"tags": "huong_dan",
+"keywords": "",
+"url": "mydoc_mbed_tut1_vi.html",
+"summary": ""
+}
+,
+
+
+
+
+
+
+
+{
+"title": "BLE Beacons",
+"tags": "huong_dan",
+"keywords": "",
+"url": "mydoc_mbed_tut2_vi.html",
+"summary": ""
+}
+,
+
+
+
+
+
+
+
+{
+"title": "Bạn có thể tạo ứng dụng gì với VBLUno51?",
+"tags": "",
+"keywords": "",
+"url": "mydoc_over_appcanmake_vi.html",
+"summary": ""
+}
+,
+
+
+
+
+
+
+
+{
+"title": "Chú ý các phiên bản phần cứng",
+"tags": "",
+"keywords": "",
+"url": "mydoc_over_hardware_vi.html",
+"summary": ""
+}
+,
+
+
+
+
+
+
+
+{
+"title": "Software Development Kit",
+"tags": "",
+"keywords": "",
+"url": "mydoc_over_sdk_vi.html",
+"summary": ""
+}
+,
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{
+"title": "Introduction to VNG VBLUno51 board to the IoT Community",
+"tags": "news",
+"keywords": "",
+"url": "/preparevbluno51.html",
+"summary": "Prepare the necessary content to introduce VBLUno51 board to the IoT community"
+}
+
+
 
 ]

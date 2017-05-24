@@ -1,9 +1,0 @@
-data/BLE_API.lib.i
-data/main.cpp.i
-data/nRF51822.lib.i
-data/iBeaconService.h.i
-data/shields/TARGET_ST_BLUENRG.lib.i
-data/mbed_app.json.i
-data/mbed.bld.i
-data/mbed-src.lib.i
-data/ble-api.lib.i

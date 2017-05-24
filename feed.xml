@@ -1,32 +1,68 @@
----
-search: exclude
-layout: none
----
-
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-        <title>{{ site.title | xml_escape }}</title>
-        <description>{{ site.description | xml_escape }}</description>
-        <link>{{ site.url }}/</link>
-        <atom:link href="{{ "/feed.xml" | prepend: site.url }}" rel="self" type="application/rss+xml"/>
-        <pubDate>{{ site.time | date_to_rfc822 }}</pubDate>
-        <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
-        <generator>Jekyll v{{ jekyll.version }}</generator>
-        {% for post in site.posts limit:10 %}
+        <title></title>
+        <description>Wiki pages for VNG VBLUno51 board</description>
+        <link>http://localhost:4000/</link>
+        <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
+        <pubDate>Wed, 24 May 2017 14:13:13 +0700</pubDate>
+        <lastBuildDate>Wed, 24 May 2017 14:13:13 +0700</lastBuildDate>
+        <generator>Jekyll v3.3.1</generator>
+        
         <item>
-            <title>{{ post.title | xml_escape }}</title>
-            <description>{{ post.content | xml_escape }}</description>
-            <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
-            <link>{{ post.url | prepend: site.url }}</link>
-            <guid isPermaLink="true">{{ post.url | prepend: site.url }}</guid>
-            {% for tag in post.tags %}
-            <category>{{ tag | xml_escape }}</category>
-            {% endfor %}
-            {% for tag in page.tags %}
-            <category>{{ cat | xml_escape }}</category>
-            {% endfor %}
+            <title>Introduction to VNG VBLUno51 board to the IoT Community</title>
+            <description>&lt;p&gt;In the near future, VNG IoT Lab will introduce the VBLUno51 board to IoT Community in Vietnam and in the world.&lt;/p&gt;
+
+&lt;h2 id=&quot;wiki-page-for-vbluno51-board&quot;&gt;Wiki page for VBLUno51 board:&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://vngiotlab.github.io/vbluno/&quot;&gt;VBLUno51 wiki pages&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;note-about-the-hardware-versions&quot;&gt;Note about the hardware versions:&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://vngiotlab.github.io/vbluno/mydoc_introduction.html&quot;&gt;Introduction to VBLUno51 board&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://vngiotlab.github.io/vbluno/mydoc_over_hardware.html&quot;&gt;Note about the hardware versions&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;page-structure&quot;&gt;Page structure:&lt;/h2&gt;
+
+&lt;p&gt;The main contents are as follows:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Overview&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Getting Start&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Documents&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Bluetooth Low Energy technology&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Tutorials&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Code examples&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Video&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;…&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+            <pubDate>Tue, 23 May 2017 00:00:00 +0700</pubDate>
+            <link>http://localhost:4000/preparevbluno51.html</link>
+            <guid isPermaLink="true">http://localhost:4000/preparevbluno51.html</guid>
+            
+            <category>news</category>
+            
+            
         </item>
-        {% endfor %}
+        
     </channel>
 </rss>
