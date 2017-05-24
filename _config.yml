@@ -109,7 +109,7 @@ description: "Wiki pages for VNG VBLUno51 board"
 # the description is used in the feed.xml file
 
 # needed for sitemap.xml file only
-url: https://vngiotlab.github.io
+url: https://vngiotlab.github.io/vbluno
 
 # Plugins
 gems: 
