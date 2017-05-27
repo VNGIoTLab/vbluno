@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="keywords" content=" ">
-<title>Bạn có thể tạo ứng dụng gì với VBLUno51? | VBLUno51 board</title>
+<title>Bạn có thể phát triển ứng dụng gì với mạch VBLUno51? | VBLUno51 board</title>
 <link rel="stylesheet" href="css/syntax.css">
 
 
@@ -36,7 +36,7 @@
 <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
 
-<link rel="alternate" type="application/rss+xml" title="" href="http://localhost:4000feed.xml">
+<link rel="alternate" type="application/rss+xml" title="" href="https://vngiotlab.github.io/vblunofeed.xml">
 
     <script>
         $(document).ready(function() {
@@ -152,27 +152,27 @@
                         <ul class="dropdown-menu">
                             
                             
-                            <li><a href="mydoc_getstart_arduino.html">Arduino IDE</a></li>
+                            <li><a href="mydoc_getstart_arduino_vi.html">Arduino IDE</a></li>
                             
                             
                             
-                            <li><a href="mydoc_getstart_mbed.html">ARM mbed-OS</a></li>
+                            <li><a href="mydoc_getstart_mbed_vi.html">ARM mbed-OS</a></li>
                             
                             
                             
-                            <li><a href="mydoc_getstart_mynewt.html">Apache Mynewt-OS</a></li>
+                            <li><a href="mydoc_getstart_mynewt_vi.html">Apache Mynewt-OS</a></li>
                             
                             
                             
-                            <li><a href="mydoc_getstart_zephyr.html">Zephyr</a></li>
+                            <li><a href="mydoc_getstart_zephyr_vi.html">Zephyr</a></li>
                             
                             
                             
-                            <li><a href="mydoc_getstart_riot.html">RIOT-OS</a></li>
+                            <li><a href="mydoc_getstart_riot_vi.html">RIOT-OS</a></li>
                             
                             
                             
-                            <li><a href="mydoc_getstart_nordicsdk.html">Nordic SDK</a></li>
+                            <li><a href="mydoc_getstart_nordicsdk_vi.html">Nordic SDK</a></li>
                             
                             
                         </ul>
@@ -195,6 +195,9 @@
                     
                     
                     <li><a class="link-vi" href="/vbluno/index.html">ENGLISH</a></li>
+                    <!-- for test in local -->
+                    <!-- <li><a class="link-vi" href="/index.html">ENGLISH</a></li> -->
+
                 
                 
 
@@ -213,7 +216,7 @@
                                 searchInput: document.getElementById('search-input'),
                                 resultsContainer: document.getElementById('results-container'),
                                 dataSource: 'search_vi.json',
-                                searchResultTemplate: '<li><a href="{url}" title="Bạn có thể tạo ứng dụng gì với VBLUno51?">{title}</a></li>',
+                                searchResultTemplate: '<li><a href="{url}" title="Bạn có thể phát triển ứng dụng gì với mạch VBLUno51?">{title}</a></li>',
                     noResultsText: 'Không có kết quả nào được tìm thấy.',
                             limit: 10,
                             fuzzy: true,
@@ -331,7 +334,7 @@
             
             
             
-            <li><a href="https://goo.gl/byqaK0" target="_blank">Sơ đồ nguyên lý</a></li>
+            <li><a href="mydoc_doc_hardware_vi.html">Sơ đồ nguyên lý & PCB</a></li>
             
             
             
@@ -356,6 +359,18 @@
             
             
             <li><a href="mydoc_doc_fritzing_vi.html">Fritzing Part</a></li>
+            
+            
+            
+
+            
+
+
+            
+            
+            
+            
+            <li><a href="mydoc_doc_daplink_vi.html">Nâng cấp firmware cho DAPLink</a></li>
             
             
             
@@ -842,7 +857,7 @@
         <!-- Content Column -->
         <div class="col-md-9" id="tg-sb-content">
             <div class="post-header">
-   <h1 class="post-title-main">Bạn có thể tạo ứng dụng gì với VBLUno51?</h1>
+   <h1 class="post-title-main">Bạn có thể phát triển ứng dụng gì với mạch VBLUno51?</h1>
 </div>
 
 
@@ -884,33 +899,45 @@
 
     
 
-    <a target="_blank" href="https://github.com/VNGIoTLab/vbluno/tree/master/pages/mydoc/mydoc_over_appcanmake_vi.md" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
-
-    
-
   <hr />
-<h2 id="bạn-có-thể-phát-triển-ứng-dụng-gì-với-mạch-vbluno51">Bạn có thể phát triển ứng dụng gì với mạch VBLUno51?</h2>
 
 <ul>
-  <li>Điều khiển/giám sát thiết bị bằng Smartphone thông qua giao tiếp Bluetooth Low Energy (BLE):
+  <li>
+    <p>Điều khiển/giám sát thiết bị bằng Smartphone thông qua giao tiếp Bluetooth Low Energy (BLE):</p>
+
     <ul>
-      <li>Điều khiển robot phục vụ tại quán cà phê, nhà hàng, thư viện.</li>
-      <li>Điều khiển máy pha cà phê.</li>
-      <li>Điều khiển các thiết bị thông minh trong nhà: ứng dụng trong Smarthome.</li>
-      <li>…</li>
+      <li>
+        <p>Điều khiển robot phục vụ tại quán cà phê, nhà hàng, thư viện.</p>
+      </li>
+      <li>
+        <p>Điều khiển máy pha cà phê.</p>
+      </li>
+      <li>
+        <p>Điều khiển các thiết bị thông minh trong nhà: ứng dụng trong Smarthome.</p>
+      </li>
+      <li>
+        <p>…</p>
+      </li>
     </ul>
   </li>
 </ul>
 
 <p><img src="images/Mot_so_san_pham_iot.jpg" alt="alt text" title="Mot so san pham bo mach cua VNG IoT Lab" /></p>
 
+<p><img src="images/access_control.jpg" alt="alt text" title="Access control system solution of VNG IoT Lab" /></p>
+
 <ul>
-  <li>
-    <p>Tích hợp trong hệ thống thanh toán tự động (Auto payment system)</p>
-  </li>
-  <li>
-    <p>Xây dựng thiết bị smart watch, đo nhịp tim, nhiệt kế y tế, chẩn đoán sức khỏe thông minh kết nối với smartphone</p>
-  </li>
+  <li>Tích hợp trong hệ thống thanh toán tự động (Auto payment system)</li>
+</ul>
+
+<p>Ví dụ: Zalopay và VPOS của VNG.</p>
+
+<p><img src="images/vpos_zalopay.png" alt="alt text" /></p>
+
+<p><img src="images/vng_vpos_zalopay.png" alt="alt text" /></p>
+
+<ul>
+  <li>Xây dựng thiết bị smart watch, đo nhịp tim, nhiệt kế y tế, chẩn đoán sức khỏe thông minh kết nối với smartphone</li>
 </ul>
 
 <p><img src="images/VNG_BLE_Dev_kit.png" alt="alt text" title="BLE Applications" /></p>
@@ -951,7 +978,7 @@
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2017 VNG Corporation. All rights reserved. <br />
- Site last generated: May 24, 2017 <br />
+ Site last generated: May 27, 2017 <br />
 <p><img src="images/company_logo_medium.png" alt="Company logo"/></p>
                 </div>
             </div>

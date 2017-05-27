@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="keywords" content="getting_started,  ">
-<title>Bắt đầu với mbed-OS và Keil uVision | VBLUno51 board</title>
+<title>Getting started with mbed-OS and Keil uVision | VBLUno51 board</title>
 <link rel="stylesheet" href="css/syntax.css">
 
 
@@ -36,7 +36,7 @@
 <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
 
-<link rel="alternate" type="application/rss+xml" title="" href="http://localhost:4000feed.xml">
+<link rel="alternate" type="application/rss+xml" title="" href="https://vngiotlab.github.io/vblunofeed.xml">
 
     <script>
         $(document).ready(function() {
@@ -195,6 +195,9 @@
                     
                     
                     <li><a class="link-vi" href="/vbluno/vi/index_vi.html">TIẾNG VIỆT</a></li>
+                    <!-- for test in local -->
+                    <!-- <li><a class="link-vi" href="/vi/index_vi.html">TIẾNG VIỆT</a></li>	-->
+
                 
                 
 
@@ -213,7 +216,7 @@
                                 searchInput: document.getElementById('search-input'),
                                 resultsContainer: document.getElementById('results-container'),
                                 dataSource: 'search.json',
-                                searchResultTemplate: '<li><a href="{url}" title="Bắt đầu với mbed-OS và Keil uVision">{title}</a></li>',
+                                searchResultTemplate: '<li><a href="{url}" title="Getting started with mbed-OS and Keil uVision">{title}</a></li>',
                     noResultsText: 'No results found.',
                             limit: 10,
                             fuzzy: true,
@@ -294,7 +297,7 @@
             
             
             
-            <li><a href="mydoc_over_appcanmake.html">What applications can you make with VBLUno51?</a></li>
+            <li><a href="mydoc_over_appcanmake.html">What applications can you make by the VBLUno51?</a></li>
             
             
             
@@ -331,7 +334,7 @@
             
             
             
-            <li><a href="https://goo.gl/byqaK0" target="_blank">Schematic</a></li>
+            <li><a href="mydoc_doc_hardware.html">Schematic and PCB</a></li>
             
             
             
@@ -367,6 +370,18 @@
             
             
             
+            <li><a href="mydoc_doc_daplink.html">Upgrade DAPLink firmware</a></li>
+            
+            
+            
+
+            
+
+
+            
+            
+            
+            
             <li><a href="https://goo.gl/oVdvcv" target="_blank">mbed Serial driver (Only Windows)</a></li>
             
             
@@ -383,7 +398,7 @@
         
     
     <li>
-        <a href="#">Getting Start</a>
+        <a href="#">Getting Started</a>
         <ul>
             
 
@@ -830,7 +845,7 @@
         <!-- Content Column -->
         <div class="col-md-9" id="tg-sb-content">
             <div class="post-header">
-   <h1 class="post-title-main">Bắt đầu với mbed-OS và Keil uVision</h1>
+   <h1 class="post-title-main">Getting started with mbed-OS and Keil uVision</h1>
 </div>
 
 
@@ -872,64 +887,10 @@
 
     
 
-    <a target="_blank" href="https://github.com/VNGIoTLab/vbluno/tree/master/pages/mydoc/mydoc_getstart_keil.md" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
-
-    
-
-  <h1 id="bẮt-ĐẦu-sỬ-dỤng-mẠch-vbluno51-vỚi-mbed-os-keil-uvision">BẮT ĐẦU SỬ DỤNG MẠCH VBLUNO51 VỚI MBED-OS (Keil uVision)</h1>
+  <h1 id="getting-started-with-mbed-os-and-keil-uvision">GETTING STARTED WITH MBED-OS AND KEIL UVISION</h1>
 
 <hr />
-<h2 id="vÍ-dỤ-nhÁy-led">VÍ DỤ NHÁY LED</h2>
-
-<ul>
-  <li>Project sau đây sử dụng:
-    <ul>
-      <li>Bo mạch  VBLUno51 của VNGIoTLab.</li>
-      <li>MCU: Nordic nRF51822 (Cortex-M0).</li>
-      <li>mbed-OS</li>
-      <li>IDE: Keil uVision 4</li>
-      <li>Project đơn giản: Nháy led và truyền thông UART, sử dụng mbed-OS</li>
-    </ul>
-  </li>
-</ul>
-
-<h3 id="bước-1-dowload-ví-dụ-mẫu">Bước 1: Dowload ví dụ mẫu</h3>
-
-<ul>
-  <li>Download mã nguồn tại <a href="https://goo.gl/UMnGpg">ĐÂY</a></li>
-</ul>
-
-<h3 id="bước-2-biên-dịch-và-nạp-chương-trình">Bước 2: Biên dịch và nạp chương trình</h3>
-
-<ul>
-  <li>
-    <p>Mở project được tải về</p>
-  </li>
-  <li>
-    <p>Nhấn <strong>Build</strong> để biên dịch chương trình</p>
-  </li>
-  <li>
-    <p>Cài đặt giao tiếp debug và nạp chương trình</p>
-  </li>
-</ul>
-
-<p>Thực hiện như 2 hình dưới đây:</p>
-
-<p><img src="images/mbed/getstart/keil/1.png" alt="" /></p>
-
-<p><img src="images/mbed/getstart/keil/2.png" alt="" /></p>
-
-<ul>
-  <li>Nạp chương trình xuống mạch VBLUno51 bằng cách nhấn nút LOAD như hình dưới đây</li>
-</ul>
-
-<p><img src="images/mbed/getstart/keil/3.png" alt="" /></p>
-
-<h3 id="bước-3-debug">Bước 3: Debug</h3>
-
-<p>Tham khảo hình dưới dây:</p>
-
-<p><img src="images/mbed/getstart/keil/4.png" alt="" /></p>
+<p>Comming soon</p>
 
 
     <div class="tags">
@@ -954,7 +915,7 @@
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2017 VNG Corporation. All rights reserved. <br />
- Site last generated: May 24, 2017 <br />
+ Site last generated: May 27, 2017 <br />
 <p><img src="images/company_logo_medium.png" alt="Company logo"/></p>
                 </div>
             </div>

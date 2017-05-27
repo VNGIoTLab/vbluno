@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="keywords" content="getting_started,  ">
-<title>Bắt đầu với mbed-OS và mbed Online Compiler | VBLUno51 board</title>
+<title>Getting started with mbed-OS and mbed Online Compiler | VBLUno51 board</title>
 <link rel="stylesheet" href="css/syntax.css">
 
 
@@ -36,7 +36,7 @@
 <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
 
-<link rel="alternate" type="application/rss+xml" title="" href="http://localhost:4000feed.xml">
+<link rel="alternate" type="application/rss+xml" title="" href="https://vngiotlab.github.io/vblunofeed.xml">
 
     <script>
         $(document).ready(function() {
@@ -195,6 +195,9 @@
                     
                     
                     <li><a class="link-vi" href="/vbluno/vi/index_vi.html">TIẾNG VIỆT</a></li>
+                    <!-- for test in local -->
+                    <!-- <li><a class="link-vi" href="/vi/index_vi.html">TIẾNG VIỆT</a></li>	-->
+
                 
                 
 
@@ -213,7 +216,7 @@
                                 searchInput: document.getElementById('search-input'),
                                 resultsContainer: document.getElementById('results-container'),
                                 dataSource: 'search.json',
-                                searchResultTemplate: '<li><a href="{url}" title="Bắt đầu với mbed-OS và mbed Online Compiler">{title}</a></li>',
+                                searchResultTemplate: '<li><a href="{url}" title="Getting started with mbed-OS and mbed Online Compiler">{title}</a></li>',
                     noResultsText: 'No results found.',
                             limit: 10,
                             fuzzy: true,
@@ -294,7 +297,7 @@
             
             
             
-            <li><a href="mydoc_over_appcanmake.html">What applications can you make with VBLUno51?</a></li>
+            <li><a href="mydoc_over_appcanmake.html">What applications can you make by the VBLUno51?</a></li>
             
             
             
@@ -331,7 +334,7 @@
             
             
             
-            <li><a href="https://goo.gl/byqaK0" target="_blank">Schematic</a></li>
+            <li><a href="mydoc_doc_hardware.html">Schematic and PCB</a></li>
             
             
             
@@ -367,6 +370,18 @@
             
             
             
+            <li><a href="mydoc_doc_daplink.html">Upgrade DAPLink firmware</a></li>
+            
+            
+            
+
+            
+
+
+            
+            
+            
+            
             <li><a href="https://goo.gl/oVdvcv" target="_blank">mbed Serial driver (Only Windows)</a></li>
             
             
@@ -383,7 +398,7 @@
         
     
     <li>
-        <a href="#">Getting Start</a>
+        <a href="#">Getting Started</a>
         <ul>
             
 
@@ -830,7 +845,7 @@
         <!-- Content Column -->
         <div class="col-md-9" id="tg-sb-content">
             <div class="post-header">
-   <h1 class="post-title-main">Bắt đầu với mbed-OS và mbed Online Compiler</h1>
+   <h1 class="post-title-main">Getting started with mbed-OS and mbed Online Compiler</h1>
 </div>
 
 
@@ -872,224 +887,10 @@
 
     
 
-    <a target="_blank" href="https://github.com/VNGIoTLab/vbluno/tree/master/pages/mydoc/mydoc_getstart_mbedonline.md" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
-
-    
-
-  <h1 id="bẮt-ĐẦu-sỬ-dỤng-mẠch-vbluno51-vỚi-mbed-os-mbed-online-compiler">BẮT ĐẦU SỬ DỤNG MẠCH VBLUno51 VỚI MBED-OS (mbed Online Compiler)</h1>
+  <h1 id="getting-started-with-mbed-os-mbed-online-compiler">GETTING STARTED WITH MBED-OS (mbed Online Compiler)</h1>
 
 <hr />
-
-<h2 id="phẦn-1-sƠ-ĐỒ-pinout">PHẦN 1: SƠ ĐỒ PINOUT</h2>
-
-<p><img src="images/pinout/VBLUno2_mbed_Pinout.png" alt="alt text" /></p>
-
-<hr />
-<h2 id="phẦn-2-giỚi-thiỆu-hĐh-nhÚng-arm-mbed-os">PHẦN 2: GIỚI THIỆU HĐH NHÚNG ARM MBED-OS</h2>
-
-<p>Khi xây dựng một hệ thống Internet of Things (IoT), việc lựa chọn platform để thiết kế và xây dựng hệ thống là hết sức quan trọng. ARM Inc là công ty sản xuất chip vi điều khiển ARM nổi tiếng, được ứng dụng rộng rãi trong hệ thống nhúng và thiết bị di động. Với lợi thế của nhà thiết kế chip, hãng cung cấp một nền tảng hoàn chỉnh để phát triển hệ thống IoT với tên gọi <strong>ARM mbed IoT Device Platform</strong>.</p>
-
-<p><img src="images/mbed/getstart/online/1.png" alt="" /></p>
-
-<p>Thành phần quan trọng của ARM mbed IoT Device Platform chính là hệ điều hành nhúng mbed OS cho các vi điều khiển Arm Cortex-M. <strong>mbed-OS</strong> được cộng đồng đánh giá là hệ điều hành nhúng rất phù hợp để phát triển hệ thống IoT với các tính năng cơ bản như: tính an ninh, nhiều giao diện kết nối, có RTOS, nhiều thư viện cho các loại cảm biến và ngoại vi phổ biến và đặc biệt nó là open-source. Chúng ta cùng xem xét một số tính năng cơ bản của mbed OS.</p>
-
-<h3 id="tính-năng-và-lợi-thế-của-mbed-os">Tính năng và lợi thế của mbed-OS</h3>
-
-<table>
-  <thead>
-    <tr>
-      <th>Tính năng</th>
-      <th>Mô tả</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Hỗ trợ nhiều thiết bị</td>
-      <td>- mbed OS hỗ trợ nhiều loại chip ARM Cortex của các hãng sản xuất khác nhau (từ ARM Cortex M0 đến ARM Cortex M4). - Hỗ trợ nạp chương trình cho chip bằng cách kéo thả (drag and drop programming) đơn giản, nhanh chóng</td>
-    </tr>
-    <tr>
-      <td>Thực thi phần mềm theo thời gian thực</td>
-      <td>- Với một nhân RTOS dựa trên CMSIS-RTOS RTX, mbed-OS hỗ trợ Multithread</td>
-    </tr>
-    <tr>
-      <td>Mã nguồn mở</td>
-      <td>- Được phát hành với giấy phép Apache 2.0, có thể sử dụng mbed-OS với các dự án học tập hoặc thương mại</td>
-    </tr>
-    <tr>
-      <td>Sử dụng dễ dàng</td>
-      <td>- Cấu trúc thư viện dạng mô đun- mbed-OS API: “clean, portable, simple, whilst taking advantage of security and communications”</td>
-    </tr>
-    <tr>
-      <td>Cộng đồng hỗ trợ tốt</td>
-      <td>- Trên 50 đối tác và hàng trăm ngàn nhà phát triển trên toàn thế giới - Cộng đồng hỗ trợ tích cực trên developer.mbed.org và github</td>
-    </tr>
-    <tr>
-      <td>Bảo mật End to end</td>
-      <td>Đảm bảo an ninh tại phần cứng, phần mềm, quá trình truyền thông : - Hardware Enforced Security: At the lowest level of mbed OS, we use a supervisory kernel called uVisor to create isolated security domains which restrict access to,memory and peripherals. - Communications Security: We take SSL and TLS, the standard protocols for securing communications on the internet  and allow you to include them in your mbed project with a simple API.</td>
-    </tr>
-    <tr>
-      <td>Driver và thư viện hỗ trợ</td>
-      <td>- Hỗ,trợ đầy đủ các ngoại vi chuẩn của một MCU như: digital IO, analog IO, interrupts, port and bus IO, PWM, I2C, SPI và serial. - Các thư viện C của mỗi toolchain được hỗ trợ cũng được tích hợp vào mbed OS</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="các-giao-diện-kết-nối-được-mbedos-hỗ-trợ">Các giao diện kết nối được mbedOS hỗ trợ</h3>
-
-<p><img src="images/mbed/getstart/online/2.png" alt="" /></p>
-
-<h3 id="kiến-trúc-của-mbed-os">Kiến trúc của mbed OS</h3>
-
-<p><img src="images/mbed/getstart/online/3.png" alt="" /></p>
-
-<h3 id="các-ứng-dụng-cơ-bản-của-mbed-os">Các ứng dụng cơ bản của mbed OS</h3>
-
-<p><img src="images/mbed/getstart/online/4.png" alt="" /></p>
-
-<h3 id="các-trang-web-hữu-ích-để-tìm-hiểu-về-mbed-os">Các trang web hữu ích để tìm hiểu về mbed-OS</h3>
-
-<ul>
-  <li>https://www.mbed.com/en/platform</li>
-  <li>https://www.mbed.com/en/platform/mbed-os/</li>
-  <li>https://docs.mbed.com/</li>
-  <li>https://developer.mbed.org/</li>
-  <li>https://github.com/ARMmbed/mbed-os</li>
-</ul>
-
-<hr />
-<h2 id="phẦn-3-sỬ-dỤng-mbed-online-compiler-lẬp-trÌnh-cho-vbluno51">PHẦN 3: SỬ DỤNG MBED ONLINE COMPILER LẬP TRÌNH CHO VBLUno51</h2>
-
-<p>Đúng như tên gọi của nó, mbed Online Compiler là một trình biên dịch dành cho mbed OS chạy online, chỉ với một máy tính có kết nối internet, bạn có thể dễ dàng lập trình và biên dịch ra file thực thi cho VBLUno. Phần sau đây trình bày các bước thực hiện một cách chi tiết thông qua hình ảnh.</p>
-
-<h3 id="bước-1-Đăng-ký-tài-khoản-trên-developermbedorg">Bước 1: Đăng ký tài khoản trên developer.mbed.org</h3>
-
-<p><em>(Nếu đã đăng ký, bạn có thể bỏ qua bước này)</em></p>
-
-<p>Truy cập vào địa chỉ https://developer.mbed.org , đăng ký một tài khoản dành cho các developer với mbed OS. Nó là hoàn toàn miễn phí nên các bạn có thể tự tin đăng ký nhé.</p>
-
-<h3 id="bước-2-Đăng-nhập-giao-diện-trình-biên-dịch">Bước 2: Đăng nhập giao diện trình biên dịch</h3>
-
-<p>Nhấp vào nút “Compiler” hoặc truy cập vào đường dẫn https://developer.mbed.org/compiler/
-<img src="images/mbed/getstart/online/5.png" alt="" /></p>
-
-<h3 id="bước-3-chọn-device-platform-để-lập-trình-ứng-dụng">Bước 3: Chọn Device Platform để lập trình ứng dụng</h3>
-
-<ul>
-  <li>
-    <p>Nhấn vào nút chọn Platform ở góc phải, phía trên màn hình. Cửa sổ Select a Platform hiện ra, nhấn vào <strong>“Add platform”</strong></p>
-  </li>
-  <li>
-    <p>Bạn chọn board <strong>Nordic NRF51-DK</strong>. Đây là board có cấu hình phần cứng khá tương đồng với VBLUno51 board</p>
-  </li>
-  <li>
-    <p>Tiếp theo bạn chọn <strong>“Add to your mbed compiler”</strong></p>
-  </li>
-</ul>
-
-<p><img src="images/mbed/getstart/online/6.png" alt="" /></p>
-
-<ul>
-  <li>Nhấp vào nút Compiler để quay về trình biên dịch, lúc này góc phải của trình duyệt sẽ hiển thị board Noridc NRF51-DK</li>
-</ul>
-
-<h3 id="bước-4-thực-hiện-một-ví-dụ-đơn-giản--hello-world-example">Bước 4: Thực hiện một ví dụ đơn giản – Hello World Example</h3>
-
-<p>Sau đây chúng ta thực hiện một ví dụ đơn giản, ví dụ “vbluno51_blinky”.</p>
-
-<ul>
-  <li>
-    <p>4.1 Thêm một ví dụ sẵn có vào tài khoản của bạn</p>
-
-    <ul>
-      <li>Chọn <strong>“import a program”</strong>,</li>
-      <li>Tìm kiếm theo từ khóa “mbed_blinky”</li>
-      <li>Chọn ví dụ mbed_blinky trong danh sách tìm được, nhấn chọn <strong>“Import”</strong> để thêm ví dụ này vào tài khoản của bạn.</li>
-    </ul>
-  </li>
-</ul>
-
-<p><img src="images/mbed/getstart/online/12.png" alt="" /></p>
-
-<p>Bạn có thể sửa tên project như hình dưới đây</p>
-
-<p><img src="images/mbed/getstart/online/12_1.png" alt="" /></p>
-
-<ul>
-  <li>4.2 Sửa mã nguồn chương trình “main.cpp”:</li>
-</ul>
-
-<p>Copy đoạn mã nguồn sau vào file main.cpp</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>/********************************************
-VBLUNO51 BOARD
-mbed Online Compiler
-Project: Blink led and transmit over UART (with HWFC)
-Note: select NRF51_DK platform
-*********************************************/
-
-#include "mbed.h"
-
-/*For VBLUno51 board*/
-#define PIN_TX  p10
-#define PIN_RX  p11
-#define PIN_RTS p12
-#define PIN_CTS p13
-#define PIN_LED p7
- 
-Serial pc(PIN_TX, PIN_RX); // tx, rx
-DigitalOut led(PIN_LED);
-
-int main() {        
-    
-    //Init
-    pc.baud(115200);
-    pc.set_flow_control(SerialBase::RTSCTS, PIN_RTS, PIN_CTS);
-    pc.printf("\r\n-------------------------------------\r\n"
-              "Tests for VNG VBLUno51 board\n\r"              
-              "-------------------------------------\r\n");   
-    
-    //No condition loop
-    while(1) {
-        led = 1;
-        wait(1);
-        led = 0;
-        wait(1);        
-        pc.printf("Finish a period\r\n");
-    }
-    return 0;
-}
-</code></pre>
-</div>
-
-<p><img src="images/mbed/getstart/online/13.png" alt="" /></p>
-
-<p>Chọn Save để lưu lại</p>
-
-<ul>
-  <li>4.3 Chọn Compile để biên dịch chương trình</li>
-</ul>
-
-<p>Kết quả biên dịch thành công, tạo ra 1 file thực thi (*.hex) và tự động lưu về máy tính của bạn</p>
-
-<p><img src="images/mbed/getstart/online/14.png" alt="" /></p>
-
-<p><img src="images/mbed/getstart/online/14_1.png" alt="" /></p>
-
-<ul>
-  <li>4.4 Nạp file thực thi vào bo mạch VBLUno51</li>
-</ul>
-
-<p>Sau khi kết nối bo mạch VBLUno51 và mô đun DAPLink (CMSIS-DAP) đến máy tính, một ổ đĩa sẽ được thêm vào máy tính của bạn. Ổ đĩa này có tên là “DAPLINK”. Để nạp file thực thi đã được biên dịch ở bước trước vào bo mạch VBLUno51, bạn chỉ cần copy file này vào ổ đĩa trên và chờ quá trình sao chép hoàn tất.</p>
-
-<p><img src="images/mbed/getstart/online/15.png" alt="" /></p>
-
-<ul>
-  <li>4.5 Chạy chương trình
-Sau khi nạp file thực thi, chương trình sẽ tự động chạy. Nếu mọi việc thành công, bạn sẽ thấy LED trên mạch VBLUno51 nhấp nháy sáng.
-Sử dụng một phần mềm có chức năng Serial Terminal như Hercules hoặc PuTTY, tạo một kết nối đến cổng COM ảo với tốc độ baud 115200, bạn sẽ quan sát được thông điệp mà VBLUno51 gửi lên máy tính như hình dưới.</li>
-</ul>
-
-<p><img src="images/mbed/getstart/online/16.png" alt="" /></p>
+<p>Comming soon</p>
 
 
     <div class="tags">
@@ -1114,7 +915,7 @@ Sử dụng một phần mềm có chức năng Serial Terminal như Hercules ho
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2017 VNG Corporation. All rights reserved. <br />
- Site last generated: May 24, 2017 <br />
+ Site last generated: May 27, 2017 <br />
 <p><img src="images/company_logo_medium.png" alt="Company logo"/></p>
                 </div>
             </div>

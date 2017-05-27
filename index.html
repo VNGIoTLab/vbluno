@@ -36,7 +36,7 @@
 <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
 
-<link rel="alternate" type="application/rss+xml" title="" href="http://localhost:4000feed.xml">
+<link rel="alternate" type="application/rss+xml" title="" href="https://vngiotlab.github.io/vblunofeed.xml">
 
     <script>
         $(document).ready(function() {
@@ -195,6 +195,9 @@
                     
                     
                     <li><a class="link-vi" href="/vbluno/vi/index_vi.html">TIẾNG VIỆT</a></li>
+                    <!-- for test in local -->
+                    <!-- <li><a class="link-vi" href="/vi/index_vi.html">TIẾNG VIỆT</a></li>	-->
+
                 
                 
 
@@ -294,7 +297,7 @@
             
             
             
-            <li><a href="mydoc_over_appcanmake.html">What applications can you make with VBLUno51?</a></li>
+            <li><a href="mydoc_over_appcanmake.html">What applications can you make by the VBLUno51?</a></li>
             
             
             
@@ -331,7 +334,7 @@
             
             
             
-            <li><a href="https://goo.gl/byqaK0" target="_blank">Schematic</a></li>
+            <li><a href="mydoc_doc_hardware.html">Schematic and PCB</a></li>
             
             
             
@@ -367,6 +370,18 @@
             
             
             
+            <li><a href="mydoc_doc_daplink.html">Upgrade DAPLink firmware</a></li>
+            
+            
+            
+
+            
+
+
+            
+            
+            
+            
             <li><a href="https://goo.gl/oVdvcv" target="_blank">mbed Serial driver (Only Windows)</a></li>
             
             
@@ -383,7 +398,7 @@
         
     
     <li>
-        <a href="#">Getting Start</a>
+        <a href="#">Getting Started</a>
         <ul>
             
 
@@ -874,35 +889,31 @@
 
     
 
-    <a target="_blank" href="https://github.com/VNGIoTLab/vbluno/tree/master/pages//index.md" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
-
-    
-
   <h1 id="introduction-to-vng-vbluno51-board">INTRODUCTION TO VNG VBLUno51 BOARD</h1>
 
 <hr />
-<h2 id="giới-thiệu">Giới thiệu</h2>
+<h2 id="introduction">Introduction</h2>
 
 <ul>
   <li>
-    <p><strong><em>VBLUno51</em></strong> (VNG Bluetooth Low Energe UNO nRF51822) là bo mạch phát triển ứng dụng Bluetooth Low Energy (BLE), được thiết kế mở rộng theo pinout tương thích chuẩn Arduino Uno. VBLUno51 được tạo ra với mục đích giúp cho các lập trình viên dễ dàng tiếp cận công nghệ BLE và nguồn tài nguyên vô tận của Arduino, mbed-OS và các frameworks khác cho việc phát triển các sản phẩm ứng dụng trong Internet of Things (IoT).</p>
+    <p><strong><em>VBLUno51 board</em></strong> (VNG Bluetooth Low Energe UNO nRF51822) was created with the goal that VBLUno51 can help developers  access easily Bluetooth Low Energy (BLE) technology and endless resources of Arduino, mbed-OS and other frameworks for developing applications for Internet of Things (IoT).</p>
   </li>
   <li>
-    <p>VBLUno51 hoàn toàn tương thích với Nordic Software Development Kit (SDK) và nhiều hệ điều hành nhúng phù hợp cho ứng dụng IoT như: <strong>mbed-OS, Apache Mynewt-OS, RIOT-OS, Zephyr,…</strong></p>
+    <p>VBLUno51 is full compatibility with Nordic Software Development Kit (SDK) and many embedded operating systems which are suitable for IoT applications such as <strong>mbed-OS, Apache Mynewt-OS, RIOT-OS, Zephyr, …</strong></p>
   </li>
   <li>
-    <p>Điểm nhấn của bo mạch VBLUno51 là <strong><em>mô đun BLE</em></strong> được các kỹ sư của VNGIoTLab tự nghiên cứu và thiết kế. Đây cũng là mô đun đã và đang được sử dụng trong nhiều sản phẩm thương mại của công ty VNG như CSM Router, IoT Gateway,…. Mô đun BLE sử dụng chip <em>nRF51822</em> của hãng Nordic Semiconductor, với nhân ARM Cortex-M0 32bit hỗ trợ chuẩn giao tiếp Bluetooth Smart (BLE). Bên cạnh các chuẩn truyền thông như 6LoWPAN, Zigbee, …, BLE được xem là chuẩn truyền thông cực kỳ phù hợp dành cho IoT, với các ứng dụng truyền thông khoảng cách gần và đặc biệt là độ tiêu thụ năng lượng cực kỳ thấp, thân thiện với môi trường sống. Ví dụ như các hệ thống tòa nhà thông minh, vườn thông minh, cửa hàng thông minh, quản lý trẻ em, …</p>
+    <p>The highlight of VBLUno51 board is <strong><em>BLE module</em></strong> was designed by VNGIoTLab engineers. This module has been used in many commercial products of VNG such as CSM Router, IoT Gateway, …. The BLE module uses the <em>nRF51822</em> chip from Nordic Semiconductor, with 32-bit ARM Cortex-M0 core that supports Bluetooth Smart Interface (BLE) interfaces. Besides 6LoWPAN, Zigbee, …, BLE interfaces  is considered as an extremely suitable communications for IoT, with near-distance communication applications and especially extremely low power consumption, environmentally friendly. Such as intelligent building systems, smart gardens, smart stores, children management, …</p>
   </li>
   <li>
-    <p>Với tinh thần chia sẻ và mong muốn cộng đồng IoT Việt Nam có thể tiếp cận công nghệ BLE một cách dễ dàng nhất, VBLUno51 được công bố dưới dạng mã nguồn mở,  từ sơ đồ phần cứng, các mã nguồn chương trình ví dụ, mã nguồn bootloader, mã nguồn công cụ upload, tài liệu hướng dẫn… Các bạn có thể dễ dàng tham khảo cũng như tùy biến.</p>
+    <p>With the spirit of sharing and expecting the IoT community to access BLE technology more easy, VBLUno51 is published as an open source code, from hardware diagram, program source code example , source code bootloader, source code upload tool, documentation … You can reference and customize easily.</p>
   </li>
   <li>
-    <p>Thông qua việc sử dụng bo mạch <strong>VBLUno51</strong> kết hợp với <strong>Arduino IDE hoặc mbed-OS</strong>, các bạn có thể dễ dàng tiếp cận và xây dựng các ứng dụng IoT với công nghệ BLE, tiến tới làm chủ việc thiết kế các thiết bị đầu cuối trong hệ thống IoT.</p>
+    <p>Through using <strong>VBLUno51 boards</strong> combined with <strong>Arduino IDE or mbed-OS</strong>, you can access easily build IoT applications with BLE technology, going  to become owners of the terminal design in the IoT systems.</p>
   </li>
 </ul>
 
 <hr />
-<h2 id="hình-ảnh-thực-tế-của-vbluno51">Hình ảnh thực tế của VBLUno51</h2>
+<h2 id="actual-image-of-the-vbluno51-board">Actual image of the VBLUno51 board</h2>
 
 <p><img src="images/vbluno51_fact1.jpg" alt="alt_tag" title="VBLUno51 board" /></p>
 
@@ -913,68 +924,68 @@
 <p><img src="images/vbluno51_fact4.jpg" alt="alt_tag" title="VBLUno51 board with OLED" /></p>
 
 <hr />
-<h2 id="tính-năng">Tính năng</h2>
+<h2 id="features">Features</h2>
 <ul>
   <li>CPU:
     <ul>
       <li>Nordic nRF51822: ARM® Cortex™ M0 32bit.</li>
-      <li><em>Truyền thông tiết kiệm năng lượng Bluetooth Low Energy.</em></li>
+      <li><em>Bluetooth Low Energy interface.</em></li>
       <li>256KB Flash, 32KB Ram.</li>
       <li>UART(1), I2C(2), SPI(1), PWM(3), SWD, Timer 16bit(3).</li>
-      <li>21 kênh vào ra số, 6 kênh ADC 10bit.</li>
-      <li>Tích hợp sẵn 1 led và 1 nút nhấn trên mạch.</li>
-      <li>Điện áp GPIO: 0 – 3.3V.</li>
+      <li>21 digital channels, 6 ADC 10bit channels.</li>
+      <li>1 Led and 1 Button onboard.</li>
+      <li>GPIO Voltage: 0 – 3.3V.</li>
     </ul>
   </li>
-  <li>Giao diện DAPLink cho phép nạp và gỡ rối chương trình dễ dàng.
+  <li>DAPLink (CMSIS-DAP) interface for program and debug:
     <ul>
-      <li>USB MSD: Nạp firmware bằng cách kéo thả.</li>
-      <li>USB HID: Gỡ lỗi chương trình theo chuẩn CMSIS-DAP.</li>
-      <li>USB CDC: Cổng COM ảo. Hỗ trợ hardware flowcontrol đảm bảo tính toàn vẹn dữ liệu truyền (RTS/CTS).</li>
+      <li>USB MSD: Drag and Drop programming flash memory.</li>
+      <li>USB HID (DAP): CMSIS-DAP compilant debug channel.</li>
+      <li>USB CDC: Virtual COM port for log, trace and terminal emulation. Supports hardware flow control features (RTS/CTS).</li>
     </ul>
   </li>
-  <li><em>Giám sát năng lượng của mô đun BLE với tiện ích đo dòng (Chỉ có trên VBLUno51_EM).</em></li>
-  <li>Hỗ trợ FOTA: Nâng cấp firmware gián tiếp thông qua BLE.</li>
-  <li>Xây dựng các ứng dụng nhanh chóng, mạnh mẽ với:
+  <li><em>Energy monitoring for BLE module by current measurement (Only VBLUno51_EM)</em></li>
+  <li>FOTA (Firmware over the air): Upgrade firmware over BLE interface.</li>
+  <li>Build good applications with:
     <ul>
-      <li>Trình biên dịch &amp; IDE: GCC, Keil MDK, IAR, Eclipse, Qt Creator.</li>
+      <li>Compiler and IDE: GCC, Keil MDK, IAR, Eclipse, Qt Creator.</li>
       <li>Frameworks: Arduino, ARM mbed-OS, Nordic SDK, RIOT-OS, Apache MyNewt-OS,…</li>
-      <li>Nhiều tutorials cho Arduino, mbed-os, …</li>
+      <li>A lot of tutorials for Arduino, mbed-os and more.</li>
     </ul>
   </li>
-  <li>Tương thích pinout của Arduino Uno Rev.3.</li>
-  <li>4 cách cấp nguồn:
+  <li>Pinout: Arduino Uno Rev3 compilant.</li>
+  <li>Power:
     <ul>
-      <li>Cổng USB.</li>
+      <li>USB port.</li>
       <li>Power adapter: +9 -&gt; +12V.</li>
-      <li>Pin kẹp 3V: đế pin CR20xx.</li>
-      <li>Jump nối pin: +3.7 -&gt; +12V</li>
+      <li>3V Battery: CR20xx holder</li>
+      <li>Recharageable battery jump: +3.7 -&gt; +12V</li>
     </ul>
   </li>
-  <li>Mã nguồn mở: Thiết kế phần cứng, firmware, phần mềm hỗ trợ, ví dụ mẫu.</li>
+  <li>Open source: Hardware design, firmware, packages, tutorial and example codes</li>
 </ul>
 
 <hr />
-<h2 id="thông-số-chi-tiết">Thông số chi tiết</h2>
+<h2 id="details">Details</h2>
 
 <table>
   <thead>
     <tr>
-      <th>STT</th>
-      <th>Tính năng</th>
-      <th>Mô tả</th>
+      <th>Ord</th>
+      <th>Feature</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>1</td>
       <td>CPU</td>
-      <td>Nordic nRF51822, nhân ARM Cortex-M0 32-bit</td>
+      <td>Nordic nRF51822, ARM Cortex-M0 32-bit core</td>
     </tr>
     <tr>
       <td>2</td>
-      <td>Truyền thông không dây 2.4GHz</td>
-      <td>Hỗ trợ giao tiếp Bluetooth Low Energy hay còn gọi là Bluetooth Smart:</td>
+      <td>2.4GHz wireless communication</td>
+      <td>Support Bluetooth Low Energy interface (Bluetooth Smart)</td>
     </tr>
     <tr>
       <td> </td>
@@ -1013,13 +1024,13 @@
     </tr>
     <tr>
       <td>3</td>
-      <td>Xung nhịp hệ thống</td>
+      <td>System clock</td>
       <td>16MHz</td>
     </tr>
     <tr>
       <td>4</td>
-      <td>Tiêu thụ năng lượng thấp</td>
       <td>Ultra low power consumption</td>
+      <td> </td>
     </tr>
     <tr>
       <td> </td>
@@ -1069,67 +1080,87 @@
     <tr>
       <td>5</td>
       <td>Digital I/O</td>
-      <td>21 kênh; Điện áp cực đại: +3.6V</td>
+      <td>21 channel; GPIO Voltage: +3.6V</td>
     </tr>
     <tr>
       <td>6</td>
       <td>ADC</td>
-      <td>6 kênh; Độ phân giải: 10bit; Điện áp hoạt động: 0 ÷ +3.3V</td>
+      <td>6 channel; Resolution: 10bit; Voltage range: 0 ÷ +3.3V</td>
     </tr>
     <tr>
       <td>7</td>
       <td>Timer</td>
-      <td>3 bộ Timer 16bit với chế độ counter</td>
+      <td>16bit x 3 with Counter mode</td>
     </tr>
     <tr>
       <td>8</td>
       <td>UART</td>
-      <td>01 bộ</td>
+      <td>01</td>
     </tr>
     <tr>
       <td>9</td>
       <td>SPI</td>
-      <td>01 bộ</td>
+      <td>01</td>
     </tr>
     <tr>
       <td>10</td>
       <td>I2C</td>
-      <td>02 bộ</td>
+      <td>02</td>
     </tr>
     <tr>
       <td>11</td>
       <td>PWM</td>
-      <td>Tối đa 3 kênh tại cùng thời điểm;</td>
+      <td>Every GPIO channel (Max 3 channel at the same time);</td>
     </tr>
     <tr>
       <td> </td>
       <td> </td>
-      <td>Chế độ 8bit, 16bit;</td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td> </td>
-      <td>Cấu hình PWM trên các kênh GPIO.</td>
+      <td>8bit, 16bit mode;</td>
     </tr>
     <tr>
       <td>12</td>
-      <td>Ngắt ngoài</td>
-      <td>Cấu hình trên các kênh GPIO.</td>
+      <td>External interrupt</td>
+      <td>On every GPIO channel.</td>
     </tr>
     <tr>
       <td>13</td>
-      <td>Nạp chương trình</td>
-      <td>Nạp chương trình bằng cách kéo thả đơn giản. (Hỗ trợ tự động nạp khi Upload với Arduino IDE).</td>
+      <td>Flash program</td>
+      <td>Drag and Drop programming flash memory. (Support auto programming when use <code class="highlighter-rouge">Upload</code> function on Arduino IDE.</td>
     </tr>
     <tr>
       <td>14</td>
-      <td>Nguồn cung cấp</td>
-      <td>+3.7V -&gt; +12V. Có thể cấp nguồn cho mạch qua 4 cách khác nhau.</td>
+      <td>Debug</td>
+      <td>CMSIS-DAP compilant debug channel. It work fine on Keil uVision, pyOCD, OpenOCD,…</td>
     </tr>
     <tr>
       <td>15</td>
+      <td>Virtual COM port</td>
+      <td>USB to UART</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td>It work fine at 2400 to 115200 speed and more.</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td>Support Hardware flow control (RTS/CTS).</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td>Support <code class="highlighter-rouge">Send Break</code> command.</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>Power supply</td>
+      <td>+3.7V -&gt; +12V. (USB port, Power adapter, CR20xx battery, rechargeable battery).</td>
+    </tr>
+    <tr>
+      <td>17</td>
       <td>Pinout</td>
-      <td>Thiết kế phù hợp pinout của Arduino Uno Rev3</td>
+      <td>Arduino Uno Rev3 compatible</td>
     </tr>
   </tbody>
 </table>
@@ -1150,7 +1181,7 @@
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2017 VNG Corporation. All rights reserved. <br />
- Site last generated: May 24, 2017 <br />
+ Site last generated: May 27, 2017 <br />
 <p><img src="images/company_logo_medium.png" alt="Company logo"/></p>
                 </div>
             </div>

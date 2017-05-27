@@ -36,7 +36,7 @@
 <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
 
-<link rel="alternate" type="application/rss+xml" title="" href="http://localhost:4000feed.xml">
+<link rel="alternate" type="application/rss+xml" title="" href="https://vngiotlab.github.io/vblunofeed.xml">
 
     <script>
         $(document).ready(function() {
@@ -195,6 +195,9 @@
                     
                     
                     <li><a class="link-vi" href="/vbluno/vi/index_vi.html">TIẾNG VIỆT</a></li>
+                    <!-- for test in local -->
+                    <!-- <li><a class="link-vi" href="/vi/index_vi.html">TIẾNG VIỆT</a></li>	-->
+
                 
                 
 
@@ -294,7 +297,7 @@
             
             
             
-            <li><a href="mydoc_over_appcanmake.html">What applications can you make with VBLUno51?</a></li>
+            <li><a href="mydoc_over_appcanmake.html">What applications can you make by the VBLUno51?</a></li>
             
             
             
@@ -331,7 +334,7 @@
             
             
             
-            <li><a href="https://goo.gl/byqaK0" target="_blank">Schematic</a></li>
+            <li><a href="mydoc_doc_hardware.html">Schematic and PCB</a></li>
             
             
             
@@ -367,6 +370,18 @@
             
             
             
+            <li><a href="mydoc_doc_daplink.html">Upgrade DAPLink firmware</a></li>
+            
+            
+            
+
+            
+
+
+            
+            
+            
+            
             <li><a href="https://goo.gl/oVdvcv" target="_blank">mbed Serial driver (Only Windows)</a></li>
             
             
@@ -383,7 +398,7 @@
         
     
     <li>
-        <a href="#">Getting Start</a>
+        <a href="#">Getting Started</a>
         <ul>
             
 
@@ -872,25 +887,23 @@
 
     
 
-    <a target="_blank" href="https://github.com/VNGIoTLab/vbluno/tree/master/pages/mydoc/mydoc_over_hardware.md" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
-
-    
-
   <hr />
 <h2 id="note">Note</h2>
 <blockquote>
-  <p>This wiki pages for VNG <strong>VBLUno51</strong> board which is upgrade version from the first version - VBLUno - VBLUno v1. If you want to refer documents for VBLUno v1 board, please access to <a href="https://goo.gl/KgcNjK">VBLUno_v1 on Github</a></p>
+  <p>This wiki pages for the VNG <strong>VBLUno51</strong> board which is upgraded version from the first version - VBLUno - (VBLUno v1). If you want to refer documents for VBLUno v1 board, please access to <a href="https://goo.gl/KgcNjK">VBLUno_v1 on Github</a></p>
 </blockquote>
 
 <hr />
 <h2 id="the-vbluno-board-versions">The VBLUno board versions</h2>
 
-<p>Sau một thời gian giới thiệu bo mạch phát triển VBLUno đến cộng đồng, VBLUno đã giúp mọi người tiếp cận nhanh chóng với công nghệ Bluetooth Low Energy phục vụ phát triển ứng dụng Internet of Things.</p>
+<p>After a time introducing the <code class="highlighter-rouge">VBLUno</code> development board to community, VBLUno board has helped developers quickly access Bluetooth Low Energy technology for developing Internet of Things applications.</p>
 
-<p>VNGIoTLab đã nhận được rất nhiều ý kiến nhận xét về ưu điểm của VBLUno phiên bản đầu tiên như:</p>
+<p>VNGIoTLab has received many comments on the advantages of the first VBLUno version such as:</p>
 
 <ul>
-  <li>Hỗ trợ nhiều nền tảng phát triển phần mềm:
+  <li>
+    <p>Support many software platforms:</p>
+
     <ul>
       <li>Nordic SDK</li>
       <li>Arduino</li>
@@ -900,19 +913,25 @@
       <li>…</li>
     </ul>
   </li>
-  <li>Sử dụng vi điều khiển nRF51822 (ARM Cortex-M0) tích hợp sẵn giao tiếp BLE 4.2, giúp người dùng dễ dàng tiếp cận và làm chủ công nghệ này.</li>
-  <li>Hoạt động ổn định, tiêu tốn ít năng lượng khi giao tiếp với Smartphone  thông qua giao tiếp Bluetooth Low Energy.</li>
-  <li>Có nhiều bài hướng dẫn thực hiện các ví dụ điển hành của giao tiếp BLE như: Heart Rate Monitor, Heath Thermometer, iBeacons, điều khiển robot qua BLE,…</li>
+  <li>
+    <p>Using nRF51822 microcontroller (ARM Cortex-M0) with BLE interface on chip, help users acces easy and master this technology.</p>
+  </li>
+  <li>
+    <p>Stable, ultra low power consumption when communicating with the Smartphone via Bluetooth Low Energy.</p>
+  </li>
+  <li>
+    <p>There are many tutorials for performing BLE communication examples such as: Heart Rate Monitor, Heath Thermometer, iBeacons, control a robot via BLE, …</p>
+  </li>
 </ul>
 
-<p>Bên cạnh các ưu điểm trên, VBLUno phiên bản đầu tiên vẫn tồn tại khuyết điểm như: không tích hợp một interface cho phép nạp và gỡ lỗi một cách dễ dàng. Với phiên bản đầu tiên, để nạp/gỡ lỗi dễ dàng, người dùng cần sử dụng thêm mô đun CMSIS-DAP, điều này gây trở ngại không nhỏ cho người dùng.</p>
+<p>In addition to the above advantages, the first version of VBLUno still exist shortcomings such as: not integrating an interface that allows loading and debugging easily. With the first version, for easy loading / debugging, users need to add the CMSIS-DAP module. It is a little confusing for the user.</p>
 
-<p><strong><em>Với tinh thần lắng nghe từ cộng đồng</em></strong>, chúng tôi đã nâng cấp mạch VBLUno lên phiên bản 2.0 với tên gọi là <strong>VBLUno51</strong>, bản chất là tích hợp mô đun CMSIS-DAP (DAPLink) lên mạch VBLUno và một số cải tiến quan trọng khác liên quan đến nguồn và ngoại vi. Như vậy, việc nạp chương trình cho mạch VBLUno51 sẽ dễ dàng hơn nhiều, bạn có thể xem mục “Bắt đầu thôi!” để biết cách nạp chương trình cho VBLUno51.</p>
+<p><strong><em>With the spirit of listening from the community</em></strong>, we have upgraded the VBLUno to 2.0 version, called <strong>VBLUno51</strong>, essentially integrating the CMSIS-DAP module (DAPLink) on VBLUno circuit and some other important improvements related to power and peripherals. Thus, loading the program for the VBLUno51 board will be much easier, you can see the <code class="highlighter-rouge">Getting started</code> entry to know how to load the program for VBLUno51.</p>
 
-<p><strong>VBLUno51 = VBLUno 1.0 + giao diện DAPLink; và hơn thế nữa…</strong></p>
+<p><strong>VBLUno51 = VBLUno 1.0 + DAPLink interface; and more…</strong></p>
 
 <ul>
-  <li>Bo mạch VBLUno51</li>
+  <li>The VBLUno51 board (new)</li>
 </ul>
 
 <p><img src="images/vbluno51_fact1.jpg" alt="alt_tag" title="VBLUno51 board" /></p>
@@ -939,7 +958,7 @@
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2017 VNG Corporation. All rights reserved. <br />
- Site last generated: May 24, 2017 <br />
+ Site last generated: May 27, 2017 <br />
 <p><img src="images/company_logo_medium.png" alt="Company logo"/></p>
                 </div>
             </div>

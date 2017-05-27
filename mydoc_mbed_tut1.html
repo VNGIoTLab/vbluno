@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="keywords" content="tutorials,  ">
-<title>Nạp/Gỡ lỗi cho VBLUno bằng pyOCD và OpenOCD trên GNU ARM Embedded + Eclipse | VBLUno51 board</title>
+<title>Flash/Debug for VBLUno51 by pyOCD and OpenOCD on GNU ARM Embedded + Eclipse | VBLUno51 board</title>
 <link rel="stylesheet" href="css/syntax.css">
 
 
@@ -36,7 +36,7 @@
 <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
 
-<link rel="alternate" type="application/rss+xml" title="" href="http://localhost:4000feed.xml">
+<link rel="alternate" type="application/rss+xml" title="" href="https://vngiotlab.github.io/vblunofeed.xml">
 
     <script>
         $(document).ready(function() {
@@ -195,6 +195,9 @@
                     
                     
                     <li><a class="link-vi" href="/vbluno/vi/index_vi.html">TIẾNG VIỆT</a></li>
+                    <!-- for test in local -->
+                    <!-- <li><a class="link-vi" href="/vi/index_vi.html">TIẾNG VIỆT</a></li>	-->
+
                 
                 
 
@@ -213,7 +216,7 @@
                                 searchInput: document.getElementById('search-input'),
                                 resultsContainer: document.getElementById('results-container'),
                                 dataSource: 'search.json',
-                                searchResultTemplate: '<li><a href="{url}" title="Nạp/Gỡ lỗi cho VBLUno bằng pyOCD và OpenOCD trên GNU ARM Embedded + Eclipse">{title}</a></li>',
+                                searchResultTemplate: '<li><a href="{url}" title="Flash/Debug for VBLUno51 by pyOCD and OpenOCD on GNU ARM Embedded + Eclipse">{title}</a></li>',
                     noResultsText: 'No results found.',
                             limit: 10,
                             fuzzy: true,
@@ -294,7 +297,7 @@
             
             
             
-            <li><a href="mydoc_over_appcanmake.html">What applications can you make with VBLUno51?</a></li>
+            <li><a href="mydoc_over_appcanmake.html">What applications can you make by the VBLUno51?</a></li>
             
             
             
@@ -331,7 +334,7 @@
             
             
             
-            <li><a href="https://goo.gl/byqaK0" target="_blank">Schematic</a></li>
+            <li><a href="mydoc_doc_hardware.html">Schematic and PCB</a></li>
             
             
             
@@ -367,6 +370,18 @@
             
             
             
+            <li><a href="mydoc_doc_daplink.html">Upgrade DAPLink firmware</a></li>
+            
+            
+            
+
+            
+
+
+            
+            
+            
+            
             <li><a href="https://goo.gl/oVdvcv" target="_blank">mbed Serial driver (Only Windows)</a></li>
             
             
@@ -383,7 +398,7 @@
         
     
     <li>
-        <a href="#">Getting Start</a>
+        <a href="#">Getting Started</a>
         <ul>
             
 
@@ -830,7 +845,7 @@
         <!-- Content Column -->
         <div class="col-md-9" id="tg-sb-content">
             <div class="post-header">
-   <h1 class="post-title-main">Nạp/Gỡ lỗi cho VBLUno bằng pyOCD và OpenOCD trên GNU ARM Embedded + Eclipse</h1>
+   <h1 class="post-title-main">Flash/Debug for VBLUno51 by pyOCD and OpenOCD on GNU ARM Embedded + Eclipse</h1>
 </div>
 
 
@@ -872,185 +887,10 @@
 
     
 
-    <a target="_blank" href="https://github.com/VNGIoTLab/vbluno/tree/master/pages/mydoc/mydoc_mbed_tut1.md" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
-
-    
-
-  <h1 id="nẠp-chƯƠng-trÌnhgỠ-lỖi-cho-vbluno-v2-bẰng-pyocd-vÀ-openocd-trong-mÔi-trƯỜng-gnu_arm--eclipse">NẠP CHƯƠNG TRÌNH/GỠ LỖI CHO VBLUNO V2 BẰNG pyOCD VÀ OpenOCD TRONG MÔI TRƯỜNG GNU_ARM + ECLIPSE</h1>
+  <h1 id="flash-programdebug-for-vbluno51-board-by-pyocd-and-openocd-on-gnu_arm_embedded--eclipse">FLASH PROGRAM/DEBUG FOR VBLUno51 BOARD BY pyOCD AND OpenOCD ON GNU_ARM_EMBEDDED + ECLIPSE</h1>
 
 <hr />
-<h2 id="0-lưu-ý">0. Lưu ý:</h2>
-
-<p>Bài viết này tiếp tục cho nội dung tại <code class="highlighter-rouge">Getting Start --&gt; Using mbed-OS --&gt; GNU ARM Embedded &amp; Eclipse IDE</code></p>
-
-<hr />
-<h2 id="1-cài-đặt">1. Cài đặt</h2>
-
-<h3 id="11-cài-đặt-pyocd">1.1. Cài đặt pyOCD</h3>
-
-<ul>
-  <li>
-    <p>pyOCD là một chương trình mã nguồn mở cho phép nạp chương trình và gỡ lỗi cho các vi điều khiển ARM Cortex-M sử dụng CMSIS-DAP (DAPLink) interfaces.</p>
-  </li>
-  <li>
-    <p>pyOCD được xây dựng bằng ngôn ngữ lập trình Python, và dĩ nhiên nó hỗ trợ đa nền tảng: Windows, Linux và OSX.</p>
-  </li>
-  <li>
-    <p>Tham khảo cách cài đặt tại <a href="https://github.com/mbedmicro/pyOCD">ĐÂY</a></p>
-  </li>
-  <li>
-    <p>Sau khi cài thành công, bạn thử gõ <strong>pyocd-flashtool</strong> tại Terminal, nếu hệ điều hành không nhận diện được đường dẫn, bạn cần bổ sung đường dẫn của pyOCD vào biến môi trường PATH.</p>
-  </li>
-</ul>
-
-<p><img src="images/mbed/tut/tut1/1.png" alt="" /></p>
-
-<h3 id="12-cài-đặt-openocd">1.2. Cài đặt OpenOCD</h3>
-
-<ul>
-  <li>
-    <p>Trong khi pyOCD được mbed team thiết kế riêng cho CMSIS-DAP (DAPLink) interface thì OpenOCD là một phần mềm có chức năng tương tự nhưng có thể hoạt động với CMSIS-DAP và rất nhiều công cụ khác như: Jlink, ST-Link, Ulink, redbee-usb,….</p>
-  </li>
-  <li>
-    <p>Nếu bạn đã cài đặt GNU ARM Eclipse plugin cho Eclipse như đã hướng dẫn tại <code class="highlighter-rouge">Getting Start --&gt; Using mbed-OS --&gt; GNU ARM Embedded &amp; Eclipse IDE</code>, thì OpenOCD đã được cài đặt sẵn vào máy tính của bạn. Nếu bạn sử dụng Windows OS, có thể OpenOCD sẽ được cài vào đường dẫn như hình sau</p>
-  </li>
-</ul>
-
-<p><img src="images/mbed/tut/tut1/2.png" alt="" /></p>
-
-<ul>
-  <li>Bạn cũng có thể cài đặt OpenOCD từ <a href="https://sourceforge.net/projects/openocd/">ĐÂY</a></li>
-</ul>
-
-<h3 id="13-cài-đặt-thêm-các-device-packs">1.3. Cài đặt thêm các Device Packs</h3>
-
-<p>Device packs của nhà sản xuất chip giúp GNU ARM Eclipse plugin có thể hiển thị các thông tin về ngoại vi, thanh ghi, bộ nhớ,… của chip trong khi chúng ta tiến hành debug. Bạn cài đặt theo các hình sau</p>
-
-<p><img src="images/mbed/tut/tut1/3.png" alt="" /></p>
-
-<p><img src="images/mbed/tut/tut1/4.png" alt="" /></p>
-
-<p><img src="images/mbed/tut/tut1/5.png" alt="" /></p>
-
-<hr />
-<h2 id="2-hướng-dẫn-nạpgỡ-lỗi-cho-vbluno-trên-gnu-arm-eclipse">2. Hướng dẫn nạp/gỡ lỗi cho VBLUno trên GNU ARM Eclipse.</h2>
-
-<h3 id="21-nạp-chương-trình">2.1. Nạp chương trình</h3>
-
-<ul>
-  <li>Sửa Makefile:</li>
-</ul>
-
-<p>Bổ sung thêm từ dòng 128 đến 134</p>
-
-<p><img src="images/mbed/tut/tut1/7.png" alt="" /></p>
-
-<p>Trong đó dòng 134 có nội dung là:</p>
-
-<p>“C:/Program Files/GNU ARM Eclipse/OpenOCD/0.10.0-201601101000-dev/bin/openocd.exe” -f “C:/Program Files/GNU ARM Eclipse/OpenOCD/0.10.0-201601101000-dev/scripts/interface/cmsis-dap.cfg” -f “C:/Program Files/GNU ARM Eclipse/OpenOCD/0.10.0-201601101000-dev/scripts/target/nrf51.cfg” -c “program combined.hex verify reset exit 0x0”</p>
-
-<ul>
-  <li>Tạo target:</li>
-</ul>
-
-<p>Tạo 2 target với tên là flash_pyocd và flash_openocd:</p>
-
-<p><img src="images/mbed/tut/tut1/8.png" alt="" /></p>
-
-<ul>
-  <li>Flash chương trình xuống mạch VBLUno</li>
-</ul>
-
-<p>Sau khi build project, để nạp chương trình cho mạch bằng pyOCD, bạn nhấp đúp vào target flash_pyocd. Tương tự cho OpenOCD.</p>
-
-<p>Hình dưới đây xuất hiện khi nạp bằng pyOCD</p>
-
-<p><img src="images/mbed/tut/tut1/9.png" alt="" /></p>
-
-<p>Hình dưới đây xuất hiện khi nạp bằng OpenOCD</p>
-
-<p><img src="images/mbed/tut/tut1/10.png" alt="" /></p>
-
-<p>Sau khi nạp xong thì mạch sẽ được reset và chương trình bắt đầu chạy.</p>
-
-<h3 id="22-debug-với-pyocd">2.2. Debug với pyOCD</h3>
-
-<ul>
-  <li>Sửa Makefile</li>
-</ul>
-
-<p>Chú ý dòng 68, 69 trong hình sau</p>
-
-<p><img src="images/mbed/tut/tut1/11.png" alt="" /></p>
-
-<ul>
-  <li>Sửa Build command</li>
-</ul>
-
-<p><img src="images/mbed/tut/tut1/12.png" alt="" /></p>
-
-<ul>
-  <li>
-    <p>Build lại project</p>
-  </li>
-  <li>
-    <p>Cấu hình debug</p>
-  </li>
-</ul>
-
-<p>Chuột phải tại project -&gt; Chọn Debug Configurations</p>
-
-<p><img src="images/mbed/tut/tut1/13.png" alt="" /></p>
-
-<p>Nhấp đúp vào GDB pyOCD Debugging để tạo cấu hình debug mới:</p>
-
-<p><img src="images/mbed/tut/tut1/14.png" alt="" /></p>
-
-<p><img src="images/mbed/tut/tut1/15.png" alt="" /></p>
-
-<p><img src="images/mbed/tut/tut1/16.png" alt="" /></p>
-
-<ul>
-  <li>Nhấn Debug để bắt đầu quá trình debug</li>
-</ul>
-
-<p><img src="images/mbed/tut/tut1/17.png" alt="" /></p>
-
-<p>pyOCD hỗ trợ đầy đủ các tính năng debug thông thường như: Run, Pause, Stop, Step Into, Step Over, Run to Line, Breakpoint, Watch biến và biểu thức,… Ngoài ra còn hỗ trợ xem giá trị Registers, Memory.</p>
-
-<p>Một số hình ảnh minh họa:</p>
-
-<p><img src="images/mbed/tut/tut1/18.png" alt="" /></p>
-
-<p><img src="images/mbed/tut/tut1/19.png" alt="" /></p>
-
-<p><img src="images/mbed/tut/tut1/20.png" alt="" /></p>
-
-<p><img src="images/mbed/tut/tut1/21.png" alt="" /></p>
-
-<h3 id="23-debug-với-openocd">2.3. Debug với OpenOCD</h3>
-
-<p>Thực hiện tương tự như với pyOCD, chú ý cấu hình theo các hình sau:</p>
-
-<p><img src="images/mbed/tut/tut1/22.png" alt="" /></p>
-
-<p><img src="images/mbed/tut/tut1/23.png" alt="" /></p>
-
-<p><img src="images/mbed/tut/tut1/24.png" alt="" /></p>
-
-<p>OpenOCD cũng hỗ trợ các tính năng debug như pyOCD</p>
-
-<p><img src="images/mbed/tut/tut1/25.png" alt="" /></p>
-
-<ul>
-  <li>Có thể thấy, Eclipse + GNU ARM Eclipse plugin + GNU ARM Embedded toolchain + pyOCD, OpenOCD hỗ trợ developers phát triển ứng dụng cho bo mạch VBLUno một cách dễ dàng. Một môi trường lập trình hỗ trợ GUI, cho phép nạp và gỡ lỗi chương trình một cách thuận tiện sẽ giúp nâng cao hiệu suất làm việc của các lập trình viên.</li>
-</ul>
-
-<p><strong>Mọi thắc mắc hoặc ý kiến đóng góp bạn có thể trao đổi tại đây:</strong></p>
-
-<p>https://www.facebook.com/bleviet/messages/</p>
-
-<p>https://github.com/VNGIoTLab/mbed_for_VBLUno-CMSIS-DAP/issues</p>
+<p>Comming soon</p>
 
 
     <div class="tags">
@@ -1075,7 +915,7 @@
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2017 VNG Corporation. All rights reserved. <br />
- Site last generated: May 24, 2017 <br />
+ Site last generated: May 27, 2017 <br />
 <p><img src="images/company_logo_medium.png" alt="Company logo"/></p>
                 </div>
             </div>

@@ -148,10 +148,40 @@
 
 
 {
+"title": "Firmware cho DAPLink trên VBLUno51",
+"tags": "tai_lieu",
+"keywords": "",
+"url": "mydoc_doc_daplink_vi.html",
+"summary": ""
+}
+,
+
+
+
+
+
+
+
+{
 "title": "Fritzing Part",
 "tags": "tai_lieu",
 "keywords": "",
 "url": "mydoc_doc_fritzing_vi.html",
+"summary": ""
+}
+,
+
+
+
+
+
+
+
+{
+"title": "Sơ đồ nguyên lý và PCB",
+"tags": "tai_lieu",
+"keywords": "",
+"url": "mydoc_doc_hardware_vi.html",
 "summary": ""
 }
 ,
@@ -358,7 +388,7 @@
 
 
 {
-"title": "Bạn có thể tạo ứng dụng gì với VBLUno51?",
+"title": "Bạn có thể phát triển ứng dụng gì với mạch VBLUno51?",
 "tags": "",
 "keywords": "",
 "url": "mydoc_over_appcanmake_vi.html",

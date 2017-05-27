@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="keywords" content="getting_started,  ">
-<title>Bắt đầu với mbed-OS và Eclipse IDE | VBLUno51 board</title>
+<title>Getting started with mbed-OS and Eclipse IDE | VBLUno51 board</title>
 <link rel="stylesheet" href="css/syntax.css">
 
 
@@ -36,7 +36,7 @@
 <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
 
-<link rel="alternate" type="application/rss+xml" title="" href="http://localhost:4000feed.xml">
+<link rel="alternate" type="application/rss+xml" title="" href="https://vngiotlab.github.io/vblunofeed.xml">
 
     <script>
         $(document).ready(function() {
@@ -195,6 +195,9 @@
                     
                     
                     <li><a class="link-vi" href="/vbluno/vi/index_vi.html">TIẾNG VIỆT</a></li>
+                    <!-- for test in local -->
+                    <!-- <li><a class="link-vi" href="/vi/index_vi.html">TIẾNG VIỆT</a></li>	-->
+
                 
                 
 
@@ -213,7 +216,7 @@
                                 searchInput: document.getElementById('search-input'),
                                 resultsContainer: document.getElementById('results-container'),
                                 dataSource: 'search.json',
-                                searchResultTemplate: '<li><a href="{url}" title="Bắt đầu với mbed-OS và Eclipse IDE">{title}</a></li>',
+                                searchResultTemplate: '<li><a href="{url}" title="Getting started with mbed-OS and Eclipse IDE">{title}</a></li>',
                     noResultsText: 'No results found.',
                             limit: 10,
                             fuzzy: true,
@@ -294,7 +297,7 @@
             
             
             
-            <li><a href="mydoc_over_appcanmake.html">What applications can you make with VBLUno51?</a></li>
+            <li><a href="mydoc_over_appcanmake.html">What applications can you make by the VBLUno51?</a></li>
             
             
             
@@ -331,7 +334,7 @@
             
             
             
-            <li><a href="https://goo.gl/byqaK0" target="_blank">Schematic</a></li>
+            <li><a href="mydoc_doc_hardware.html">Schematic and PCB</a></li>
             
             
             
@@ -367,6 +370,18 @@
             
             
             
+            <li><a href="mydoc_doc_daplink.html">Upgrade DAPLink firmware</a></li>
+            
+            
+            
+
+            
+
+
+            
+            
+            
+            
             <li><a href="https://goo.gl/oVdvcv" target="_blank">mbed Serial driver (Only Windows)</a></li>
             
             
@@ -383,7 +398,7 @@
         
     
     <li>
-        <a href="#">Getting Start</a>
+        <a href="#">Getting Started</a>
         <ul>
             
 
@@ -830,7 +845,7 @@
         <!-- Content Column -->
         <div class="col-md-9" id="tg-sb-content">
             <div class="post-header">
-   <h1 class="post-title-main">Bắt đầu với mbed-OS và Eclipse IDE</h1>
+   <h1 class="post-title-main">Getting started with mbed-OS and Eclipse IDE</h1>
 </div>
 
 
@@ -872,210 +887,10 @@
 
     
 
-    <a target="_blank" href="https://github.com/VNGIoTLab/vbluno/tree/master/pages/mydoc/mydoc_getstart_gnuarm_eclipse.md" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
-
-    
-
-  <h1 id="bẮt-ĐẦu-sỬ-dỤng-mẠch-vbluno51-vỚi-mbed-os-arm-embedded--eclipse-ide">BẮT ĐẦU SỬ DỤNG MẠCH VBLUno51 VỚI MBED-OS (ARM EMBEDDED + ECLIPSE IDE)</h1>
+  <h1 id="getting-started-with-mbed-os-and-eclipse-ide">GETTING STARTED WITH MBED-OS AND ECLIPSE IDE</h1>
 
 <hr />
-<h2 id="phẦn-1-cÀi-ĐẶt-mÔi-trƯỜng">PHẦN 1: CÀI ĐẶT MÔI TRƯỜNG</h2>
-
-<p>Nhằm nâng cao hiệu suất làm việc của developers, việc sử dụng các môi trường phát triển (IDE) là điều cần thiết. Để phát triển các ứng dụng nhúng cho IoT, cụ thể là phát triển ứng dụng với bo mạch VBLUno51 của VNGIoTLab, chúng tôi đề xuất phương án sử dụng môi trường sau:</p>
-
-<ul>
-  <li>Phần mềm (hoàn toàn miễn phí)
-    <ul>
-      <li>Compiler: GCC ARM Embedded</li>
-      <li>IDE: Eclipse C/C++ với GNU ARM Eclipse plugin</li>
-      <li>Build Tools: Chỉ cần cài đặt nếu sử dụng Windows OS</li>
-      <li>Flash và Debug: pyOCD hoặc OpenOCD</li>
-    </ul>
-  </li>
-  <li>Phần cứng:
-    <ul>
-      <li>Bo mạch VBLUno51 của VNGIoTLab (tương đương VBLUno v1 + CMSIS-DAP)</li>
-    </ul>
-  </li>
-</ul>
-
-<p>Các bước cài đặt khá đơn giản, bạn thực hiện theo hướng dẫn dưới đây:</p>
-
-<h3 id="bước-1-cài-đặt-gnu-arm-toolchain">Bước 1: Cài đặt GNU ARM Toolchain</h3>
-
-<p>http://gnuarmeclipse.github.io/toolchain/install/</p>
-
-<h3 id="bước-2-cài-đặt-eclipse-cc">Bước 2: Cài đặt Eclipse C/C++</h3>
-
-<p>http://www.eclipse.org/downloads/?</p>
-
-<h3 id="bước-3-gnu-arm-eclipse-plugin">Bước 3: GNU ARM Eclipse plugin</h3>
-
-<ul>
-  <li>
-    <p>Đây là plugin cho phép sử dụng Eclipse IDE để phát triển ứng dụng cho các dòng vi điều khiển ARM với trình biên dịch GCC_ARM. So với việc chỉ sử dụng các command, sử dụng Eclipse cho phép bạn có thể lập trình, biên dịch và gỡ lỗi trên môi trường GUI rất tiện lợi cho các developers.</p>
-  </li>
-  <li>
-    <p>Sau khi cài đặt Eclipse C/C++, bạn có thể vào Eclipse Marketplace, tìm với từ khóa “GNU ARM Eclipse” và install GNU ARM Eclipse plugin</p>
-  </li>
-</ul>
-
-<p><img src="images/mbed/getstart/eclipse/1.png" alt="" /></p>
-
-<ul>
-  <li>Tham khảo thêm tại http://gnuarmeclipse.github.io/</li>
-</ul>
-
-<h3 id="bước-4-cài-đặt-gnu-arm-eclipse-windows-build-tool-chỉ-dành-cho-windows-os">Bước 4: Cài đặt GNU ARM Eclipse Windows Build Tool (Chỉ dành cho Windows OS)</h3>
-
-<ul>
-  <li>
-    <p>http://gnuarmeclipse.github.io/windows-build-tools/</p>
-  </li>
-  <li>
-    <p>Sau khi cài đặt, không quên set path hệ thống cho thư mục vừa cài đặt. Ví dụ:
-<strong><em>“C:\Program Files (x86)\GNU ARM Eclipse\Build Tools\2.6-201507152002\bin”</em></strong></p>
-  </li>
-  <li>
-    <p>Vào thư mục trên, copy <strong>“busybox.exe”</strong> và đổi tên thành “<strong>mkdir.exe</strong>”</p>
-  </li>
-</ul>
-
-<h3 id="bước-5-cài-đặt-công-cụ-để-merge-các-file-hex-cùng-nhau">Bước 5: Cài đặt công cụ để merge các file hex cùng nhau</h3>
-
-<ul>
-  <li>
-    <p>Linux: cài đặt srec_cat</p>
-  </li>
-  <li>
-    <p>Windows:</p>
-  </li>
-</ul>
-
-<p>Sử dụng <strong>mergehex.exe</strong> .  Bạn có thể download tại đây
-https://github.com/VNGIoTLab/mbed_for_VBLUno-CMSIS-DAP/tree/master/tools</p>
-
-<p>Copy mergehex.exe vào chung thư mục “…GNU ARM Eclipse\Build Tools\2.6-201507152002\bin”</p>
-
-<p><img src="images/mbed/getstart/eclipse/2.png" alt="" /></p>
-
-<hr />
-<h2 id="phẦn-2-xÂy-dỰng-mỘt-project">PHẦN 2: XÂY DỰNG MỘT PROJECT</h2>
-
-<ul>
-  <li>Project sau đây sử dụng:
-    <ul>
-      <li>Bo mạch  VBLUno51 của VNGIoTLab.</li>
-      <li>MCU: Nordic nRF51822 (Cortex-M0).</li>
-      <li>Toolchain: GCC ARM Embedded.</li>
-      <li>IDE: Eclipse với GNU ARM Eclipse plugin.</li>
-      <li>Project đơn giản: Nháy led và truyền thông UART, sử dụng mbed-OS</li>
-    </ul>
-  </li>
-</ul>
-
-<h3 id="bước-1-export-project-về-máy-tính">Bước 1: Export project về máy tính</h3>
-
-<ul>
-  <li>
-    <p>Có nhiều cách để tạo một project sử dụng mbed-OS cho VBLUno, bài hướng dẫn này chọn cách đơn giản là export một project mẫu trên mbed Online Compiler về máy tính. Bản chất của việc làm này là nhờ mbed Online Compiler tạo cho chúng ta một Makefile có sẵn, phù hợp với nRF51822.</p>
-  </li>
-  <li>
-    <p>Truy cập vào mbed Online Compiler, export project đã làm trong tutorial sử dụng mbed online compiler về máy tính, lựa chọn toolchain là GCC (ARM Embedded)</p>
-  </li>
-</ul>
-
-<p><img src="images/mbed/getstart/eclipse/3.png" alt="" /></p>
-
-<p><img src="images/mbed/getstart/eclipse/4.png" alt="" /></p>
-
-<h3 id="bước-2-tạo-project-với-eclipse">Bước 2: Tạo project với Eclipse</h3>
-
-<ul>
-  <li>
-    <p>Chọn File -&gt; New -&gt; Project</p>
-  </li>
-  <li>
-    <p>C/C++ -&gt; Makefile Project with Existing Code</p>
-  </li>
-</ul>
-
-<p><img src="images/mbed/getstart/eclipse/5.png" alt="" /></p>
-
-<p><img src="images/mbed/getstart/eclipse/6.png" alt="" /></p>
-
-<p><img src="images/mbed/getstart/eclipse/7.png" alt="" /></p>
-
-<h3 id="bước-3-cấu-hình-cho-project">Bước 3: Cấu hình cho project</h3>
-
-<ul>
-  <li>
-    <p>Nhấp chuột phải tại project -&gt; chọn Properties</p>
-  </li>
-  <li>
-    <p>Tại mục C/C++ Build, chọn thẻ Builder Settings, sửa build command</p>
-  </li>
-</ul>
-
-<p><img src="images/mbed/getstart/eclipse/8.png" alt="" /></p>
-
-<h3 id="bước-4-build-project">Bước 4: Build project</h3>
-
-<ul>
-  <li>Chúng ta không cần tạo mới Makefile, do đã sử dụng makefile nhận được bởi việc export project từ mbed Online Compiler. Tuy nhiên, makefile mặc định này dành cho Linux, nếu sử dụng Windows OS bạn cần phải chỉnh sửa Makefile như sau:</li>
-</ul>
-
-<p>Thêm dòng 53 trong hình sau:</p>
-
-<p><img src="images/mbed/getstart/eclipse/9.png" alt="" /></p>
-
-<p>Thêm dòng 125, 126 trong hình sau:</p>
-
-<p><img src="images/mbed/getstart/eclipse/10.png" alt="" /></p>
-
-<p>Sửa dòng 76 như hình sau:</p>
-
-<p><img src="images/mbed/getstart/eclipse/11.png" alt="" /></p>
-
-<p>Sửa dòng 41 như hình sau:</p>
-
-<p><img src="images/mbed/getstart/eclipse/12.png" alt="" /></p>
-
-<ul>
-  <li>
-    <p>Nhấp chuột phải tại project -&gt; chọn Build Project</p>
-  </li>
-  <li>
-    <p>Nếu thành công, kết quả biên dịch như hình dưới</p>
-  </li>
-</ul>
-
-<p><img src="images/mbed/getstart/eclipse/13.png" alt="" /></p>
-
-<h3 id="bước-5-nạp-file-thực-thi-xuống-mạch-vbluno51">Bước 5: Nạp file thực thi xuống mạch VBLUno51</h3>
-
-<p>Chúng ta cần chú ý 2 file thực thi có phần mở rộng (*.hex) trong thư mục .build</p>
-
-<ul>
-  <li>
-    <p><strong>mbed_blinky.hex</strong>: Chỉ là file thực thi của Application, không gồm softdevice</p>
-  </li>
-  <li>
-    <p><strong>combined.hex</strong>: Gồm Softdevice và Application</p>
-  </li>
-</ul>
-
-<p><img src="images/mbed/getstart/eclipse/14.png" alt="" /></p>
-
-<p>Để chắc chắn, chúng ta nạp file combined.hex xuống mạch VBLUno bằng cách copy file này vào ổ đĩa của CMSIS-DAP</p>
-
-<p>**Ghi chú: Hướng dẫn sử dụng pyOCD và OpenOCD để debug sẽ được trình bày trong mục Tutorial **</p>
-
-<h3 id="dowload">Dowload</h3>
-
-<ul>
-  <li>Có thể download mã nguồn tại <a href="https://goo.gl/C7SIex">ĐÂY</a></li>
-</ul>
+<p>Comming soon</p>
 
 
     <div class="tags">
@@ -1100,7 +915,7 @@ https://github.com/VNGIoTLab/mbed_for_VBLUno-CMSIS-DAP/tree/master/tools</p>
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2017 VNG Corporation. All rights reserved. <br />
- Site last generated: May 24, 2017 <br />
+ Site last generated: May 27, 2017 <br />
 <p><img src="images/company_logo_medium.png" alt="Company logo"/></p>
                 </div>
             </div>

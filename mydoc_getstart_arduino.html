@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="keywords" content="getting_started,  ">
-<title>Bắt đầu với Arduino IDE | VBLUno51 board</title>
+<title>Getting started with Arduino IDE | VBLUno51 board</title>
 <link rel="stylesheet" href="css/syntax.css">
 
 
@@ -36,7 +36,7 @@
 <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
 
-<link rel="alternate" type="application/rss+xml" title="" href="http://localhost:4000feed.xml">
+<link rel="alternate" type="application/rss+xml" title="" href="https://vngiotlab.github.io/vblunofeed.xml">
 
     <script>
         $(document).ready(function() {
@@ -195,6 +195,9 @@
                     
                     
                     <li><a class="link-vi" href="/vbluno/vi/index_vi.html">TIẾNG VIỆT</a></li>
+                    <!-- for test in local -->
+                    <!-- <li><a class="link-vi" href="/vi/index_vi.html">TIẾNG VIỆT</a></li>	-->
+
                 
                 
 
@@ -213,7 +216,7 @@
                                 searchInput: document.getElementById('search-input'),
                                 resultsContainer: document.getElementById('results-container'),
                                 dataSource: 'search.json',
-                                searchResultTemplate: '<li><a href="{url}" title="Bắt đầu với Arduino IDE">{title}</a></li>',
+                                searchResultTemplate: '<li><a href="{url}" title="Getting started with Arduino IDE">{title}</a></li>',
                     noResultsText: 'No results found.',
                             limit: 10,
                             fuzzy: true,
@@ -294,7 +297,7 @@
             
             
             
-            <li><a href="mydoc_over_appcanmake.html">What applications can you make with VBLUno51?</a></li>
+            <li><a href="mydoc_over_appcanmake.html">What applications can you make by the VBLUno51?</a></li>
             
             
             
@@ -331,7 +334,7 @@
             
             
             
-            <li><a href="https://goo.gl/byqaK0" target="_blank">Schematic</a></li>
+            <li><a href="mydoc_doc_hardware.html">Schematic and PCB</a></li>
             
             
             
@@ -367,6 +370,18 @@
             
             
             
+            <li><a href="mydoc_doc_daplink.html">Upgrade DAPLink firmware</a></li>
+            
+            
+            
+
+            
+
+
+            
+            
+            
+            
             <li><a href="https://goo.gl/oVdvcv" target="_blank">mbed Serial driver (Only Windows)</a></li>
             
             
@@ -383,7 +398,7 @@
         
     
     <li>
-        <a href="#">Getting Start</a>
+        <a href="#">Getting Started</a>
         <ul>
             
 
@@ -830,7 +845,7 @@
         <!-- Content Column -->
         <div class="col-md-9" id="tg-sb-content">
             <div class="post-header">
-   <h1 class="post-title-main">Bắt đầu với Arduino IDE</h1>
+   <h1 class="post-title-main">Getting started with Arduino IDE</h1>
 </div>
 
 
@@ -872,188 +887,10 @@
 
     
 
-    <a target="_blank" href="https://github.com/VNGIoTLab/vbluno/tree/master/pages/mydoc/mydoc_getstart_arduino.md" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
-
-    
-
-  <h1 id="bẮt-ĐẦu-sỬ-dỤng-mẠch-vbluno51-vỚi-arduino-ide">BẮT ĐẦU SỬ DỤNG MẠCH VBLUno51 VỚI ARDUINO IDE.</h1>
+  <h1 id="getting-started-with-arduino-ide">GETTING STARTED WITH ARDUINO IDE</h1>
 
 <hr />
-
-<h2 id="phẦn-1-sƠ-ĐỒ-pinout">PHẦN 1: SƠ ĐỒ PINOUT</h2>
-
-<p><img src="images/pinout/VBLUno2_Arduino_Pinout.png" alt="alt text" /></p>
-
-<hr />
-
-<h2 id="phẦn-2-cÀi-ĐẶt">PHẦN 2: CÀI ĐẶT</h2>
-
-<h3 id="bước-1-cài-đặt-arduino-ide">Bước 1: Cài đặt Arduino IDE</h3>
-
-<ul>
-  <li>
-    <p>Nếu đã cài đặt, bạn có thể  bỏ qua bước này</p>
-  </li>
-  <li>
-    <p>Thực hiện: Tải bản cài đặt phù hợp tại <a href="http://arduino.cc/en/Main/Software">ĐÂY</a> và cài đặt vào máy.</p>
-  </li>
-  <li>
-    <p>Chú ý: Nếu bạn đang sử dụng hệ điều hành Linux, cần chạy Arduino IDE với quyền root. Điều này giúp Arduino IDE có thể mở cổng nối tiếp (UART) để nạp firmware cho mạch VBLUno (đối với VBLUno 1.0).</p>
-    <ul>
-      <li>Mở Terminal (Ctrl + Alt + T)</li>
-      <li>Chuyển đến thư mục đã cài đặt Arduino bằng cách sử dụng lệnh “cd”. 
-                 Ví dụ cd /home/mrABC/arduino-1.6.10</li>
-      <li>Mở Arduino IDE với lệnh sudo: sudo ./arduino</li>
-    </ul>
-  </li>
-</ul>
-
-<h3 id="bước-2-cài-đặt-trình-điều-khiển-uart-cho-giao-diện-daplink-cmsis-dap-trên-mạch-vbluno51">Bước 2. Cài đặt trình điều khiển UART cho giao diện DAPLink (CMSIS-DAP) trên mạch VBLUno51</h3>
-
-<ul>
-  <li>
-    <p><em>Phần này chỉ dành cho máy tính sử dụng hệ điều hành Windows.</em></p>
-  </li>
-  <li>
-    <p>Thực hiện: Tải trình điều khiển phù hợp tại <a href="https://goo.gl/oVdvcv">ĐÂY</a> và cài đặt vào máy tính của bạn.</p>
-  </li>
-</ul>
-
-<h3 id="bước-3-cài-đặt-gói-dữ-liệu-giúp-lập-trình-arduino-ide-trên-mạch-vbluno51">Bước 3. Cài đặt gói dữ liệu giúp lập trình Arduino IDE trên mạch VBLUno51</h3>
-
-<p>Các bo mạch Arduino phổ biến sử dụng chip vi điều khiển AVR. Nếu thiết kế  theo các mạch Arduino có sẵn, có thể dễ dàng sử dụng Arduino IDE để lập trình. Bo mạch VBLUno không sử dụng các thiết kế có sẵn từ arduino.cc nên cần cài đặt bổ sung các package hỗ trợ. VNG IoT Lab đã tham khảo và nghiên cứu phát triển package hỗ trợ Arduino IDE cho VBLUno và VBLUno51.</p>
-
-<h4 id="cách-1-cài-đặt-offline-khuyên-dùng">Cách 1: Cài đặt offline (khuyên dùng)</h4>
-
-<ul>
-  <li>
-    <p><em>Bạn cần chắc chắn Arduino IDE không được mở trong quá trình cài đặt offline</em>.</p>
-  </li>
-  <li>Tải bản cài đặt phù hợp với hệ điều hành:
-    <ul>
-      <li><a href="https://github.com/VNGIoTLab/Arduino_VBLUno_nRF51822/tree/master/Setup_Offline/Windows">Cho Windows</a></li>
-      <li><a href="https://github.com/VNGIoTLab/Arduino_VBLUno_nRF51822/tree/master/Setup_Offline/Linux">Cho Linux</a></li>
-      <li><a href="https://github.com/VNGIoTLab/Arduino_VBLUno_nRF51822/tree/master/Setup_Offline/Mac">Cho MacOSX</a></li>
-    </ul>
-  </li>
-  <li>
-    <p>Giải nén và chạy file cài đặt</p>
-
-    <ul>
-      <li>Windows: <code class="highlighter-rouge">Setup_VBLUno_Windows.exe</code></li>
-      <li>Linux:
-        <ul>
-          <li><code class="highlighter-rouge">cd Setup_Offline_VBLUno_Linux_xxx</code></li>
-          <li><code class="highlighter-rouge">chmod 777 Setup_VBLUno_Linux</code></li>
-          <li><code class="highlighter-rouge">sudo ./Setup_VBLUno_Linux</code> . (Cần phải sử dụng lệnh sudo)</li>
-        </ul>
-      </li>
-      <li>Đường dẫn mặc định của thư mục cài đặt các packages cho Arduino:
-        <ul>
-          <li>Windows: %APPDATA%\Arduino15. Ví dụ: “C:\Users\MrABC\AppData\Local\Arduino15”</li>
-          <li>Linux: ~/.arduino15</li>
-          <li>OS X: ~/Library/Arduino15</li>
-        </ul>
-      </li>
-      <li>Bạn chờ đến khi chương trình thông báo “The installation was successful” là quá trình cài đặt đã hoàn thành.</li>
-    </ul>
-  </li>
-  <li>Chú ý: Từ bây giờ, tại Preferences-&gt;Additional Boards Manager URLs luôn phải có nội dung sau (các packages khác nhau được phân tách bởi dấy phẩy):
-  <code class="highlighter-rouge">https://raw.githubusercontent.com/VNGIoTLab/Arduino_VBLUno_nRF51822/master/package_vngiotlab_vbluno_index.json</code>.</li>
-</ul>
-
-<h4 id="cách-2-cài-đặt-online">Cách 2: Cài đặt online</h4>
-
-<ul>
-  <li>
-    <p>Chạy Arduino IDE, vào menu File, chọn “Preferences”, thêm dòng sau vào ô  “Additional Boards Manager URLs”: <code class="highlighter-rouge">https://raw.githubusercontent.com/VNGIoTLab/Arduino_VBLUno_nRF51822/master/package_vngiotlab_vbluno_index.json</code>
-  *Chú ý: * Bạn có thể thêm nhiều địa chỉ URLs tại đây, phân tách chúng bởi dấy phẩy.</p>
-  </li>
-  <li>
-    <p>Cài đặt dữ liệu “VNGIoTLab VBLUno Boards” thông qua Trình quản lý boards (Boards Manager)</p>
-    <ul>
-      <li>Từ menu: Tools -&gt; Board -&gt; Boards Manager …</li>
-      <li>Chọn VNGIoTLab VBLUno Boards và nhấn Install</li>
-    </ul>
-  </li>
-</ul>
-
-<hr />
-<h2 id="phẦn-3-vÍ-dỤ-hello-world">PHẦN 3: VÍ DỤ HELLO WORLD!</h2>
-
-<p>Khi học một ngôn ngữ lập trình mới, thông thường chương trình đầu tiên chúng ta thực hiện là Hello World example. Mục đích để giúp lập trình viên nắm được cấu trúc cơ bản của một chương trình, cách sử dụng IDE và trình biên dịch, và đặc biệt là tạo hứng thú cho lập trình viên theo kiểu “Đầu xuôi đuôi lọt”.</p>
-
-<p>Với VBLUno51 cũng vậy, các bạn cũng nên bắt đầu bằng việc thực hiện một ví dụ Hello World, đó chính là ví dụ điều khiển nhấp nháy Led đơn.</p>
-
-<p><strong>Các bước thực hiện</strong></p>
-
-<ul>
-  <li>
-    <p>Kết nối mạch VBLUno51 với máy tính thông qua cổng USB. Lúc này, <code class="highlighter-rouge">Led báo nguồn phải sáng</code></p>
-  </li>
-  <li>
-    <p>Chọn board và cổng serial để nạp</p>
-
-    <ul>
-      <li>
-        <p>Chọn VBLUno51_nRF51822_DAPLink(vx.x.x) từ menu của Arduino IDE:
-  <code class="highlighter-rouge">Menu &gt; Tools &gt; Board &gt; VBLUno51_nRF51822_DAPLink(v1.x.x)</code></p>
-      </li>
-      <li>
-        <p>Chọn cổng nối tiếp tương ứng của VBLUno51:
-  <code class="highlighter-rouge">Menu &gt; Tools &gt; Port &gt; [tên cổng nối tiếp của VBLUno51]</code></p>
-      </li>
-    </ul>
-  </li>
-</ul>
-
-<p><img src="images/arduino/getstart/arduino_board.png" alt="" /></p>
-
-<ul>
-  <li>Ví dụ nháy led (Blink)</li>
-</ul>
-
-<p>Bạn hãy copy và paste đoạn mã nguồn sau vào Arduino IDE</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>/*************************************************************************
-VNGIoTLab - 2017
-Arduino IDE with VBLUno51 board
-Tutorial 1 - Hello World Example
-Mô tả: Ví dụ nhấp nháy led trên mạch VBLUno51 với chu kỳ 2s
-***************************************************************************/
-
-// the setup function runs once when you press reset or power the board
-void setup() {
-  // Khởi tạo chân LED là chân OUTPUT (trên VBLUno có sẵn 1 Led)
-  pinMode(LED, OUTPUT);
-}
-
-// the loop function runs over and over again forever
-void loop() {
-  digitalWrite(LED, HIGH);   		// Bật sáng Led 
-  delay(1000);              		// Chờ 1 giây
-  digitalWrite(LED, LOW);    		// Tắt led
-  delay(1000);              		// Chờ 1 giây
-}
-</code></pre>
-</div>
-
-<ul>
-  <li>
-    <p>Sử dụng chức năng upload (Menu =&gt; Sketch =&gt; <code class="highlighter-rouge">Upload</code>) để biên dịch chương trình và nạp firmware xuống mạch VBLUno51.
-<code class="highlighter-rouge">Điểm khác biệt của VBLUno51 so với phiên bản đầu tiên:</code>
-<code class="highlighter-rouge">NGƯỜI DÙNG KHÔNG CẦN CAN THIỆP VÀO PHẦN CỨNG, QUÁ TRÌNH NẠP DIỄN RA TỰ ĐỘNG</code></p>
-  </li>
-  <li>
-    <p>Nếu biên dịch và nạp thành công, bạn sẽ nhận được thông báo như hình dưới đây</p>
-  </li>
-</ul>
-
-<p><img src="images/arduino/getstart/arduino_flash.png" alt="t" /></p>
-
-<ul>
-  <li>Sau khi nạp code, chương trình sẽ tự động chạy. Hãy quan sát LED trên mạch VBLUno51 nhấp nháy với chu kỳ 2 giây.</li>
-</ul>
+<p>Comming soon</p>
 
 
     <div class="tags">
@@ -1078,7 +915,7 @@ void loop() {
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2017 VNG Corporation. All rights reserved. <br />
- Site last generated: May 24, 2017 <br />
+ Site last generated: May 27, 2017 <br />
 <p><img src="images/company_logo_medium.png" alt="Company logo"/></p>
                 </div>
             </div>

@@ -3,6 +3,8 @@
 ***
 ## VBLUno51 board
 
-http://iotviet.com.vn
+Output page: https://vngiotlab.github.io/vbluno/
 
-https://www.facebook.com/bleviet/
+Sale page: http://iotviet.com.vn
+
+Fan page: https://www.facebook.com/bleviet/

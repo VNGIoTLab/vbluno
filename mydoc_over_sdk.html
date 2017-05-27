@@ -36,7 +36,7 @@
 <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
 
-<link rel="alternate" type="application/rss+xml" title="" href="http://localhost:4000feed.xml">
+<link rel="alternate" type="application/rss+xml" title="" href="https://vngiotlab.github.io/vblunofeed.xml">
 
     <script>
         $(document).ready(function() {
@@ -195,6 +195,9 @@
                     
                     
                     <li><a class="link-vi" href="/vbluno/vi/index_vi.html">TIẾNG VIỆT</a></li>
+                    <!-- for test in local -->
+                    <!-- <li><a class="link-vi" href="/vi/index_vi.html">TIẾNG VIỆT</a></li>	-->
+
                 
                 
 
@@ -294,7 +297,7 @@
             
             
             
-            <li><a href="mydoc_over_appcanmake.html">What applications can you make with VBLUno51?</a></li>
+            <li><a href="mydoc_over_appcanmake.html">What applications can you make by the VBLUno51?</a></li>
             
             
             
@@ -331,7 +334,7 @@
             
             
             
-            <li><a href="https://goo.gl/byqaK0" target="_blank">Schematic</a></li>
+            <li><a href="mydoc_doc_hardware.html">Schematic and PCB</a></li>
             
             
             
@@ -367,6 +370,18 @@
             
             
             
+            <li><a href="mydoc_doc_daplink.html">Upgrade DAPLink firmware</a></li>
+            
+            
+            
+
+            
+
+
+            
+            
+            
+            
             <li><a href="https://goo.gl/oVdvcv" target="_blank">mbed Serial driver (Only Windows)</a></li>
             
             
@@ -383,7 +398,7 @@
         
     
     <li>
-        <a href="#">Getting Start</a>
+        <a href="#">Getting Started</a>
         <ul>
             
 
@@ -872,40 +887,36 @@
 
     
 
-    <a target="_blank" href="https://github.com/VNGIoTLab/vbluno/tree/master/pages/mydoc/mydoc_over_sdk.md" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
-
-    
-
-  <h2 id="Để-phát-triển-phần-mềm-cho-vbluno51-">Để phát triển phần mềm cho VBLUno51 ?</h2>
+  <h2 id="to-develop-software-for-the-vbluno51-board">To develop software for the VBLUno51 board?</h2>
 
 <ul>
   <li>
-    <p>VBLUno51 sử dụng vi điều khiển nRF51822 của hãng Nordic Semiconductor, với nhân ARM Cortex-M0 32 bit hỗ trợ các tính năng và giao diện cơ bản của một vi điều khiển. Điểm nhấn của nRF51822 là tích hợp giao tiếp truyền thông không dây 2.4 GHz Bluetooth Low Energy (System on Chip). Đây là giao tiếp phổ biến trong các hệ thống IoT với đặc điểm khoảng cách gần, siêu tiết kiệm năng lượng, thân thiện với môi trường sống và phổ biến trên các thiết bị điện thoại thông minh.</p>
+    <p>VBLUno51 uses the Nordic Semiconductor nRF51822 microcontroller, with a 32-bit ARM Cortex-M0 core that supports the basic features and interfaces of a microcontroller. The highlight of the nRF51822 is 2.4 GHz wireless communication interface Bluetooth Low Energy (System on Chip). This is the most common interface in IoT systems with proximity, super energy saving, environmentally friendly and common proximity features on smartphone devices.</p>
   </li>
   <li>
-    <p>nRF51822 là dòng chip BLE được sử dụng khá rộng rãi trên thế giới, nhiều kit phát triển cũng thiết kế dựa trên dòng chip này nên nó được hỗ trợ bởi khá nhiều SDK và Embedded OS. <strong>Tuy giá thành không rẻ như một số dòng chip có hỗ trợ BLE của Trung Quốc, nhưng nRF51822 có ưu điểm là hoạt động rất ổn định và cực kỳ tiết kiệm năng lượng với giao tiếp không dây BLE.</strong></p>
+    <p>NRF51822 is a BLE chip widely used in the world, many development kits are also based on this chip, so it is supported by many SDK and Embedded OS. <strong>Although not as cheap as some of China’s BLE-enabled chips, the nRF51822 has the advantage of being extremely stable and extremely energy-efficient with BLE wireless communication.</strong></p>
   </li>
   <li>
-    <p>Có thể tổng hợp các SDK và RTOS (open source) mà VBLUno51 được hỗ trợ như sau:</p>
+    <p>SDKs and RTOS (open source) that support the VBLUno51 board as follows:</p>
 
     <ul>
       <li>
-        <p><strong>Nordic SDK:</strong> Đây là SDK chính thức cho các dòng chip nRF51, nRF52 của hãng Nordic. SDK này cung cấp thư viện cho tất cả các thành phần bên trong chip nRF51822, bao gồm thư viện giao tiếp BLE. Nordic SDK hỗ trợ các IDE (Compiler) như Keil MDK, IAR,… Sự khó khăn khi sử dụng SDK này là người lập trình cần phải hiểu khá nhiều về phần cứng cũng như tiêu tốn nhiều thời gian tìm hiểu các hàm API.</p>
+        <p><em>Nordic SDK</em>: This is the official SDK for Nordic nRF51, nRF52 chips. This SDK provides libraries for all components within the nRF51822 chip, including the BLE interface library. The Nordic SDK supports IDEs such as Keil MDK, IAR, etc. The difficulty when using this SDK is that programmers need to understand a lot about hardware as well as spend a lot of time learning API functions. .</p>
       </li>
       <li>
-        <p><strong><em>Arduino IDE</em>:</strong>  Arduino IDE hẳn không còn xa lạ với cộng đồng làm điện tử, công nghệ thông tin. Đây là môi trường phát triển phần mềm với các hàm API đơn giản, hiệu quả, cho phép người lập trình xây dựng nhanh ứng dụng mà không cần hiểu quá sâu về phần cứng. VNGIoTLab đã tham khảo và phát triển để Arduino IDE hỗ trợ VBLUno.</p>
+        <p><strong>Arduino IDE</strong>:  Arduino IDE is no stranger to the electronic community, information technology. This is a software development environment with simple, efficient APIs that allow programmers to build applications quickly without having to go too deep into the hardware. VNGIoTLab has reference and development to Arduino IDE support VBLUno, VBLUno51.</p>
       </li>
       <li>
-        <p><strong><em>mbed-OS (2, 3, 5)</em>:</strong> Với lợi thế của nhà thiết kế chip ARM, ARM Inc cung cấp một nền tảng hoàn chỉnh để phát triển hệ thống IoT với tên gọi ARM mbed IoT Device Platform. Thành phần quan trọng của ARM mbed IoT Device Platform chính là hệ điều hành nhúng mbed OS dành cho các vi điều khiển ARM Cortex-M. mbed-OS được cộng đồng đánh giá là hệ điều hành nhúng rất phù hợp để phát triển hệ thống IoT với các tính năng cơ bản như: tính an ninh, nhiều giao diện kết nối, có RTOS, nhiều thư viện cho các loại cảm biến và ngoại vi phổ biến và đặc biệt nó là open-source.</p>
+        <p><strong>ARMmbed-OS (2, 3, 5)</strong>: With the advantage of ARM chip designers, ARM Inc provides a complete platform for developing IoT systems called ARM mbed IoT Device Platform. Important component of ARM mbed IoT Device Platform is the mbed OS - an embedded operating system for ARM Cortex-M microcontrollers. Mbed-OS is considered as an embedded operating system very suited for developing IoT systems with basic features such as: security, multiple interfaces, RTOS, popular sensors and peripherals. Especially, it is open-source.</p>
       </li>
       <li>
-        <p><strong>Apache Mynewt-OS:</strong> Đây là một hệ điều hành nhúng thời gian thực, dạng mô đun dành cho các thiết bị IoT. Giao diện kết nối không dây đầu tiên mà OS này tập trung phát triển là Bluetooth Low Energy 4.2. Tuy nhiên do mới được phát triển nên các thư viện còn chưa phong phú.</p>
+        <p><em>Apache Mynewt-OS</em>: This is a real-time, modular embedded operating system for IoT devices. The first wireless interface that this OS focused on was Bluetooth Low Energy 4.2. However, due to the newly developed libraries are not yet rich.</p>
       </li>
       <li>
-        <p><strong>RIOT-OS:</strong>  Đây là OS dành cho các IoT device, hỗ trợ real-time với dung lượng bộ nhớ cực kỳ ít. RIOT-OS có thể chạy trên các vi điều khiển 8 bit, 16 bit và 32 bit. Nó cung cấp các Network stacks như IPv6, 6LoWPAN, UDP, CoAP…</p>
+        <p><em>RIOT-OS</em>: This OS is for IoT devices, with real-time support for extremely low memory. RIOT-OS can run on 8 bit, 16 bit and 32 bit microcontrollers. It provides network stacks such as IPv6, 6LoWPAN, UDP, CoAP …</p>
       </li>
       <li>
-        <p><strong>Zephyr:</strong> Là một hệ điều hành thời gian thực dung lượng nhỏ, an ninh, với kiến trúc nhân kiểu micro/nano kernel, hỗ trợ Bluetooth, Bluetooth LE, WiFi, 802.15.4, 6Lowpan, CoAP, IPv4, IPv6, và NFC. Vào tháng 2 năm 2016, Zephyr trở thành một project của Linux Foundation.</p>
+        <p><em>Zephyr</em>: A small, secure, real-time operating system with micro-nano kernel architecture, Bluetooth, Bluetooth LE, WiFi, 802.15.4, 6Lowpan, CoAP, IPv4. , IPv6, and NFC. In February 2016, Zephyr became a project of the Linux Foundation.</p>
       </li>
       <li>
         <p>…</p>
@@ -914,7 +925,7 @@
   </li>
 </ul>
 
-<p><strong>Tạm kết luận:</strong> Để tiếp cận và nhanh chóng làm chủ VBLUno51 cũng như giao tiếp truyền thông Bluetooth Low Energy cho các ứng dụng IoT, chúng tôi khuyên bạn nên phát triển ứng dụng cho VBLUno51 sử dụng Arduino và mbed-OS. Hai công cụ này được cộng đồng quan tâm phát triển rất nhiều ví dụ mẫu. Hơn nữa, thư viện của chúng rất dễ để tìm hiểu và sử dụng.</p>
+<p><strong>Conclusion:</strong> To approach and master quickly the VBLUno51 board as well as Bluetooth Low Energy communication for IoT applications, we recommend developing application for the VBLUno51 board using Arduino and ARMmbed-OS. These two frameworks are received the interest of the IoT community and to develop a lot of examples. Moreover, their library is easy to learn and use.</p>
 
 
     <div class="tags">
@@ -931,7 +942,7 @@
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2017 VNG Corporation. All rights reserved. <br />
- Site last generated: May 24, 2017 <br />
+ Site last generated: May 27, 2017 <br />
 <p><img src="images/company_logo_medium.png" alt="Company logo"/></p>
                 </div>
             </div>

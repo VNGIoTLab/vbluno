@@ -172,10 +172,40 @@
 
 
 {
+"title": "DAPLink firmware on VBLUno51",
+"tags": "documents",
+"keywords": "",
+"url": "mydoc_doc_daplink.html",
+"summary": ""
+}
+,
+
+
+
+
+
+
+
+{
 "title": "Fritzing Part",
 "tags": "documents",
 "keywords": "",
 "url": "mydoc_doc_fritzing.html",
+"summary": ""
+}
+,
+
+
+
+
+
+
+
+{
+"title": "Schematic and PCB",
+"tags": "documents",
+"keywords": "",
+"url": "mydoc_doc_hardware.html",
 "summary": ""
 }
 ,
@@ -202,7 +232,7 @@
 
 
 {
-"title": "Bắt đầu với Arduino IDE",
+"title": "Getting started with Arduino IDE",
 "tags": "getting_started",
 "keywords": "",
 "url": "mydoc_getstart_arduino.html",
@@ -217,7 +247,7 @@
 
 
 {
-"title": "Bắt đầu với mbed-OS và Eclipse IDE",
+"title": "Getting started with mbed-OS and Eclipse IDE",
 "tags": "getting_started",
 "keywords": "",
 "url": "mydoc_getstart_gnuarm_eclipse.html",
@@ -232,7 +262,7 @@
 
 
 {
-"title": "Bắt đầu với mbed-OS và Keil uVision",
+"title": "Getting started with mbed-OS and Keil uVision",
 "tags": "getting_started",
 "keywords": "",
 "url": "mydoc_getstart_keil.html",
@@ -247,7 +277,7 @@
 
 
 {
-"title": "Bắt đầu với mbed-OS",
+"title": "Getting started with mbed-OS",
 "tags": "getting_started",
 "keywords": "",
 "url": "mydoc_getstart_mbed.html",
@@ -262,7 +292,7 @@
 
 
 {
-"title": "Bắt đầu với mbed-OS và mbed Online Compiler",
+"title": "Getting started with mbed-OS and mbed Online Compiler",
 "tags": "getting_started",
 "keywords": "",
 "url": "mydoc_getstart_mbedonline.html",
@@ -277,7 +307,7 @@
 
 
 {
-"title": "Bắt đầu với Apache MyNewt-OS",
+"title": "Getting started with Apache MyNewt-OS",
 "tags": "getting_started",
 "keywords": "",
 "url": "mydoc_getstart_mynewt.html",
@@ -292,7 +322,7 @@
 
 
 {
-"title": "Bắt đầu với Nordic SDK",
+"title": "Getting started with Nordic SDK",
 "tags": "getting_started",
 "keywords": "",
 "url": "mydoc_getstart_nordicsdk.html",
@@ -307,7 +337,7 @@
 
 
 {
-"title": "Bắt đầu với Riot-OS",
+"title": "Getting started with Riot-OS",
 "tags": "getting_started",
 "keywords": "",
 "url": "mydoc_getstart_riot.html",
@@ -322,7 +352,7 @@
 
 
 {
-"title": "Bắt đầu với Zephyr",
+"title": "Getting started with Zephyr",
 "tags": "getting_started",
 "keywords": "",
 "url": "mydoc_getstart_zephyr.html",
@@ -337,7 +367,7 @@
 
 
 {
-"title": "Introduction to VNG VBLUno51 board",
+"title": "Introduction to the VNG VBLUno51 board",
 "tags": "getting_started",
 "keywords": "",
 "url": "mydoc_introduction.html",
@@ -352,7 +382,7 @@
 
 
 {
-"title": "Nạp/Gỡ lỗi cho VBLUno bằng pyOCD và OpenOCD trên GNU ARM Embedded + Eclipse",
+"title": "Flash/Debug for VBLUno51 by pyOCD and OpenOCD on GNU ARM Embedded + Eclipse",
 "tags": "tutorials",
 "keywords": "",
 "url": "mydoc_mbed_tut1.html",
@@ -382,7 +412,7 @@
 
 
 {
-"title": "Bạn có thể tạo ứng dụng gì với VBLUno51?",
+"title": "What applications can you make by the VBLUno51 board?",
 "tags": "",
 "keywords": "",
 "url": "mydoc_over_appcanmake.html",
