@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="keywords" content="tutorials,  ">
-<title>Thiết bị phát Beacons với VBLUno | VBLUno51 board</title>
+<title>Beacon device with VBLUno51 | VBLUno51 board</title>
 <link rel="stylesheet" href="css/syntax.css">
 
 
@@ -216,7 +216,7 @@
                                 searchInput: document.getElementById('search-input'),
                                 resultsContainer: document.getElementById('results-container'),
                                 dataSource: 'search.json',
-                                searchResultTemplate: '<li><a href="{url}" title="Thiết bị phát Beacons với VBLUno">{title}</a></li>',
+                                searchResultTemplate: '<li><a href="{url}" title="Beacon device with VBLUno51">{title}</a></li>',
                     noResultsText: 'No results found.',
                             limit: 10,
                             fuzzy: true,
@@ -845,7 +845,7 @@
         <!-- Content Column -->
         <div class="col-md-9" id="tg-sb-content">
             <div class="post-header">
-   <h1 class="post-title-main">Thiết bị phát Beacons với VBLUno</h1>
+   <h1 class="post-title-main">Beacon device with VBLUno51</h1>
 </div>
 
 
@@ -887,159 +887,7 @@
 
     
 
-  <h1 id="tỰ-lÀm-mỘt-thiẾt-bỊ-phÁt-beacons-vỚi-vbluno-v2">TỰ LÀM MỘT THIẾT BỊ PHÁT BEACONS VỚI VBLUNO V2</h1>
-
-<hr />
-<h2 id="những-nét-cơ-bản-về-công-nghệ-beacons">Những nét cơ bản về công nghệ Beacons</h2>
-
-<ul>
-  <li>
-    <p>Về công nghệ Beacons nhiều bạn đã được nghe đến hoặc trực tiếp sử dụng nó. Vậy beacons là gì và lợi ích của nó ra sao. Sau đây mình sẽ giới thiệu những nét chính về công nghệ Beacons.</p>
-  </li>
-  <li>
-    <p>Beacon là thiết bị điện tử nhỏ phát ra tín hiệu Bluetooth năng lượng thấp (Bluetooth Low Energy - BLE). Bất kỳ thiết bị nào có công nghệ BLE đều có thể thu được tín hiệu này, chẳng hạn như điện thoại thông minh hay máy tính bảng.</p>
-  </li>
-  <li>
-    <p>Một thiết bị Beacon hoạt động như một “broadcasting device” - thiết bị chỉ quảng bá tín hiệu ra không gian. Điều này đồng nghĩa với việc các thiết bị BLE Central sẽ không thể kết nối đến thiết bị beacons. Thiết bị này hỗ trợ các thiết bị BLE khác nhau có thể đọc được thông tin từ Beacon tại cùng một thời điểm. Có thể xem thiết bị beacon như một ngọn hải đăng, một đèn báo hiệu để các thiết bị khác có thể dễ dàng nhận được một số thông tin cần truyền tải.</p>
-  </li>
-</ul>
-
-<p><img src="images/arduino/tut/tut2/1.png" alt="" /></p>
-
-<ul>
-  <li>
-    <p>Đây là giao thức một chiều từ Beacon đến các thiết bị BLE mà không cần tạo một kết nối giữa hai thiết bị. Giống như công nghệ GPS, dựa vào cường độ tín hiệu BLE mà các thiết bị có thể xác định khoảng cách giữa Beacon và các thiết bị BLE xung quanh. </p>
-  </li>
-  <li>
-    <p>Beacon giải quyết các bài toán như: định vị trong tòa nhà, trung tâm thương mại - xác thực thanh toán (contactless payment) - lấy mã khuyến mại (checkin coupons) - quảng cáo thông minh (proximity marketing).</p>
-  </li>
-  <li>
-    <p>Đối với giáo dục, một số công ty đã áp dụng Beacon để phân tích hành vi sinh viên, hỗ trợ kết nối sinh viên và giáo viên từ đó chống được tỷ lệ drop-out.</p>
-  </li>
-</ul>
-
-<p><img src="images/arduino/tut/tut2/2.png" alt="" /></p>
-
-<ul>
-  <li>
-    <p>Phân loại các chuẩn Beacons:</p>
-
-    <ul>
-      <li>
-        <p>iBeacons của Apple</p>
-      </li>
-      <li>
-        <p>Eddystone của Google</p>
-      </li>
-      <li>
-        <p>AltBeacon của Radius Networks</p>
-      </li>
-      <li>
-        <p>v..v…</p>
-      </li>
-    </ul>
-  </li>
-  <li>
-    <p>Phần tiếp theo trình bày cấu trúc phần user data và ý nghĩa các tham số quan trọng của chuẩn iBeacons. Các bạn có thể tìm hiểu các chuẩn beacons khác thông qua Internet.</p>
-  </li>
-</ul>
-
-<hr />
-<h2 id="ibeacons">iBeacons</h2>
-
-<ul>
-  <li>Hình dưới trình bày cấu trúc 31 byte dữ liệu trong thông tin mà iBeacons phát quảng bá ra môi trường.</li>
-</ul>
-
-<p><img src="images/arduino/tut/tut2/3.png" alt="" /></p>
-
-<ul>
-  <li>
-    <p>Với iBeacons, Apple đã chuẩn hóa định dạng các gói tin quảng bá BLE. Theo định dạng này, với một packet quảng bá bạn cần quan tâm 4 thông tin chính sau:</p>
-
-    <ul>
-      <li>
-        <p><strong>UUID</strong>: Unique ID với độ dài 16 bytes (128 bit) được dùng để phân biệt giữa các nhóm sản phẩm với nhau. Ví dụ, nếu Coca-Cola có một mạng các beacons trong một chuỗi các cửa hàng thì các thiết bị beacons đi kèm sản phẩm của Coca-Cola nên có chung một giá trị UUID này.</p>
-      </li>
-      <li>
-        <p><strong>Major</strong>: Có độ dài 2 byte được dùng để phân biệt một nhóm beacons nhỏ so với một nhóm lớn. Ví dụ, nếu Coca-Cola có bốn beacons trong một cửa hàng tạp hóa, cả bốn beacons này nên có cùng một Major. Điều này cho phép Coca-Cola biết chính xác cửa hàng mà khách đang ở trong đó.</p>
-      </li>
-      <li>
-        <p><strong>Minor</strong>: Có độ dài 2 byte để định danh các beacons riêng biệt trong từng nhóm nhỏ. Trong ví dụ với Coca-Cola ở trên, có một beacons đặt ở phía trước cửa hàng mang một giá trị Minor độc nhất. Điều này cho phép ứng dụng đi kèm biết chính xác nơi mà khách hàng đang đứng</p>
-      </li>
-      <li>
-        <p><strong>Tx Power</strong>: Được dùng để xác định khoảng cách đến beacon. Tx power được định nghĩa như độ mạnh của tín hiệu tại vị trí cách thiết bị beacons 1 mét. Các ứng dụng đi kèm có thể dùng điều này như một thông tin cơ bản để ước lượng khoảng cách từ sản phẩm (có beacons đi kèm) đến smartphone chạy ứng dụng.</p>
-      </li>
-    </ul>
-  </li>
-</ul>
-
-<hr />
-<h2 id="thực-hành-phát-ibeacons-với-bo-mạch-vbluno-v2">Thực hành phát iBeacons với bo mạch VBLUno v2</h2>
-
-<ul>
-  <li>Các bạn có thể tham khảo mã nguồn ví dụ phát iBeacons cho bo mạch VBLUno v2 có sẵn trong Arduino IDE:</li>
-</ul>
-
-<p><code class="highlighter-rouge">File --&gt; Examples --&gt; BLE_Examples --&gt; BLE_beacon</code></p>
-
-<p><strong>Một số ghi chú:</strong></p>
-
-<ul>
-  <li><em>Đoạn code sau chứa nội dung gói dữ liệu quảng bá beacons</em></li>
-</ul>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>const static uint8_t beaconPayload[] = {
-0x4C,0x00,                                                         // Company Identifier Code = Apple
-0x02,                                                                  // Type = iBeacon
-0x15,                                                                  // Following data length
-0x71,0x3d,0x00,0x00,0x50,0x3e,0x4c,0x75,0xba,0x94,0x31,0x48,0xf1,0x8d,0x94,0x1e, // Beacon UUID
-0x00,0x49,                                                                       // Major
-0x00,0x0A,                                                                       // Minor
-0xC5                                                                             // Measure Power
-};
-</code></pre>
-</div>
-
-<ul>
-  <li>
-    <p><em>Các tham số quảng bá quan trọng:</em></p>
-
-    <ul>
-      <li>
-        <p>LE_GENERAL_DISCOVERABLE: Cho phép discovery</p>
-      </li>
-      <li>
-        <p>MANUFACTURER_SPECIFIC_DATA</p>
-      </li>
-      <li>
-        <p>ADV_NON_CONNECTABLE_UNDIRECTED: Không hỗ trợ kết nối</p>
-      </li>
-    </ul>
-  </li>
-</ul>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>ble.accumulateAdvertisingPayload(GapAdvertisingData::BREDR_NOT_SUPPORTED | GapAdvertisingData::LE_GENERAL_DISCOVERABLE);  
-
-ble.accumulateAdvertisingPayload(GapAdvertisingData::MANUFACTURER_SPECIFIC_DATA, beaconPayload, sizeof(beaconPayload));
-
-ble.setAdvertisingType(GapAdvertisingParams::ADV_NON_CONNECTABLE_UNDIRECTED);
-</code></pre>
-</div>
-
-<p><strong>Kết quả demo:</strong></p>
-
-<ul>
-  <li>Sau khi biên dịch và nạp firmware cho VBLUno, sử dụng một số phần mềm có tính năng đọc tín hiệu beacons trên smartphone để kiểm tra hoạt động của thiết bị beacons . Ở đây mình dùng phần mềm Beacon Scanner trên Android OS.</li>
-</ul>
-
-<p><img src="images/arduino/tut/tut2/4.png" alt="" /></p>
-
-<p><img src="images/arduino/tut/tut2/5.png" alt="" /></p>
-
-<ul>
-  <li>Có thể thấy, bằng việc sử dụng VBLUno, bạn dễ dàng chế tạo thử nghiệm một thiết bị beacons áp dụng cho nhiều bài toán khác nhau.</li>
-</ul>
+  
 
 
     <div class="tags">
@@ -1064,7 +912,7 @@ ble.setAdvertisingType(GapAdvertisingParams::ADV_NON_CONNECTABLE_UNDIRECTED);
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2017 VNG Corporation. All rights reserved. <br />
- Site last generated: May 27, 2017 <br />
+ Site last generated: May 31, 2017 <br />
 <p><img src="images/company_logo_medium.png" alt="Company logo"/></p>
                 </div>
             </div>

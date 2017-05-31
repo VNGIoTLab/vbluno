@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="keywords" content="tutorials,  ">
-<title>Đo nhiệt độ bên trong chip nRF51822 | VBLUno51 board</title>
+<title>Measure temperature inside nRF51822 chip | VBLUno51 board</title>
 <link rel="stylesheet" href="css/syntax.css">
 
 
@@ -216,7 +216,7 @@
                                 searchInput: document.getElementById('search-input'),
                                 resultsContainer: document.getElementById('results-container'),
                                 dataSource: 'search.json',
-                                searchResultTemplate: '<li><a href="{url}" title="Đo nhiệt độ bên trong chip nRF51822">{title}</a></li>',
+                                searchResultTemplate: '<li><a href="{url}" title="Measure temperature inside nRF51822 chip">{title}</a></li>',
                     noResultsText: 'No results found.',
                             limit: 10,
                             fuzzy: true,
@@ -845,7 +845,7 @@
         <!-- Content Column -->
         <div class="col-md-9" id="tg-sb-content">
             <div class="post-header">
-   <h1 class="post-title-main">Đo nhiệt độ bên trong chip nRF51822</h1>
+   <h1 class="post-title-main">Measure temperature inside nRF51822 chip</h1>
 </div>
 
 
@@ -887,154 +887,7 @@
 
     
 
-  <h1 id="Đo-nhiỆt-ĐỘ-bÊn-trong-chip-nrf51822">ĐO NHIỆT ĐỘ BÊN TRONG CHIP nRF51822</h1>
-
-<hr />
-<h2 id="cảm-biến-nhiệt-độ-bên-trong-chip-nrf51822">Cảm biến nhiệt độ bên trong chip nRF51822</h2>
-
-<ul>
-  <li>
-    <p>Bên trong chip nRF51822 của Nordic có tích hợp sẵn một cảm biến nhiệt độ giúp đo nhiệt độ hoạt động của chip. Cảm biến này có độ chính xác là 0.25 độ C (1 đơn vị đo được tương ứng với 0.25 độ C).</p>
-  </li>
-  <li>
-    <p>Kết quả đo được không phải là nhiệt độ của môi trường xung quanh, mà là nhiệt độ bên trong con chip nRF51822 (CPU của bo mạch VBLUno)</p>
-  </li>
-  <li>
-    <p>Theo tài liệu về nRF51822 của hãng Nordic Semiconductor, dải nhiệt độ hoạt động của chip trong khoảng từ -25 đến 75 độ C. Ta có thể sử dụng cảm biến này để giám sát nhiệt độ CPU (nRF51822), từ đó biết được mức tải làm việc của hệ thống, đưa ra các cảnh báo cần thiết khi tải làm việc quá cao. Điều này giúp hệ thống làm việc ổn định và bền bỉ hơn.</p>
-  </li>
-</ul>
-
-<p><strong>Thủ tục đo nhiệt độ</strong></p>
-
-<ul>
-  <li>
-    <p>Để tiến hành một lần đo nhiệt độ bên trong chip, thực hiện theo các bước sau:</p>
-
-    <ul>
-      <li>
-        <p>Kích hoạt lệnh START đến mô đun TEMP (cảm biến nhiệt độ) để bắt đầu quá trình đo</p>
-      </li>
-      <li>
-        <p>Khi quá trình đo hoàn thành, cờ EVENTS_DATARDY được đặt lên 1.</p>
-      </li>
-      <li>
-        <p>Thực hiện hàm đọc giá trị nhiệt độ từ thanh ghi tương ứng</p>
-      </li>
-      <li>
-        <p>Dừng quá trình đo bằng cách kích hoạt lệnh STOP đến mô đun TEMP</p>
-      </li>
-    </ul>
-  </li>
-</ul>
-
-<p><strong>Đo nhiệt độ môi trường?</strong></p>
-
-<ul>
-  <li>
-    <p>Thông thường chúng ta sử dụng các cảm biến đo nhiệt độ các môi trường như: không khí, nước, đất,… Khi đó, cảm biến nhiệt độ được lắp tại các vị trí cần đo. Bạn cần nhớ rằng ví dụ này chỉ đề cập đến cảm biến nhiệt độ bên trong con chip nRF51822, điều đó có nghĩa rằng nhiệt độ đo được không phải là nhiệt độ môi trường xung quanh.</p>
-  </li>
-  <li>
-    <p>Một số bạn có thể nghĩ rằng, chúng ta có thể hiệu chuẩn lại giá trị đo này để nhận được giá trị nhiệt độ môi trường, nhưng điều đó có thể dẫn đến những kết quả có độ chính xác rất thấp, vì nhiệt độ bên trong con chip không thay đổi tuyến tính với sự thay đổi nhiệt độ môi trường.</p>
-  </li>
-</ul>
-
-<hr />
-<h2 id="ví-dụ-đo-nhiệt-độ-chip-nrf51822-trên-mạch-vbluno-v2">Ví dụ đo nhiệt độ chip nRF51822 trên mạch VBLUno V2</h2>
-
-<ul>
-  <li>
-    <p>Phần này trình bày một ví dụ đo nhiệt độ bên trong chip nRF51822 của bo mạch VBLUno trên môi trường Arduino IDE.</p>
-  </li>
-  <li>
-    <p>Ví dụ này khá đơn giản, sử dụng các hàm trong thư viện nrf_temp của Nordic SDK dành cho họ nRF5. Trong đó, chúng tôi có viết hàm float read_temp_value() thực hiện một lần đo nhiệt độ bên trong chip. Các bước của một chu trình đo như đã trình bày ở phần trên.</p>
-  </li>
-</ul>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>/* brief    Hàm đọc giá trị nhiệt độ từ cảm biến nhiệt độ nội bộ của nRF51822
- * return   Giá trị nhiệt độ (float)*/
-float read_temp_value(){
-  float temp=0.0;
-  /* Bắt đầu quá trình đo nhiệt độ. */
-  NRF_TEMP-&gt;TASKS_START = 1; 
-  /* Chờ đến khi quá trình đo nhiệt độ hoàn thành. */
-  while (NRF_TEMP-&gt;EVENTS_DATARDY == 0){
-    // Do nothing.}
-  }
-  NRF_TEMP-&gt;EVENTS_DATARDY = 0;
-  /* Đọc giá trị nhiệt độ từ cảm biến
-   * Độ chính xác là 0.25 độ C &lt;=&gt; 1 đơn vị = 0.25 độ C
-   * Cần chia cho 4 để nhận được giá trị độ C
-   */
-  temp = ((float)nrf_temp_read() / 4.);
-  /* Hoàn thành quá trình đo. */
-  NRF_TEMP-&gt;TASKS_STOP = 1; 
-  return temp;
-</code></pre>
-</div>
-
-<ul>
-  <li>Kết quả:</li>
-</ul>
-
-<p><img src="images/arduino/tut/tut3/1.png" alt="" /></p>
-
-<ul>
-  <li>
-    <p>Trong bài viết tiếp theo, chúng tôi sẽ hướng dẫn các bạn sử dụng cảm biến nhiệt độ bên trong chip nRF51822 để minh họa một thiết bị nhiệt kế  (Health Thermometer Monitor – HTM). HTM là một nhiệt kế thông minh giúp truyền giá trị nhiệt độ từ cảm biến nhiệt độ gắn trên người đến điện thoại thông minh, máy tính bảng.</p>
-  </li>
-  <li>
-    <p>Mã nguồn đầy đủ của ví dụ đã trình bày:</p>
-  </li>
-</ul>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>*
- * VNGIoTLab VBLUno KIT
- * VÍ DỤ ĐỌC GIÁ TRỊ TỪ CẢM BIẾN NHIỆT ĐỘ BÊN TRONG nRF51822
- */
-
-#include "nrf_temp.h"
-
-/*
- * brief    Hàm đọc giá trị nhiệt độ từ cảm biến nhiệt độ nội bộ của nRF51822
- * return   Giá trị nhiệt độ (float)
- */
-float read_temp_value(){
-  float temp=0;
-  /* Bắt đầu quá trình đo nhiệt độ. */
-  NRF_TEMP-&gt;TASKS_START = 1; 
-  /* Chờ đến khi quá trình đo nhiệt độ hoàn thành. */
-  while (NRF_TEMP-&gt;EVENTS_DATARDY == 0){
-    // Do nothing.}
-  }
-  NRF_TEMP-&gt;EVENTS_DATARDY = 0;
-  /* Đọc giá trị nhiệt độ từ cảm biến
-   * Độ chính xác là 0.25 độ C &lt;=&gt; 1 đơn vị = 0.25 độ C
-   * Cần chia cho 4 để nhận được giá trị độ C
-   */
-  temp = ((float)nrf_temp_read() / 4.);
-  /* Hoàn thành quá trình đo. */
-  NRF_TEMP-&gt;TASKS_STOP = 1; 
-  return temp;
-}
-
-void setup() {
-  // put your setup code here, to run once:
-  pinMode(LED, OUTPUT);
-  digitalWrite(LED, HIGH);
-  Serial.begin(9600);
-  Serial.println("VBLUno - Read Internal Temperature");
-
-  //for Temperature
-  nrf_temp_init();
-}
-void loop() {
-  // put your main code here, to run repeatedly:
-  Serial.print("Gia tri nhiet do: ");
-  Serial.println(read_temp_value());
-  delay(1000);
-}
-</code></pre>
-</div>
+  
 
 
     <div class="tags">
@@ -1059,7 +912,7 @@ void loop() {
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2017 VNG Corporation. All rights reserved. <br />
- Site last generated: May 27, 2017 <br />
+ Site last generated: May 31, 2017 <br />
 <p><img src="images/company_logo_medium.png" alt="Company logo"/></p>
                 </div>
             </div>

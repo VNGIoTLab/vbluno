@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="keywords" content="tutorials,  ">
-<title>Thiết bị theo dõi nhịp tim với VBLUno | VBLUno51 board</title>
+<title>Design a Heart Rate Monitor device with VBLUno51 | VBLUno51 board</title>
 <link rel="stylesheet" href="css/syntax.css">
 
 
@@ -216,7 +216,7 @@
                                 searchInput: document.getElementById('search-input'),
                                 resultsContainer: document.getElementById('results-container'),
                                 dataSource: 'search.json',
-                                searchResultTemplate: '<li><a href="{url}" title="Thiết bị theo dõi nhịp tim với VBLUno">{title}</a></li>',
+                                searchResultTemplate: '<li><a href="{url}" title="Design a Heart Rate Monitor device with VBLUno51">{title}</a></li>',
                     noResultsText: 'No results found.',
                             limit: 10,
                             fuzzy: true,
@@ -845,7 +845,7 @@
         <!-- Content Column -->
         <div class="col-md-9" id="tg-sb-content">
             <div class="post-header">
-   <h1 class="post-title-main">Thiết bị theo dõi nhịp tim với VBLUno</h1>
+   <h1 class="post-title-main">Design a Heart Rate Monitor device with VBLUno51</h1>
 </div>
 
 
@@ -887,68 +887,7 @@
 
     
 
-  <h1 id="vÍ-dỤ-minh-hỌa-thiẾt-bỊ-theo-dÕi-nhỊp-tim-vỚi-vbluno-v2">VÍ DỤ MINH HỌA THIẾT BỊ THEO DÕI NHỊP TIM VỚI VBLUNO V2</h1>
-
-<ul>
-  <li>Thiết bị theo dõi nhịp tim: Heart Rate Monitor– HRM</li>
-</ul>
-
-<p>Hình dưới thể hiện cấu trúc của Heart Rate Service (HRS)</p>
-
-<p><img src="images/ble/introduce/12.png" alt="" /></p>
-
-<ul>
-  <li>Ta thấy, HRS bao gồm 2 characteristics giúp cung cấp thông tin về nhịp tim và vị trí gắn cảm biến trên cơ thể. Chi tiết có thể xem tại đường dẫn sau:</li>
-</ul>
-
-<p>https://www.bluetooth.com/specifications/gatt/viewer?attributeXmlFile=org.bluetooth.service.heart_rate.xml</p>
-
-<ul>
-  <li>
-    <p>Ví dụ sau minh họa một thiết bị BLE có chức năng đo nhịp tim và truyền về BLE Central (Smartphones, tablets, PC). Vì không có cảm biến hỗ trợ tính năng này nên trong ví dụ này mình chỉ tạo giả tín hiệu theo mô tả sau:</p>
-
-    <ul>
-      <li>
-        <p>Giá trị nhịp tim thay đổi tuyến tính từ 100 đến 175 với độ tăng là 1</p>
-      </li>
-      <li>
-        <p>Vị trí cảm biến trên cơ thể: Finger (mã = 0x03)</p>
-      </li>
-    </ul>
-  </li>
-  <li>
-    <p>Thực hiện:</p>
-
-    <ul>
-      <li>
-        <p>Mở Arduino IDE</p>
-      </li>
-      <li>
-        <p>Chạy ví dụ HRM: <code class="highlighter-rouge">File --&gt; Examples --&gt; BLE_Examples --&gt; BLE_HRM</code></p>
-      </li>
-      <li>
-        <p>Tiến hành biên dịch và upload xuống bo mạch VBLUno. Nếu thành công bạn đã có một thiết bị BLE minh họa tính năng theo dõi nhịp tim.</p>
-      </li>
-      <li>
-        <p>Để kết nối đến thiết bị này, bạn cần một BLE Central (Smart phone, tablet, PC). Ở đây mình dùng phần mềm nRF Toolbox của Nordic và phần mềm BLE Tool để minh họa.</p>
-      </li>
-    </ul>
-  </li>
-</ul>
-
-<p><img src="images/ble/introduce/13.png" alt="" /></p>
-
-<ul>
-  <li>Trên điện thoại Android hoặc iPhone, chạy phần mềm nRF Toolbox, chọn mục HRM, nhấn Connect để tìm kiếm thiết bị HRM và yêu cầu kết nối.</li>
-</ul>
-
-<p><img src="images/ble/introduce/14.png" alt="" /></p>
-
-<p><img src="images/ble/introduce/15.png" alt="" /></p>
-
-<p><img src="images/ble/introduce/16.png" alt="" /></p>
-
-<p>Mã nguồn của chương trình ví dụ khá đơn giản, bạn có thể tự đọc và tìm hiểu.</p>
+  
 
 
     <div class="tags">
@@ -973,7 +912,7 @@
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2017 VNG Corporation. All rights reserved. <br />
- Site last generated: May 27, 2017 <br />
+ Site last generated: May 31, 2017 <br />
 <p><img src="images/company_logo_medium.png" alt="Company logo"/></p>
                 </div>
             </div>

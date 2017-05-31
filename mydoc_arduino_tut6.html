@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="keywords" content="tutorials,  ">
-<title>Điều khiển/Giám sát một thiết bị bất kỳ bằng Smartphone qua BLE | VBLUno51 board</title>
+<title>Controlling/Monitoring a device by Smartphone via BLE | VBLUno51 board</title>
 <link rel="stylesheet" href="css/syntax.css">
 
 
@@ -216,7 +216,7 @@
                                 searchInput: document.getElementById('search-input'),
                                 resultsContainer: document.getElementById('results-container'),
                                 dataSource: 'search.json',
-                                searchResultTemplate: '<li><a href="{url}" title="Điều khiển/Giám sát một thiết bị bất kỳ bằng Smartphone qua BLE">{title}</a></li>',
+                                searchResultTemplate: '<li><a href="{url}" title="Controlling/Monitoring a device by Smartphone via BLE">{title}</a></li>',
                     noResultsText: 'No results found.',
                             limit: 10,
                             fuzzy: true,
@@ -845,7 +845,7 @@
         <!-- Content Column -->
         <div class="col-md-9" id="tg-sb-content">
             <div class="post-header">
-   <h1 class="post-title-main">Điều khiển/Giám sát một thiết bị bất kỳ bằng Smartphone qua BLE</h1>
+   <h1 class="post-title-main">Controlling/Monitoring a device by Smartphone via BLE</h1>
 </div>
 
 
@@ -887,151 +887,7 @@
 
     
 
-  <h1 id="ĐiỀu-khiỂn-vÀ-giÁm-sÁt-thiẾt-bỊ-bẰng-smartphone-qua-ble">ĐIỀU KHIỂN VÀ GIÁM SÁT THIẾT BỊ BẰNG SMARTPHONE QUA BLE</h1>
-
-<hr />
-<h2 id="Điều-khiển-thiết-bị-qua-ble-với-vbluno-led-button-service">Điều khiển thiết bị qua BLE với VBLUno-LED BUTTON Service</h2>
-
-<ul>
-  <li>
-    <p>Trong các bài viết trước, chúng tôi đã trình bày một số ứng dụng điển hình của giao tiếp Bluetooth Low Energy (BLE) như: Heart Rate Mesuarement, Health Thermometer, Beacons. Các ứng dụng này sử dụng các services đã được Bluetooth SIG định nghĩa sẵn. Danh sách các services có thể xem tại <a href="https://www.bluetooth.com/specifications/gatt/services">ĐÂY</a></p>
-  </li>
-  <li>
-    <p>Có hai điều bạn cần nhớ:</p>
-
-    <ul>
-      <li>
-        <p>Dữ liệu truyền qua giao tiếp BLE là dữ liệu được cấu trúc hóa, cụ thể chúng được tổ chức thành các services, trong services lại bao gồm các characteristics.</p>
-      </li>
-      <li>
-        <p>Bluetooth SIG định nghĩa sẵn một số services cho các ứng dụng điển hình, nhưng rõ ràng là chúng không đầy đủ, ví dụ như ứng dụng điều khiển một thiết bị bất kỳ. Để phục vụ các ứng dụng như vậy, chúng ta có thể tự định nghĩa các services cho từng trường hợp cụ thể.</p>
-      </li>
-    </ul>
-  </li>
-  <li>
-    <p>Các ứng dụng điều khiển thiết bị yêu cầu khả năng ghi dữ liệu từ GATT Server (Smartphones) xuống GATT Client (BLE Device) và ngược lại. Bài viết này chúng tôi minh họa việc thiết kế và cài đặt một services đơn giản cho BLE, ứng dụng điều khiển LED và nhận tín hiệu trạng thái BUTTON, gọi tắt là <strong>VBLUno – LED BUTTON Service</strong>.</p>
-  </li>
-  <li>
-    <p>VBLUno - LED BUTTON Service</p>
-  </li>
-</ul>
-
-<p>Cấu trúc của VBLUno-LED BUTTON Service</p>
-
-<p><img src="images/arduino/tut/tut6/1.png" alt="" /></p>
-
-<ul>
-  <li>
-    <p>Service này bao gồm hai characteristic cho hai mục đích khác nhau:</p>
-
-    <ul>
-      <li>
-        <p><strong>LED Characteristic:</strong> Giúp Master truyền tín hiệu điều khiển xuống thiết bị, với kiểu WRITE. Tương tự, các bạn cũng có thể chuyển thành tín hiệu điều khiển bất kỳ, không chỉ để bật tắt LED.</p>
-      </li>
-      <li>
-        <p><strong>BUTTON Characteristic</strong>: Với kiểu NOTIFY, characteristic này cho phép thiết bị BLE có thể gửi giá trị cập nhật đến Master. Ta có thể sử dụng characteristic này để gửi giá trị trạng thái nút bấm, giá trị cảm biến lên Smartphones để xử lý. Với characteristic kiểu Notify, tối thiểu chúng ta cần một Descriptor đi kèm, đó là Client Characteristic Configuration Desp. Descriptor này nằm ở phía Master giúp cho phép nhận hoặc không nhận giá trị Notify gửi lên từ BLE Device.</p>
-      </li>
-    </ul>
-  </li>
-  <li>
-    <p>Như vậy, với Services được thiết kế riêng này, chúng ta có thể cài đặt tính năng điều khiển/giám sát thiết bị bất kỳ từ các điện thoại thông minh (hoặc Tablet/PC) qua giao tiếp BLE. Phần tiếp theo trình bày việc cài đặt service này trên Arduino IDE sử dụng kit VBLUno của VNG IoTLab.</p>
-  </li>
-</ul>
-
-<hr />
-<h2 id="ví-dụ-demo-trên-bo-mạch-vbluno">Ví dụ demo trên bo mạch VBLUno</h2>
-
-<ul>
-  <li>
-    <p>Bài toán minh họa:</p>
-
-    <ul>
-      <li>
-        <p>Bo mạch VBLUno v2 kết nối với Smartphone thông qua giao tiếp BLE;</p>
-      </li>
-      <li>
-        <p>Chức năng:</p>
-
-        <ul>
-          <li>
-            <p>Smartphone –&gt; VBLUno: Điều khiển bật tắt LED bằng Smartphones;</p>
-          </li>
-          <li>
-            <p>VBLUno –&gt; Smartphone: VBLUno truyền một biến giá trị (tăng từ 0x00 đến 0xFF) theo chu kỳ 1 giây.</p>
-          </li>
-        </ul>
-      </li>
-      <li>
-        <p>Trên smartphone sử dụng phần mềm BLE Scanner để minh họa.</p>
-      </li>
-    </ul>
-  </li>
-  <li>
-    <p>Thực hiện:</p>
-
-    <ul>
-      <li>
-        <p>Tải mã nguồn chương trình cho VBLUno v2 tại <a href="https://github.com/VNGIoTLab/Arduino_VBLUno_nRF51822/blob/master/Tutorial/Source/VBLUno_Tut7_LED_BUTTON.ino">ĐÂY</a></p>
-      </li>
-      <li>
-        <p>Upload code xuống bo mạch VBLUno v2. Sau đó chuyển về chế độ Application để chạy chương trình.</p>
-      </li>
-      <li>
-        <p>Một số hình ảnh minh họa:</p>
-      </li>
-    </ul>
-  </li>
-</ul>
-
-<p>Thiết bị VBLUno hiển thị trên BLE Scanner</p>
-
-<p><img src="images/arduino/tut/tut6/2.png" alt="" /></p>
-
-<p>Các services được cài đặt trong VBLUno v2</p>
-
-<p><img src="images/arduino/tut/tut6/3.png" alt="" /></p>
-
-<ul>
-  <li>
-    <p>Trong hình 3, chương trình BLE Scanner thực hiện discovery thiết bị của chúng ta và tìm ra 3 services. Trong đó GAP và GATT Services là hai service mặc định của BLE Protocol Stack. Nội dung về GAP và GATT đã được trình bày trong các bài viết trước. Services còn lại là CUSTOM SERVICE, đây là service đã được cài đặt trong chương trình (VBLUno-LED BUTTON Service).</p>
-  </li>
-  <li>
-    <p>Để truyền lệnh điều khiển LED trên bo mạch VBLUno, nhấn ký tự W tại Characteristic đầu tiên. Truyền giá trị 0 để tắt LED, 1 để bật LED. Xem hình 4</p>
-  </li>
-</ul>
-
-<p>Giao diện ghi dữ liệu từ Smartphone xuống VBLUno</p>
-
-<p><img src="images/arduino/tut/tut6/4.png" alt="" /></p>
-
-<ul>
-  <li>Để cho phép nhận dữ liệu Notify từ VBLUno, trên app bạn nhấn vào nút N tại Characteristic thứ 2, sau đó nút N sẽ chuyển sang màu xanh lá cây. Khi đó app bắt đầu nhận dữ liệu từ VBLUno (Xem hình 5)</li>
-</ul>
-
-<p>App nhận giá trị notify từ VBLUno</p>
-
-<p><img src="images/arduino/tut/tut6/5.png" alt="" /></p>
-
-<p>Cửa sổ terminal trên PC để debug</p>
-
-<p><img src="images/arduino/tut/tut6/6.png" alt="" /></p>
-
-<ul>
-  <li>
-    <p>Mã nguồn của chương trình không có nhiều điểm mới, mình đã ghi chú khá đầy đủ trong code, các bạn có thể dễ dàng tìm hiểu nhé.</p>
-  </li>
-  <li>
-    <p>Trên đây chúng tôi đã trình bày cách thiết kế và cài đặt một service riêng cho từng ứng dụng cụ thể, dựa trên đó, các bạn có thể dễ dàng tùy biến cho ứng dụng của mình.</p>
-  </li>
-  <li>
-    <p>Mọi thắc mắc các bạn có thể trao đổi tại:</p>
-  </li>
-</ul>
-
-<p>https://www.facebook.com/bleviet/messages</p>
-
-<p>https://github.com/VNGIoTLab/Arduino_VBLUno_nRF51822/issues</p>
-
+  
 
 
     <div class="tags">
@@ -1056,7 +912,7 @@
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2017 VNG Corporation. All rights reserved. <br />
- Site last generated: May 27, 2017 <br />
+ Site last generated: May 31, 2017 <br />
 <p><img src="images/company_logo_medium.png" alt="Company logo"/></p>
                 </div>
             </div>
