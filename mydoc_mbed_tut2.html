@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="keywords" content="tutorials,  ">
-<title>BLE Beacons | VBLUno51 board</title>
+<title>Create BLE Beacons device with mbed-OS using the VBLUno51 board | VBLUno51 board</title>
 <link rel="stylesheet" href="css/syntax.css">
 
 
@@ -216,7 +216,7 @@
                                 searchInput: document.getElementById('search-input'),
                                 resultsContainer: document.getElementById('results-container'),
                                 dataSource: 'search.json',
-                                searchResultTemplate: '<li><a href="{url}" title="BLE Beacons">{title}</a></li>',
+                                searchResultTemplate: '<li><a href="{url}" title="Create BLE Beacons device with mbed-OS using the VBLUno51 board">{title}</a></li>',
                     noResultsText: 'No results found.',
                             limit: 10,
                             fuzzy: true,
@@ -845,7 +845,7 @@
         <!-- Content Column -->
         <div class="col-md-9" id="tg-sb-content">
             <div class="post-header">
-   <h1 class="post-title-main">BLE Beacons</h1>
+   <h1 class="post-title-main">Create BLE Beacons device with mbed-OS using the VBLUno51 board</h1>
 </div>
 
 
@@ -887,10 +887,102 @@
 
     
 
-  <h1 id="using-vbluno51-board-and-mbed-os-to-develop-a-beacon-device">USING VBLUno51 BOARD AND MBED-OS TO DEVELOP A BEACON DEVICE</h1>
+  <hr />
+<h2 id="introduction-to-beacons-technology">Introduction to Beacons technology</h2>
+
+<p>You can refer to Tut 2 in the series <code class="highlighter-rouge">Tutorials -&gt; Arduino -&gt; Tut2 - iBeacon devices with VBLUno51</code> and posts at the following links:</p>
+
+<p>https://developer.mbed.org/teams/Bluetooth-Low-Energy/code/BLE_iBeacon/?platform=Nordic-nRF51822</p>
+
+<p>http://www.havlena.net/en/location-technologies/ibeacons-how-do-they-technically-work/</p>
+
+<p>http://www.warski.org/blog/2014/01/how-ibeacons-work/</p>
+
+<p><img src="images/mbed/tut/tut2/1.png" alt="" /></p>
 
 <hr />
-<p>Comming soon</p>
+<h2 id="an-ibeacon-device-example-using-the-vbluno51-board-uses-mbed-os">An iBeacon device example using the VBLUno51 board uses mbed-OS</h2>
+
+<ul>
+  <li><strong>Step 1</strong>: Source code</li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>#include "mbed.h"
+#include "ble/services/iBeacon.h"
+
+BLE ble;
+    
+void bleInitComplete(BLE::InitializationCompleteCallbackContext *params)
+{
+    BLE &amp;ble          = params-&gt;ble;
+    ble_error_t error = params-&gt;error;
+
+    if (error != BLE_ERROR_NONE) {
+        return;
+    }
+    
+    /**
+     * The Beacon payload has the following composition:
+     * 128-Bit / 16byte UUID = E2 0A 39 F4 73 F5 4B C4 A1 2F 17 D1 AD 07 A9 61
+     * Major/Minor  = 0x1122 / 0x3344
+     * Tx Power     = 0xC8 = 200, 2's compliment is 256-200 = (-56dB)
+     *
+     * Note: please remember to calibrate your beacons TX Power for more accurate results.
+     */
+    const uint8_t uuid[] = {0xE2, 0x0A, 0x39, 0xF4, 0x73, 0xF5, 0x4B, 0xC4,
+                            0xA1, 0x2F, 0x17, 0xD1, 0xAD, 0x07, 0xA9, 0x61};
+    uint16_t majorNumber = 1122;
+    uint16_t minorNumber = 3344;
+    uint16_t txPower     = 0xC8;
+    iBeacon *ibeacon = new iBeacon(ble, uuid, majorNumber, minorNumber, txPower);
+
+    ble.gap().setAdvertisingInterval(1000); /* 1000ms. */
+    ble.gap().startAdvertising();
+}
+
+int main(void)
+{
+    ble.init(bleInitComplete);
+    
+    /* SpinWait for initialization to complete. This is necessary because the
+     * BLE object is used in the main loop below. */
+    while (!ble.hasInitialized()) { /* spin loop */ }
+
+    while (true) {
+        ble.waitForEvent(); // allows or low power operation
+    }
+}
+</code></pre>
+</div>
+
+<ul>
+  <li>
+    <p><strong>Step 2</strong>: Build and run</p>
+  </li>
+  <li>
+    <p>After compiling and loading program for VBLUno51 board, the program is run automatically. For testing purpose, you need to use a device that supports BLE. I use Beacons Scanner software running on Android phone for testing</p>
+  </li>
+  <li>
+    <p>Test results show that our VBLUno51 board has implemented beacons. The parameters that the device obtained is shown in the below image</p>
+  </li>
+</ul>
+
+<p><img src="images/mbed/tut/tut2/2.png" alt="" /></p>
+
+<ul>
+  <li><strong>Step 3</strong>: Learn the API functions in the above example</li>
+</ul>
+
+<p>In the above example I have used iBeacons library of mbed-os. The program  initializes the iBeacons parameters that we need, and then proceed to broadcast BLE to the environment.</p>
+
+<p>The code is clear, hopefully not to make difficult for you to read it.</p>
+
+<p>As can be seen, with the VNG VBLUno51 board (and other versions) you can easily build a beacons transmitter. You can experiment with the advanced precision problem to determine the distance to the beacons 
+(Calculate Distance from RSSI signal)</p>
+
+<ul>
+  <li><strong>Example Project:</strong>  <a href="https://github.com/VNGIoTLab/vbluno/tree/master/code_examples/mbed/ex4_ibeacon">HERE</a></li>
+</ul>
 
 
     <div class="tags">
@@ -915,7 +1007,7 @@
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2017 VNG Corporation. All rights reserved. <br />
- Site last generated: May 27, 2017 <br />
+ Site last generated: Jun 13, 2017 <br />
 <p><img src="images/company_logo_medium.png" alt="Company logo"/></p>
                 </div>
             </div>

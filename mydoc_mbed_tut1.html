@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="keywords" content="tutorials,  ">
-<title>Flash/Debug for VBLUno51 by pyOCD and OpenOCD on GNU ARM Embedded + Eclipse | VBLUno51 board</title>
+<title>Flash/Debug for the VBLUno51 board by pyOCD and OpenOCD on GNU ARM Embedded + Eclipse | VBLUno51 board</title>
 <link rel="stylesheet" href="css/syntax.css">
 
 
@@ -216,7 +216,7 @@
                                 searchInput: document.getElementById('search-input'),
                                 resultsContainer: document.getElementById('results-container'),
                                 dataSource: 'search.json',
-                                searchResultTemplate: '<li><a href="{url}" title="Flash/Debug for VBLUno51 by pyOCD and OpenOCD on GNU ARM Embedded + Eclipse">{title}</a></li>',
+                                searchResultTemplate: '<li><a href="{url}" title="Flash/Debug for the VBLUno51 board by pyOCD and OpenOCD on GNU ARM Embedded + Eclipse">{title}</a></li>',
                     noResultsText: 'No results found.',
                             limit: 10,
                             fuzzy: true,
@@ -845,7 +845,7 @@
         <!-- Content Column -->
         <div class="col-md-9" id="tg-sb-content">
             <div class="post-header">
-   <h1 class="post-title-main">Flash/Debug for VBLUno51 by pyOCD and OpenOCD on GNU ARM Embedded + Eclipse</h1>
+   <h1 class="post-title-main">Flash/Debug for the VBLUno51 board by pyOCD and OpenOCD on GNU ARM Embedded + Eclipse</h1>
 </div>
 
 
@@ -887,10 +887,187 @@
 
     
 
-  <h1 id="flash-programdebug-for-vbluno51-board-by-pyocd-and-openocd-on-gnu_arm_embedded--eclipse">FLASH PROGRAM/DEBUG FOR VBLUno51 BOARD BY pyOCD AND OpenOCD ON GNU_ARM_EMBEDDED + ECLIPSE</h1>
+  <hr />
+<h2 id="0-note">0. Note:</h2>
+
+<p>This tutorial continues for  <code class="highlighter-rouge">Getting started --&gt; Using mbed-OS --&gt; GNU ARM Embedded &amp; Eclipse IDE</code> document.</p>
 
 <hr />
-<p>Comming soon</p>
+<h2 id="1-setup">1. Setup</h2>
+
+<h3 id="11-install-pyocd">1.1. Install pyOCD</h3>
+
+<ul>
+  <li>
+    <p>pyOCD is an open source program that allows programming and debugging of ARM Cortex-M microcontrollers using the CMSIS-DAP (DAPLink) interfaces.</p>
+  </li>
+  <li>
+    <p>pyOCD is built using the Python programming language, and of course it supports multiple platforms: Windows, Linux and OSX.</p>
+  </li>
+  <li>
+    <p>For installation, see at [HERE] (https://github.com/mbedmicro/pyOCD)</p>
+  </li>
+  <li>
+    <p>After installing successfully, try typing <strong>pyocd-flashtool</strong> at the terminal, if the operating system does not recognize the path, you need to add the path of pyOCD to the PATH environment variable.</p>
+  </li>
+</ul>
+
+<p><img src="images/mbed/tut/tut1/1.png" alt="" /></p>
+
+<h3 id="12-install-openocd">1.2. Install OpenOCD</h3>
+
+<ul>
+  <li>
+    <p>pyOCD was mbed team designed for CMSIS-DAP (DAPLink) interface, OpenOCD is a software with similar functionality but can work with DAPLink (CMSIS-DAP) and many other tools such as Jlink , ST-Link, Ulink, redbee-usb, ….</p>
+  </li>
+  <li>
+    <p>If you have installed the GNU ARM Eclipse plugin for Eclipse as instructed at `Getting Started -&gt; Using mbed-OS -&gt; GNU ARM Embedded &amp; Eclipse IDE, OpenOCD is already installed on your computer. If you use Windows OS, OpenOCD can be installed into the path as below</p>
+  </li>
+</ul>
+
+<p><img src="images/mbed/tut/tut1/2.png" alt="" /></p>
+
+<ul>
+  <li>You can also install OpenOCD from <a href="https://sourceforge.net/projects/openocd/">HERE</a></li>
+</ul>
+
+<h3 id="13-install-device-packs-for-eclipse">1.3. Install Device Packs for Eclipse</h3>
+
+<p>The chip vendor’s device packs help the GNU ARM Eclipse plugin display information about the peripherals, registers, memory, and so on of the chip while we are debugging. You install according to the following image</p>
+
+<p><img src="images/mbed/tut/tut1/3.png" alt="" /></p>
+
+<p><img src="images/mbed/tut/tut1/4.png" alt="" /></p>
+
+<p><img src="images/mbed/tut/tut1/5.png" alt="" /></p>
+
+<hr />
+<h2 id="2-flashingdebugging-for-the-vbluno51-board-on-eclipse">2. Flashing/Debugging for the VBLUno51 board on Eclipse.</h2>
+
+<h3 id="21-load-program">2.1. Load program</h3>
+
+<ul>
+  <li>Edit Makefile:</li>
+</ul>
+
+<p>Add the following lines to the end of the file:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>flash_pyocd:
+	@echo ------------------Flashing by pyOCD: combined.hex------------------
+	pyocd-flashtool $(OBJDIR)/combined.hex
+
+flash_openocd:
+	@echo ------------------Flashing by OpenOCD: combined.hex------------------
+	"C:/Program Files/GNU ARM Eclipse/OpenOCD/0.10.0-201601101000-dev/bin/openocd.exe" -f "C:/Program Files/GNU ARM Eclipse/OpenOCD/0.10.0-201601101000-dev/scripts/interface/cmsis-dap.cfg" -f "C:/Program Files/GNU ARM Eclipse/OpenOCD/0.10.0-201601101000-dev/scripts/target/nrf51.cfg" -c "program $(OBJDIR)/combined.hex verify reset exit 0x0"
+
+</code></pre>
+</div>
+
+<ul>
+  <li>Create target:</li>
+</ul>
+
+<p>Create 2 target with name <code class="highlighter-rouge">flash_pyocd</code> and <code class="highlighter-rouge">flash_openocd</code>:</p>
+
+<p><img src="images/mbed/tut/tut1/8.png" alt="" /></p>
+
+<ul>
+  <li>Load executable file into the VBLUno51 board</li>
+</ul>
+
+<p>After the build project, to load the program for the board with pyOCD, double-click target flash_pyocd. Same for OpenOCD.</p>
+
+<p>The below image appears when loaded with pyOCD</p>
+
+<p><img src="images/mbed/tut/tut1/9.png" alt="" /></p>
+
+<p>The below image appears when loaded with OpenOCD</p>
+
+<p><img src="images/mbed/tut/tut1/10.png" alt="" /></p>
+
+<p>Once loaded, the board will be reset and the program will be run automatically.</p>
+
+<h3 id="22-debug-with-pyocd">2.2. Debug with pyOCD</h3>
+
+<ul>
+  <li>Note about Makefile</li>
+</ul>
+
+<p>The following lines should be included in the Makefile (as described in the article <code class="highlighter-rouge">Getting Started -&gt; Using mbed-OS -&gt; GNU ARM Embedded &amp; Eclipse IDE</code>).</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>ifeq ($(DEBUG), 1)
+  C_FLAGS += -DDEBUG -O0 -g3
+  CXX_FLAGS += -DDEBUG -O0 -g3
+else
+  C_FLAGS += -DNDEBUG -Os
+  CXX_FLAGS += -DNDEBUG -Os
+endif
+</code></pre>
+</div>
+
+<ul>
+  <li>Edit Build command</li>
+</ul>
+
+<p><img src="images/mbed/tut/tut1/12.png" alt="" /></p>
+
+<ul>
+  <li>
+    <p>Build project again</p>
+  </li>
+  <li>
+    <p>Configure debug interface</p>
+  </li>
+</ul>
+
+<p>Right click on <code class="highlighter-rouge">Project</code> -&gt; Select <code class="highlighter-rouge">Debug Configurations</code></p>
+
+<p><img src="images/mbed/tut/tut1/13.png" alt="" /></p>
+
+<p>Double click on <code class="highlighter-rouge">GDB pyOCD Debugging</code> to create a new debug configuration:</p>
+
+<p><img src="images/mbed/tut/tut1/14.png" alt="" /></p>
+
+<p><img src="images/mbed/tut/tut1/15.png" alt="" /></p>
+
+<p><img src="images/mbed/tut/tut1/16.png" alt="" /></p>
+
+<ul>
+  <li>Press <code class="highlighter-rouge">Debug</code> to start the debug process</li>
+</ul>
+
+<p><img src="images/mbed/tut/tut1/17.png" alt="" /></p>
+
+<p>pyOCD supports full common debugging features such as Run, Pause, Stop, Step Into, Step Over, Run to Line, Breakpoint, Watch for variables and expressions….Beside that, also support to Registers, Memory viewer.</p>
+
+<p>Some illustrations:</p>
+
+<p><img src="images/mbed/tut/tut1/18.png" alt="" /></p>
+
+<p><img src="images/mbed/tut/tut1/19.png" alt="" /></p>
+
+<p><img src="images/mbed/tut/tut1/20.png" alt="" /></p>
+
+<p><img src="images/mbed/tut/tut1/21.png" alt="" /></p>
+
+<h3 id="23-debug-with-openocd">2.3. Debug with OpenOCD</h3>
+
+<p>To do the same with pyOCD, note the configuration in the following image:</p>
+
+<p><img src="images/mbed/tut/tut1/22.png" alt="" /></p>
+
+<p><img src="images/mbed/tut/tut1/23.png" alt="" /></p>
+
+<p><img src="images/mbed/tut/tut1/24.png" alt="" /></p>
+
+<p>OpenOCD also supports debug features like pyOCD</p>
+
+<p><img src="images/mbed/tut/tut1/25.png" alt="" /></p>
+
+<ul>
+  <li>As can be seen, the Eclipse + GNU ARM Eclipse plugin + GNU ARM Embedded toolchain + pyOCD, OpenOCD support developers to develop applications for the VBLUno51 board easily. A GUI-friendly programming environment, which allows convenient loading and debugging of the program, enhances the productivity of programmers.</li>
+</ul>
+
 
 
     <div class="tags">
@@ -915,7 +1092,7 @@
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2017 VNG Corporation. All rights reserved. <br />
- Site last generated: May 27, 2017 <br />
+ Site last generated: Jun 13, 2017 <br />
 <p><img src="images/company_logo_medium.png" alt="Company logo"/></p>
                 </div>
             </div>

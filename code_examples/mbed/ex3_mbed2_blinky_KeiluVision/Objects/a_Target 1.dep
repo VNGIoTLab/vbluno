@@ -1,155 +1,0 @@
-Dependencies for Project 'a', Target 'Target 1': (DO NOT MODIFY !)
-F (.\mbed\AnalogIn.h)(0x577B28BA)()
-F (.\mbed\analogin_api.h)(0x577B28BA)()
-F (.\mbed\AnalogOut.h)(0x577B28BA)()
-F (.\mbed\analogout_api.h)(0x577B28BA)()
-F (.\mbed\buffer.h)(0x577B28BA)()
-F (.\mbed\BusIn.h)(0x577B28BA)()
-F (.\mbed\BusInOut.h)(0x577B28BA)()
-F (.\mbed\BusOut.h)(0x577B28BA)()
-F (.\mbed\CallChain.h)(0x577B28BA)()
-F (.\mbed\CAN.h)(0x577B28BA)()
-F (.\mbed\can_api.h)(0x577B28BA)()
-F (.\mbed\can_helper.h)(0x577B28BA)()
-F (.\mbed\CircularBuffer.h)(0x577B28BA)()
-F (.\mbed\CThunk.h)(0x577B28BA)()
-F (.\mbed\DigitalIn.h)(0x577B28BA)()
-F (.\mbed\DigitalInOut.h)(0x577B28BA)()
-F (.\mbed\DigitalOut.h)(0x577B28BA)()
-F (.\mbed\DirHandle.h)(0x577B28BA)()
-F (.\mbed\dma_api.h)(0x577B28BA)()
-F (.\mbed\Ethernet.h)(0x577B28BA)()
-F (.\mbed\ethernet_api.h)(0x577B28BA)()
-F (.\mbed\FileBase.h)(0x577B28BA)()
-F (.\mbed\FileHandle.h)(0x577B28BA)()
-F (.\mbed\FileLike.h)(0x577B28BA)()
-F (.\mbed\FilePath.h)(0x577B28BA)()
-F (.\mbed\FileSystemLike.h)(0x577B28BA)()
-F (.\mbed\FunctionPointer.h)(0x577B28BA)()
-F (.\mbed\gpio_api.h)(0x577B28BA)()
-F (.\mbed\gpio_irq_api.h)(0x577B28BA)()
-F (.\mbed\I2C.h)(0x577B28BA)()
-F (.\mbed\i2c_api.h)(0x577B28BA)()
-F (.\mbed\I2CSlave.h)(0x577B28BA)()
-F (.\mbed\InterruptIn.h)(0x577B28BA)()
-F (.\mbed\InterruptManager.h)(0x577B28BA)()
-F (.\mbed\LocalFileSystem.h)(0x577B28BA)()
-F (.\mbed\LowPowerTicker.h)(0x577B28BA)()
-F (.\mbed\LowPowerTimeout.h)(0x577B28BA)()
-F (.\mbed\LowPowerTimer.h)(0x577B28BA)()
-F (.\mbed\lp_ticker_api.h)(0x577B28BA)()
-F (.\mbed\mbed.h)(0x577B28BA)()
-F (.\mbed\mbed_assert.h)(0x577B28BA)()
-F (.\mbed\mbed_debug.h)(0x577B28BA)()
-F (.\mbed\mbed_error.h)(0x577B28BA)()
-F (.\mbed\mbed_interface.h)(0x577B28BA)()
-F (.\mbed\pinmap.h)(0x577B28BA)()
-F (.\mbed\platform.h)(0x577B28BA)()
-F (.\mbed\port_api.h)(0x577B28BA)()
-F (.\mbed\PortIn.h)(0x577B28BA)()
-F (.\mbed\PortInOut.h)(0x577B28BA)()
-F (.\mbed\PortOut.h)(0x577B28BA)()
-F (.\mbed\PwmOut.h)(0x577B28BA)()
-F (.\mbed\pwmout_api.h)(0x577B28BA)()
-F (.\mbed\RawSerial.h)(0x577B28BA)()
-F (.\mbed\rtc_api.h)(0x577B28BA)()
-F (.\mbed\rtc_time.h)(0x577B28BA)()
-F (.\mbed\semihost_api.h)(0x577B28BA)()
-F (.\mbed\Serial.h)(0x577B28BA)()
-F (.\mbed\serial_api.h)(0x577B28BA)()
-F (.\mbed\SerialBase.h)(0x577B28BA)()
-F (.\mbed\sleep_api.h)(0x577B28BA)()
-F (.\mbed\SPI.h)(0x577B28BA)()
-F (.\mbed\spi_api.h)(0x577B28BA)()
-F (.\mbed\SPISlave.h)(0x577B28BA)()
-F (.\mbed\Stream.h)(0x577B28BA)()
-F (.\mbed\Ticker.h)(0x577B28BA)()
-F (.\mbed\ticker_api.h)(0x577B28BA)()
-F (.\mbed\Timeout.h)(0x577B28BA)()
-F (.\mbed\Timer.h)(0x577B28BA)()
-F (.\mbed\TimerEvent.h)(0x577B28BA)()
-F (.\mbed\toolchain.h)(0x577B28BA)()
-F (.\mbed\Transaction.h)(0x577B28BA)()
-F (.\mbed\us_ticker_api.h)(0x577B28BA)()
-F (.\mbed\wait_api.h)(0x577B28BA)()
-F (abc)(0x57FAF0E4)(-c --cpu Cortex-M0 -g -O0 --apcs=interwork --split_sections -I. -Imbed -Imbed/TARGET_NRF51822 -Imbed/TARGET_NRF51822/TARGET_NORDIC -Imbed/TARGET_NRF51822/TARGET_NORDIC/TARGET_MCU_NRF51822 -Imbed/TARGET_NRF51822/TARGET_NORDIC/TARGET_MCU_NRF51822/Lib -Imbed/TARGET_NRF51822/TARGET_NORDIC/TARGET_MCU_NRF51822/Lib/nordic_sdk -Imbed/TARGET_NRF51822/TARGET_NORDIC/TARGET_MCU_NRF51822/Lib/nordic_sdk/components -Imbed/TARGET_NRF51822/TARGET_NORDIC/TARGET_MCU_NRF51822/Lib/nordic_sdk/components/libraries -Imbed/TARGET_NRF51822/TARGET_NORDIC/TARGET_MCU_NRF51822/Lib/nordic_sdk/components/libraries/crc16 -Imbed/TARGET_NRF51822/TARGET_NORDIC/TARGET_MCU_NRF51822/Lib/nordic_sdk/components/libraries/scheduler -Imbed/TARGET_NRF51822/TARGET_NORDIC/TARGET_MCU_NRF51822/Lib/nordic_sdk/components/libraries/util -Imbed/TARGET_NRF51822/TARGET_NORDIC/TARGET_MCU_NRF51822/Lib/s110_nrf51822_8_0_0 -Imbed/TARGET_NRF51822/TARGET_NORDIC/TARGET_MCU_NRF51822/Lib/s130_nrf51822_1_0_0 -Imbed/TARGET_NRF51822/TARGET_NORDIC/TARGET_MCU_NRF51822/TARGET_NRF51822_MKIT -Imbed/TARGET_NRF51822/TOOLCHAIN_ARM_STD --gnu --no_rtti --restrict --apcs=interwork -c -O3 -I"C:/Program Files/ARM/armcc_4.1_791/include" --split_sections --multibyte_chars --brief_diagnostics -D__ASSERT_MSG --no_depend_system_headers --md --cpu=Cortex-M0 -Otime --gnu --brief_diagnostics --apcs=interwork --cpu=Cortex-M0-I E:\IoT\IoT_VNG\DAPLink\mbed_blinky\RTE-I C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.7.1\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="513" -DNRF51 -D__CORTEX_M0 -DTARGET_MCU_NRF51_32K -DTARGET_MCU_NRF51822 -DTARGET_NRF51822_MKIT -DNRF51 -DTARGET_CORTEX_M -DTARGET_LIKE_MBED -DTARGET_NRF51822 -DARM_MATH_CM0 -DTOOLCHAIN_ARM_STD -D__MBED__="1" -DTARGET_NORDIC -DMBED_BUILD_TIMESTAMP="1467714347" -DTARGET_MCU_NRF51 -DTARGET_MCU_NORDIC_16K -DTARGET_M0 -DTARGET_MCU_NRF51_32K_S130 -DTOOLCHAIN_ARM -DTARGET_LIKE_CORTEX_M0 -D__ASSERT_MSG-o .\objects\abc.o --omf_browse .\objects\abc.crf --depend .\objects\abc.d)
-F (test.txt)(0x57FAF158)(-c --cpu Cortex-M0 -g -O0 --apcs=interwork --split_sections -I. -Imbed -Imbed/TARGET_NRF51822 -Imbed/TARGET_NRF51822/TARGET_NORDIC -Imbed/TARGET_NRF51822/TARGET_NORDIC/TARGET_MCU_NRF51822 -Imbed/TARGET_NRF51822/TARGET_NORDIC/TARGET_MCU_NRF51822/Lib -Imbed/TARGET_NRF51822/TARGET_NORDIC/TARGET_MCU_NRF51822/Lib/nordic_sdk -Imbed/TARGET_NRF51822/TARGET_NORDIC/TARGET_MCU_NRF51822/Lib/nordic_sdk/components -Imbed/TARGET_NRF51822/TARGET_NORDIC/TARGET_MCU_NRF51822/Lib/nordic_sdk/components/libraries -Imbed/TARGET_NRF51822/TARGET_NORDIC/TARGET_MCU_NRF51822/Lib/nordic_sdk/components/libraries/crc16 -Imbed/TARGET_NRF51822/TARGET_NORDIC/TARGET_MCU_NRF51822/Lib/nordic_sdk/components/libraries/scheduler -Imbed/TARGET_NRF51822/TARGET_NORDIC/TARGET_MCU_NRF51822/Lib/nordic_sdk/components/libraries/util -Imbed/TARGET_NRF51822/TARGET_NORDIC/TARGET_MCU_NRF51822/Lib/s110_nrf51822_8_0_0 -Imbed/TARGET_NRF51822/TARGET_NORDIC/TARGET_MCU_NRF51822/Lib/s130_nrf51822_1_0_0 -Imbed/TARGET_NRF51822/TARGET_NORDIC/TARGET_MCU_NRF51822/TARGET_NRF51822_MKIT -Imbed/TARGET_NRF51822/TOOLCHAIN_ARM_STD --gnu --no_rtti --restrict --apcs=interwork -c -O3 -I"C:/Program Files/ARM/armcc_4.1_791/include" --split_sections --multibyte_chars --brief_diagnostics -D__ASSERT_MSG --no_depend_system_headers --md --cpu=Cortex-M0 -Otime --gnu --brief_diagnostics --apcs=interwork --cpu=Cortex-M0-I E:\IoT\IoT_VNG\DAPLink\mbed_blinky\RTE-I C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.7.1\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="513" -DNRF51 -D__CORTEX_M0 -DTARGET_MCU_NRF51_32K -DTARGET_MCU_NRF51822 -DTARGET_NRF51822_MKIT -DNRF51 -DTARGET_CORTEX_M -DTARGET_LIKE_MBED -DTARGET_NRF51822 -DARM_MATH_CM0 -DTOOLCHAIN_ARM_STD -D__MBED__="1" -DTARGET_NORDIC -DMBED_BUILD_TIMESTAMP="1467714347" -DTARGET_MCU_NRF51 -DTARGET_MCU_NORDIC_16K -DTARGET_M0 -DTARGET_MCU_NRF51_32K_S130 -DTOOLCHAIN_ARM -DTARGET_LIKE_CORTEX_M0 -D__ASSERT_MSG-o .\objects\test.o --omf_browse .\objects\test.crf --depend .\objects\test.d)
-F (.\main.cpp)(0x57FA0B72)(--cpp -c --cpu Cortex-M0 -g -O0 --apcs=interwork --split_sections -I. -Imbed -Imbed/TARGET_NRF51822 -Imbed/TARGET_NRF51822/TARGET_NORDIC -Imbed/TARGET_NRF51822/TARGET_NORDIC/TARGET_MCU_NRF51822 -Imbed/TARGET_NRF51822/TARGET_NORDIC/TARGET_MCU_NRF51822/Lib -Imbed/TARGET_NRF51822/TARGET_NORDIC/TARGET_MCU_NRF51822/Lib/nordic_sdk -Imbed/TARGET_NRF51822/TARGET_NORDIC/TARGET_MCU_NRF51822/Lib/nordic_sdk/components -Imbed/TARGET_NRF51822/TARGET_NORDIC/TARGET_MCU_NRF51822/Lib/nordic_sdk/components/libraries -Imbed/TARGET_NRF51822/TARGET_NORDIC/TARGET_MCU_NRF51822/Lib/nordic_sdk/components/libraries/crc16 -Imbed/TARGET_NRF51822/TARGET_NORDIC/TARGET_MCU_NRF51822/Lib/nordic_sdk/components/libraries/scheduler -Imbed/TARGET_NRF51822/TARGET_NORDIC/TARGET_MCU_NRF51822/Lib/nordic_sdk/components/libraries/util -Imbed/TARGET_NRF51822/TARGET_NORDIC/TARGET_MCU_NRF51822/Lib/s110_nrf51822_8_0_0 -Imbed/TARGET_NRF51822/TARGET_NORDIC/TARGET_MCU_NRF51822/Lib/s130_nrf51822_1_0_0 -Imbed/TARGET_NRF51822/TARGET_NORDIC/TARGET_MCU_NRF51822/TARGET_NRF51822_MKIT -Imbed/TARGET_NRF51822/TOOLCHAIN_ARM_STD --gnu --no_rtti --restrict --apcs=interwork -c -O3 -I"C:/Program Files/ARM/armcc_4.1_791/include" --split_sections --multibyte_chars --brief_diagnostics -D__ASSERT_MSG --no_depend_system_headers --md --cpu=Cortex-M0 -Otime --gnu --brief_diagnostics --apcs=interwork --cpu=Cortex-M0-I E:\IoT\IoT_VNG\DAPLink\mbed_blinky\RTE-I C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.7.1\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="513" -DNRF51 -D__CORTEX_M0 -DTARGET_MCU_NRF51_32K -DTARGET_MCU_NRF51822 -DTARGET_NRF51822_MKIT -DNRF51 -DTARGET_CORTEX_M -DTARGET_LIKE_MBED -DTARGET_NRF51822 -DARM_MATH_CM0 -DTOOLCHAIN_ARM_STD -D__MBED__="1" -DTARGET_NORDIC -DMBED_BUILD_TIMESTAMP="1467714347" -DTARGET_MCU_NRF51 -DTARGET_MCU_NORDIC_16K -DTARGET_M0 -DTARGET_MCU_NRF51_32K_S130 -DTOOLCHAIN_ARM -DTARGET_LIKE_CORTEX_M0 -D__ASSERT_MSG-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
-I (mbed\mbed.h)(0x577B28BA)
-I (mbed\platform.h)(0x577B28BA)
-I (mbed/TARGET_NRF51822/TARGET_NORDIC/TARGET_MCU_NRF51822/TARGET_NRF51822_MKIT/device.h)(0x577B28BC)
-I (mbed/TARGET_NRF51822/TARGET_NORDIC/TARGET_MCU_NRF51822/objects.h)(0x577B28BA)
-I (mbed/TARGET_NRF51822/cmsis.h)(0x577B28BA)
-I (mbed/TARGET_NRF51822/nrf.h)(0x577B28BA)
-I (mbed/TARGET_NRF51822/nrf51.h)(0x577B28BA)
-I (mbed/TARGET_NRF51822/core_cm0.h)(0x577B28BA)
-I (mbed/TARGET_NRF51822/core_cmInstr.h)(0x577B28BA)
-I (mbed/TARGET_NRF51822/core_cmFunc.h)(0x577B28BA)
-I (mbed/TARGET_NRF51822/system_nrf51.h)(0x577B28BA)
-I (mbed/TARGET_NRF51822/nrf51_bitfields.h)(0x577B28BA)
-I (mbed/TARGET_NRF51822/compiler_abstraction.h)(0x577B28BA)
-I (mbed/TARGET_NRF51822/cmsis_nvic.h)(0x577B28BA)
-I (mbed/TARGET_NRF51822/TARGET_NORDIC/TARGET_MCU_NRF51822/PortNames.h)(0x577B28BA)
-I (mbed/TARGET_NRF51822/TARGET_NORDIC/TARGET_MCU_NRF51822/PeripheralNames.h)(0x577B28BA)
-I (mbed/TARGET_NRF51822/TARGET_NORDIC/TARGET_MCU_NRF51822/TARGET_NRF51822_MKIT/PinNames.h)(0x57ABE15E)
-I (mbed/TARGET_NRF51822/TARGET_NORDIC/TARGET_MCU_NRF51822/gpio_object.h)(0x577B28BA)
-I (mbed\mbed_assert.h)(0x577B28BA)
-I (mbed\mbed_error.h)(0x577B28BA)
-I (mbed\mbed_interface.h)(0x577B28BA)
-I (mbed\DigitalIn.h)(0x577B28BA)
-I (mbed\gpio_api.h)(0x577B28BA)
-I (mbed\DigitalOut.h)(0x577B28BA)
-I (mbed\DigitalInOut.h)(0x577B28BA)
-I (mbed\BusIn.h)(0x577B28BA)
-I (mbed\BusOut.h)(0x577B28BA)
-I (mbed\BusInOut.h)(0x577B28BA)
-I (mbed\PortIn.h)(0x577B28BA)
-I (mbed\port_api.h)(0x577B28BA)
-I (mbed\PortInOut.h)(0x577B28BA)
-I (mbed\PortOut.h)(0x577B28BA)
-I (mbed\AnalogIn.h)(0x577B28BA)
-I (mbed\analogin_api.h)(0x577B28BA)
-I (mbed\AnalogOut.h)(0x577B28BA)
-I (mbed\PwmOut.h)(0x577B28BA)
-I (mbed\pwmout_api.h)(0x577B28BA)
-I (mbed\Serial.h)(0x577B28BA)
-I (mbed\Stream.h)(0x577B28BA)
-I (mbed\FileLike.h)(0x577B28BA)
-I (mbed\FileBase.h)(0x577B28BA)
-I (mbed\FileHandle.h)(0x577B28BA)
-I (mbed\SerialBase.h)(0x577B28BA)
-I (mbed\FunctionPointer.h)(0x577B28BA)
-I (mbed\serial_api.h)(0x577B28BA)
-I (mbed\buffer.h)(0x577B28BA)
-I (mbed\dma_api.h)(0x577B28BA)
-I (mbed\SPI.h)(0x577B28BA)
-I (mbed\spi_api.h)(0x577B28BA)
-I (mbed\SPISlave.h)(0x577B28BA)
-I (mbed\I2C.h)(0x577B28BA)
-I (mbed\i2c_api.h)(0x577B28BA)
-I (mbed\I2CSlave.h)(0x577B28BA)
-I (mbed\Ethernet.h)(0x577B28BA)
-I (mbed\CAN.h)(0x577B28BA)
-I (mbed\RawSerial.h)(0x577B28BA)
-I (mbed\Timer.h)(0x577B28BA)
-I (mbed\ticker_api.h)(0x577B28BA)
-I (mbed\Ticker.h)(0x577B28BA)
-I (mbed\TimerEvent.h)(0x577B28BA)
-I (mbed\us_ticker_api.h)(0x577B28BA)
-I (mbed\Timeout.h)(0x577B28BA)
-I (mbed\LowPowerTimeout.h)(0x577B28BA)
-I (mbed\LowPowerTicker.h)(0x577B28BA)
-I (mbed\LowPowerTimer.h)(0x577B28BA)
-I (mbed\LocalFileSystem.h)(0x577B28BA)
-I (mbed\InterruptIn.h)(0x577B28BA)
-I (mbed\gpio_irq_api.h)(0x577B28BA)
-I (mbed\wait_api.h)(0x577B28BA)
-I (mbed\sleep_api.h)(0x577B28BA)
-I (mbed\rtc_time.h)(0x577B28BA)
-F (.\mbed\TARGET_NRF51822\TOOLCHAIN_ARM_STD\board.o)(0x577B28BC)()
-F (.\mbed\TARGET_NRF51822\TOOLCHAIN_ARM_STD\cmsis_nvic.o)(0x577B28BC)()
-F (.\mbed\TARGET_NRF51822\TOOLCHAIN_ARM_STD\mbed.ar)(0x577B28BC)(--cpu Cortex-M0 -g --apcs=interwork -I E:\IoT\IoT_VNG\DAPLink\mbed_blinky\RTE-I C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.7.1\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include--pd "__UVISION_VERSION SETA 513" --pd "NRF51 SETA 1"--list .\listings\mbed.lst --xref -o .\objects\mbed.o --depend .\objects\mbed.d)
-F (.\mbed\TARGET_NRF51822\TOOLCHAIN_ARM_STD\retarget.o)(0x577B28BC)()
-F (.\mbed\TARGET_NRF51822\TOOLCHAIN_ARM_STD\startup_nRF51822.o)(0x577B28BC)()
-F (.\mbed\TARGET_NRF51822\TOOLCHAIN_ARM_STD\sys.o)(0x577B28BC)()
-F (.\mbed\TARGET_NRF51822\TOOLCHAIN_ARM_STD\system_nrf51.o)(0x577B28BC)()

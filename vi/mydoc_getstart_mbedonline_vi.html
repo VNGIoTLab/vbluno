@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="keywords" content="bat_dau,  ">
-<title>Bắt đầu với mbed-OS và mbed Online Compiler | VBLUno51 board</title>
+<title>Bắt đầu sử dụng mạch VBLUno51 với mbed-OS và mbed Online Compiler | VBLUno51 board</title>
 <link rel="stylesheet" href="css/syntax.css">
 
 
@@ -216,7 +216,7 @@
                                 searchInput: document.getElementById('search-input'),
                                 resultsContainer: document.getElementById('results-container'),
                                 dataSource: 'search_vi.json',
-                                searchResultTemplate: '<li><a href="{url}" title="Bắt đầu với mbed-OS và mbed Online Compiler">{title}</a></li>',
+                                searchResultTemplate: '<li><a href="{url}" title="Bắt đầu sử dụng mạch VBLUno51 với mbed-OS và mbed Online Compiler">{title}</a></li>',
                     noResultsText: 'Không có kết quả nào được tìm thấy.',
                             limit: 10,
                             fuzzy: true,
@@ -857,7 +857,7 @@
         <!-- Content Column -->
         <div class="col-md-9" id="tg-sb-content">
             <div class="post-header">
-   <h1 class="post-title-main">Bắt đầu với mbed-OS và mbed Online Compiler</h1>
+   <h1 class="post-title-main">Bắt đầu sử dụng mạch VBLUno51 với mbed-OS và mbed Online Compiler</h1>
 </div>
 
 
@@ -899,9 +899,7 @@
 
     
 
-  <h1 id="bẮt-ĐẦu-sỬ-dỤng-mẠch-vbluno51-vỚi-mbed-os-mbed-online-compiler">BẮT ĐẦU SỬ DỤNG MẠCH VBLUno51 VỚI MBED-OS (mbed Online Compiler)</h1>
-
-<hr />
+  <hr />
 
 <h2 id="phẦn-1-sƠ-ĐỒ-pinout">PHẦN 1: SƠ ĐỒ PINOUT</h2>
 
@@ -982,18 +980,19 @@
 <hr />
 <h2 id="phẦn-3-sỬ-dỤng-mbed-online-compiler-lẬp-trÌnh-cho-vbluno51">PHẦN 3: SỬ DỤNG MBED ONLINE COMPILER LẬP TRÌNH CHO VBLUno51</h2>
 
-<p>Đúng như tên gọi của nó, mbed Online Compiler là một trình biên dịch dành cho mbed OS chạy online, chỉ với một máy tính có kết nối internet, bạn có thể dễ dàng lập trình và biên dịch ra file thực thi cho VBLUno. Phần sau đây trình bày các bước thực hiện một cách chi tiết thông qua hình ảnh.</p>
+<p>Đúng như tên gọi của nó, mbed Online Compiler là một trình biên dịch dành cho mbed OS chạy online, chỉ với một máy tính có kết nối internet, bạn có thể dễ dàng lập trình và biên dịch ra file thực thi cho VBLUno51. Phần sau đây trình bày các bước thực hiện một cách chi tiết thông qua hình ảnh.</p>
 
 <h3 id="bước-1-Đăng-ký-tài-khoản-trên-developermbedorg">Bước 1: Đăng ký tài khoản trên developer.mbed.org</h3>
 
 <p><em>(Nếu đã đăng ký, bạn có thể bỏ qua bước này)</em></p>
 
-<p>Truy cập vào địa chỉ https://developer.mbed.org , đăng ký một tài khoản dành cho các developer với mbed OS. Nó là hoàn toàn miễn phí nên các bạn có thể tự tin đăng ký nhé.</p>
+<p>Truy cập vào địa chỉ <a href="https://developer.mbed.org">https://developer.mbed.org</a> , đăng ký một tài khoản dành cho các developer với mbed OS. Nó là hoàn toàn miễn phí nên các bạn có thể tự tin đăng ký nhé.</p>
 
 <h3 id="bước-2-Đăng-nhập-giao-diện-trình-biên-dịch">Bước 2: Đăng nhập giao diện trình biên dịch</h3>
 
-<p>Nhấp vào nút “Compiler” hoặc truy cập vào đường dẫn https://developer.mbed.org/compiler/
-<img src="images/mbed/getstart/online/5.png" alt="" /></p>
+<p>Nhấp vào nút “Compiler” hoặc truy cập vào đường dẫn <a href="https://developer.mbed.org/compiler/">https://developer.mbed.org/compiler/</a></p>
+
+<p><img src="images/mbed/getstart/online/5.png" alt="" /></p>
 
 <h3 id="bước-3-chọn-device-platform-để-lập-trình-ứng-dụng">Bước 3: Chọn Device Platform để lập trình ứng dụng</h3>
 
@@ -1012,12 +1011,12 @@
 <p><img src="images/mbed/getstart/online/6.png" alt="" /></p>
 
 <ul>
-  <li>Nhấp vào nút Compiler để quay về trình biên dịch, lúc này góc phải của trình duyệt sẽ hiển thị board Noridc NRF51-DK</li>
+  <li>Nhấp vào nút Compiler để quay về trình biên dịch, lúc này góc phải của trình duyệt sẽ hiển thị board Nordic NRF51-DK</li>
 </ul>
 
 <h3 id="bước-4-thực-hiện-một-ví-dụ-đơn-giản--hello-world-example">Bước 4: Thực hiện một ví dụ đơn giản – Hello World Example</h3>
 
-<p>Sau đây chúng ta thực hiện một ví dụ đơn giản, ví dụ “vbluno51_blinky”.</p>
+<p>Sau đây chúng ta thực hiện một ví dụ đơn giản, ví dụ <code class="highlighter-rouge">"vbluno51_blinky”</code>.</p>
 
 <ul>
   <li>
@@ -1046,7 +1045,7 @@
 <div class="highlighter-rouge"><pre class="highlight"><code>/********************************************
 VBLUNO51 BOARD
 mbed Online Compiler
-Project: Blink led and transmit over UART (with HWFC)
+Project: Blink led and transmit via UART (with HWFC)
 Note: select NRF51_DK platform
 *********************************************/
 
@@ -1102,7 +1101,7 @@ int main() {
   <li>4.4 Nạp file thực thi vào bo mạch VBLUno51</li>
 </ul>
 
-<p>Sau khi kết nối bo mạch VBLUno51 và mô đun DAPLink (CMSIS-DAP) đến máy tính, một ổ đĩa sẽ được thêm vào máy tính của bạn. Ổ đĩa này có tên là “DAPLINK”. Để nạp file thực thi đã được biên dịch ở bước trước vào bo mạch VBLUno51, bạn chỉ cần copy file này vào ổ đĩa trên và chờ quá trình sao chép hoàn tất.</p>
+<p>Sau khi kết nối bo mạch VBLUno51 đến máy tính, một ổ đĩa sẽ được thêm vào máy tính của bạn. Ổ đĩa này có tên là “DAPLINK”. Để nạp file thực thi đã được biên dịch ở bước trước vào bo mạch VBLUno51, bạn chỉ cần copy file này vào ổ đĩa trên và chờ quá trình sao chép hoàn tất.</p>
 
 <p><img src="images/mbed/getstart/online/15.png" alt="" /></p>
 
@@ -1137,7 +1136,7 @@ Sử dụng một phần mềm có chức năng Serial Terminal như Hercules ho
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2017 VNG Corporation. All rights reserved. <br />
- Site last generated: May 27, 2017 <br />
+ Site last generated: Jun 13, 2017 <br />
 <p><img src="images/company_logo_medium.png" alt="Company logo"/></p>
                 </div>
             </div>

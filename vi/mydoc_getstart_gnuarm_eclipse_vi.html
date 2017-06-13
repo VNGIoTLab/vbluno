@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="keywords" content="bat_dau,  ">
-<title>Bắt đầu với mbed-OS và Eclipse IDE | VBLUno51 board</title>
+<title>Bắt đầu sử dụng mạch VBLUno51 với mbed-OS và Eclipse IDE | VBLUno51 board</title>
 <link rel="stylesheet" href="css/syntax.css">
 
 
@@ -216,7 +216,7 @@
                                 searchInput: document.getElementById('search-input'),
                                 resultsContainer: document.getElementById('results-container'),
                                 dataSource: 'search_vi.json',
-                                searchResultTemplate: '<li><a href="{url}" title="Bắt đầu với mbed-OS và Eclipse IDE">{title}</a></li>',
+                                searchResultTemplate: '<li><a href="{url}" title="Bắt đầu sử dụng mạch VBLUno51 với mbed-OS và Eclipse IDE">{title}</a></li>',
                     noResultsText: 'Không có kết quả nào được tìm thấy.',
                             limit: 10,
                             fuzzy: true,
@@ -857,7 +857,7 @@
         <!-- Content Column -->
         <div class="col-md-9" id="tg-sb-content">
             <div class="post-header">
-   <h1 class="post-title-main">Bắt đầu với mbed-OS và Eclipse IDE</h1>
+   <h1 class="post-title-main">Bắt đầu sử dụng mạch VBLUno51 với mbed-OS và Eclipse IDE</h1>
 </div>
 
 
@@ -899,12 +899,10 @@
 
     
 
-  <h1 id="bẮt-ĐẦu-sỬ-dỤng-mẠch-vbluno51-vỚi-mbed-os-arm-embedded--eclipse-ide">BẮT ĐẦU SỬ DỤNG MẠCH VBLUno51 VỚI MBED-OS (ARM EMBEDDED + ECLIPSE IDE)</h1>
-
-<hr />
+  <hr />
 <h2 id="phẦn-1-cÀi-ĐẶt-mÔi-trƯỜng">PHẦN 1: CÀI ĐẶT MÔI TRƯỜNG</h2>
 
-<p>Nhằm nâng cao hiệu suất làm việc của developers, việc sử dụng các môi trường phát triển (IDE) là điều cần thiết. Để phát triển các ứng dụng nhúng cho IoT, cụ thể là phát triển ứng dụng với bo mạch VBLUno51 của VNGIoTLab, chúng tôi đề xuất phương án sử dụng môi trường sau:</p>
+<p>Nhằm nâng cao hiệu suất làm việc của developers, việc sử dụng các môi trường phát triển (IDE) là điều cần thiết. Để phát triển các ứng dụng nhúng cho IoT, cụ thể là phát triển ứng dụng với bo mạch VBLUno51 (và các phiên bản khác) của VNGIoTLab, chúng tôi đề xuất phương án sử dụng môi trường sau:</p>
 
 <ul>
   <li>Phần mềm (hoàn toàn miễn phí)
@@ -968,17 +966,15 @@
 
 <ul>
   <li>
-    <p>Linux: cài đặt srec_cat</p>
+    <p>Linux: cài đặt <code class="highlighter-rouge">srec_cat</code></p>
   </li>
   <li>
     <p>Windows:</p>
   </li>
 </ul>
 
-<p>Sử dụng <strong>mergehex.exe</strong> .  Bạn có thể download tại đây
-https://github.com/VNGIoTLab/mbed_for_VBLUno-CMSIS-DAP/tree/master/tools</p>
-
-<p>Copy mergehex.exe vào chung thư mục “…GNU ARM Eclipse\Build Tools\2.6-201507152002\bin”</p>
+<p>Sử dụng <strong>mergehex.exe</strong> .  Bạn có thể download tại <a href="https://github.com/VNGIoTLab/mbed_for_VBLUno-CMSIS-DAP/tree/master/tools">ĐÂY</a> 
+Copy <code class="highlighter-rouge">mergehex.exe</code> vào chung thư mục “…GNU ARM Eclipse\Build Tools\2.6-201507152002\bin”</p>
 
 <p><img src="images/mbed/getstart/eclipse/2.png" alt="" /></p>
 
@@ -988,8 +984,7 @@ https://github.com/VNGIoTLab/mbed_for_VBLUno-CMSIS-DAP/tree/master/tools</p>
 <ul>
   <li>Project sau đây sử dụng:
     <ul>
-      <li>Bo mạch  VBLUno51 của VNGIoTLab.</li>
-      <li>MCU: Nordic nRF51822 (Cortex-M0).</li>
+      <li>Bo mạch  VBLUno51 của VNGIoTLab (MCU: Nordic nRF51822 (Cortex-M0))</li>
       <li>Toolchain: GCC ARM Embedded.</li>
       <li>IDE: Eclipse với GNU ARM Eclipse plugin.</li>
       <li>Project đơn giản: Nháy led và truyền thông UART, sử dụng mbed-OS</li>
@@ -1001,7 +996,7 @@ https://github.com/VNGIoTLab/mbed_for_VBLUno-CMSIS-DAP/tree/master/tools</p>
 
 <ul>
   <li>
-    <p>Có nhiều cách để tạo một project sử dụng mbed-OS cho VBLUno, bài hướng dẫn này chọn cách đơn giản là export một project mẫu trên mbed Online Compiler về máy tính. Bản chất của việc làm này là nhờ mbed Online Compiler tạo cho chúng ta một Makefile có sẵn, phù hợp với nRF51822.</p>
+    <p>Có nhiều cách để tạo một project sử dụng mbed-OS cho các phiên bản mạch VBLUno, bài hướng dẫn này chọn cách đơn giản là export một project mẫu trên mbed Online Compiler về máy tính. Bản chất của việc làm này là nhờ mbed Online Compiler tạo cho chúng ta một Project với những file cần thiết và Makefile có sẵn, phù hợp với nRF51822.</p>
   </li>
   <li>
     <p>Truy cập vào mbed Online Compiler, export project đã làm trong tutorial sử dụng mbed online compiler về máy tính, lựa chọn toolchain là GCC (ARM Embedded)</p>
@@ -1045,24 +1040,29 @@ https://github.com/VNGIoTLab/mbed_for_VBLUno-CMSIS-DAP/tree/master/tools</p>
 <h3 id="bước-4-build-project">Bước 4: Build project</h3>
 
 <ul>
-  <li>Chúng ta không cần tạo mới Makefile, do đã sử dụng makefile nhận được bởi việc export project từ mbed Online Compiler. Tuy nhiên, makefile mặc định này dành cho Linux, nếu sử dụng Windows OS bạn cần phải chỉnh sửa Makefile như sau:</li>
+  <li>Chúng ta không cần tạo mới Makefile, do đã sử dụng makefile nhận được bởi việc export project từ mbed Online Compiler. Chỉnh sửa lại Makefile như sau:</li>
 </ul>
 
-<p>Thêm dòng 53 trong hình sau:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>
+- Thêm các dòng sau:		
 
-<p><img src="images/mbed/getstart/eclipse/9.png" alt="" /></p>
+SOFTDEVICE = ../mbed/TARGET_NRF51_DK/TARGET_NORDIC/TARGET_NRF5/TARGET_MCU_NRF51822_UNIFIED/sdk/softdevice/s130/hex/s130_nrf51_2.0.0_softdevice.hex
 
-<p>Thêm dòng 125, 126 trong hình sau:</p>
+# For Debug or NoDebug
+ifeq ($(DEBUG), 1)
+  C_FLAGS += -DDEBUG -O0 -g3
+  CXX_FLAGS += -DDEBUG -O0 -g3
+else
+  C_FLAGS += -DNDEBUG -Os
+  CXX_FLAGS += -DNDEBUG -Os
+endif
+	
 
-<p><img src="images/mbed/getstart/eclipse/10.png" alt="" /></p>
-
-<p>Sửa dòng 76 như hình sau:</p>
-
-<p><img src="images/mbed/getstart/eclipse/11.png" alt="" /></p>
-
-<p>Sửa dòng 41 như hình sau:</p>
-
-<p><img src="images/mbed/getstart/eclipse/12.png" alt="" /></p>
+- Chỉ dành cho máy tính sử dụng HĐH Windows:
+Sửa dòng "$(SREC_CAT) ../mbed/TARGET_NRF51_DK............." thành 	
+mergehex -m $(SOFTDEVICE) $(PROJECT).hex -o combined.hex
+</code></pre>
+</div>
 
 <ul>
   <li>
@@ -1077,24 +1077,24 @@ https://github.com/VNGIoTLab/mbed_for_VBLUno-CMSIS-DAP/tree/master/tools</p>
 
 <h3 id="bước-5-nạp-file-thực-thi-xuống-mạch-vbluno51">Bước 5: Nạp file thực thi xuống mạch VBLUno51</h3>
 
-<p>Chúng ta cần chú ý 2 file thực thi có phần mở rộng (*.hex) trong thư mục .build</p>
+<p>Chúng ta cần chú ý 2 file thực thi có phần mở rộng (*.hex) trong thư mục <code class="highlighter-rouge">.build</code></p>
 
 <ul>
   <li>
-    <p><strong>mbed_blinky.hex</strong>: Chỉ là file thực thi của Application, không gồm softdevice</p>
+    <p><strong>mbed_blinky.hex</strong>: Chỉ là file thực thi chứa <code class="highlighter-rouge">Application</code>, không gồm <code class="highlighter-rouge">Soft Device</code></p>
   </li>
   <li>
-    <p><strong>combined.hex</strong>: Gồm Softdevice và Application</p>
+    <p><strong>combined.hex</strong>: Gồm <code class="highlighter-rouge">Soft Device</code> và <code class="highlighter-rouge">Application</code></p>
   </li>
 </ul>
 
 <p><img src="images/mbed/getstart/eclipse/14.png" alt="" /></p>
 
-<p>Để chắc chắn, chúng ta nạp file combined.hex xuống mạch VBLUno bằng cách copy file này vào ổ đĩa của CMSIS-DAP</p>
+<p>Để chắc chắn, chúng ta nạp file <code class="highlighter-rouge">combined.hex</code> xuống mạch VBLUno bằng cách copy file này vào phân vùng ổ cứng DAPLINK.</p>
 
-<p>**Ghi chú: Hướng dẫn sử dụng pyOCD và OpenOCD để debug sẽ được trình bày trong mục Tutorial **</p>
+<p><strong>Ghi chú: Hướng dẫn sử dụng pyOCD và OpenOCD để debug sẽ được trình bày trong mục <code class="highlighter-rouge">Loạt bài hướng dẫn</code></strong></p>
 
-<h3 id="dowload">Dowload</h3>
+<h3 id="download">Download</h3>
 
 <ul>
   <li>Có thể download mã nguồn tại <a href="https://goo.gl/C7SIex">ĐÂY</a></li>
@@ -1123,7 +1123,7 @@ https://github.com/VNGIoTLab/mbed_for_VBLUno-CMSIS-DAP/tree/master/tools</p>
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2017 VNG Corporation. All rights reserved. <br />
- Site last generated: May 27, 2017 <br />
+ Site last generated: Jun 13, 2017 <br />
 <p><img src="images/company_logo_medium.png" alt="Company logo"/></p>
                 </div>
             </div>

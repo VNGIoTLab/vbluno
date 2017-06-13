@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="keywords" content="huong_dan,  ">
-<title>BLE Beacons | VBLUno51 board</title>
+<title>Tự tạo thiết bị phát Beacons với mbed-OS sử dụng mạch VBLUno51 | VBLUno51 board</title>
 <link rel="stylesheet" href="css/syntax.css">
 
 
@@ -216,7 +216,7 @@
                                 searchInput: document.getElementById('search-input'),
                                 resultsContainer: document.getElementById('results-container'),
                                 dataSource: 'search_vi.json',
-                                searchResultTemplate: '<li><a href="{url}" title="BLE Beacons">{title}</a></li>',
+                                searchResultTemplate: '<li><a href="{url}" title="Tự tạo thiết bị phát Beacons với mbed-OS sử dụng mạch VBLUno51">{title}</a></li>',
                     noResultsText: 'Không có kết quả nào được tìm thấy.',
                             limit: 10,
                             fuzzy: true,
@@ -857,7 +857,7 @@
         <!-- Content Column -->
         <div class="col-md-9" id="tg-sb-content">
             <div class="post-header">
-   <h1 class="post-title-main">BLE Beacons</h1>
+   <h1 class="post-title-main">Tự tạo thiết bị phát Beacons với mbed-OS sử dụng mạch VBLUno51</h1>
 </div>
 
 
@@ -899,12 +899,10 @@
 
     
 
-  <h1 id="sỬ-dỤng-mbed-os-ĐỂ-lẬp-trÌnh-thiẾt-bỊ-phÁt-beacons-vỚi-vbluno-v2">SỬ DỤNG MBED-OS ĐỂ LẬP TRÌNH THIẾT BỊ PHÁT BEACONS VỚI VBLUNO V2</h1>
-
-<hr />
+  <hr />
 <h2 id="giới-thiệu-công-nghệ-beacons">Giới thiệu công nghệ Beacons</h2>
 
-<p>Bạn có thể tham khảo Tut 2  trong loạt bài <code class="highlighter-rouge">Tutorials --&gt; Arduino --&gt; Tut2</code> và bài viết tại các link sau:</p>
+<p>Bạn có thể tham khảo Tut 2  trong loạt bài <code class="highlighter-rouge">Loạt bài hướng dẫn --&gt; Arduino --&gt; Tut2 - Thiết bị Beacon với VBLUno</code> và những bài viết tại các link sau:</p>
 
 <p>https://developer.mbed.org/teams/Bluetooth-Low-Energy/code/BLE_iBeacon/?platform=Nordic-nRF51822</p>
 
@@ -915,7 +913,7 @@
 <p><img src="images/mbed/tut/tut2/1.png" alt="" /></p>
 
 <hr />
-<h2 id="thực-hiện-ví-dụ-minh-họa-ibeacon-trên-vbluno-v2-sử-dụng-mbed-os">Thực hiện ví dụ minh họa iBeacon trên VBLUno v2 sử dụng mbed-OS</h2>
+<h2 id="thực-hiện-ví-dụ-minh-họa-thiết-bị-ibeacon-bằng-mạch-vbluno51-sử-dụng-mbed-os">Thực hiện ví dụ minh họa thiết bị iBeacon bằng mạch VBLUno51 sử dụng mbed-OS</h2>
 
 <ul>
   <li><strong>Bước 1</strong>: Tham khảo mã nguồn chương trình</li>
@@ -974,10 +972,10 @@ int main(void)
     <p><strong>Bước 2</strong>: Biên dịch và chạy thử</p>
   </li>
   <li>
-    <p>Sau khi biên dịch và nạp chương trình cho mạch VBLUno, chương trình tự động được chạy. Để kiểm tra bạn cần sử dụng một thiết bị hỗ trợ BLE. Ở đây mình sử dụng phần mềm Beacons Scanner chạy trên điện thoại Android  để kiểm tra</p>
+    <p>Sau khi biên dịch và nạp chương trình cho mạch VBLUno51, chương trình tự động được chạy. Để kiểm tra bạn cần sử dụng một thiết bị hỗ trợ BLE. Ở đây mình sử dụng phần mềm Beacons Scanner chạy trên điện thoại Android để kiểm tra</p>
   </li>
   <li>
-    <p>Kết quả kiểm tra cho thấy mạch VBLUno của chúng ta đã phát Beacons. Các thông số mà điện thoại thu được như trong hình dưới đây</p>
+    <p>Kết quả kiểm tra cho thấy mạch VBLUno51 của chúng ta đã thực hiện phát tín hiệu Beacons. Các thông số mà điện thoại thu được như trong hình dưới đây</p>
   </li>
 </ul>
 
@@ -991,15 +989,11 @@ int main(void)
 
 <p>Trong code có ghi chú khá rõ ràng, hy vọng sẽ không gây khó khăn cho  các bạn trong việc đọc hiểu nó.</p>
 
-<p>Có thể thấy, với VBLUno bạn có thể dễ dàng chế tạo một thiết bị phát beacons. Bạn có thể thử sức mình với bài toán nâng cao độ chính xác trong việc xác định khoảng cách đến thiết bị phát beacons.</p>
+<p>Có thể thấy, với mạch VNG VBLUno51 (và các phiên bản mạch VBLUno khác) bạn có thể dễ dàng chế tạo một thiết bị phát beacons. Bạn có thể thử sức mình với bài toán nâng cao độ chính xác trong việc xác định khoảng cách đến thiết bị phát beacons (Calculate Distance from RSSI signal)</p>
 
 <ul>
-  <li>Mọi thắc mắc hoặc ý kiến đóng góp bạn có thể trao đổi tại đây:</li>
+  <li><strong>Tham khảo mã nguồn tại:</strong>  <a href="https://github.com/VNGIoTLab/vbluno/tree/master/code_examples/mbed/ex4_ibeacon">ĐÂY</a></li>
 </ul>
-
-<p>https://www.facebook.com/bleviet/messages/</p>
-
-<p>https://github.com/VNGIoTLab/mbed_for_VBLUno-CMSIS-DAP/issues</p>
 
 
     <div class="tags">
@@ -1024,7 +1018,7 @@ int main(void)
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2017 VNG Corporation. All rights reserved. <br />
- Site last generated: May 27, 2017 <br />
+ Site last generated: Jun 13, 2017 <br />
 <p><img src="images/company_logo_medium.png" alt="Company logo"/></p>
                 </div>
             </div>

@@ -887,10 +887,247 @@
 
     
 
-  <h1 id="getting-started-with-mbed-os-mbed-online-compiler">GETTING STARTED WITH MBED-OS (mbed Online Compiler)</h1>
+  <hr />
+
+<h2 id="part-1-pinout">PART 1: PINOUT</h2>
+
+<p><img src="images/pinout/VBLUno2_mbed_Pinout.png" alt="alt text" /></p>
 
 <hr />
-<p>Comming soon</p>
+<p>##PART 2: INTRODUCE TO MBED-OS</p>
+
+<p>When building an Internet of Things (IoT) system, choosing a platform to design and build a system is very important. ARM Inc is a well-known ARM microcontroller manufacturer, which is widely used in embedded systems and mobile devices. With the advantage of the chip designer, this company provides a complete platform for developing IoT systems, called <strong>ARM mbed IoT Device Platform</strong>.</p>
+
+<p><img src="images/mbed/getstart/online/1.png" alt="" /></p>
+
+<p>Important component of ARM mbed IoT Device Platform is the embedded operating system for ARM Cortex-M microcontrollers, called <strong>mbed-OS</strong>. It is evaluated as an embedded operating system that is well suited for developing IoT systems with basic features such as: security, multiple interfaces, RTOS, multiple libraries for common types of sensors and peripherals and in particular it is open-source. Let’s take a look at some of the basic features of the mbed OS.</p>
+
+<h3 id="the-features-and-benifits-of-mbed-os">The features and benifits of mbed-OS</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Features</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Device and component support</td>
+      <td>- With support for mbed OS on a wide range of ARM Cortex-M based devices, developers can prototype IoT applications quickly on low-cost development boards.</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>- Simple USB drag and drop programming allows you to rapidly prototype without the need for expensive debug hardware.</td>
+    </tr>
+    <tr>
+      <td>Realtime Software Execution</td>
+      <td>With an RTOS core based on the widely used open-source CMSIS-RTOS RTX, mbed OS supports deterministic, multithreaded real time sofware execution. The RTOS primatives are always available, allowing drivers and applications to rely on features such as threads, semaphores and mutexes.</td>
+    </tr>
+    <tr>
+      <td>Open source</td>
+      <td>Released under an Apache 2.0 licence, you can use mbed OS in commercial and personal projects with confidence.</td>
+    </tr>
+    <tr>
+      <td>Ease of Use</td>
+      <td>- With a modular libary structure, the necessary underlying support for your application will be automatically included on your device.</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>- By using the mbed OS API, your application code can remain clean, portable and simple, whilst taking advantage of security and communications.</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>- We provide a huge range of code examples that you can import into your own projects, demonstrating how to use each of the APIs.</td>
+    </tr>
+    <tr>
+      <td>Community</td>
+      <td>- The mbed community allows contribution and collaboration between ARM, over 50 partners, and hundreds of thousands of individual developers all over the world.</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>- Many of our components and projects have been contributed by the community. Our forum and Q&amp;A provide developers with community support, alongside GitHub for technical input.</td>
+    </tr>
+    <tr>
+      <td>End to End Security</td>
+      <td>We address security in device hardware, software, communication and in the lifecycle of the device itself:</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>- Hardware Enforced Security At the lowest level of mbed OS, we use a supervisory kernel called uVisor to create isolated security domains which restrict access to memory and peripherals.</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>-Communications Security We take SSL and TLS, the standard protocols for securing communications on the internet, and allow you to include them in your mbed project with a simple API.</td>
+    </tr>
+    <tr>
+      <td>Drivers and support libraries</td>
+      <td>- Driver support for a wide range of standard MCU peripherals is included in mbed OS. This includes digital and analog IO, interrupts, port and bus IO, PWM, I2C, SPI and serial.</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>- The C libraries of each supported toolchain are also integrated into mbed OS, including implementation of thread safety support.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>###mbed OS Connectivity</p>
+
+<p><img src="images/mbed/getstart/online/2.png" alt="" /></p>
+
+<h3 id="architecture">Architecture</h3>
+
+<p><img src="images/mbed/getstart/online/3.png" alt="" /></p>
+
+<h3 id="typical-mbed-os-applications">Typical mbed OS Applications</h3>
+<p><img src="images/mbed/getstart/online/4.png" alt="" /></p>
+
+<h3 id="useful-website-for-mbed-os">Useful website for mbed-OS</h3>
+
+<ul>
+  <li>https://www.mbed.com/en/platform</li>
+  <li>https://www.mbed.com/en/platform/mbed-os/</li>
+  <li>https://docs.mbed.com/</li>
+  <li>https://developer.mbed.org/</li>
+  <li>https://github.com/ARMmbed/mbed-os</li>
+</ul>
+
+<hr />
+<p>##PART 3: PROGRAMMING FOR THE VBLUno51 BOARD USING MBED ONLINE COMPILER</p>
+
+<p>mbed Online Compiler is a compiler for mbed-OS. It works online, you need only a computer with internet connection, you can write code and compile easily for the VBLUno51 board. The following sections presents the steps to using mbed Online Compiler.</p>
+
+<h3 id="step-1-register-an-account-on-developermbedorg">Step 1: Register an account on <code class="highlighter-rouge">developer.mbed.org</code></h3>
+
+<p><em>(If you have an account already, you can skip this step)</em></p>
+
+<p>Access to [https://developer.mbed.org] (https://developer.mbed.org), register an account for developers with mbed OS. It is completely free so you can confidently register.</p>
+
+<h3 id="step-2-login">Step 2: Login</h3>
+
+<p>Click <code class="highlighter-rouge">Compiler</code> button or access this address <a href="https://developer.mbed.org/compiler/">https://developer.mbed.org/compiler/</a></p>
+
+<p><img src="images/mbed/getstart/online/5.png" alt="" /></p>
+
+<h3 id="step-3-chose-device-platform-for-application">Step 3: Chose Device Platform for application</h3>
+
+<ul>
+  <li>
+    <p>Click on the <code class="highlighter-rouge">Platform</code> button in the upper right corner of the screen. The <code class="highlighter-rouge">Select a Platform</code> window appears, click on <strong>Add platform</strong></p>
+  </li>
+  <li>
+    <p>You select <strong>Nordic NRF51-DK</strong> board. This board has configuration quite similar to the VBLUno51 board.</p>
+  </li>
+  <li>
+    <p>Next, you choose <strong>Add to your mbed compiler</strong></p>
+  </li>
+</ul>
+
+<p><img src="images/mbed/getstart/online/6.png" alt="" /></p>
+
+<ul>
+  <li>Click on <code class="highlighter-rouge">Compiler</code> button to return to the compiler, the right-hand corner of the browser will display the <code class="highlighter-rouge">Nordic NRF51-DK</code> board.</li>
+</ul>
+
+<h3 id="step-4-hello-world-example">Step 4: Hello World Example</h3>
+
+<p>In this step, we are going to make a simple example, with name <code class="highlighter-rouge">"vbluno51_blinky”</code>.</p>
+
+<ul>
+  <li>
+    <p>4.1 Add an existing example to your account</p>
+
+    <ul>
+      <li>Click on <strong>“Import a program”</strong>,</li>
+      <li>Search by <code class="highlighter-rouge">mbed_blinky</code> keywords.</li>
+      <li>In results list, select <code class="highlighter-rouge">mbed_blinky</code> example. Click <strong>Import</strong> button to add this example to your account</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="images/mbed/getstart/online/12.png" alt="" /></p>
+
+<p>You can edit the project name follow below picture.</p>
+
+<p><img src="images/mbed/getstart/online/12_1.png" alt="" /></p>
+
+<ul>
+  <li>4.2 Modify program source code in the <code class="highlighter-rouge">main.cpp</code> file</li>
+</ul>
+
+<p>Copy the following source code to main.cpp file.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>/********************************************
+VBLUNO51 BOARD
+mbed Online Compiler
+Project: Blink led and transmit via UART (with HWFC)
+Note: select NRF51_DK platform
+*********************************************/
+
+#include "mbed.h"
+
+/*For VBLUno51 board*/
+#define PIN_TX  p10
+#define PIN_RX  p11
+#define PIN_RTS p12
+#define PIN_CTS p13
+#define PIN_LED p7
+
+Serial pc(PIN_TX, PIN_RX); // tx, rx
+DigitalOut led(PIN_LED);
+
+int main() {        
+
+	//Init
+	pc.baud(115200);
+	pc.set_flow_control(SerialBase::RTSCTS, PIN_RTS, PIN_CTS);
+	pc.printf("\r\n-------------------------------------\r\n"
+	      		"Tests for VNG VBLUno51 board\n\r"              
+	      		"-------------------------------------\r\n");   
+
+	//No condition loop
+	while(1) {
+		led = 1;
+		wait(1);
+		led = 0;
+		wait(1);        
+		pc.printf("Finish a period\r\n");
+	}
+	return 0;
+}
+</code></pre>
+</div>
+
+<p><img src="images/mbed/getstart/online/13.png" alt="" /></p>
+
+<p>Click on the Save button</p>
+
+<ul>
+  <li>4.3 Press <code class="highlighter-rouge">Compile</code> button to compile the program</li>
+</ul>
+
+<p>The result is a successful compilation, creating an executable file (* .hex) and automatically saving it to your computer</p>
+
+<p><img src="images/mbed/getstart/online/14.png" alt="" /></p>
+
+<p><img src="images/mbed/getstart/online/14_1.png" alt="" /></p>
+
+<ul>
+  <li>4.4 Load executable file into VBLUno51 board</li>
+</ul>
+
+<p>After the VBLUno51 board is connected to computer via USB cable, a partition which has name is <code class="highlighter-rouge">DAPLINK</code> will be added to your computer. For downloading executable file into VBLUno51 board, you only need to copy this file into the above partition and wait for this progress is done.</p>
+
+<p><img src="images/mbed/getstart/online/15.png" alt="" /></p>
+
+<ul>
+  <li>4.5 Run application</li>
+</ul>
+
+<p>After loading executable file into VBLUno51 board is done, the application will be run automatically. If every thing is success, you will see LED on the VBLUno51 board is lights on and off at 2 second intervals.
+Using a terminal software such as Hercules or PuTTY to connect to the VBLUno51 board at 115200 baud speed, you will see results as the below image.</p>
+
+<p><img src="images/mbed/getstart/online/16.png" alt="" /></p>
 
 
     <div class="tags">
@@ -915,7 +1152,7 @@
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2017 VNG Corporation. All rights reserved. <br />
- Site last generated: May 27, 2017 <br />
+ Site last generated: Jun 13, 2017 <br />
 <p><img src="images/company_logo_medium.png" alt="Company logo"/></p>
                 </div>
             </div>

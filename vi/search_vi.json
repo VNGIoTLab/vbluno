@@ -223,7 +223,7 @@
 
 
 {
-"title": "Bắt đầu với mbed-OS và Eclipse IDE",
+"title": "Bắt đầu sử dụng mạch VBLUno51 với mbed-OS và Eclipse IDE",
 "tags": "bat_dau",
 "keywords": "",
 "url": "mydoc_getstart_gnuarm_eclipse_vi.html",
@@ -238,7 +238,7 @@
 
 
 {
-"title": "Bắt đầu với mbed-OS và Keil uVision",
+"title": "Bắt đầu sử dụng mạch VBLUno51 với mbed-OS và Keil uVision",
 "tags": "bat_dau",
 "keywords": "",
 "url": "mydoc_getstart_keil_vi.html",
@@ -268,7 +268,7 @@
 
 
 {
-"title": "Bắt đầu với mbed-OS và mbed Online Compiler",
+"title": "Bắt đầu sử dụng mạch VBLUno51 với mbed-OS và mbed Online Compiler",
 "tags": "bat_dau",
 "keywords": "",
 "url": "mydoc_getstart_mbedonline_vi.html",
@@ -358,7 +358,7 @@
 
 
 {
-"title": "Nạp/Gỡ lỗi cho VBLUno bằng pyOCD và OpenOCD trên GNU ARM Embedded + Eclipse",
+"title": "Nạp chương trình / Gỡ lỗi cho VBLUno51 bằng pyOCD và OpenOCD trên GNU ARM Embedded + Eclipse",
 "tags": "huong_dan",
 "keywords": "",
 "url": "mydoc_mbed_tut1_vi.html",
@@ -373,7 +373,7 @@
 
 
 {
-"title": "BLE Beacons",
+"title": "Tự tạo thiết bị phát Beacons với mbed-OS sử dụng mạch VBLUno51",
 "tags": "huong_dan",
 "keywords": "",
 "url": "mydoc_mbed_tut2_vi.html",

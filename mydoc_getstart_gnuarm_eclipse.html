@@ -887,10 +887,208 @@
 
     
 
-  <h1 id="getting-started-with-mbed-os-and-eclipse-ide">GETTING STARTED WITH MBED-OS AND ECLIPSE IDE</h1>
+  <hr />
+<h2 id="part-1-setup">PART 1: SETUP</h2>
+
+<p>To improve the performance of developers, the use of IDEs is essential. In order to develop embedded applications for IoT, specifically for the VBLUno51 (and other versions) board of VNGIoTLab, we propose the following environment:</p>
+
+<ul>
+  <li>Software (free)
+    <ul>
+      <li>Compiler: GCC ARM Embedded</li>
+      <li>IDE: Eclipse C/C++ với GNU ARM Eclipse plugin</li>
+      <li>Build Tools: Only need to install on Windows OS</li>
+      <li>Flash and Debug: pyOCD or OpenOCD</li>
+    </ul>
+  </li>
+  <li>Hardware:
+    <ul>
+      <li>VNG VBLUno51 board: Nordic nRF51822 microcontroller with Bluetooth Low Energy and DAPLINK interface on-board</li>
+    </ul>
+  </li>
+</ul>
+
+<p>The installation steps are quite simple, you follow the instructions below:</p>
+
+<h3 id="step-1-install-gnu-arm-toolchain">Step 1: Install GNU ARM Toolchain</h3>
+
+<p>http://gnuarmeclipse.github.io/toolchain/install/</p>
+
+<h3 id="step-2-install-eclipse-cc">Step 2: Install Eclipse C/C++</h3>
+
+<p>http://www.eclipse.org/downloads/?</p>
+
+<h3 id="step-3-install-gnu-arm-eclipse-plugin-for-eclipse">Step 3: Install GNU ARM Eclipse plugin for Eclipse</h3>
+
+<ul>
+  <li>
+    <p>This is a plugin that allows the use of the Eclipse IDE to develop applications for ARM microcontrollers with the GCC_ARM compiler. Compared to using only commands line tool, using Eclipse allows you to program, compile, and debug in a GUI environment that is convenient for developers.</p>
+  </li>
+  <li>
+    <p>After installing Eclipse C/C ++, you can go to the Eclipse Marketplace, search for “GNU ARM Eclipse” and install the GNU ARM Eclipse plugin.</p>
+  </li>
+</ul>
+
+<p><img src="images/mbed/getstart/eclipse/1.png" alt="" /></p>
+
+<ul>
+  <li>See more at http://gnuarmeclipse.github.io/</li>
+</ul>
+
+<h3 id="step-4-install-gnu-arm-eclipse-windows-build-tool-for-windows-os-only">Step 4: Install GNU ARM Eclipse Windows Build Tool (For Windows OS only)</h3>
+
+<ul>
+  <li>
+    <p>http://gnuarmeclipse.github.io/windows-build-tools/</p>
+  </li>
+  <li>
+    <p>After installation, do not forget to set the system path for the directory you just installed. For example:</p>
+  </li>
+</ul>
+
+<p><strong><em>“C:\Program Files (x86)\GNU ARM Eclipse\Build Tools\2.6-201507152002\bin”</em></strong></p>
+
+<ul>
+  <li>In the above folder, copy <strong>“busybox.exe”</strong> and rename it to “<strong>mkdir.exe</strong>”</li>
+</ul>
+
+<h3 id="step-5-install-merge-hex-file-tool">Step 5: Install merge hex file tool</h3>
+
+<ul>
+  <li>
+    <p>Linux: install <code class="highlighter-rouge">srec_cat</code></p>
+  </li>
+  <li>
+    <p>Windows:</p>
+  </li>
+</ul>
+
+<p>Use <strong>mergehex.exe</strong> .  You can download at <a href="https://github.com/VNGIoTLab/mbed_for_VBLUno-CMSIS-DAP/tree/master/tools">HERE</a> 
+Copy <code class="highlighter-rouge">mergehex.exe</code> into the same folder “…GNU ARM Eclipse\Build Tools\2.6-201507152002\bin”</p>
+
+<p><img src="images/mbed/getstart/eclipse/2.png" alt="" /></p>
 
 <hr />
-<p>Comming soon</p>
+<h2 id="part-2-build-a-project">PART 2: BUILD A PROJECT</h2>
+
+<ul>
+  <li>The following project uses:
+    <ul>
+      <li>The VBLUno51 board of VNGIoTLab (MCU: Nordic nRF51822 (Cortex-M0))</li>
+      <li>Toolchain: GCC ARM Embedded.</li>
+      <li>IDE: Eclipse với GNU ARM Eclipse plugin.</li>
+      <li>Project: Blinking Led and UART communication, using mbed-OS</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="step-1-export-project-to-computer">Step 1: Export project to computer</h3>
+
+<ul>
+  <li>
+    <p>There are many ways to create a mbed-OS project for the the VBLUno51 board. In this tutorial, using simple way that exporting a sample project from the mbed Online Compiler to your computer. The essence of this job is that mbed Online Compiler gives us a project with the necessary files and makefile available, suitable for nRF51822.</p>
+  </li>
+  <li>
+    <p>Access to mbed Online Compiler, export the project that is done in <code class="highlighter-rouge">Using mbed Online Compiler</code> tutorial to your computer, select GCC ARM Embedded toolchain</p>
+  </li>
+</ul>
+
+<p><img src="images/mbed/getstart/eclipse/3.png" alt="" /></p>
+
+<p><img src="images/mbed/getstart/eclipse/4.png" alt="" /></p>
+
+<h3 id="step-2-create-a-project-with-eclipse">Step 2: Create a project with Eclipse</h3>
+
+<ul>
+  <li>
+    <p>File -&gt; New -&gt; Project</p>
+  </li>
+  <li>
+    <p>C/C++ -&gt; Makefile Project with Existing Code</p>
+  </li>
+</ul>
+
+<p><img src="images/mbed/getstart/eclipse/5.png" alt="" /></p>
+
+<p><img src="images/mbed/getstart/eclipse/6.png" alt="" /></p>
+
+<p><img src="images/mbed/getstart/eclipse/7.png" alt="" /></p>
+
+<h3 id="step-3-configuration-for-the-project">Step 3: Configuration for the project</h3>
+
+<ul>
+  <li>
+    <p>Right click at project -&gt; select Properties</p>
+  </li>
+  <li>
+    <p>At <code class="highlighter-rouge">C/C++ Build</code>, select Builder Settings, edit build command as the below image</p>
+  </li>
+</ul>
+
+<p><img src="images/mbed/getstart/eclipse/8.png" alt="" /></p>
+
+<h3 id="step-4-build-project">Step 4: Build project</h3>
+
+<ul>
+  <li>We do not need to create a new Makefile, because we used the makefile that got by exporting the project from mbed Online Compiler. Edit this makefile as follows:</li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>
+- Add the below contents:		
+
+SOFTDEVICE = ../mbed/TARGET_NRF51_DK/TARGET_NORDIC/TARGET_NRF5/TARGET_MCU_NRF51822_UNIFIED/sdk/softdevice/s130/hex/s130_nrf51_2.0.0_softdevice.hex
+
+# For Debug or NoDebug
+ifeq ($(DEBUG), 1)
+  C_FLAGS += -DDEBUG -O0 -g3
+  CXX_FLAGS += -DDEBUG -O0 -g3
+else
+  C_FLAGS += -DNDEBUG -Os
+  CXX_FLAGS += -DNDEBUG -Os
+endif
+	
+
+- For Window OS Only:
+Edit "$(SREC_CAT) ../mbed/TARGET_NRF51_DK............." line to 	
+mergehex -m $(SOFTDEVICE) $(PROJECT).hex -o combined.hex
+</code></pre>
+</div>
+
+<ul>
+  <li>
+    <p>Right click at Project -&gt; choose Build Project</p>
+  </li>
+  <li>
+    <p>If success, compile results as the below image</p>
+  </li>
+</ul>
+
+<p><img src="images/mbed/getstart/eclipse/13.png" alt="" /></p>
+
+<h3 id="step-5-load-executable-file-into-the-vbluno51-board">Step 5: Load executable file into the VBLUno51 board</h3>
+
+<p>We need to note two executable files with extension (* .hex) in the <code class="highlighter-rouge">.build</code> directory</p>
+
+<ul>
+  <li>
+    <p><strong>mbed_blinky.hex</strong>: Only <code class="highlighter-rouge">Application</code> program, without <code class="highlighter-rouge">Soft Device</code></p>
+  </li>
+  <li>
+    <p><strong>combined.hex</strong>: contains <code class="highlighter-rouge">Soft Device</code> and <code class="highlighter-rouge">Application</code></p>
+  </li>
+</ul>
+
+<p><img src="images/mbed/getstart/eclipse/14.png" alt="" /></p>
+
+<p>We load the <code class="highlighter-rouge">combined.hex</code> file into the VBLUno51 board by copying the file to the DAPLINK partition.</p>
+
+<p><strong>Note: The instructions for using pyOCD and OpenOCD for debug will be covered in the <code class="highlighter-rouge">Tutorials</code> section</strong></p>
+
+<h3 id="download">Download</h3>
+
+<ul>
+  <li>You can download source code at <a href="https://goo.gl/C7SIex">HERE</a></li>
+</ul>
 
 
     <div class="tags">
@@ -915,7 +1113,7 @@
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2017 VNG Corporation. All rights reserved. <br />
- Site last generated: May 27, 2017 <br />
+ Site last generated: Jun 13, 2017 <br />
 <p><img src="images/company_logo_medium.png" alt="Company logo"/></p>
                 </div>
             </div>

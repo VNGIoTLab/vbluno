@@ -37,7 +37,7 @@
 
 
 {
-"title": "Thiết bị theo dõi nhịp tim với VBLUno",
+"title": "Design a Heart Rate Monitor device with VBLUno51",
 "tags": "tutorials",
 "keywords": "",
 "url": "mydoc_arduino_tut1.html",
@@ -52,7 +52,7 @@
 
 
 {
-"title": "Thiết bị phát Beacons với VBLUno",
+"title": "Beacon device with VBLUno51",
 "tags": "tutorials",
 "keywords": "",
 "url": "mydoc_arduino_tut2.html",
@@ -67,7 +67,7 @@
 
 
 {
-"title": "Đo nhiệt độ bên trong chip nRF51822",
+"title": "Measure temperature inside nRF51822 chip",
 "tags": "tutorials",
 "keywords": "",
 "url": "mydoc_arduino_tut3.html",
@@ -82,7 +82,7 @@
 
 
 {
-"title": "Nhiệt kế y tế với VBLUno (HTM)",
+"title": "Health Thermometer device with VBLUno51",
 "tags": "tutorials",
 "keywords": "",
 "url": "mydoc_arduino_tut4.html",
@@ -97,7 +97,7 @@
 
 
 {
-"title": "Truyền thông giữa Smartphone và máy tính qua “UART over BLE”",
+"title": "Communication between Smartphone and PC via “UART over BLE”",
 "tags": "tutorials",
 "keywords": "",
 "url": "mydoc_arduino_tut5.html",
@@ -112,7 +112,7 @@
 
 
 {
-"title": "Điều khiển/Giám sát một thiết bị bất kỳ bằng Smartphone qua BLE",
+"title": "Controlling/Monitoring a device by Smartphone via BLE",
 "tags": "tutorials",
 "keywords": "",
 "url": "mydoc_arduino_tut6.html",
@@ -127,7 +127,7 @@
 
 
 {
-"title": "Giới thiệu công nghệ BLE",
+"title": "Introduction to Bluetooth Low Energy technology",
 "tags": "ble",
 "keywords": "",
 "url": "mydoc_ble.html",
@@ -142,7 +142,7 @@
 
 
 {
-"title": "Mã nguồn Arduino tham khảo cho VBLUno51",
+"title": "Example codes for Arduino on VBLUno51",
 "tags": "examples",
 "keywords": "",
 "url": "mydoc_code_arduino.html",
@@ -157,7 +157,7 @@
 
 
 {
-"title": "Mã nguồn mbed-OS tham khảo cho VBLUno51",
+"title": "Example codes for ARMmbed on VBLUno51",
 "tags": "examples",
 "keywords": "",
 "url": "mydoc_code_mbed.html",
@@ -382,7 +382,7 @@
 
 
 {
-"title": "Flash/Debug for VBLUno51 by pyOCD and OpenOCD on GNU ARM Embedded + Eclipse",
+"title": "Flash/Debug for the VBLUno51 board by pyOCD and OpenOCD on GNU ARM Embedded + Eclipse",
 "tags": "tutorials",
 "keywords": "",
 "url": "mydoc_mbed_tut1.html",
@@ -397,7 +397,7 @@
 
 
 {
-"title": "BLE Beacons",
+"title": "Create BLE Beacons device with mbed-OS using the VBLUno51 board",
 "tags": "tutorials",
 "keywords": "",
 "url": "mydoc_mbed_tut2.html",

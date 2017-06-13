@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="keywords" content="huong_dan,  ">
-<title>Nạp/Gỡ lỗi cho VBLUno bằng pyOCD và OpenOCD trên GNU ARM Embedded + Eclipse | VBLUno51 board</title>
+<title>Nạp chương trình / Gỡ lỗi cho VBLUno51 bằng pyOCD và OpenOCD trên GNU ARM Embedded + Eclipse | VBLUno51 board</title>
 <link rel="stylesheet" href="css/syntax.css">
 
 
@@ -216,7 +216,7 @@
                                 searchInput: document.getElementById('search-input'),
                                 resultsContainer: document.getElementById('results-container'),
                                 dataSource: 'search_vi.json',
-                                searchResultTemplate: '<li><a href="{url}" title="Nạp/Gỡ lỗi cho VBLUno bằng pyOCD và OpenOCD trên GNU ARM Embedded + Eclipse">{title}</a></li>',
+                                searchResultTemplate: '<li><a href="{url}" title="Nạp chương trình / Gỡ lỗi cho VBLUno51 bằng pyOCD và OpenOCD trên GNU ARM Embedded + Eclipse">{title}</a></li>',
                     noResultsText: 'Không có kết quả nào được tìm thấy.',
                             limit: 10,
                             fuzzy: true,
@@ -857,7 +857,7 @@
         <!-- Content Column -->
         <div class="col-md-9" id="tg-sb-content">
             <div class="post-header">
-   <h1 class="post-title-main">Nạp/Gỡ lỗi cho VBLUno bằng pyOCD và OpenOCD trên GNU ARM Embedded + Eclipse</h1>
+   <h1 class="post-title-main">Nạp chương trình / Gỡ lỗi cho VBLUno51 bằng pyOCD và OpenOCD trên GNU ARM Embedded + Eclipse</h1>
 </div>
 
 
@@ -899,12 +899,10 @@
 
     
 
-  <h1 id="nẠp-chƯƠng-trÌnhgỠ-lỖi-cho-vbluno-v2-bẰng-pyocd-vÀ-openocd-trong-mÔi-trƯỜng-gnu_arm--eclipse">NẠP CHƯƠNG TRÌNH/GỠ LỖI CHO VBLUNO V2 BẰNG pyOCD VÀ OpenOCD TRONG MÔI TRƯỜNG GNU_ARM + ECLIPSE</h1>
-
-<hr />
+  <hr />
 <h2 id="0-lưu-ý">0. Lưu ý:</h2>
 
-<p>Bài viết này tiếp tục cho nội dung tại <code class="highlighter-rouge">Getting Start --&gt; Using mbed-OS --&gt; GNU ARM Embedded &amp; Eclipse IDE</code></p>
+<p>Bài viết này tiếp tục cho nội dung tại <code class="highlighter-rouge">Bắt đầu thôi --&gt; Sử dụng mbed-OS --&gt; GNU ARM Embedded &amp; Eclipse IDE</code></p>
 
 <hr />
 <h2 id="1-cài-đặt">1. Cài đặt</h2>
@@ -932,10 +930,10 @@
 
 <ul>
   <li>
-    <p>Trong khi pyOCD được mbed team thiết kế riêng cho CMSIS-DAP (DAPLink) interface thì OpenOCD là một phần mềm có chức năng tương tự nhưng có thể hoạt động với CMSIS-DAP và rất nhiều công cụ khác như: Jlink, ST-Link, Ulink, redbee-usb,….</p>
+    <p>Trong khi pyOCD được mbed team thiết kế riêng cho CMSIS-DAP (DAPLink) interface thì OpenOCD là một phần mềm có chức năng tương tự nhưng có thể hoạt động với DAPLink (CMSIS-DAP) và rất nhiều công cụ khác như: Jlink, ST-Link, Ulink, redbee-usb,….</p>
   </li>
   <li>
-    <p>Nếu bạn đã cài đặt GNU ARM Eclipse plugin cho Eclipse như đã hướng dẫn tại <code class="highlighter-rouge">Getting Start --&gt; Using mbed-OS --&gt; GNU ARM Embedded &amp; Eclipse IDE</code>, thì OpenOCD đã được cài đặt sẵn vào máy tính của bạn. Nếu bạn sử dụng Windows OS, có thể OpenOCD sẽ được cài vào đường dẫn như hình sau</p>
+    <p>Nếu bạn đã cài đặt GNU ARM Eclipse plugin cho Eclipse như đã hướng dẫn tại <code class="highlighter-rouge">Bắt đầu thôi --&gt; Sử dụng mbed-OS --&gt; GNU ARM Embedded &amp; Eclipse IDE</code>, thì OpenOCD đã được cài đặt sẵn vào máy tính của bạn. Nếu bạn sử dụng Windows OS, có thể OpenOCD sẽ được cài vào đường dẫn như hình sau</p>
   </li>
 </ul>
 
@@ -956,7 +954,7 @@
 <p><img src="images/mbed/tut/tut1/5.png" alt="" /></p>
 
 <hr />
-<h2 id="2-hướng-dẫn-nạpgỡ-lỗi-cho-vbluno-trên-gnu-arm-eclipse">2. Hướng dẫn nạp/gỡ lỗi cho VBLUno trên GNU ARM Eclipse.</h2>
+<h2 id="2-hướng-dẫn-nạpgỡ-lỗi-cho-vbluno51-trên-gnu-arm-eclipse">2. Hướng dẫn nạp/gỡ lỗi cho VBLUno51 trên GNU ARM Eclipse.</h2>
 
 <h3 id="21-nạp-chương-trình">2.1. Nạp chương trình</h3>
 
@@ -964,24 +962,29 @@
   <li>Sửa Makefile:</li>
 </ul>
 
-<p>Bổ sung thêm từ dòng 128 đến 134</p>
+<p>Thêm các dòng sau vào cuối file:</p>
 
-<p><img src="images/mbed/tut/tut1/7.png" alt="" /></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>flash_pyocd:
+	@echo ------------------Flashing by pyOCD: combined.hex------------------
+	pyocd-flashtool $(OBJDIR)/combined.hex
 
-<p>Trong đó dòng 134 có nội dung là:</p>
+flash_openocd:
+	@echo ------------------Flashing by OpenOCD: combined.hex------------------
+	"C:/Program Files/GNU ARM Eclipse/OpenOCD/0.10.0-201601101000-dev/bin/openocd.exe" -f "C:/Program Files/GNU ARM Eclipse/OpenOCD/0.10.0-201601101000-dev/scripts/interface/cmsis-dap.cfg" -f "C:/Program Files/GNU ARM Eclipse/OpenOCD/0.10.0-201601101000-dev/scripts/target/nrf51.cfg" -c "program $(OBJDIR)/combined.hex verify reset exit 0x0"
 
-<p>“C:/Program Files/GNU ARM Eclipse/OpenOCD/0.10.0-201601101000-dev/bin/openocd.exe” -f “C:/Program Files/GNU ARM Eclipse/OpenOCD/0.10.0-201601101000-dev/scripts/interface/cmsis-dap.cfg” -f “C:/Program Files/GNU ARM Eclipse/OpenOCD/0.10.0-201601101000-dev/scripts/target/nrf51.cfg” -c “program combined.hex verify reset exit 0x0”</p>
+</code></pre>
+</div>
 
 <ul>
   <li>Tạo target:</li>
 </ul>
 
-<p>Tạo 2 target với tên là flash_pyocd và flash_openocd:</p>
+<p>Tạo 2 target với tên là <code class="highlighter-rouge">flash_pyocd</code> và <code class="highlighter-rouge">flash_openocd</code>:</p>
 
 <p><img src="images/mbed/tut/tut1/8.png" alt="" /></p>
 
 <ul>
-  <li>Flash chương trình xuống mạch VBLUno</li>
+  <li>Nạp chương trình xuống mạch VBLUno51</li>
 </ul>
 
 <p>Sau khi build project, để nạp chương trình cho mạch bằng pyOCD, bạn nhấp đúp vào target flash_pyocd. Tương tự cho OpenOCD.</p>
@@ -994,17 +997,25 @@
 
 <p><img src="images/mbed/tut/tut1/10.png" alt="" /></p>
 
-<p>Sau khi nạp xong thì mạch sẽ được reset và chương trình bắt đầu chạy.</p>
+<p>Sau khi nạp xong thì mạch sẽ được reset và chương trình tự động chạy.</p>
 
 <h3 id="22-debug-với-pyocd">2.2. Debug với pyOCD</h3>
 
 <ul>
-  <li>Sửa Makefile</li>
+  <li>Chú ý Makefile</li>
 </ul>
 
-<p>Chú ý dòng 68, 69 trong hình sau</p>
+<p>Các dòng sau cần có trong Makefile (Như đã trình bày trong bài viết <code class="highlighter-rouge">Bắt đầu thôi --&gt; Sử dụng mbed-OS --&gt; GNU ARM Embedded &amp; Eclipse IDE</code>).</p>
 
-<p><img src="images/mbed/tut/tut1/11.png" alt="" /></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>ifeq ($(DEBUG), 1)
+  C_FLAGS += -DDEBUG -O0 -g3
+  CXX_FLAGS += -DDEBUG -O0 -g3
+else
+  C_FLAGS += -DNDEBUG -Os
+  CXX_FLAGS += -DNDEBUG -Os
+endif
+</code></pre>
+</div>
 
 <ul>
   <li>Sửa Build command</li>
@@ -1021,11 +1032,11 @@
   </li>
 </ul>
 
-<p>Chuột phải tại project -&gt; Chọn Debug Configurations</p>
+<p>Chuột phải tại <code class="highlighter-rouge">Project</code> -&gt; Chọn <code class="highlighter-rouge">Debug Configurations</code></p>
 
 <p><img src="images/mbed/tut/tut1/13.png" alt="" /></p>
 
-<p>Nhấp đúp vào GDB pyOCD Debugging để tạo cấu hình debug mới:</p>
+<p>Nhấp đúp vào <code class="highlighter-rouge">GDB pyOCD Debugging</code> để tạo cấu hình debug mới:</p>
 
 <p><img src="images/mbed/tut/tut1/14.png" alt="" /></p>
 
@@ -1034,7 +1045,7 @@
 <p><img src="images/mbed/tut/tut1/16.png" alt="" /></p>
 
 <ul>
-  <li>Nhấn Debug để bắt đầu quá trình debug</li>
+  <li>Nhấn <code class="highlighter-rouge">Debug</code> để bắt đầu quá trình debug</li>
 </ul>
 
 <p><img src="images/mbed/tut/tut1/17.png" alt="" /></p>
@@ -1069,11 +1080,6 @@
   <li>Có thể thấy, Eclipse + GNU ARM Eclipse plugin + GNU ARM Embedded toolchain + pyOCD, OpenOCD hỗ trợ developers phát triển ứng dụng cho bo mạch VBLUno một cách dễ dàng. Một môi trường lập trình hỗ trợ GUI, cho phép nạp và gỡ lỗi chương trình một cách thuận tiện sẽ giúp nâng cao hiệu suất làm việc của các lập trình viên.</li>
 </ul>
 
-<p><strong>Mọi thắc mắc hoặc ý kiến đóng góp bạn có thể trao đổi tại đây:</strong></p>
-
-<p>https://www.facebook.com/bleviet/messages/</p>
-
-<p>https://github.com/VNGIoTLab/mbed_for_VBLUno-CMSIS-DAP/issues</p>
 
 
     <div class="tags">
@@ -1098,7 +1104,7 @@
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2017 VNG Corporation. All rights reserved. <br />
- Site last generated: May 27, 2017 <br />
+ Site last generated: Jun 13, 2017 <br />
 <p><img src="images/company_logo_medium.png" alt="Company logo"/></p>
                 </div>
             </div>
