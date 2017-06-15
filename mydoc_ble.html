@@ -888,6 +888,516 @@
     
 
   <hr />
+<h2 id="introduce-bluetooth-low-energy-technology">Introduce Bluetooth Low Energy Technology</h2>
+
+<ul>
+  <li>
+    <p>Firstly, BLE is not all, it does not replace completely other wireless communication standards like Wifi, Zigbee, … or even Bluetooth Classic (2.0). It is designed for a more specialized purpose, with a more specific application domain.</p>
+  </li>
+  <li>
+    <p>BLE (Bluetooth 4.0 up) is designed for applications:</p>
+
+    <p>+Super energy saving, allowing device active for months or years with just one coin-cell battery;</p>
+
+    <ul>
+      <li>
+        <p>Short distance, stable operation within 10m;</p>
+      </li>
+      <li>
+        <p>Data trafic is not large, suitable for discrete control applications, sensors.</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>Typical applications use BLE as health monitoring devices, beacons, smart houses, security, entertainment, proximity sensors, automobiles. The centerpiece of a BLE application system is usually smart phones, tablets and PCs.</p>
+  </li>
+</ul>
+
+<h3 id="history-of-bluetooth-technology-development">History of Bluetooth technology development</h3>
+
+<p><img src="images/ble/introduce/eng0.png" alt="" /></p>
+
+<p>VNGIoTLab’s VBLUno51 boards use the Nordic nRF51822 chip, which currently supports the Bluetooth Standard 4.2.</p>
+
+<h3 id="what-makes-ble-become-different">What makes BLE become different?</h3>
+
+<ul>
+  <li>
+    <p>The rapid development of devices led to a sharp increase in the demand of connection between smart devices  to external devices. While BLE is integrated in most smartphones.</p>
+  </li>
+  <li>
+    <p>Low cost.</p>
+  </li>
+  <li>
+    <p>BLE allows devices can “talk” to modern mobile platforms.</p>
+  </li>
+  <li>
+    <p>Some devices only need to transmit a small amount of data for each cycle connection and they also need energy savings, such as heart rate monitor, child management devices, etc.</p>
+  </li>
+  <li>
+    <p>BLE has a relatively easy-to-understand data model, without the cost of a license with a protocol stack is not too complex.</p>
+  </li>
+</ul>
+
+<h3 id="types-of-bluetooth-devices">Types of Bluetooth devices.</h3>
+
+<ul>
+  <li>The Bluetooth Specification (4.0 onwards) defines the following two wireless technologies:
+    <ul>
+      <li>BR / EDR (Classic Bluetooth)</li>
+      <li>BLE (Bluetooth Low Energy)</li>
+    </ul>
+  </li>
+</ul>
+
+<p>The most common types of Bluetooth devices today are outlined below:</p>
+
+<p><img src="images/ble/introduce/1.png" alt="" /></p>
+
+<p>As the picture above, the BLE device consists of two types: Bluetooth Smart and Bluetooth Smart Ready.</p>
+
+<ul>
+  <li>
+    <p>Bluetooth Smart (Single mode): Only communicate with Bluetooth Smart or Bluetooth Smart Ready</p>
+  </li>
+  <li>
+    <p>Bluetooth Smart Ready (Dual mode): It can communicate with Bluetooth devices such as Bluetooth Smart, Bluetooth Smart Ready and Classic Bluetooth.</p>
+  </li>
+  <li>
+    <p>nRF51822 chip is Bluetooth Smart.</p>
+  </li>
+</ul>
+
+<h3 id="main-blocks-of-a-bluetooth-device">Main blocks of a Bluetooth device</h3>
+
+<ul>
+  <li>
+    <p>Each Bluetooth device consists of three main blocks:</p>
+
+    <ul>
+      <li>
+        <p>Application: The user application communicates with Bluetooth protocol stack.</p>
+      </li>
+      <li>
+        <p>Host: The upper layer of the Bluetooth protocol stack.</p>
+      </li>
+      <li>
+        <p>Controller: The under layer of the Bluetooth protocol stack, including radio transmitter functionality.</p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><em>(Bluetooth Protocol Stack: The stack protocol allows Bluetooth devices to establish, connect, and transmit data.)</em></p>
+
+<p>Three main blocks of a Bluetooth device are integrated into the hardware in a variety of different styles, here are three main types of hardware configurations:</p>
+
+<p><img src="images/ble/introduce/2.png" alt="" /></p>
+
+<p>Nordic nRF51822 chip is a System on Chip (SoC), Bluetooth components integrated in a single chip.</p>
+
+<h3 id="main-limitations-of-ble">Main limitations of BLE</h3>
+
+<p><strong>- Small data throughput:</strong></p>
+
+<p>Frequency modulation of BLE waves in space is 1Mbps. This is the upper limit of theoretical throughput. However, in reality this parameter is smaller due to the influence of many factors.</p>
+
+<p>To illustrate, we assume that a master device is initialized and connected to a slave via the BLE interface:</p>
+
+<ul>
+  <li>
+    <p>We have a concept of connection cycles (Conneciton interval), this is the time between two consecutive connection events. With BLE, when a connection event occurs, the devices in the connection exchange the data together, then return to the IDLE state to save energy, and wait until the time to perform next connection event. This parameter is from 7.5ms to 4s.</p>
+  </li>
+  <li>
+    <p>nRF51822 can transmit up to 6 packets per connection event. Each package can contain 20 bytes.</p>
+  </li>
+  <li>
+    <p>Assuming the connection event frequency is the largest (minimum connection cycle = 7.5ms). At that moment, up to 133 connection events can occur per second</p>
+  </li>
+</ul>
+
+<p>–&gt; Throughput calculation formula: 133 * 120 = 15960 bytes / sec (125Kbit / s)</p>
+
+<p><em>Recommended we should choose throughput of about 80 Kbit/s. This also tells why Wifi, classic bluetooth still have a place.</em></p>
+
+<p><strong>- Close distance</strong></p>
+
+<p>Factors affecting to distance of communication such as operating environment, antenna design, obstruction, device orientation, etc. BLE focuses on communication applications in close distance.</p>
+
+<ul>
+  <li>
+    <p>With BLE we have:</p>
+
+    <ul>
+      <li>
+        <p>Theoretical distance: 100m (good condition).</p>
+      </li>
+      <li>
+        <p>Possible distance: 30m.</p>
+      </li>
+      <li>
+        <p>Distance usually used: 2-5m.</p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+<h2 id="network-communication-model-for-ble">Network communication model for BLE</h2>
+
+<p>A BLE device can communicate with the outside through two mechanisms: Broadcasting or Connection. Each mechanism has its own advantages and limitations, both set by Generic Access Profile (GAP)</p>
+
+<h3 id="broadcasting-và-observing">Broadcasting và Observing</h3>
+
+<p><img src="images/ble/introduce/3.png" alt="" /></p>
+
+<ul>
+  <li>
+    <p>Broadcaster Devices: Sends broadcast packets that are connectionless to any device that can receive them.</p>
+  </li>
+  <li>
+    <p>Observer Devices: Scans continuously at set frequencies to receive connectionless broadcast packets.</p>
+  </li>
+</ul>
+
+<p>This is the type of communication that allows a device to transmit data to multiple devices at one time. This is a fast and easy-to-use mechanism, which is a good option if you want to transfer small amounts of data to multiple devices at the same time. The restriction is that data is not secure, so it is not suitable for transmitting sensitive data.</p>
+
+<h3 id="connection">Connection</h3>
+
+<p><img src="images/ble/introduce/4.png" alt="" /></p>
+
+<ul>
+  <li>
+    <p>Central (Master) Device: Scans broadcast packets for connection at set frequencies, when come to appropriate time it will initiates a connection with a peripheral. Central manages timing and initiates cyclical data exchanges.</p>
+  </li>
+  <li>
+    <p>Peripheral device (Slave): Broadcast periodic connection-oriented broadcasts and accept connections requested by central.</p>
+  </li>
+  <li>
+    <p>Connection Initialization:</p>
+
+    <ul>
+      <li>
+        <p>When you want to connect, slave broadcasts packets broadcast to space.</p>
+      </li>
+      <li>
+        <p>Central receives the broadcast packets of slave, which contains the necessary information to allow connection to the slave.</p>
+      </li>
+      <li>
+        <p>Based on that, central sends a request to connect to slave then establish a separate connection between two devices.</p>
+      </li>
+      <li>
+        <p>When the connection is established, slave stops broadcasting and two devices can begin to exchange two-way data. Master and slave roles do not affect data transfer, though Master is the connection manager.</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>The advantage of Connection over Broadcasting is:</p>
+
+    <ul>
+      <li>
+        <p>High bandwidth.</p>
+      </li>
+      <li>
+        <p>The ability to establish secure link-link.</p>
+      </li>
+      <li>
+        <p>Optimal energy management.</p>
+      </li>
+      <li>
+        <p>The ability to organize data with multiple conformational changes for attributes through using additional protocol layers, particularly Generic Attribute Profile (GATT). Data is organized in a structured sense around what are called services and characteristics.</p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+<h2 id="protocols-and-profiles">Protocols and Profiles</h2>
+
+<p>In order two devices can communicate with each other through the BLE standard, BLE devices need to comply with some regulations. These rules are generalized into protocols and configurations.</p>
+
+<ul>
+  <li>
+    <p><strong>Protocol:</strong> A set of rules that govern formatting of packets, routing, multiplexing, encryption, etc. to exchange data between sides.</p>
+  </li>
+  <li>
+    <p><strong>Profile:</strong> Defining how the protocol is used to achieve specific objectives. There are two types of configurations: generic profiles and use-case profiles.</p>
+
+    <ul>
+      <li>
+        <p><em>Generic profiles:</em> Base profiles are defined in the Bluetooth Specifications, especially two profiles that are indispensable for BLE devices to connect and exchange data with each other, GAP and GATT.</p>
+      </li>
+      <li>
+        <p><em>Use-case profile:</em> Profiles for specific use cases</p>
+
+        <ul>
+          <li>
+            <p>Profiles which are defined by Bluetooth Special Interest Group (SIG)</p>
+          </li>
+          <li>
+            <p>Profiles are defined  manually by vendor.</p>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+<h2 id="the-ble-protocols-stack">The BLE Protocols Stack</h2>
+
+<p>To program BLE devices, it’s possible to just care about API functions in the upper layer of the BLE protocol stack, but it’s better to start with a basic view of interface. This gives BLE, which provides background knowledge to further research into BLE.</p>
+
+<p>The figure below shows the full list of components within BLE suite for the Bluetooth Smart device.</p>
+
+<p><img src="images/ble/introduce/5.png" alt="" /></p>
+
+<ul>
+  <li>
+    <p>The protocol suite for BLE devices is divided into three main parts: controller, host and application. Each section consists of one or more layers according to function:</p>
+
+    <ul>
+      <li>
+        <p>Application: The highest layer of protocols suite, providing a user interface, logical processing, and data control of everything related to the application’s operating instances. The architecture of application depends on specific problem.</p>
+      </li>
+      <li>
+        <p>Host: includes the following classes</p>
+
+        <ul>
+          <li>
+            <p>Generic Access Profile (GAP)</p>
+          </li>
+          <li>
+            <p>Generic Attribute Profile (GATT)</p>
+          </li>
+          <li>
+            <p>Attribute Protocol (ATT)</p>
+          </li>
+          <li>
+            <p>Security Manager (SM)</p>
+          </li>
+          <li>
+            <p>Logical Link Control and Adaptation Protocol (L2CAP)</p>
+          </li>
+          <li>
+            <p>Host Controller Interface (HCI), Host side</p>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p>Controller: includes the following classes</p>
+
+        <ul>
+          <li>
+            <p>Host Controller Interface (HCI), Controller side</p>
+          </li>
+          <li>
+            <p>Link Layer (LL)</p>
+          </li>
+          <li>
+            <p>Physical Layer (PHY)</p>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p>Table summarizes the functions of classes in stack</p>
+
+<p><img src="images/ble/introduce/eng6.png" alt="" /></p>
+
+<p><img src="images/ble/introduce/eng7.png" alt="" /></p>
+
+<p><img src="images/ble/introduce/eng8.png" alt="" /></p>
+
+<p>In conclution, BLE protocol stack include multiple layers, each layer performs certain functions that facilitate communication between BLE devices.</p>
+
+<hr />
+<h2 id="base-profiles-gap-and-gatt">Base profiles: GAP and GATT</h2>
+
+<h3 id="gap-advertising-and-connections">GAP (Advertising and Connections)</h3>
+
+<ul>
+  <li>
+    <p>GAP (Generic Access Profile) is the platform that allows BLE devices to communicate with each other. It provides a framework that any BLE devices must follow to be able to search for other Bluetooth (BLE) devices, broadcast data, establish a secure connection, perform a variety of platform activities under A standard</p>
+  </li>
+  <li>
+    <p>The BLE Specifications document defines the following concepts when considering interactions between devices:</p>
+
+    <ul>
+      <li>
+        <p>Roles: Each device can operate in one or more different roles at the same time: broadcaster, observer, central, peripheral.</p>
+      </li>
+      <li>
+        <p>Modes: A mode is a state in which the device can be moved for a period of time to achieve a specific purpose or special thing, to allow a peer to perform a particular procedure.</p>
+      </li>
+      <li>
+        <p>Procedures: The procedures (usually the link layer that controls the exchange of packets) to allow a device to achieve a certain purpose. A procedure is usually associated with a mode, so mode and procedure are often considered together.</p>
+      </li>
+      <li>
+        <p>Security: GAP builds on Security Manager and Security Manager Protocol (which defines security modes and procedures to determine how devices set security levels when exchanging data). In addition, GAP defines more advanced security features without being associated with specific modes and procedures, enhancing the level of data protection required by each application.</p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="images/ble/introduce/9.png" alt="" /></p>
+
+<p><img src="images/ble/introduce/10.png" alt="" /></p>
+
+<p>GAP is the highest control layer of BLE (Highest Control layer) and is mandatory for all BLE devices.</p>
+
+<h3 id="gatt-services-and-characteristics">GATT (Services and Characteristics)</h3>
+
+<ul>
+  <li>
+    <p>GATT set details how to exchange all profiles and user data over a BLE connection. In contrast to GAP (which defines low-level interactions with devices), GATT only demonstrates actual data transmission and formatting procedures.</p>
+  </li>
+  <li>
+    <p>GATT uses ATT and its transmission protocols to exchange data between devices. This data is organized hierarchically into sections called services, which group related conceptual pieces of user data called characteristic. In short, the data transmitted through BLE is structured data, which in particular is organized into services and characteristics.</p>
+  </li>
+</ul>
+
+<p><strong>Roles</strong></p>
+
+<ul>
+  <li>
+    <p>GATT Client: corresponds to the ATT client, sends the request to the server and receives the response. Initially, the GATT Client did not know what attributes server was supporting so it needed to perform service discovery.</p>
+  </li>
+  <li>
+    <p>GATT Server: corresponds to the ATT server, receives request from the client, and sends the corresponding content.</p>
+  </li>
+  <li>
+    <p>Note that GATT roles do not depend on the role of GAP. This means that both GAP Central and GAP Peripheral can act as GATT Client or GATT Server or even both at the same time.</p>
+  </li>
+</ul>
+
+<p><strong>UUIDs</strong></p>
+
+<ul>
+  <li>UUIDs is a unique 128-bit (16 byte) device identifier in the world. Because the length is too large, BLE Specification defines two more UUIDs: 16bit and 32bit. These short formats may only be used with the UUID defined in the BT Specification.</li>
+</ul>
+
+<p><strong>Attributes</strong></p>
+
+<ul>
+  <li>
+    <p>Attributes is the smallest data which defined entity by GATT (and ATT).</p>
+  </li>
+  <li>
+    <p>Both GATT and ATT work only with attributes, so for all client and server interactions all data must be organized in this format.</p>
+  </li>
+  <li>
+    <p>Each attribute contains information about itself that is user data and is described as follows:</p>
+
+    <ul>
+      <li>
+        <p>Handle: The only 16 bits per server to address the attribute</p>
+      </li>
+      <li>
+        <p>Type: UUID type, 16bit - 32bit - 128 bit</p>
+      </li>
+      <li>
+        <p>Permission: specifies the ATT opertation that can be executed on a particular attribute</p>
+      </li>
+      <li>
+        <p>Value: Contains the actual data portion of the attribute, 512 byte limit</p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>Services and Characteristics</strong></p>
+
+<p>Data exchanged via a BLE connection is structured data, organized hierarchically into services, services themselves including characteristics.</p>
+
+<p><img src="images/ble/introduce/11.png" alt="" /></p>
+
+<hr />
+<h2 id="profiles-for-each-specific-application">Profiles for each specific application</h2>
+
+<p>GAP and GATT are two platform profiles for every BLE applications. In addition, depending on the applications, devices will provide other profiles (based on GAP and GATT). The main services are the services provided by the device such as: Heart Rate Monitor, Battery, Health Thermometer, HID, …</p>
+
+<p>For detailed information about services, visit the following links:</p>
+
+<p>https://www.bluetooth.com/specifications/adopted-specifications https://www.bluetooth.com/specifications/gatt/services.</p>
+
+<p>These links above represent profiles that have been defined by the Bluetooth SIG organization. In addition, device manufacturers can define more profiles themselves.</p>
+
+<hr />
+<h2 id="example-illustrating-heart-rate-monitor-hrm-with-the-vbluno51-board-on-arduino">Example illustrating heart rate monitor (HRM) with the VBLUno51 board on Arduino</h2>
+
+<ul>
+  <li>Heart Rate Monitor– HRM</li>
+</ul>
+
+<p>The figure below shows the structure of the Heart Rate Service (HRS)</p>
+
+<p><img src="images/ble/introduce/12.png" alt="" /></p>
+
+<ul>
+  <li>We can see, HRS consists of two characteristics that provide information about the heart rate and the location of the sensor on the body. Details can be found at the following link:</li>
+</ul>
+
+<p>https://www.bluetooth.com/specifications/gatt/viewer?attributeXmlFile=org.blueooth.service.heart_rate.xml</p>
+
+<ul>
+  <li>
+    <p>The following example illustrates a BLE device that measures heart rate and transmits to BLE Central (Smartphones, tablets, PC). Since there are no sensors that support this feature, in this example we just create a dummy signal as described below:</p>
+
+    <ul>
+      <li>
+        <p>The heart rate value varies linearly from 100 to 175 with an increase of 1</p>
+      </li>
+      <li>
+        <p>Position sensor on body: Finger (code = 0x03)</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>Perform:</p>
+
+    <ul>
+      <li>
+        <p>Open the HRM example: File =&gt; Examples =&gt; BLE_Examples =&gt; BLE_HRM</p>
+      </li>
+      <li>
+        <p>Compile and upload to VBLUno board. If successful you already have a BLE device that illustrates the heart rate monitor feature.</p>
+      </li>
+      <li>
+        <p>To connect to this device, you need a BLE Central (Smart phone, tablet, PC). Here we use Nordic’s nRF Toolbox software and BLE Tool software to illustrate.</p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="images/ble/introduce/13.png" alt="" /></p>
+
+<p>On Android phone or iPhone, run the nRF Toolbox, select the HRM entry, click Connect to search the HRM device, and request a connection.</p>
+
+<p><img src="images/ble/introduce/14.png" alt="" /></p>
+
+<p><img src="images/ble/introduce/15.png" alt="" /></p>
+
+<p><img src="images/ble/introduce/16.png" alt="" /></p>
+
+<p>The source code of the example program is quite simple, you can read it yourself and find out.</p>
+
+<hr />
+<h2 id="ble-introduction-book">BLE introduction book</h2>
+
+<p>To find out more about BLE you can refer to some of the following materials:</p>
+
+<ul>
+  <li>
+    <p>Getting started with Bluetooth Low Energy – Tool and techniques for low-power networking của Kevin Townsend, Carles Cufí, Akiba &amp; Robert Davidson.</p>
+  </li>
+  <li>
+    <p>Bluetooth Low Energy – The developer’s handbook, Robin Heydon</p>
+  </li>
+</ul>
+
 
 
     <div class="tags">
@@ -912,7 +1422,7 @@
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2017 VNG Corporation. All rights reserved. <br />
- Site last generated: Jun 13, 2017 <br />
+ Site last generated: Jun 15, 2017 <br />
 <p><img src="images/company_logo_medium.png" alt="Company logo"/></p>
                 </div>
             </div>
