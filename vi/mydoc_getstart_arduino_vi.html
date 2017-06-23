@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="keywords" content="bat_dau,  ">
-<title>Bắt đầu với Arduino IDE | VBLUno51 board</title>
+<title>Bắt đầu sử dụng mạch VBLUno51 với Arduino IDE | VBLUno51 board</title>
 <link rel="stylesheet" href="css/syntax.css">
 
 
@@ -216,7 +216,7 @@
                                 searchInput: document.getElementById('search-input'),
                                 resultsContainer: document.getElementById('results-container'),
                                 dataSource: 'search_vi.json',
-                                searchResultTemplate: '<li><a href="{url}" title="Bắt đầu với Arduino IDE">{title}</a></li>',
+                                searchResultTemplate: '<li><a href="{url}" title="Bắt đầu sử dụng mạch VBLUno51 với Arduino IDE">{title}</a></li>',
                     noResultsText: 'Không có kết quả nào được tìm thấy.',
                             limit: 10,
                             fuzzy: true,
@@ -857,7 +857,7 @@
         <!-- Content Column -->
         <div class="col-md-9" id="tg-sb-content">
             <div class="post-header">
-   <h1 class="post-title-main">Bắt đầu với Arduino IDE</h1>
+   <h1 class="post-title-main">Bắt đầu sử dụng mạch VBLUno51 với Arduino IDE</h1>
 </div>
 
 
@@ -899,9 +899,7 @@
 
     
 
-  <h1 id="bẮt-ĐẦu-sỬ-dỤng-mẠch-vbluno51-vỚi-arduino-ide">BẮT ĐẦU SỬ DỤNG MẠCH VBLUno51 VỚI ARDUINO IDE.</h1>
-
-<hr />
+  <hr />
 
 <h2 id="phẦn-1-sƠ-ĐỒ-pinout">PHẦN 1: SƠ ĐỒ PINOUT</h2>
 
@@ -954,9 +952,16 @@
   </li>
   <li>Tải bản cài đặt phù hợp với hệ điều hành:
     <ul>
-      <li><a href="https://github.com/VNGIoTLab/Arduino_VBLUno_nRF51822/tree/master/Setup_Offline/Windows">Cho Windows</a></li>
-      <li><a href="https://github.com/VNGIoTLab/Arduino_VBLUno_nRF51822/tree/master/Setup_Offline/Linux">Cho Linux</a></li>
-      <li><a href="https://github.com/VNGIoTLab/Arduino_VBLUno_nRF51822/tree/master/Setup_Offline/Mac">Cho MacOSX</a></li>
+      <li>
+        <p><a href="https://github.com/VNGIoTLab/Arduino_VBLUno_nRF51822/tree/master/Setup_Offline/Windows">Cho Windows</a></p>
+      </li>
+      <li>
+        <p><a href="https://github.com/VNGIoTLab/Arduino_VBLUno_nRF51822/tree/master/Setup_Offline/Linux">Cho Linux</a>
+Chú ý: Không nên lưu thư mục này trong các phân vùng ngoài mà nên lưu trong phân vùng của hệ điều hành. Ví dụ: <code class="highlighter-rouge">/home/mrbean</code></p>
+      </li>
+      <li>
+        <p><a href="https://github.com/VNGIoTLab/Arduino_VBLUno_nRF51822/tree/master/Setup_Offline/Mac">Cho MacOSX</a></p>
+      </li>
     </ul>
   </li>
   <li>
@@ -1042,13 +1047,17 @@
 VNGIoTLab - 2017
 Arduino IDE with VBLUno51 board
 Tutorial 1 - Hello World Example
-Mô tả: Ví dụ nhấp nháy led trên mạch VBLUno51 với chu kỳ 2s
+Mô tả: Ví dụ nhấp nháy led trên mạch VBLUno51 với chu kỳ 2s và truyền thông UART 
 ***************************************************************************/
 
 // the setup function runs once when you press reset or power the board
 void setup() {
   // Khởi tạo chân LED là chân OUTPUT (trên VBLUno có sẵn 1 Led)
   pinMode(LED, OUTPUT);
+
+  //Serial  
+  Serial.begin(115200);
+  Serial.println("Test the VBLUno51 board on Arduino IDE");
 }
 
 // the loop function runs over and over again forever
@@ -1057,6 +1066,7 @@ void loop() {
   delay(1000);              		// Chờ 1 giây
   digitalWrite(LED, LOW);    		// Tắt led
   delay(1000);              		// Chờ 1 giây
+  Serial.println("Finish a period");
 }
 </code></pre>
 </div>
@@ -1075,8 +1085,9 @@ void loop() {
 <p><img src="images/arduino/getstart/arduino_flash.png" alt="t" /></p>
 
 <ul>
-  <li>Sau khi nạp code, chương trình sẽ tự động chạy. Hãy quan sát LED trên mạch VBLUno51 nhấp nháy với chu kỳ 2 giây.</li>
+  <li>Sau khi nạp code, chương trình sẽ tự động chạy. Hãy quan sát LED trên mạch VBLUno51 nhấp nháy với chu kỳ 2 giây. Sử dụng phần mềm Terminal trên máy tính để quan sát dữ liệu nhận được từ VBLUno51 qua giao tiếp UART.</li>
 </ul>
+
 
 
     <div class="tags">
@@ -1101,7 +1112,7 @@ void loop() {
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2017 VNG Corporation. All rights reserved. <br />
- Site last generated: Jun 13, 2017 <br />
+ Site last generated: Jun 23, 2017 <br />
 <p><img src="images/company_logo_medium.png" alt="Company logo"/></p>
                 </div>
             </div>
