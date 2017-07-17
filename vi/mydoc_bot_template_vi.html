@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
-<meta name="keywords" content="huong_dan,  ">
-<title>Thiết bị phát Beacons với VBLUno | VBLUno51 board</title>
+<meta name="keywords" content="huong_danvi_dututorialsexamples,  ">
+<title>Các mã nguồn mẫu cơ bản dành cho các Bot trong cuộc thi VNG Bot Battle 12+1 | VBLUno51 board</title>
 <link rel="stylesheet" href="css/syntax.css">
 
 
@@ -216,7 +216,7 @@
                                 searchInput: document.getElementById('search-input'),
                                 resultsContainer: document.getElementById('results-container'),
                                 dataSource: 'search_vi.json',
-                                searchResultTemplate: '<li><a href="{url}" title="Thiết bị phát Beacons với VBLUno">{title}</a></li>',
+                                searchResultTemplate: '<li><a href="{url}" title="Các mã nguồn mẫu cơ bản dành cho các Bot trong cuộc thi VNG Bot Battle 12+1">{title}</a></li>',
                     noResultsText: 'Không có kết quả nào được tìm thấy.',
                             limit: 10,
                             fuzzy: true,
@@ -261,7 +261,7 @@
             
             
             
-            <li><a href="mydoc_bot_template_vi.html">Các mã nguồn mẫu cho Bot</a></li>
+            <li class="active"><a href="mydoc_bot_template_vi.html">Các mã nguồn mẫu cho Bot</a></li>
             
             
             
@@ -528,7 +528,7 @@
                     
                     
                     
-                    <li class="active"><a href="mydoc_arduino_tut2_vi.html">Tut2 - Thiết bị Beacons với VBLUno</a></li>
+                    <li><a href="mydoc_arduino_tut2_vi.html">Tut2 - Thiết bị Beacons với VBLUno</a></li>
                     
                     
                     
@@ -882,7 +882,7 @@
         <!-- Content Column -->
         <div class="col-md-9" id="tg-sb-content">
             <div class="post-header">
-   <h1 class="post-title-main">Thiết bị phát Beacons với VBLUno</h1>
+   <h1 class="post-title-main">Các mã nguồn mẫu cơ bản dành cho các Bot trong cuộc thi VNG Bot Battle 12+1</h1>
 </div>
 
 
@@ -924,159 +924,116 @@
 
     
 
-  <h1 id="tỰ-lÀm-mỘt-thiẾt-bỊ-phÁt-beacons-vỚi-vbluno-v2">TỰ LÀM MỘT THIẾT BỊ PHÁT BEACONS VỚI VBLUNO V2</h1>
+  <hr />
+<h2 id="cuộc-thi-vng-121-bot-battle---Đấu-trường-rực-lửa">Cuộc thi VNG 12+1 Bot Battle - Đấu trường rực lửa</h2>
+
+<p>Thông tin chi tiết về cuộc thi thú vị này các bạn có thể xem tại các link sau:</p>
+
+<p>https://start.vng.com.vn/bot-battle-2017-dau-truong-ruc-lua-tro-lai/?utm_source=Life%20at%20VNG&amp;utm_medium=EB%20team</p>
+
+<p>https://www.facebook.com/bleviet/</p>
+
+<p><img src="images/bot/logo.png" alt="" /></p>
 
 <hr />
-<h2 id="những-nét-cơ-bản-về-công-nghệ-beacons">Những nét cơ bản về công nghệ Beacons</h2>
+<h2 id="kiến-thức-cần-thiết">Kiến thức cần thiết</h2>
+
+<p>Các đội cần trang bị các kiến thức cơ bản về hoạt động của một robot, đặc biệt các bot trong cuộc thi <strong>VNG 12+1 Bot Battle - Đấu trường rực lửa</strong> đều sử dụng bo mạch VBLUno51 của VNG IoT Lab. Đây là bo mạch được thiết kế dựa trên chip Nordic nRF51822 hỗ trợ giao tiếp không dây Bluetooth Low Energy tiết kiệm năng lượng. Chính vì vậy các đội thi cần trang bị các kiến thức để làm việc tốt với bo mạch VBLUno51 như:</p>
 
 <ul>
   <li>
-    <p>Về công nghệ Beacons nhiều bạn đã được nghe đến hoặc trực tiếp sử dụng nó. Vậy beacons là gì và lợi ích của nó ra sao. Sau đây mình sẽ giới thiệu những nét chính về công nghệ Beacons.</p>
+    <p>Giao tiếp không dây Bluetooth Low Energy</p>
   </li>
   <li>
-    <p>Beacon là thiết bị điện tử nhỏ phát ra tín hiệu Bluetooth năng lượng thấp (Bluetooth Low Energy - BLE). Bất kỳ thiết bị nào có công nghệ BLE đều có thể thu được tín hiệu này, chẳng hạn như điện thoại thông minh hay máy tính bảng.</p>
+    <p>Cấu tạo phần cứng cơ bản của bo mạch VBLUno51</p>
   </li>
   <li>
-    <p>Một thiết bị Beacon hoạt động như một “broadcasting device” - thiết bị chỉ quảng bá tín hiệu ra không gian. Điều này đồng nghĩa với việc các thiết bị BLE Central sẽ không thể kết nối đến thiết bị beacons. Thiết bị này hỗ trợ các thiết bị BLE khác nhau có thể đọc được thông tin từ Beacon tại cùng một thời điểm. Có thể xem thiết bị beacon như một ngọn hải đăng, một đèn báo hiệu để các thiết bị khác có thể dễ dàng nhận được một số thông tin cần truyền tải.</p>
+    <p>Sử dụng các IDE, hệ điều hành nhúng để phát triển ứng dụng cho VBLUno51</p>
   </li>
 </ul>
 
-<p><img src="images/arduino/tut/tut2/1.png" alt="" /></p>
+<p>Tất cả các tài liệu trên về VBLUno51 được cung cấp đầy đủ tại trang Wiki của các bo mạch VBLUno: <a href="https://vngiotlab.github.io/vbluno/">https://vngiotlab.github.io/vbluno/</a></p>
+
+<p>Với các tài liệu được cung cấp khá đầy đủ, các bạn developers có thể dễ dàng tiếp cận và làm chủ bo mạch VBLUno51 và giao tiếp không dây BLE.</p>
+
+<hr />
+<h2 id="mã-nguồn-mẫu-cơ-bản">Mã nguồn mẫu cơ bản</h2>
+
+<p>Các chức năng cơ bản của bot</p>
 
 <ul>
   <li>
-    <p>Đây là giao thức một chiều từ Beacon đến các thiết bị BLE mà không cần tạo một kết nối giữa hai thiết bị. Giống như công nghệ GPS, dựa vào cường độ tín hiệu BLE mà các thiết bị có thể xác định khoảng cách giữa Beacon và các thiết bị BLE xung quanh. </p>
+    <p>Truyền thông Bluetooth Low Energy giữa mạch VBLUno51 và Smartphone, Tablet.</p>
   </li>
   <li>
-    <p>Beacon giải quyết các bài toán như: định vị trong tòa nhà, trung tâm thương mại - xác thực thanh toán (contactless payment) - lấy mã khuyến mại (checkin coupons) - quảng cáo thông minh (proximity marketing).</p>
+    <p>Điều khiển chuyển động của bot: Tiến, lùi, quay trái, quay phải, dừng</p>
   </li>
   <li>
-    <p>Đối với giáo dục, một số công ty đã áp dụng Beacon để phân tích hành vi sinh viên, hỗ trợ kết nối sinh viên và giáo viên từ đó chống được tỷ lệ drop-out.</p>
+    <p>Điều khiển bật / tắt các relay 1, 2, 3, 4</p>
   </li>
 </ul>
 
-<p><img src="images/arduino/tut/tut2/2.png" alt="" /></p>
+<h3 id="1-phần-mềm-điều-khiển-trên-smartphone-tablet-chạy-hệ-điều-hành-android">1. Phần mềm điều khiển trên Smartphone, Tablet chạy hệ điều hành ANDROID</h3>
+
+<p><a href="https://goo.gl/4sJbPk">Mã nguồn bot121_android</a></p>
+
+<p><img src="images/bot/android.png" alt="" /></p>
 
 <ul>
   <li>
-    <p>Phân loại các chuẩn Beacons:</p>
+    <p>Ghi chú:</p>
 
     <ul>
       <li>
-        <p>iBeacons của Apple</p>
+        <p>Chạy thử trên máy Android 6.0</p>
       </li>
       <li>
-        <p>Eddystone của Google</p>
+        <p>SDK 23</p>
       </li>
       <li>
-        <p>AltBeacon của Radius Networks</p>
+        <p>Màn hình dọc</p>
       </li>
       <li>
-        <p>v..v…</p>
-      </li>
-    </ul>
-  </li>
-  <li>
-    <p>Phần tiếp theo trình bày cấu trúc phần user data và ý nghĩa các tham số quan trọng của chuẩn iBeacons. Các bạn có thể tìm hiểu các chuẩn beacons khác thông qua Internet.</p>
-  </li>
-</ul>
-
-<hr />
-<h2 id="ibeacons">iBeacons</h2>
-
-<ul>
-  <li>Hình dưới trình bày cấu trúc 31 byte dữ liệu trong thông tin mà iBeacons phát quảng bá ra môi trường.</li>
-</ul>
-
-<p><img src="images/arduino/tut/tut2/3.png" alt="" /></p>
-
-<ul>
-  <li>
-    <p>Với iBeacons, Apple đã chuẩn hóa định dạng các gói tin quảng bá BLE. Theo định dạng này, với một packet quảng bá bạn cần quan tâm 4 thông tin chính sau:</p>
-
-    <ul>
-      <li>
-        <p><strong>UUID</strong>: Unique ID với độ dài 16 bytes (128 bit) được dùng để phân biệt giữa các nhóm sản phẩm với nhau. Ví dụ, nếu Coca-Cola có một mạng các beacons trong một chuỗi các cửa hàng thì các thiết bị beacons đi kèm sản phẩm của Coca-Cola nên có chung một giá trị UUID này.</p>
-      </li>
-      <li>
-        <p><strong>Major</strong>: Có độ dài 2 byte được dùng để phân biệt một nhóm beacons nhỏ so với một nhóm lớn. Ví dụ, nếu Coca-Cola có bốn beacons trong một cửa hàng tạp hóa, cả bốn beacons này nên có cùng một Major. Điều này cho phép Coca-Cola biết chính xác cửa hàng mà khách đang ở trong đó.</p>
-      </li>
-      <li>
-        <p><strong>Minor</strong>: Có độ dài 2 byte để định danh các beacons riêng biệt trong từng nhóm nhỏ. Trong ví dụ với Coca-Cola ở trên, có một beacons đặt ở phía trước cửa hàng mang một giá trị Minor độc nhất. Điều này cho phép ứng dụng đi kèm biết chính xác nơi mà khách hàng đang đứng</p>
-      </li>
-      <li>
-        <p><strong>Tx Power</strong>: Được dùng để xác định khoảng cách đến beacon. Tx power được định nghĩa như độ mạnh của tín hiệu tại vị trí cách thiết bị beacons 1 mét. Các ứng dụng đi kèm có thể dùng điều này như một thông tin cơ bản để ước lượng khoảng cách từ sản phẩm (có beacons đi kèm) đến smartphone chạy ứng dụng.</p>
+        <p>Chế độ BLE: Có kết nối</p>
       </li>
     </ul>
   </li>
 </ul>
 
-<hr />
-<h2 id="thực-hành-phát-ibeacons-với-bo-mạch-vbluno-v2">Thực hành phát iBeacons với bo mạch VBLUno v2</h2>
+<h3 id="2-firmware-cho-mạch-điều-khiển-bot-vbluno51">2. Firmware cho mạch điều khiển Bot: VBLUno51</h3>
 
-<ul>
-  <li>Các bạn có thể tham khảo mã nguồn ví dụ phát iBeacons cho bo mạch VBLUno v2 có sẵn trong Arduino IDE:</li>
-</ul>
+<p>Hiện nay, bo mạch VBLUno51 của VNG IoT Lab đã được hỗ trợ bởi một số hệ điều hành nhúng tốt nhất dành cho Internet of Things như: ARMmbed, Zephyr-rtos, Apache Mynewt-OS và cả Arduino IDE.</p>
 
-<p><code class="highlighter-rouge">File --&gt; Examples --&gt; BLE_Examples --&gt; BLE_beacon</code></p>
+<p>Chúng tôi cung cấp mã nguồn mẫu dành cho các Bot trên nhiều nền tảng khác nhau giúp các bạn có thể tùy ý lựa chọn.</p>
 
-<p><strong>Một số ghi chú:</strong></p>
+<h4 id="21-sử-dụng-arduino-ide">2.1. Sử dụng Arduino IDE</h4>
 
-<ul>
-  <li><em>Đoạn code sau chứa nội dung gói dữ liệu quảng bá beacons</em></li>
-</ul>
+<p><a href="https://goo.gl/4xHnC1">Mã nguồn bot121_vbluno51_arduino</a></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>const static uint8_t beaconPayload[] = {
-0x4C,0x00,                                                         // Company Identifier Code = Apple
-0x02,                                                                  // Type = iBeacon
-0x15,                                                                  // Following data length
-0x71,0x3d,0x00,0x00,0x50,0x3e,0x4c,0x75,0xba,0x94,0x31,0x48,0xf1,0x8d,0x94,0x1e, // Beacon UUID
-0x00,0x49,                                                                       // Major
-0x00,0x0A,                                                                       // Minor
-0xC5                                                                             // Measure Power
-};
-</code></pre>
-</div>
+<p><img src="images/bot/arduino.png" alt="" /></p>
 
-<ul>
-  <li>
-    <p><em>Các tham số quảng bá quan trọng:</em></p>
+<h4 id="22-sử-dụng-hệ-điều-hành-nhúng-armmbed-os">2.2. Sử dụng hệ điều hành nhúng ARMmbed-OS</h4>
 
-    <ul>
-      <li>
-        <p>LE_GENERAL_DISCOVERABLE: Cho phép discovery</p>
-      </li>
-      <li>
-        <p>MANUFACTURER_SPECIFIC_DATA</p>
-      </li>
-      <li>
-        <p>ADV_NON_CONNECTABLE_UNDIRECTED: Không hỗ trợ kết nối</p>
-      </li>
-    </ul>
-  </li>
-</ul>
+<p><a href="https://goo.gl/Rka3sF">Mã nguồn bot121_vbluno51_mbed-os</a></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>ble.accumulateAdvertisingPayload(GapAdvertisingData::BREDR_NOT_SUPPORTED | GapAdvertisingData::LE_GENERAL_DISCOVERABLE);  
+<p><img src="images/bot/mbed.png" alt="" /></p>
 
-ble.accumulateAdvertisingPayload(GapAdvertisingData::MANUFACTURER_SPECIFIC_DATA, beaconPayload, sizeof(beaconPayload));
+<p>Ghi chú: Hiện tại VBLUno51 được ARMmbed hỗ trợ phiên bản 2.0. Trong ví dụ mẫu chúng tôi đã patch để có thể sử dụng mbed-os.</p>
 
-ble.setAdvertisingType(GapAdvertisingParams::ADV_NON_CONNECTABLE_UNDIRECTED);
-</code></pre>
-</div>
+<p><a href="https://developer.mbed.org/blog/entry/mbed-OS-552-Released/">Bản phát hành mbed-OS 5.5.2 hỗ trợ bo mạch VBLUno51 của VNG</a></p>
 
-<p><strong>Kết quả demo:</strong></p>
+<p><a href="https://github.com/ARMmbed/mbed-cli">Sử dụng công cụ mbed-cli</a></p>
 
-<ul>
-  <li>Sau khi biên dịch và nạp firmware cho VBLUno, sử dụng một số phần mềm có tính năng đọc tín hiệu beacons trên smartphone để kiểm tra hoạt động của thiết bị beacons . Ở đây mình dùng phần mềm Beacon Scanner trên Android OS.</li>
-</ul>
+<h4 id="23-sử-dụng-hệ-điều-hành-nhúng-zephyr-os">2.3. Sử dụng hệ điều hành nhúng Zephyr-OS</h4>
 
-<p><img src="images/arduino/tut/tut2/4.png" alt="" /></p>
+<p><a href="https://goo.gl/1QDD7E">Mã nguồn bot121_vbluno51_zephyr-os</a></p>
 
-<p><img src="images/arduino/tut/tut2/5.png" alt="" /></p>
+<p><img src="images/bot/zephyr.png" alt="" /></p>
 
-<ul>
-  <li>Có thể thấy, bằng việc sử dụng VBLUno, bạn dễ dàng chế tạo thử nghiệm một thiết bị beacons áp dụng cho nhiều bài toán khác nhau.</li>
-</ul>
+<p><a href="http://zephyr-docs.s3-website-us-east-1.amazonaws.com/online/dev/getting_started/getting_started.html">Hướng dẫn bắt đầu với Zephyr-OS</a></p>
+
+<p><a href="http://zephyr-docs.s3-website-us-east-1.amazonaws.com/online/dev/boards/arm/nrf51_vbluno51/doc/nrf51_vbluno51.html">Giới thiệu về bo mạch VBLUno51 trên zephyr-os</a></p>
+
 
 
     <div class="tags">
@@ -1086,6 +1043,14 @@ ble.setAdvertisingType(GapAdvertisingParams::ADV_NON_CONNECTABLE_UNDIRECTED);
         
         
         <a href="tag_huong_dan.html" class="btn btn-default navbar-btn cursorNorm" role="button">huong_dan</a>
+        
+        
+        
+        <a href="tag_vi_du.html" class="btn btn-default navbar-btn cursorNorm" role="button">vi_du</a>
+        
+        
+        
+        
         
         
         

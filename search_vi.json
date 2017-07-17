@@ -115,6 +115,19 @@
 
 
 
+{
+"title": "Các mã nguồn mẫu cơ bản dành cho các Bot trong cuộc thi VNG Bot Battle 12+1",
+"tags": "huong_danvi_dututorialsexamples",
+"keywords": "",
+"url": "mydoc_bot_template_vi.html",
+"summary": ""
+}
+,
+
+
+
+
+
 
 
 {
@@ -208,7 +221,7 @@
 
 
 {
-"title": "Bắt đầu với Arduino IDE",
+"title": "Bắt đầu sử dụng mạch VBLUno51 với Arduino IDE",
 "tags": "bat_dau",
 "keywords": "",
 "url": "mydoc_getstart_arduino_vi.html",
