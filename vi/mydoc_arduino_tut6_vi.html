@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="keywords" content="huong_dan,  ">
-<title>Điều khiển và Giám sát một thiết bị bằng Smartphone qua BLE | VBLUno51 board</title>
+<title>Điều khiển và Giám sát một thiết bị bằng Smartphone qua BLE với bo mạch VBLUno51 | VBLUno51 board</title>
 <link rel="stylesheet" href="css/syntax.css">
 
 
@@ -216,7 +216,7 @@
                                 searchInput: document.getElementById('search-input'),
                                 resultsContainer: document.getElementById('results-container'),
                                 dataSource: 'search_vi.json',
-                                searchResultTemplate: '<li><a href="{url}" title="Điều khiển và Giám sát một thiết bị bằng Smartphone qua BLE">{title}</a></li>',
+                                searchResultTemplate: '<li><a href="{url}" title="Điều khiển và Giám sát một thiết bị bằng Smartphone qua BLE với bo mạch VBLUno51">{title}</a></li>',
                     noResultsText: 'Không có kết quả nào được tìm thấy.',
                             limit: 10,
                             fuzzy: true,
@@ -882,7 +882,7 @@
         <!-- Content Column -->
         <div class="col-md-9" id="tg-sb-content">
             <div class="post-header">
-   <h1 class="post-title-main">Điều khiển và Giám sát một thiết bị bằng Smartphone qua BLE</h1>
+   <h1 class="post-title-main">Điều khiển và Giám sát một thiết bị bằng Smartphone qua BLE với bo mạch VBLUno51</h1>
 </div>
 
 
@@ -925,35 +925,29 @@
     
 
   <hr />
-<h2 id="Điều-khiển-thiết-bị-qua-ble-với-vbluno-led-button-service">Điều khiển thiết bị qua BLE với VBLUno-LED BUTTON Service</h2>
+<h2 id="Điều-khiển-giám-sát-thiết-bị-qua-ble-với-bo-mạch-vbluno51">Điều khiển, giám sát thiết bị qua BLE với bo mạch VBLUno51</h2>
 
 <ul>
   <li>
     <p>Trong các bài viết trước, chúng tôi đã trình bày một số ứng dụng điển hình của giao tiếp Bluetooth Low Energy (BLE) như: Heart Rate Mesuarement, Health Thermometer, Beacons. Các ứng dụng này sử dụng các services đã được Bluetooth SIG định nghĩa sẵn. Danh sách các services có thể xem tại <a href="https://www.bluetooth.com/specifications/gatt/services">ĐÂY</a></p>
   </li>
   <li>
-    <p>Có hai điều bạn cần nhớ:</p>
-
-    <ul>
-      <li>
-        <p>Dữ liệu truyền qua giao tiếp BLE là dữ liệu được cấu trúc hóa, cụ thể chúng được tổ chức thành các services, trong services lại bao gồm các characteristics.</p>
-      </li>
-      <li>
-        <p>Bluetooth SIG định nghĩa sẵn một số services cho các ứng dụng điển hình, nhưng rõ ràng là chúng không đầy đủ, ví dụ như ứng dụng điều khiển một thiết bị bất kỳ. Để phục vụ các ứng dụng như vậy, chúng ta có thể tự định nghĩa các services cho từng trường hợp cụ thể.</p>
-      </li>
-    </ul>
+    <p>Dữ liệu truyền qua giao tiếp BLE có thể được tổ chức thành các services, trong services lại bao gồm các characteristics. Khi này hai BLE Node cần kết nối với nhau.</p>
   </li>
   <li>
-    <p>Các ứng dụng điều khiển thiết bị yêu cầu khả năng ghi dữ liệu từ GATT Server (Smartphones) xuống GATT Client (BLE Device) và ngược lại. Bài viết này chúng tôi minh họa việc thiết kế và cài đặt một services đơn giản cho BLE, ứng dụng điều khiển LED và nhận tín hiệu trạng thái BUTTON, gọi tắt là <strong>VBLUno – LED BUTTON Service</strong>.</p>
+    <p>Bluetooth SIG định nghĩa sẵn một số services cho các ứng dụng điển hình, nhưng rõ ràng là chúng không đầy đủ, ví dụ như ứng dụng điều khiển một thiết bị bất kỳ. Để phục vụ các ứng dụng như vậy, chúng ta có thể tự định nghĩa các services cho từng trường hợp cụ thể.</p>
   </li>
   <li>
-    <p>VBLUno - LED BUTTON Service</p>
+    <p>Các ứng dụng điều khiển thiết bị yêu cầu khả năng ghi dữ liệu từ GATT Client (Smartphones) xuống GATT Server (BLE Device) và ngược lại. Bài viết này chúng tôi minh họa việc thiết kế và cài đặt một services đơn giản cho BLE, ứng dụng điều khiển LED và nhận tín hiệu trạng thái BUTTON, gọi tắt là <strong>VBLUno51_LED_BUTTON Service</strong>.</p>
+  </li>
+  <li>
+    <p>VBLUno51_LED_BUTTON Service</p>
   </li>
 </ul>
 
-<p>Cấu trúc của VBLUno-LED BUTTON Service</p>
+<p>Cấu trúc của VBLUno51-LED BUTTON Service</p>
 
-<p><img src="images/arduino/tut/tut6/1.png" alt="" /></p>
+<p><img src="images/arduino/tut/tut6/uuid.png" alt="" /></p>
 
 <ul>
   <li>
@@ -969,12 +963,12 @@
     </ul>
   </li>
   <li>
-    <p>Như vậy, với Services được thiết kế riêng này, chúng ta có thể cài đặt tính năng điều khiển/giám sát thiết bị bất kỳ từ các điện thoại thông minh (hoặc Tablet/PC) qua giao tiếp BLE. Phần tiếp theo trình bày việc cài đặt service này trên Arduino IDE sử dụng kit VBLUno của VNG IoTLab.</p>
+    <p>Như vậy, với Services được thiết kế riêng này, chúng ta có thể cài đặt tính năng điều khiển/giám sát thiết bị bất kỳ từ các điện thoại thông minh (hoặc Tablet/PC) qua giao tiếp BLE. Phần tiếp theo trình bày việc cài đặt service này trên Arduino IDE sử dụng kit VBLUno51 của VNG IoTLab và viết phần mềm chạy trên Android.</p>
   </li>
 </ul>
 
 <hr />
-<h2 id="ví-dụ-demo-trên-bo-mạch-vbluno51">Ví dụ demo trên bo mạch VBLUno51</h2>
+<h2 id="firmware-cho-mạch-vbluno51">Firmware cho mạch VBLUno51</h2>
 
 <ul>
   <li>
@@ -989,15 +983,12 @@
 
         <ul>
           <li>
-            <p>Smartphone –&gt; VBLUno51: Điều khiển bật tắt LED bằng Smartphones;</p>
+            <p>Smartphone –&gt; VBLUno51: <code class="highlighter-rouge">Điều khiển bật tắt LED</code> bằng Smartphones;</p>
           </li>
           <li>
-            <p>VBLUno51 –&gt; Smartphone: VBLUno51 truyền một biến giá trị (tăng từ 0x00 đến 0xFF) theo chu kỳ 1 giây.</p>
+            <p>VBLUno51 –&gt; Smartphone: <code class="highlighter-rouge">Mỗi lần nhấn nút bấm</code> trên bo mạch VBLUno51 sẽ truyền một biến giá trị (tăng từ 0x00 đến 0xFF) lên mobile.</p>
           </li>
         </ul>
-      </li>
-      <li>
-        <p>Trên smartphone sử dụng phần mềm BLE Scanner để minh họa.</p>
       </li>
     </ul>
   </li>
@@ -1006,60 +997,221 @@
 
     <ul>
       <li>
-        <p>Tải mã nguồn chương trình cho VBLUno51 tại <a href="https://github.com/VNGIoTLab/Arduino_VBLUno_nRF51822/blob/master/Tutorial/Source/VBLUno_Tut7_LED_BUTTON.ino">ĐÂY</a></p>
+        <p>Tải mã nguồn chương trình viết trên Arduino IDE cho VBLUno51 tại <a href="https://github.com/VNGIoTLab/vbluno_ble_led_button">ĐÂY</a> . Xem thư mục <code class="highlighter-rouge">firmware_vbluno51</code></p>
       </li>
       <li>
         <p>Upload code xuống bo mạch VBLUno51</p>
       </li>
-      <li>
-        <p>Một số hình ảnh minh họa:</p>
-      </li>
     </ul>
   </li>
+  <li>
+    <p>Một số điểm chú ý trong code:</p>
+  </li>
 </ul>
 
-<p>Thiết bị VBLUno51 hiển thị trên BLE Scanner</p>
+<p>Xử lý sự kiện khi nhận được dữ liệu truyền từ Mobile đến. Tùy giá trị nhận được mà bật hoặc tắt LED.</p>
 
-<p><img src="images/arduino/tut/tut6/2.png" alt="" /></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>void gattserverWriteCallback(const GattWriteCallbackParams *Handler) {
+  
+  static uint8_t buf[TXRX_BUF_LEN];
+  static uint16_t bytes_read=0;
 
-<p>Các BLE Services được cài đặt trong VBLUno51</p>
+  if(Handler-&gt;handle == led_characteristic.getValueAttribute().getHandle()) {
+           
+    // Read the value of characteristic
+    ble.readCharacteristicValue(led_characteristic.getValueAttribute().getHandle(), 
+                                buf, 
+                                &amp;bytes_read);       
+    if (bytes_read &gt; 0) {                             
+      //on LED
+      if (buf[0] == 0) {
+        digitalWrite(LED, HIGH);
+        Serial.println("Turn LED on");
+      }
+      //off LED
+      else {
+        digitalWrite(LED, LOW);
+        Serial.println("Turn LED off");
+      }      
+    }//if2
+  }//if  
+}
+</code></pre>
+</div>
 
-<p><img src="images/arduino/tut/tut6/3.png" alt="" /></p>
+<p>Mỗi khi nhấn Button trên VBLUno51, thực hiện tăng biến lên một giá trị và gửi lên Mobile.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>//ISR for Button interrupt
+void buttonIsr() {   
+
+  button_char_value[0]++;
+  
+  //push data to Mobile
+  ble.updateCharacteristicValue(button_characteristic.getValueAttribute().getHandle(), 
+                                (const uint8_t*)button_char_value, 
+                                1);
+  
+  Serial.print("Send data to Mobile via BLE: ");
+  Serial.println(button_char_value[0]);                               
+}
+</code></pre>
+</div>
+
+<ul>
+  <li>Thử dùng phần mềm BLE Scanner để discovery kết nối BLE từ VBLUno51.</li>
+</ul>
+
+<p><img src="images/arduino/tut/tut6/service.png" alt="" /></p>
+
+<hr />
+<h2 id="viết-phần-mềm-điều-khiển-trên-android-os">Viết phần mềm điều khiển trên Android OS</h2>
 
 <ul>
   <li>
-    <p>Trong hình 3, chương trình BLE Scanner thực hiện discovery thiết bị của chúng ta và tìm ra 3 services. Trong đó GAP và GATT Services là hai service mặc định của BLE Protocol Stack. Nội dung về GAP và GATT đã được trình bày trong các bài viết trước. Services còn lại là CUSTOM SERVICE, đây là service đã được cài đặt trong chương trình (VBLUno-LED BUTTON Service).</p>
+    <p>Tải mã nguồn chương trình viết ứng dụng trên Android tại <a href="https://github.com/VNGIoTLab/vbluno_ble_led_button">ĐÂY</a>. Xem thư mục <code class="highlighter-rouge">android</code></p>
   </li>
   <li>
-    <p>Để truyền lệnh điều khiển LED trên bo mạch VBLUno, nhấn ký tự W tại Characteristic đầu tiên. Truyền giá trị 0 để tắt LED, 1 để bật LED. Xem hình 4</p>
+    <p>Một số điểm chú ý trong code:</p>
   </li>
 </ul>
 
-<p>Giao diện ghi dữ liệu từ Smartphone xuống VBLUno51</p>
+<p><code class="highlighter-rouge">LedButtonGattAttributes class</code>: Khai báo các thông tin về VBLUno51_LED_BUTTON services. Đây là dịch vụ mà phần mềm này mong muốn kết nối.</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>public class LedButtonGattAttributes {
 
-<p><img src="images/arduino/tut/tut6/4.png" alt="" /></p>
+    /**
+     *  brief      UUID cho các services và characteristic
+     */
+    //Bot service gồm 5 characteristics
+    public static final String led_button_service_uuid    = "0000FFF8-0000-1000-8000-00805F9B34FB";
+    public static final String led_char_uuid              = "0000FFF9-0000-1000-8000-00805F9B34FB";  //WRITE-uchar
+    public static final String button_char_uuid           = "0000FFFA-0000-1000-8000-00805F9B34FB";  //NOTIFY-uchar
+
+    public static final int LED_ON = 0;
+    public static final int LED_OFF = 1;
+
+    private static HashMap&lt;String, String&gt; attributes = new HashMap();
+    public static String CLIENT_CHARACTERISTIC_CONFIG = "00002902-0000-1000-8000-00805f9b34fb";
+
+    static {
+        attributes.put(led_button_service_uuid, "LED_BUTTON_SERVICE");
+        attributes.put(led_char_uuid, "LED");
+        attributes.put(button_char_uuid, "BUTTON");        
+    }
+
+    public static String lookup(String uuid, String defaultName) {
+        String name = attributes.get(uuid);
+        return name == null ? defaultName : name;
+    }
+}
+</code></pre>
+</div>
+
+<p><code class="highlighter-rouge">BluetoothLeService class</code>: Chú ý đến thủ tục ghi Dữ liệu xuống Device (VBLUno51) và Cho phép device Notify dữ liệu lên mobile</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>/*
+     *   @brief:     Hàm ghi giá trị xuống 1 custom characteristic
+     */
+    public void writeCustomCharacteristic(String serviceUUID,
+                                          String charUUID,
+                                          int value) {
+        if (mBluetoothAdapter == null || mBluetoothGatt == null) {
+            Log.w(TAG, "BluetoothAdapter not initialized");
+            return;
+        }
+        /*check if the service is available on the device*/
+        BluetoothGattService mCustomService = mBluetoothGatt.getService(UUID.fromString(serviceUUID));
+        if(mCustomService == null){
+            Log.w(TAG, "Custom BLE Service not found");
+            return;
+        }
+        /*get the read characteristic from the service*/
+        BluetoothGattCharacteristic mWriteCharacteristic = mCustomService.getCharacteristic(UUID.fromString(charUUID));
+        mWriteCharacteristic.setValue(value,android.bluetooth.BluetoothGattCharacteristic.FORMAT_UINT8,0);
+        if(mBluetoothGatt.writeCharacteristic(mWriteCharacteristic) == false){
+            Log.w(TAG, "Failed to write characteristic");
+        }
+    }
+    
+    /*
+    *   @brief:     Hàm cho phép notify theo thông tin UUID của service, characteristic
+     */
+
+    public void notifyCustomCharacteristic(String serviceUUID, 
+                                           String charUUID, 
+                                           boolean state) {
+
+        if (mBluetoothAdapter == null || mBluetoothGatt == null) {
+            Log.w(TAG, "BluetoothAdapter not initialized");
+            return;
+        }
+
+        /*check if the service is available on the device*/
+        BluetoothGattService mCustomService = mBluetoothGatt.getService(UUID.fromString(serviceUUID));
+        if(mCustomService == null){
+            Log.w(TAG, "Custom BLE Service not found");
+            return;
+        }
+
+        BluetoothGattCharacteristic mCharacteristic = mCustomService.getCharacteristic(UUID.fromString(charUUID));
+        setCharacteristicNotification(mCharacteristic, state);
+
+}
+</code></pre>
+</div>
+
+<p><code class="highlighter-rouge">DeviceControlActivity class</code>: Tương tác với control trên forrm</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>/*
+     *  @brief      Hành động khi nhấn nút LED
+     */
+    public void onClickLed(View v){
+        if(mBluetoothLeService != null) {
+            int value = LedButtonGattAttributes.LED_OFF;
+            if (tgbLed.isChecked()) {
+                value = LedButtonGattAttributes.LED_ON;
+            }
+            else {
+                value = LedButtonGattAttributes.LED_OFF;
+            }
+
+            mBluetoothLeService.writeCustomCharacteristic(
+                    LedButtonGattAttributes.led_button_service_uuid,
+                    LedButtonGattAttributes.led_char_uuid,
+                    value);
+
+            Log.v(TAG, tgbLed.getText().toString());
+
+        }
+    }
+
+    /*
+     *  @brief      Thủ tục xử lý dữ liệu nhận được từ BLE Device (VBLUno51)
+     */
+    public void processBleData(String data){
+            lblButtonValue.setText("Value: " + data);
+}
+</code></pre>
+</div>
+
+<hr />
+<h2 id="kết-quả-demo">Kết quả demo</h2>
 
 <ul>
-  <li>Để cho phép nhận dữ liệu Notify từ VBLUno51, trên app bạn nhấn vào nút N tại Characteristic thứ 2, sau đó nút N sẽ chuyển sang màu xanh lá cây. Khi đó app bắt đầu nhận dữ liệu từ VBLUno51 (Xem hình 5)</li>
+  <li>Cấp nguồn để mạch VBLUno51 làm việc. Sau đó chạy phần mềm Android đã viết. Thực hiện quét các thiết bị BLE sẽ tìm thấy VBLUno51 với tên <code class="highlighter-rouge">LED_BUTTON_51</code></li>
 </ul>
 
-<p>App nhận giá trị notify từ VBLUno51</p>
-
-<p><img src="images/arduino/tut/tut6/5.png" alt="" /></p>
-
-<p>Cửa sổ terminal trên PC để debug</p>
-
-<p><img src="images/arduino/tut/tut6/6.png" alt="" /></p>
+<p><img src="images/arduino/tut/tut6/scan.png" alt="" /></p>
 
 <ul>
-  <li>
-    <p>Mã nguồn của chương trình không có nhiều điểm mới, mình đã ghi chú khá đầy đủ trong code, các bạn có thể dễ dàng tìm hiểu nhé.</p>
-  </li>
-  <li>
-    <p>Trên đây chúng tôi đã trình bày cách thiết kế và cài đặt một service riêng cho từng ứng dụng cụ thể, dựa trên đó, các bạn có thể dễ dàng tùy biến cho ứng dụng của mình.</p>
-  </li>
+  <li>Sau khi đã Connect, thử nhấn Toggle Button trên form để bật tắt LED. Nhấn nút bấm trên VBLUno51 để xem kết quả hiển thị trên phần mềm Android.</li>
 </ul>
 
+<p><img src="images/arduino/tut/tut6/control.png" alt="" /></p>
+
+<p>Với cách làm tương tự, các bạn có thể tạo ra nhiều BLE Services phù hợp cho ứng dụng của mình.</p>
+
+<p><code class="highlighter-rouge">Các bạn có thể theo dõi Trang facebook của VBLUno51 để có thể xem các video hướng dẫn mới nhé</code>
+<a href="https://www.facebook.com/bleviet">Fan page</a></p>
 
 
     <div class="tags">
@@ -1084,7 +1236,7 @@
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2017 VNG Corporation. All rights reserved. <br />
- Site last generated: Jul 23, 2017 <br />
+ Site last generated: Aug 8, 2017 <br />
 <p><img src="images/company_logo_medium.png" alt="Company logo"/></p>
                 </div>
             </div>
