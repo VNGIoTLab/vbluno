@@ -13,7 +13,7 @@
 
 
 {
-"title": "Thiết bị theo dõi nhịp tim với VBLUno",
+"title": "Minh họa thiết bị theo dõi nhịp tim với VBLUno51",
 "tags": "huong_dan",
 "keywords": "",
 "url": "mydoc_arduino_tut1_vi.html",
@@ -28,7 +28,7 @@
 
 
 {
-"title": "Thiết bị phát Beacons với VBLUno",
+"title": "Tự làm một thiết bị phát iBeacon với VBLUno51",
 "tags": "huong_dan",
 "keywords": "",
 "url": "mydoc_arduino_tut2_vi.html",
@@ -43,7 +43,7 @@
 
 
 {
-"title": "Đo nhiệt độ bên trong chip nRF51822",
+"title": "Đo nhiệt độ bên trong chip Nordic nRF51822",
 "tags": "huong_dan",
 "keywords": "",
 "url": "mydoc_arduino_tut3_vi.html",
@@ -58,7 +58,7 @@
 
 
 {
-"title": "Nhiệt kế y tế với VBLUno (HTM)",
+"title": "Chế tạo nhiệt kế y tế thông minh với mạch VBLUno51 (HTM)",
 "tags": "huong_dan",
 "keywords": "",
 "url": "mydoc_arduino_tut4_vi.html",
@@ -88,10 +88,55 @@
 
 
 {
-"title": "Điều khiển/Giám sát một thiết bị bất kỳ bằng Smartphone qua BLE",
+"title": "Điều khiển và Giám sát một thiết bị bằng Smartphone qua BLE với bo mạch VBLUno51",
 "tags": "huong_dan",
 "keywords": "",
 "url": "mydoc_arduino_tut6_vi.html",
+"summary": ""
+}
+,
+
+
+
+
+
+
+
+{
+"title": "Sử dụng màn hình I2C OLED",
+"tags": "huong_dan",
+"keywords": "",
+"url": "mydoc_arduino_tut7_vi.html",
+"summary": ""
+}
+,
+
+
+
+
+
+
+
+{
+"title": "Sử dụng màn hình GLCD trên máy GPhone",
+"tags": "huong_dan",
+"keywords": "",
+"url": "mydoc_arduino_tut8_vi.html",
+"summary": ""
+}
+,
+
+
+
+
+
+
+
+{
+"title": "Đo nhiệt độ từ cảm biến DS18B20",
+"tags": "huong_dan",
+"keywords": "",
+"url": "mydoc_arduino_tut9_vi.html",
 "summary": ""
 }
 ,
@@ -131,6 +176,21 @@
 
 
 {
+"title": "Mã nguồn các ứng dụng điều khiển trên hệ điều hành Android-OS",
+"tags": "vi_du",
+"keywords": "",
+"url": "mydoc_code_android_vi.html",
+"summary": ""
+}
+,
+
+
+
+
+
+
+
+{
 "title": "Mã nguồn Arduino tham khảo cho VBLUno51",
 "tags": "vi_du",
 "keywords": "",
@@ -150,6 +210,21 @@
 "tags": "vi_du",
 "keywords": "",
 "url": "mydoc_code_mbed_vi.html",
+"summary": ""
+}
+,
+
+
+
+
+
+
+
+{
+"title": "Mã nguồn Zephyr-OS tham khảo cho VBLUno51",
+"tags": "vi_du",
+"keywords": "",
+"url": "mydoc_code_zephyr_vi.html",
 "summary": ""
 }
 ,
@@ -401,6 +476,36 @@
 
 
 {
+"title": "Module VNG BLE nRF51822",
+"tags": "bat_dautai_lieu",
+"keywords": "",
+"url": "mydoc_module_ble51_vi.html",
+"summary": ""
+}
+,
+
+
+
+
+
+
+
+{
+"title": "Module VNG BLE nRF52832",
+"tags": "bat_dautai_lieu",
+"keywords": "",
+"url": "mydoc_module_ble52_vi.html",
+"summary": ""
+}
+,
+
+
+
+
+
+
+
+{
 "title": "Bạn có thể phát triển ứng dụng gì với mạch VBLUno51?",
 "tags": "",
 "keywords": "",
@@ -440,6 +545,36 @@
 ,
 
 
+
+
+
+
+
+
+
+{
+"title": "BLE Beacons",
+"tags": "huong_dan",
+"keywords": "",
+"url": "mydoc_zephyr_tut1_vi.html",
+"summary": ""
+}
+,
+
+
+
+
+
+
+
+{
+"title": "Điều khiển thiết bị bằng ứng dụng mobile thông qua BLE",
+"tags": "huong_dan",
+"keywords": "",
+"url": "mydoc_zephyr_tut2_vi.html",
+"summary": ""
+}
+,
 
 
 

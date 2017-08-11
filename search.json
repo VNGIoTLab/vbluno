@@ -127,6 +127,51 @@
 
 
 {
+"title": "Using I2C OLED screen",
+"tags": "tutorials",
+"keywords": "",
+"url": "mydoc_arduino_tut7.html",
+"summary": ""
+}
+,
+
+
+
+
+
+
+
+{
+"title": "Using GLCD screen on GPhone",
+"tags": "tutorials",
+"keywords": "",
+"url": "mydoc_arduino_tut8.html",
+"summary": ""
+}
+,
+
+
+
+
+
+
+
+{
+"title": "Measure temperature from DS18B20 sensor",
+"tags": "tutorials",
+"keywords": "",
+"url": "mydoc_arduino_tut9.html",
+"summary": ""
+}
+,
+
+
+
+
+
+
+
+{
 "title": "Introduction to Bluetooth Low Energy technology",
 "tags": "ble",
 "keywords": "",
@@ -136,6 +181,21 @@
 ,
 
 
+
+
+
+
+
+
+
+{
+"title": "Example source codes for Android application",
+"tags": "examples",
+"keywords": "",
+"url": "mydoc_code_android.html",
+"summary": ""
+}
+,
 
 
 
@@ -163,6 +223,21 @@
 "tags": "examples",
 "keywords": "",
 "url": "mydoc_code_mbed.html",
+"summary": ""
+}
+,
+
+
+
+
+
+
+
+{
+"title": "Example codes for Zephyr-OS on VBLUno51",
+"tags": "examples",
+"keywords": "",
+"url": "mydoc_code_zephyr.html",
 "summary": ""
 }
 ,
@@ -414,6 +489,36 @@
 
 
 {
+"title": "Module VNG BLE nRF51822",
+"tags": "getting_starteddocuments",
+"keywords": "",
+"url": "mydoc_module_ble51.html",
+"summary": ""
+}
+,
+
+
+
+
+
+
+
+{
+"title": "Module VNG BLE nRF52832",
+"tags": "getting_starteddocuments",
+"keywords": "",
+"url": "mydoc_module_ble52.html",
+"summary": ""
+}
+,
+
+
+
+
+
+
+
+{
 "title": "What applications can you make by the VBLUno51 board?",
 "tags": "",
 "keywords": "",
@@ -466,6 +571,36 @@
 "summary": "This page demonstrates how you the integration of a script called ScrollTo, which is used here to link definitions of a JSON code sample to a list of definitions for that particular term. The scenario here is that the JSON blocks are really long, with extensive nesting and subnesting, which makes it difficult for tables below the JSON to adequately explain the term in a usable way."
 }
 ,
+
+
+
+
+
+{
+"title": "BLE Beacons",
+"tags": "tutorials",
+"keywords": "",
+"url": "mydoc_zephyr_tut1.html",
+"summary": ""
+}
+,
+
+
+
+
+
+
+
+{
+"title": "Control a device by mobile application via BLE",
+"tags": "tutorials",
+"keywords": "",
+"url": "mydoc_zephyr_tut2.html",
+"summary": ""
+}
+,
+
+
 
 
 
