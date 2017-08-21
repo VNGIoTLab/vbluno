@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="keywords" content="huong_dan,  ">
-<title>Sử dụng màn hình GLCD trên máy GPhone | VBLUno51 board</title>
+<title>Giao tiếp màn hình GLCD 128x64  trên máy GPhone với bo mạch VBLUno51 | VBLUno51 board</title>
 <link rel="stylesheet" href="css/syntax.css">
 
 
@@ -216,7 +216,7 @@
                                 searchInput: document.getElementById('search-input'),
                                 resultsContainer: document.getElementById('results-container'),
                                 dataSource: 'search_vi.json',
-                                searchResultTemplate: '<li><a href="{url}" title="Sử dụng màn hình GLCD trên máy GPhone">{title}</a></li>',
+                                searchResultTemplate: '<li><a href="{url}" title="Giao tiếp màn hình GLCD 128x64  trên máy GPhone với bo mạch VBLUno51">{title}</a></li>',
                     noResultsText: 'Không có kết quả nào được tìm thấy.',
                             limit: 10,
                             fuzzy: true,
@@ -948,7 +948,7 @@
         <!-- Content Column -->
         <div class="col-md-9" id="tg-sb-content">
             <div class="post-header">
-   <h1 class="post-title-main">Sử dụng màn hình GLCD trên máy GPhone</h1>
+   <h1 class="post-title-main">Giao tiếp màn hình GLCD 128x64  trên máy GPhone với bo mạch VBLUno51</h1>
 </div>
 
 
@@ -990,7 +990,231 @@
 
     
 
+  <hr />
+
+<h2 id="1-mục-đích">1. Mục đích</h2>
+
+<ul>
+  <li>Làm chủ giao tiếp mạch VBLUno với màn hình GLCD 128x64 (loại tháo ra từ máy GPhone)</li>
+  <li><em>Ghi chú</em>:
+    <ul>
+      <li>Hướng dẫn này chỉ làm việc với chế độ màn hình là Text mode</li>
+      <li>Cần cập nhật version mới nhất của thư viện Arduino cho VBLUno.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="2giới-thiệu-glcd">2.Giới thiệu GLCD</h2>
+
+<p>Đây là GLCD được tháo ra từ các máy Gphone, giá thành rẻ, có thể tìm ở các bãi rác điện tử. Đặc điểm:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>- Giao tiếp: SPI
+- Điện áp: 2.5v - 3.3v
+- Chế độ: Graphic, Text
+- Pixel: 128 x 64 
+</code></pre>
+</div>
+
+<p>Hình ảnh thực tế:
+<img src="images/arduino/tut/tut8/gphone_lcd.jpg" alt="" /></p>
+
+<h2 id="3bảng-kết-nối-tín-hiệu">3.Bảng kết nối tín hiệu</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">TT</th>
+      <th style="text-align: center">Chân</th>
+      <th style="text-align: center">Kết nối với mạch VBLUno</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td style="text-align: center">GND</td>
+      <td style="text-align: center">GND</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td style="text-align: center">/RST</td>
+      <td style="text-align: center">+3.3V</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td style="text-align: center">SCK</td>
+      <td style="text-align: center"><strong>13</strong></td>
+    </tr>
+    <tr>
+      <td style="text-align: center">4</td>
+      <td style="text-align: center">AO(C/D)</td>
+      <td style="text-align: center"><strong>12</strong></td>
+    </tr>
+    <tr>
+      <td style="text-align: center">5</td>
+      <td style="text-align: center">LEDA</td>
+      <td style="text-align: center">+3.3V</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">6</td>
+      <td style="text-align: center">LEDK</td>
+      <td style="text-align: center">GND</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">7</td>
+      <td style="text-align: center">SDA</td>
+      <td style="text-align: center"><strong>11</strong></td>
+    </tr>
+    <tr>
+      <td style="text-align: center">8</td>
+      <td style="text-align: center">/CS</td>
+      <td style="text-align: center"><strong>10</strong></td>
+    </tr>
+    <tr>
+      <td style="text-align: center">9</td>
+      <td style="text-align: center">VCC</td>
+      <td style="text-align: center">+3.3V</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">10</td>
+      <td style="text-align: center">GND</td>
+      <td style="text-align: center">GND</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="4lập-trình-trên-arduino-ide">4.Lập trình trên Arduino IDE</h2>
+
+<h3 id="41-thư-viện">4.1. Thư viện</h3>
+
+<ul>
+  <li>
+    <p>VNGIoTLab tham khảo và cải tiến (thêm các hàm API) từ thư viện gốc của bạn Vũ Thái tại sangtaoclub.net</p>
+  </li>
+  <li>
+    <p>Thư viện đi kèm:</p>
+
+    <p><code class="highlighter-rouge">Gphone_LCD</code></p>
+    <ul>
+      <li>Header: 	<code class="highlighter-rouge">glcd_spi.h</code></li>
+      <li>Source:	<code class="highlighter-rouge">glcd_spi.cpp</code></li>
+    </ul>
+  </li>
+</ul>
+
+<p>Ghi chú: Các bạn tải thư viện tại <a href="https://github.com/VNGIoTLab/Gphone_LCD">ĐÂY</a> và copy đến thư mục libraries của Arduino trên máy tính.
+	Ví dụ: C:\Users\NoName\Documents\Arduino\libraries</p>
+
+<ul>
+  <li>Các hàm API:</li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>/*  
+* @brief  Init for SPI GLCD
+* @params CS_: CS pin on VBLUno
+* @params SCK_: SCK pin on VBLUno
+* @params SDA_: SDA pin on VBLUno
+* @params AO_: AO pin on VBLUno
+* @params GRAPHIC_MODE_: GLCD Mode
+* 0: Text mode
+* 1: Graphic mode (not support in this library)
+*/
+void InitLcd(int CS_, int SCK_, int SDA_, int AO_, int GRAPHIC_MODE_);
+
+/*  
+* @brief  Test function
+*/
+void TestLcd(void);
+
+/*  
+* @brief  Clear all screen
+*/
+void ClearLcd(void);
+
+/*  
+* @brief  Print a string on screen
+* @params row: 0-7
+* @params col: 0-20
+* @params stringdata: a string (1 to 21 character)
+* @note   Size of stringdata is not greater than 21 character
+*/
+void PrintLcd(int row, int col, char* stringdata);
+
+/*  
+* @brief  Print a string on screen
+* @params row: 0-7
+* @params col: 0-20
+* @params num: integer number
+*/
+void PrintIntLcd(int row, int col, int num);
+
+/*  
+* @brief  Print a string on screen
+* @params row: 0-7
+* @params col: 0-20
+* @params doublenum: double number
+* @note   precision is %0.4f
+*/
+void PrintFloatLcd(int row, int col, double doublenum);
+
+</code></pre>
+</div>
+
+<h3 id="43-giản-đồ-tín-hiệu-của-thủ-tục-ghi-dữ-liệu-vào-glcd">4.3. Giản đồ tín hiệu của thủ tục ghi dữ liệu vào GLCD:</h3>
+
+<p>(Đo bằng thiết bị Logic analyzer)
+<img src="images/arduino/tut/tut8/signal.png" alt="" /></p>
+
+<h2 id="5-ví-dụ">5. Ví dụ</h2>
+
+<h3 id="51-arduino-code">5.1. Arduino Code</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>#include  &lt;glcd_spi.h&gt;
+
+#define   PIN_GLCD_CS         10           //LOAD
+#define   PIN_GLCD_SDA        11           //DIN
+#define   PIN_GLCD_AO         12           //AO
+#define   PIN_GLCD_SCK        13           //CLK
+
+#define   GRAPHIC_MODE        1
+#define   TEXT_MODE           0
+
+int num_count = 0;
+
+// the setup function runs once when you press reset or power the board
+void setup() {
+  pinMode(LED, OUTPUT);
+  delay(1000);
   
+  /*Init GLCD*/
+  InitLcd(PIN_GLCD_CS, PIN_GLCD_SCK, PIN_GLCD_SDA, PIN_GLCD_AO, TEXT_MODE);  
+
+  /*Run test function*/
+  digitalWrite(LED, HIGH);
+  TestLcd();
+  delay(2000);  
+  ClearLcd();
+  PrintLcd(0, 0, "VBLUno Hello World");
+  PrintIntLcd(1, 0, 123);
+  PrintFloatLcd(2, 0, 35.6791);
+  PrintLcd(3, 0, "-----------");
+}
+
+// the loop function runs over and over again forever
+void loop() {  
+  delay(1000);
+  PrintIntLcd(5, 0, num_count);
+  if(num_count++ &gt; 10000){
+    num_count = 0;
+  }
+}
+</code></pre>
+</div>
+
+<h3 id="52-kết-quả">5.2. Kết quả</h3>
+
+<p><img src="images/arduino/tut/tut8/glcd_result1.jpg" alt="" /></p>
+
+<p><img src="images/arduino/tut/tut8/glcd_result2.jpg" alt="" /></p>
 
 
     <div class="tags">
@@ -1015,7 +1239,7 @@
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2017 VNG Corporation. All rights reserved. <br />
- Site last generated: Aug 11, 2017 <br />
+ Site last generated: Aug 21, 2017 <br />
 <p><img src="images/company_logo_medium.png" alt="Company logo"/></p>
                 </div>
             </div>

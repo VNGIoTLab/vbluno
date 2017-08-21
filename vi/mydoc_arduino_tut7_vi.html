@@ -990,7 +990,87 @@
 
     
 
-  
+  <hr />
+<h2 id="1-mục-đích">1. Mục đích</h2>
+
+<p>Bài viết này hướng dẫn giao tiếp bo mạch VBLUno51 với màn hình OLED (phiên bản chuẩn giao tiếp I2C)</p>
+
+<h2 id="2giới-thiệu-i2c-oled">2.Giới thiệu I2C OLED</h2>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>- Giao tiếp: I2C 
+- IC điều khiển: SSD1306 
+- Điện áp: 3.3v - 5v
+- Độ phân giải: 128 x 32, 128 x 64.
+- Kích thước 0.96 inch 
+
+Tham khảo: http://hshop.vn/products/lcd-oled-trang-0-96-inch-i2c
+</code></pre>
+</div>
+
+<p><img src="images/arduino/tut/tut7/oled.jpg" alt="" /></p>
+
+<h2 id="3bảng-kết-nối-tín-hiệu">3.Bảng kết nối tín hiệu</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">TT</th>
+      <th style="text-align: center">Chân trên I2C OLED</th>
+      <th style="text-align: center">Kết nối với mạch VBLUno51</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td style="text-align: center">VCC</td>
+      <td style="text-align: center">+3.3V</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td style="text-align: center">GND</td>
+      <td style="text-align: center">GND</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td style="text-align: center">SCL</td>
+      <td style="text-align: center">P0.30  (có điện trở kéo) , D21 trên Arduino</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">4</td>
+      <td style="text-align: center">SDA</td>
+      <td style="text-align: center">P0.29       (có điện trở kéo), D20 trên Arduino</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Trên mạch VBLUno51 có sẵn Jump kết nối với I2C OLED. Xem hình dưới đây:</p>
+
+<p><img src="images/fritzing/vbluno51_frizting_oled.png" alt="" /></p>
+
+<h2 id="4lập-trình-trên-arduino-ide">4.Lập trình trên Arduino IDE</h2>
+
+<ul>
+  <li>
+    <p>Thư viện : <a href="https://github.com/VNGIoTLab/Adafruit_SSD1306">Adafruit_SSD1306 phù hợp cho VBLUno</a>. Đã được customize hỗ trợ các bo mạch VBLUno của VNG IoT Lab.</p>
+  </li>
+  <li>
+    <p>Thư viện: <a href="https://github.com/adafruit/Adafruit-GFX-Library">Adafruit-GFX-Library</a> cung cấp các phần tử đồ họa cơ bản.</p>
+  </li>
+</ul>
+
+<p>Tải hai thư viện trên về máy, lưu tại thư mục Libraries của Arduino.</p>
+
+<p>Ví dụ: <code class="highlighter-rouge">Documents\Arduino\libraries</code></p>
+
+<h2 id="5-ví-dụ">5. Ví dụ</h2>
+
+<p>Trong thư viện Adafruit_SSD1306 bên trên có đính kèm một số ví dụ mẫu khá tổng quát về OLED.</p>
+
+<p>Ví dụ, bạn có thể sử dụng code mẫu <code class="highlighter-rouge">Documents/Arduino/libraries/Adafruit_SSD1306/examples/ssd1306_128x32_i2c</code></p>
+
+<p>Gắn màn hình I2C OLED lên bo mạch VBLUno51 sau đó tiến hành biên dịch và nạp chương trình xuống bo mạch VBLUno51. Sau đó quan sát màn hình OLED để kiểm tra kết quả.</p>
+
+<p>Xem trang https://www.facebook.com/bleviet để thường xuyên cập nhật các video hướng dẫn phát triển ứng dụng cho mạch VBLUno51.</p>
 
 
     <div class="tags">
@@ -1015,7 +1095,7 @@
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2017 VNG Corporation. All rights reserved. <br />
- Site last generated: Aug 11, 2017 <br />
+ Site last generated: Aug 21, 2017 <br />
 <p><img src="images/company_logo_medium.png" alt="Company logo"/></p>
                 </div>
             </div>
