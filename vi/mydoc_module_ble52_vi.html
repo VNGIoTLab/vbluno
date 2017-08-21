@@ -990,7 +990,245 @@
 
     
 
-  
+  <h2 id="giới-thiệu">Giới thiệu</h2>
+
+<p>Module <strong>VNG BLE nRF52832</strong> là module kế tiếp sau module VNG BLE nRF51822, được các kỹ sự tại IoT Lab thuộc công ty VNG thiết kế nhằm cung cấp thêm sự lựa chọn cho các developers trong việc phát triển ứng dụng cho Internets of Things. So với module VNG BLE nRF51822, module mới này sử dụng chip xử lý trung tâm là Nordic nRF52832 với ưu điểm nổi bật là:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>+ Bộ vi xử lý ARM Cortex-M4 64MHz hỗ trợ FPU với dung lượng bộ nhớ RAM và Flash tăng gấp đôi.
+
++ Hỗ trợ Bluetooth Low Energy 5.0, với ưu điểm vượt trội về khoảng cách và thông lượng.
+</code></pre>
+</div>
+
+<p>Có thể thấy, module này có các thông số kỹ thuật nổi bật hơn, phù hợp để tích hợp trong các thiết bị có yêu cầu cấu hình cao hơn so với module VNG BLE nRF51822.</p>
+
+<h2 id="pinout-và-một-số-hình-ảnh">Pinout và một số hình ảnh</h2>
+
+<p><img src="images/modules/ble_nrf52.jpg" alt="" /></p>
+
+<p><img src="images/modules/nrf52_1.jpg" alt="" /></p>
+
+<p><img src="images/modules/nrf52_2.jpg" alt="" /></p>
+
+<h2 id="thông-số-chi-tiết">Thông số chi tiết</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>STT</th>
+      <th>Tính năng</th>
+      <th>Mô tả</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>CPU</td>
+      <td>Nordic nRF52832, nhân ARM Cortex-M4 64-bit hỗ trợ FPU.</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Xung nhịp hệ thống</td>
+      <td>64MHz</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Flash</td>
+      <td>512 KB</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>RAM</td>
+      <td>64 KB</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Truyền thông không dây 2.4GHz</td>
+      <td>Đặc biệt hỗ trợ giao tiếp <strong>Bluetooth Low Energy 5.0</strong>, hiệu quả vượt trội về thông lượng, khoảng cách hoạt động so với BLE 4.x. Có hỗ trợ BLE ở tốc độ 2Mbps.</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td>-96 dBm sensitivity in Bluetooth ® low energy mode</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td>2 Mbps Bluetooth® low energy mode</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td>1 Mbps, 2 Mbps supported data rates</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td>TX power -20 to +4 dBm in 4 dB steps</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td>Single-pin antenna interface</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td>RSSI (1 dB resolution)</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Tiêu thụ năng lượng thấp</td>
+      <td>Ultra low power consumption</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td>5.3 mA peak current in TX (0 dBm)</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td>5.4 mA peak current in RX</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td>0.3 μA at 3 V in OFF mode</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td>0.7 μA at 3 V in OFF mode with full 64 kB RAM retention</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td>1.9 μA at 3 V in ON mode, no RAM retention, wake on RTC</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>GPIO</td>
+      <td>30 kênh, trong đó có 8 kênh ADC 12bit; Điện áp: 0 ÷ +3.3V</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>Timer</td>
+      <td>5 bộ Timer 32bit với chế độ counter hỗ trợ EasyDMA</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>UART</td>
+      <td>01 bộ hỗ trợ EasyDMA. Có thể cấu hình UART Hardware flow control (RTS/CTS)</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>SPI</td>
+      <td>03 bộ (master hoặc slave) hỗ trợ EasyDMA.</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>I2C</td>
+      <td>02 bộ hỗ trợ EasyDMA</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>I2S</td>
+      <td>01 bộ hỗ trợ EasyDMA</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>PWM</td>
+      <td>Tối đa 3 kênh tại cùng thời điểm, hỗ trợ EasyDMA</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>Ngắt ngoài</td>
+      <td>Cấu hình trên các kênh GPIO.</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>Cảm biến nhiệt độ</td>
+      <td>Bên trong chip nRF52832</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>QDEC</td>
+      <td>Quadrature decoder</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>AES</td>
+      <td>AES HW với EasyDMA</td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>NFC-A Tag</td>
+      <td>Tính năng thẻ NFC-A (Kết nối anten từ header)</td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>RTC</td>
+      <td>Realtime counter</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>WDT</td>
+      <td>Watchdog Timer</td>
+    </tr>
+    <tr>
+      <td>21</td>
+      <td>Nạp chương trình</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td>SWD (Tương thích DAPLink interface)</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td>Cổng Serial (nrfutil).</td>
+    </tr>
+    <tr>
+      <td>22</td>
+      <td>Nguồn cung cấp</td>
+      <td>Từ 1.7V đến 3.6V (thường cấp nguồn 3V hoặc 3.3V).</td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>Nhiệt độ làm việc</td>
+      <td>-40 đến 85 độ C.</td>
+    </tr>
+    <tr>
+      <td>24</td>
+      <td>Frameworks</td>
+      <td>Arduino IDE, mbed-os, zephyr-os, mynewt-os, Nordic SDK, …</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="Ứng-dụng">Ứng dụng</h2>
+
+<p>Module VNG BLE nRF52832 có thể được sử dụng để làm đơn vị xử lý trung tâm của các thiết bị trong hệ sinh thái Internet of Things. Một số ứng dụng điển hình như:</p>
+
+<ul>
+  <li>Beacons, định vị trong nhà.</li>
+  <li>Thiết bị đeo tay</li>
+  <li>Các node cảm biến, ngoại vi điều khiển</li>
+  <li>Smart home.</li>
+  <li>Thiết bị y tế, thể thao thông minh</li>
+  <li>Đồ chơi và trò chơi điện tử</li>
+  <li>Chiếu sáng thông minh</li>
+  <li>…</li>
+</ul>
+
+<h2 id="hướng-dẫn-sử-dụng">Hướng dẫn sử dụng</h2>
+
+<p>Module VNG BLE nRF52832 là thành phần chính trên bo mạch VBLUno52, sắp ra mắt trong thời gian sắp tới.</p>
+
+<p>Hiện tại, các bạn có thể sử dụng mbed-OS, Zephyr-OS, Mynew-OS để phát triển ứng dụng cho module VNG BLE nRF52832, cũng như bo mạch VBLUno52.</p>
 
 
     <div class="tags">
@@ -1019,7 +1257,7 @@
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2017 VNG Corporation. All rights reserved. <br />
- Site last generated: Aug 11, 2017 <br />
+ Site last generated: Aug 21, 2017 <br />
 <p><img src="images/company_logo_medium.png" alt="Company logo"/></p>
                 </div>
             </div>
