@@ -1004,21 +1004,27 @@
 
 <ul>
   <li>
-    <p>Nếu đã cài đặt, bạn có thể  bỏ qua bước này</p>
-  </li>
-  <li>
     <p>Thực hiện: Tải bản cài đặt phù hợp tại <a href="http://arduino.cc/en/Main/Software">ĐÂY</a> và cài đặt vào máy.</p>
   </li>
   <li>
-    <p>Chú ý: Nếu bạn đang sử dụng hệ điều hành Linux, cần chạy Arduino IDE với quyền root. Điều này giúp Arduino IDE có thể mở cổng nối tiếp (UART) để nạp firmware cho mạch VBLUno (đối với VBLUno 1.0).</p>
-    <ul>
-      <li>Mở Terminal (Ctrl + Alt + T)</li>
-      <li>Chuyển đến thư mục đã cài đặt Arduino bằng cách sử dụng lệnh “cd”. 
-                 Ví dụ cd /home/mrABC/arduino-1.6.10</li>
-      <li>Mở Arduino IDE với lệnh sudo: sudo ./arduino</li>
-    </ul>
+    <p>Nếu sử dụng Linux, bạn không cần trình điều khiển cho giao diện UART, nhưng cần tạo udev rule để yêu cầu hệ thống tự  thay đổi quyền truy cập thiết bị “USB to UART”. Bạn tạo file <em>90-arduino-usb0.rules</em> với nội dung như sau:</p>
   </li>
 </ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># Set owner "user" for Serial-to-USB device
+SUBSYSTEM=="tty", KERNEL=="ttyUSB0", OWNER="user"
+SUBSYSTEM=="tty", KERNEL=="ttyACM0", OWNER="user"
+SUBSYSTEM=="tty", KERNEL=="ttyACM1", OWNER="user"
+SUBSYSTEM=="tty", KERNEL=="ttyACM2", OWNER="user"
+</code></pre>
+</div>
+
+<p>nhưng thay thế <em>user</em> với username Linux của bạn. Sau đó copy file vào <em>/etc/udev/rules.d/</em></p>
+
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code>sudo cp 90-arduino-usb0.rules /etc/udev/rules.d/
+sudo udevadm control --reload
+</code></pre>
+</div>
 
 <h3 id="bước-2-cài-đặt-trình-điều-khiển-uart-cho-giao-diện-daplink-cmsis-dap-trên-mạch-vbluno51">Bước 2. Cài đặt trình điều khiển UART cho giao diện DAPLink (CMSIS-DAP) trên mạch VBLUno51</h3>
 
@@ -1064,13 +1070,13 @@ Chú ý: Không nên lưu thư mục này trong các phân vùng ngoài mà nên
         <ul>
           <li><code class="highlighter-rouge">cd Setup_Offline_VBLUno_Linux_xxx</code></li>
           <li><code class="highlighter-rouge">chmod 777 Setup_VBLUno_Linux</code></li>
-          <li><code class="highlighter-rouge">sudo ./Setup_VBLUno_Linux</code> . (Cần phải sử dụng lệnh sudo)</li>
+          <li><code class="highlighter-rouge">./Setup_VBLUno_Linux</code></li>
         </ul>
       </li>
       <li>Đường dẫn mặc định của thư mục cài đặt các packages cho Arduino:
         <ul>
           <li>Windows: %APPDATA%\Arduino15. Ví dụ: “C:\Users\MrABC\AppData\Local\Arduino15”</li>
-          <li>Linux: ~/.arduino15</li>
+          <li>Linux: /home/user/.arduino15</li>
           <li>OS X: ~/Library/Arduino15</li>
         </ul>
       </li>
@@ -1209,7 +1215,7 @@ void loop() {
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2017 VNG Corporation. All rights reserved. <br />
- Site last generated: Aug 11, 2017 <br />
+ Site last generated: Aug 25, 2017 <br />
 <p><img src="images/company_logo_medium.png" alt="Company logo"/></p>
                 </div>
             </div>
