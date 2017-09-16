@@ -998,7 +998,7 @@
     <ul>
       <li>Bo mạch  VBLUno51 của VNGIoTLab (MCU: Nordic nRF51822 (Cortex-M0))</li>
       <li>Hệ điều hành nhúng mbed-OS</li>
-      <li>IDE: Keil uVision 4</li>
+      <li>IDE: Keil uVision 5</li>
       <li>Project đơn giản: Nháy led và truyền thông UART, sử dụng mbed-OS</li>
     </ul>
   </li>
@@ -1007,8 +1007,15 @@
 <h3 id="bước-1-dowload-ví-dụ-mẫu">Bước 1: Dowload ví dụ mẫu</h3>
 
 <ul>
-  <li>Download mã nguồn tại <a href="https://goo.gl/UMnGpg">ĐÂY</a></li>
+  <li>
+    <p>Download mã nguồn tại <a href="https://l.facebook.com/l.php?u=https%3A%2F%2Fdrive.google.com%2Fopen%3Fid%3D0B0xLV-EhFkn4WEFsZTFsOHg5Ykk&amp;h=ATNdNMsxwSMFbIloG1CGI-EFhY0k2g33p4eOxbGQi1rRojr_9fSRLVssvIO2KPTQcW9pf71gz79BZmHNxjZhL5uH4A9DRUoqIo4s_Pv06Ladl5SPpn_Pm09BbBPd_zrySXtIYg">ĐÂY</a></p>
+  </li>
+  <li>
+    <p>Bản chất ở đây chúng ta sử dụng Keil uVision làm IDE để soạn thảo, biên dịch, nạp chương trình cho bo mạch VBLUno51, nền tảng bên trong vẫn là hệ điều hành nhúng mbed-OS .</p>
+  </li>
 </ul>
+
+<p>Để nhận được Keil uVision Project từ môi trường mbed Online Compiler (<a href="https://vngiotlab.github.io/vbluno/vi/mydoc_getstart_mbedonline_vi.html">Tham khảo</a>), bạn vào project trên mbed Online Compiler, nhấp chuột phải tại Project tương ứng và chọn Export program, lựa chọn môi trường Keil uVision 5.</p>
 
 <h3 id="bước-2-biên-dịch-và-nạp-chương-trình">Bước 2: Biên dịch và nạp chương trình</h3>
 
@@ -1035,6 +1042,14 @@
 </ul>
 
 <p><img src="images/mbed/getstart/keil/3.png" alt="" /></p>
+
+<p><strong>Chú ý:</strong></p>
+
+<p><strong><em>mbed-os dành cho các dòng chip nRF51, nRF52 của Nordic Semiconductor có sử dụng một thư viện binary nền tảng, với tên thường gọi là SoftDevice. Hiểu đơn giản thì đây là file mã máy chứa các hàm chức năng giúp mbed-os (cũng như Nordic SDK) làm việc dễ dàng với các chip nRF51, nRF52</em></strong></p>
+
+<p><strong><em>Chính vì vậy, sau khi build ứng dụng của bạn, bạn cần merge file hex đầu ra với SoftDevice.</em></strong></p>
+
+<p><em>**Trong thư mục tải về, xem file HUONG_DAN.txt để biết thêm chi tiết về cách thực hiện **</em></p>
 
 <h3 id="bước-3-debug">Bước 3: Debug</h3>
 
@@ -1065,7 +1080,7 @@
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2017 VNG Corporation. All rights reserved. <br />
- Site last generated: Aug 11, 2017 <br />
+ Site last generated: Sep 16, 2017 <br />
 <p><img src="images/company_logo_medium.png" alt="Company logo"/></p>
                 </div>
             </div>
