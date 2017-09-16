@@ -990,7 +990,205 @@
 
     
 
+  <h2 id="1-cảm-biến-nhiệt-độ-ds18b20">1. Cảm biến nhiệt độ DS18B20</h2>
+
+<h3 id="chuẩn-giao-tiếp-one-wire">Chuẩn giao tiếp One Wire</h3>
+
+<p>(Nguồn tham khảo: https://vi.wikipedia.org/wiki/1-Wire)</p>
+
+<h3 id="ds18b20">DS18B20</h3>
+
+<p>(Nguồn tham khảo: http://codientu.org/threads/5207/)</p>
+
+<p>DS18B20 là IC cảm biến nhiệt độ, chỉ bao gồm 3 chân, đóng gói dạng TO-92 3 chân nhỏ gọn.</p>
+
+<p>Đặc điểm chính của DS18B20 như sau:</p>
+
+<ul>
+  <li>
+    <p><strong><em>Lấy nhiệt độ theo giao thức 1 dây (1wire)</em></strong></p>
+  </li>
+  <li>
+    <p>Cung cấp nhiệt độ với độ phân giải config 9,10,11,12 bit, tùy theo sử dụng. Trong trường hợp không config thì nó tự động ở chế độ 12 bit.
+Thời gian chuyển đổi nhiệt độ tối đa là 750ms cho mã hóa 12 bit​</p>
+  </li>
+</ul>
+
+<p>+Có thể đo nhiệt độ trong khoảng -55 -&gt; +125°C. Với khoảng nhiệt độ là -10°C to +85°C thì độ chính xác ±0.5°C,±0.25°C ,±0.125°C,±0.0625°C. theo số bít config.</p>
+
+<ul>
+  <li>
+    <p>Có chức năng cảnh báo nhiệt khi nhiệt độ vượt ngưỡng cho phép. Người dùng có thể lập trình chức năng này cho DS18B20. Bộ nhớ nhiệt độ cảnh báo không bị mất khi mất nguồn vì nó có một mã định danh duy nhất 64 bit chứa trong bộ nhớ ROM trên chip (on chip), giá trị nhị phân được khắc bằng tia laze.</p>
+  </li>
+  <li>
+    <p><strong><em>Cảm biến nhiệt độ DS18B20 có mã nhận diện lên đến 64-bit, vì vậy bạn có thể kiểm tra nhiệt độ với nhiều IC DS18B20 mà chỉ dùng 1 dây dẫn duy nhất để giao tiếp với các IC này.</em></strong>
+Với DS18B20 bạn hoàn toàn có thể tạo cho mình mạch cảm biến nhiệt độ theo ý muốn.</p>
+  </li>
+  <li>
+    <p>Điện áp sử dụng : 3 – 5.5 V​</p>
+  </li>
+  <li>
+    <p>Dòng tiêu thụ tại chế độ nghỉ rất nhỏ.​</p>
+  </li>
+</ul>
+
+<hr />
+<h2 id="2-thư-viện-ds18b20-cho-vbluno51">2. Thư viện DS18B20 cho VBLUno51</h2>
+
+<p>Trên Adruino, để bo mạch VBLUno51 điều khiển, đọc giá trị nhiệt độ từ cảm biến DS18B20, ta cần sử dụng các thư viện sau:</p>
+
+<h3 id="onewire">OneWire</h3>
+
+<ul>
+  <li>
+    <p>Thư viện mức thấp, hỗ trợ vi điều khiển giao tiếp với các IC qua chuẩn OneWire</p>
+  </li>
+  <li>
+    <p>Download tại đây <a href="https://github.com/VNGIoTLab/OneWire">https://github.com/VNGIoTLab/OneWire</a></p>
+  </li>
+  <li>
+    <p><em>Đã sửa để làm việc tốt trên các bo mạch VBLUno của VNG</em></p>
+  </li>
+</ul>
+
+<h3 id="arduino-temperature-control-library">Arduino-Temperature-Control-Library</h3>
+
+<ul>
+  <li>
+    <p>Download tại đây <a href="https://github.com/milesburton/Arduino-Temperature-Control-Library">https://github.com/milesburton/Arduino-Temperature-Control-Library</a></p>
+  </li>
+  <li>
+    <p><em>Có sử dụng thư viện OneWire làm thư viện cơ sở</em></p>
+  </li>
+</ul>
+
+<h3 id="các-thư-viện-hiển-thị-lên-màn-hình-oled">Các thư viện hiển thị lên màn hình OLED</h3>
+
+<ul>
+  <li>Tham khảo tại <a href="https://vngiotlab.github.io/vbluno/vi/mydoc_arduino_tut7_vi.html">Tutorial 7 dành cho Arduino trên mạch VBLUno51</a></li>
+</ul>
+
+<hr />
+<h2 id="3-kết-nối-phần-cứng">3. Kết nối phần cứng</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">TT</th>
+      <th style="text-align: center">Chân của DS18B20</th>
+      <th style="text-align: center">Kết nối với mạch VBLUno51</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td style="text-align: center">GND</td>
+      <td style="text-align: center">GND</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td style="text-align: center">DQ</td>
+      <td style="text-align: center">D2</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td style="text-align: center">VDD</td>
+      <td style="text-align: center">+3.3V</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Mắc một điện trở 4.7KOhm giữa DQ(2) và VDD(3).</p>
+
+<p><img src="images/arduino/tut9/hardware.png" alt="" /></p>
+
+<hr />
+<h2 id="4-mã-nguồn">4. Mã nguồn</h2>
+
+<p>Mã nguồn Arduino dưới đây thực hiện việc đo nhiệt độ từ cảm biến nhiệt độ số DS18B20, sau đó hiển thị giá trị lên màn hình OLED I2C và gửi lên máy tính qua cổng Serial.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>//Onewire sensor library
+#include &lt;OneWire.h&gt;
+#include &lt;DallasTemperature.h&gt;
+//I2C OLED SSD1306 screen library
+#include &lt;Wire.h&gt;
+#include &lt;Adafruit_GFX.h&gt;
+#include &lt;Adafruit_SSD1306.h&gt;
+
+#define ONE_WIRE_BUS    2               // Data wire is plugged into port 2 on the Arduino
+OneWire oneWire(ONE_WIRE_BUS);          // Setup a oneWire instance to communicate with any OneWire devices (not just Maxim/Dallas temperature ICs)
+DallasTemperature sensors(&amp;oneWire);    // Pass our oneWire reference to Dallas Temperature.
+
+#define OLED_RESET 4
+Adafruit_SSD1306 oled(OLED_RESET);
+
+/*
+ * The setup function. We only start the sensors here
+ */
+void setup(void)
+{
+  // start serial port
+  Serial.begin(115200);
+  Serial.println("------------------------------------------");
+  Serial.println("Example for VBLUno51 board");
+  Serial.println("Dallas Temperature IC Control Library Demo");
+
+  //start oled
+  oled.begin(SSD1306_SWITCHCAPVCC, 0x3C);
+  oled.clearDisplay();
+  oled.setTextSize(1);
+  oled.setTextColor(WHITE);
+  oled.setCursor(0,0);
+  oled.println("VBLUno51 board:");
+  oled.display();
+    
+  // Start up the library
+  sensors.begin();
+  delay(1000);
+}
+
+/*
+ * Main function, get and show the temperature
+ */
+ double temp = 0.0f;
+void loop(void)
+{ 
+  // call sensors.requestTemperatures() to issue a global temperature 
+  // request to all devices on the bus
+  Serial.print("Requesting temperatures...");
+  sensors.requestTemperatures(); // Send the command to get temperatures
+  Serial.println("DONE");
   
+  // After we got the temperatures, we can print them here.
+  // We use the function ByIndex, and as an example get the temperature from the first sensor only.
+  Serial.print("Temperature for the device 1 (index 0) is: ");
+  temp = sensors.getTempCByIndex(0);
+  Serial.println(temp);  
+  
+  oled.clearDisplay();  
+  oled.setCursor(0,0);
+  oled.println("Temperature (C):\r\n");
+  oled.println(temp);
+  oled.display();
+  
+  delay(1000);
+}
+</code></pre>
+</div>
+
+<hr />
+<h2 id="5-kết-quả">5. Kết quả</h2>
+
+<p><img src="images/arduino/tut9/kq1.jpg" alt="" /></p>
+
+<p><img src="images/arduino/tut9/kq2.jpg" alt="" /></p>
+
+<p><img src="images/arduino/tut9/kq3.png" alt="" /></p>
+
+<ul>
+  <li>Xem video demo tại <a href="https://youtu.be/-KrCB35hlMM">ĐÂY</a></li>
+</ul>
+
 
 
     <div class="tags">
@@ -1015,7 +1213,7 @@
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2017 VNG Corporation. All rights reserved. <br />
- Site last generated: Aug 11, 2017 <br />
+ Site last generated: Sep 16, 2017 <br />
 <p><img src="images/company_logo_medium.png" alt="Company logo"/></p>
                 </div>
             </div>
