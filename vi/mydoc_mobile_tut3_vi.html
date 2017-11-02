@@ -1289,24 +1289,24 @@
     <div class="highlighter-rouge"><pre class="highlight"><code>- Sử dụng bo mạch VBLUno51 của VNG, hỗ trợ giao tiếp BLE.
   
 - Firmware: 
-       
-Sử dụng mã nguồn cho VBLUno51 **GẦN GIỐNG** trong bài viết [ Tutorial: Điều khiển và Giám sát một thiết bị bằng Smartphone qua BLE với bo mạch VBLUno51](https://vngiotlab.github.io/vbluno/vi/mydoc_arduino_tut6_vi.html)
-</code></pre>
-    </div>
-
-    <p>Chỉ khác tại dòng 85, giá trị để bật sáng Led là <code class="highlighter-rouge">0x30</code> thay vì <code class="highlighter-rouge">0x00</code>. <em>Lý do rất đơn giản: BluetoothLE extension của MIT AI2 bản hiện tại chưa hoàn thiện, còn xảy ra lỗi khi sử dụng phương thức WriteBytes. Để khắc phục điều đó, ví dụ của chúng ta sử dụng phương thức WriteStrings.</em></p>
-
-    <div class="highlighter-rouge"><pre class="highlight"><code>[Firmware sử dụng cho VBLUNO51 trong ví dụ này](https://github.com/VNGIoTLab/vbluno_ble_led_button_appinventor/blob/master/firmware_vbluno51/firmware_vbluno51.ino)
-
-- Chức năng cụ thể:
-  
-       + Điều khiển: Cho phép sử dụng ứng dụng mobile để điều khiển Bật / Tắt led có sẵn trên mạch.
-         
-       + Giám sát: Khi người dùng nhấn Push Button trên mạch, giá trị giám sát tăng dần và hiển thị trên ứng dụng mobile.
 </code></pre>
     </div>
   </li>
 </ul>
+
+<p>Sử dụng mã nguồn cho VBLUno51 <strong>GẦN GIỐNG</strong> trong bài viết <a href="https://vngiotlab.github.io/vbluno/vi/mydoc_arduino_tut6_vi.html"> Tutorial: Điều khiển và Giám sát một thiết bị bằng Smartphone qua BLE với bo mạch VBLUno51</a></p>
+
+<p>Chỉ khác tại dòng 85, giá trị để bật sáng Led là <code class="highlighter-rouge">0x30</code> thay vì <code class="highlighter-rouge">0x00</code>. <em>Lý do rất đơn giản: BluetoothLE extension của MIT AI2 bản hiện tại chưa hoàn thiện, còn xảy ra lỗi khi sử dụng phương thức WriteBytes. Để khắc phục điều đó, ví dụ của chúng ta sử dụng phương thức WriteStrings.</em></p>
+
+<p><a href="https://github.com/VNGIoTLab/vbluno_ble_led_button_appinventor/blob/master/firmware_vbluno51/firmware_vbluno51.ino">Firmware sử dụng cho VBLUNO51 trong ví dụ này</a></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>  - Chức năng cụ thể:
+  
+         + Điều khiển: Cho phép sử dụng ứng dụng mobile để điều khiển Bật / Tắt led có sẵn trên mạch.
+         
+         + Giám sát: Khi người dùng nhấn Push Button trên mạch, giá trị giám sát tăng dần và hiển thị trên ứng dụng mobile.
+</code></pre>
+</div>
 
 <h3 id="22-các-bước-cụ-thể">2.2. Các bước cụ thể</h3>
 
