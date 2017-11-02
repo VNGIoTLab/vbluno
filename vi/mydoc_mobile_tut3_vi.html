@@ -1274,27 +1274,20 @@
 <h3 id="21-tổng-quan">2.1. Tổng quan</h3>
 
 <ul>
-  <li>
-    <p>Phần mềm:</p>
-
-    <div class="highlighter-rouge"><pre class="highlight"><code>- Chạy trên các điện thoại sử dụng hệ điều hành Android OS, với chức năng Bật / Tắt đèn led và giám sát số lần nhấn Push Button trên bo mạch VBLUno51.
-  
-- Được viết bằng MIT App Inventor 2 theo cách lập trình kéo - thả (Drag &amp; drop).
-</code></pre>
-    </div>
-  </li>
-  <li>
-    <p>Thiết bị điều khiển:</p>
-
-    <div class="highlighter-rouge"><pre class="highlight"><code>- Sử dụng bo mạch VBLUno51 của VNG, hỗ trợ giao tiếp BLE.
-  
-- Firmware: 
-</code></pre>
-    </div>
-  </li>
+  <li>Phần mềm:</li>
 </ul>
 
-<p>Sử dụng mã nguồn cho VBLUno51 <strong>GẦN GIỐNG</strong> trong bài viết <a href="https://vngiotlab.github.io/vbluno/vi/mydoc_arduino_tut6_vi.html"> Tutorial: Điều khiển và Giám sát một thiết bị bằng Smartphone qua BLE với bo mạch VBLUno51</a></p>
+<p>Chạy trên các điện thoại sử dụng hệ điều hành Android OS, với chức năng Bật / Tắt đèn led và giám sát số lần nhấn Push Button trên bo mạch VBLUno51.</p>
+
+<p>Được viết bằng MIT App Inventor 2 theo cách lập trình kéo - thả (Drag &amp; drop).</p>
+
+<ul>
+  <li>Thiết bị điều khiển:</li>
+</ul>
+
+<p>Sử dụng bo mạch VBLUno51 của VNG, hỗ trợ giao tiếp BLE.</p>
+
+<p>Firmware:  Sử dụng mã nguồn cho VBLUno51 <strong>GẦN GIỐNG</strong> trong bài viết <a href="https://vngiotlab.github.io/vbluno/vi/mydoc_arduino_tut6_vi.html"> Tutorial: Điều khiển và Giám sát một thiết bị bằng Smartphone qua BLE với bo mạch VBLUno51</a></p>
 
 <p>Chỉ khác tại dòng 85, giá trị để bật sáng Led là <code class="highlighter-rouge">0x30</code> thay vì <code class="highlighter-rouge">0x00</code>. <em>Lý do rất đơn giản: BluetoothLE extension của MIT AI2 bản hiện tại chưa hoàn thiện, còn xảy ra lỗi khi sử dụng phương thức WriteBytes. Để khắc phục điều đó, ví dụ của chúng ta sử dụng phương thức WriteStrings.</em></p>
 
