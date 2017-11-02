@@ -1,0 +1,1560 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content="huong_dan,  ">
+<title>Sử dụng MIT App Inventor viết phần mềm Android kết nối thiết bị qua BLE | VBLUno51 board</title>
+<link rel="stylesheet" href="css/syntax.css">
+
+
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<!--<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">-->
+<link rel="stylesheet" href="css/modern-business.css">
+<link rel="stylesheet" href="css/lavish-bootstrap.css">
+<link rel="stylesheet" href="css/customstyles.css">
+<link rel="stylesheet" href="css/theme-orange.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="js/jquery.navgoco.min.js"></script>
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/2.0.0/anchor.min.js"></script>
+<script src="js/toc.js"></script>
+<script src="js/customscripts.js"></script>
+
+<link rel="shortcut icon" href="images/vbluno2_small.png">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<link rel="alternate" type="application/rss+xml" title="" href="https://vngiotlab.github.io/vblunofeed.xml">
+
+    <script>
+        $(document).ready(function() {
+            // Initialize navgoco with default options
+            $("#mysidebar").navgoco({
+                caretHtml: '',
+                accordion: true,
+                openClass: 'active', // open
+                save: false, // leave false or nav highlighting doesn't work right
+                cookie: {
+                    name: 'navgoco',
+                    expires: false,
+                    path: '/'
+                },
+                slide: {
+                    duration: 400,
+                    easing: 'swing'
+                }
+            });
+            $("#collapseAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', false);
+            });
+            $("#expandAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', true);
+            });
+        });
+    </script>
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+    <script>
+        $(document).ready(function() {
+            $("#tg-sb-link").click(function() {
+                $("#tg-sb-sidebar").toggle();
+                $("#tg-sb-content").toggleClass('col-md-9');
+                $("#tg-sb-content").toggleClass('col-md-12');
+                $("#tg-sb-icon").toggleClass('fa-toggle-on');
+                $("#tg-sb-icon").toggleClass('fa-toggle-off');
+            });
+        });
+    </script>
+    
+
+</head>
+<body>
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container topnavlinks">
+
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+                        
+            <img src="images/pic_topnav.png" alt="Bo mạch VBLUno51">
+            <a class="fa fa-home fa-lg navbar-brand" href="index_vi.html">&nbsp;<span class="projectTitle"> VBLUno51 - VNG Bluetooth Low Energy UNO nRF51822 - Mạch phát triển ứng dụng cho IoT</span>                        
+            
+            </a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <!-- toggle sidebar button -->
+                <li><a id="tg-sb-link" href="#"><i id="tg-sb-icon" class="fa fa-toggle-on"></i></a></li>
+                <!-- entries without drop-downs appear here -->
+                                                        
+                                
+                    
+                    
+                    <li><a href="news">Tin mới</a></li>
+                    
+                    
+                                        
+                               
+                <!-- entries with drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+                
+                    
+                    
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tài nguyên liên kết<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+                            
+                            <li><a href="https://goo.gl/bISeQl" target="_blank">VBLUno trên Facebook</a></li>
+                            
+                            
+                            
+                            <li><a href="https://goo.gl/w8gQHT" target="_blank">Cửa hàng bán VBLUno</a></li>
+                            
+                            
+                            
+                            <li><a href="https://goo.gl/kpLmQs" target="_blank">Mô đun DAPLink (CMSIS-DAP)</a></li>
+                            
+                            
+                            
+                            <li><a href="https://goo.gl/1nj0LZ" target="_blank">VBLUno trên diễn đàn Arduino.vn</a></li>
+                            
+                            
+                        </ul>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">SDK & OS hỗ trợ<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+                            
+                            <li><a href="mydoc_getstart_arduino_vi.html">Arduino IDE</a></li>
+                            
+                            
+                            
+                            <li><a href="mydoc_getstart_mbed_vi.html">ARM mbed-OS</a></li>
+                            
+                            
+                            
+                            <li><a href="mydoc_getstart_mynewt_vi.html">Apache Mynewt-OS</a></li>
+                            
+                            
+                            
+                            <li><a href="mydoc_getstart_zephyr_vi.html">Zephyr</a></li>
+                            
+                            
+                            
+                            <li><a href="mydoc_getstart_riot_vi.html">RIOT-OS</a></li>
+                            
+                            
+                            
+                            <li><a href="mydoc_getstart_nordicsdk_vi.html">Nordic SDK</a></li>
+                            
+                            
+                        </ul>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Ý kiến<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+                            
+                            <li><a href="https://github.com/VNGIoTLab/vbluno/issues" target="_blank">Gửi yêu cầu trên Github</a></li>
+                            
+                            
+                            
+                            <li><a href="https://www.facebook.com/bleviet/messages" target="_blank">Gửi tin nhắn trực tiếp trên Facebook</a></li>
+                            
+                            
+                        </ul>
+                    </li>
+                    
+                    
+                    <li><a class="link-vi" href="/vbluno/index.html">ENGLISH</a></li>
+                    <!-- for test in local -->
+                    <!-- <li><a class="link-vi" href="/index.html">ENGLISH</a></li> -->
+
+                
+                
+
+                <!--comment out this block if you want to hide search-->
+                <li>
+                
+                    <!--start search-->
+                    <div id="search-demo-container">                    
+                        <input type="text" id="search-input" placeholder="tìm kiếm...">
+                        <ul id="results-container"></ul>
+                    </div>
+
+                    <script src="js/jekyll-search.js" type="text/javascript"></script>
+                    <script type="text/javascript">
+                            SimpleJekyllSearch.init({
+                                searchInput: document.getElementById('search-input'),
+                                resultsContainer: document.getElementById('results-container'),
+                                dataSource: 'search_vi.json',
+                                searchResultTemplate: '<li><a href="{url}" title="Sử dụng MIT App Inventor viết phần mềm Android kết nối thiết bị qua BLE">{title}</a></li>',
+                    noResultsText: 'Không có kết quả nào được tìm thấy.',
+                            limit: 10,
+                            fuzzy: true,
+                    })
+                    </script>
+                    <!--end search-->
+                
+
+                </li>                
+            </ul>    
+
+        </div>
+        </div>
+        <!-- /.container -->
+</nav>
+
+<!-- Page Content -->
+<div class="container">
+    <div class="col-lg-12">&nbsp;</div>
+    <!-- Content Row -->
+    <div class="row">
+        
+        
+            <!-- Sidebar Column -->
+            <div class="col-md-3" id="tg-sb-sidebar">
+                
+
+<ul id="mysidebar" class="nav">
+    <li class="sidebarTitle">Bo mạch VBLUno51 </li>
+    
+    
+            
+        
+    
+    <li>
+        <a href="#">Tổng quan</a>
+        <ul>
+            
+
+            
+
+            
+
+            
+
+            
+            
+            
+            <li><a href="mydoc_introduction_vi.html">Giới thiệu VBLUno51</a></li>
+            
+            
+            
+
+            
+
+            
+
+            
+
+
+            
+            
+            
+            
+            <li><a href="mydoc_over_hardware_vi.html">Chú ý các phiên bản phần cứng (quan trọng)</a></li>
+            
+            
+            
+
+            
+
+            
+
+            
+
+
+            
+            
+            
+            
+            <li><a href="mydoc_over_sdk_vi.html">Software Development Kit</a></li>
+            
+            
+            
+
+            
+
+            
+
+            
+
+
+            
+            
+            
+            
+            <li><a href="mydoc_over_appcanmake_vi.html">Bạn có thể tạo được các ứng dụng gì với VBLUno51?</a></li>
+            
+            
+            
+
+            
+
+            
+
+            
+
+
+            
+            
+        </ul>
+    </li>
+                
+        
+    
+    <li>
+        <a href="#">Tài liệu</a>
+        <ul>
+            
+
+            
+
+            
+
+            
+
+            
+            
+            
+            <li><a href="https://goo.gl/HUdV1Q" target="_blank">Đặc tả Nordic nRF51822</a></li>
+            
+            
+            
+
+            
+
+            
+
+            
+
+
+            
+            
+            
+            
+            <li><a href="mydoc_doc_hardware_vi.html">Sơ đồ nguyên lý & PCB</a></li>
+            
+            
+            
+
+            
+
+            
+
+            
+
+
+            
+            
+            
+            
+            <li><a href="mydoc_doc_pinout_vi.html">Pinout</a></li>
+            
+            
+            
+
+            
+
+            
+
+            
+
+
+            
+            
+            
+            
+            <li><a href="mydoc_doc_fritzing_vi.html">Fritzing Part</a></li>
+            
+            
+            
+
+            
+
+            
+
+            
+
+
+            
+            
+            
+            
+            <li><a href="mydoc_doc_daplink_vi.html">Nâng cấp firmware cho DAPLink</a></li>
+            
+            
+            
+
+            
+
+            
+
+            
+
+
+            
+            
+            
+            
+            <li><a href="https://goo.gl/oVdvcv" target="_blank">mbed Serial driver (Chỉ với Windows)</a></li>
+            
+            
+            
+
+            
+
+            
+
+            
+
+
+            
+            
+        </ul>
+    </li>
+                
+        
+    
+    <li>
+        <a href="#">==Các module BLE==</a>
+        <ul>
+            
+
+            
+
+            
+
+            
+
+            
+            
+            
+            <li><a href="mydoc_module_ble51_vi.html">Module VNG BLE nRF51822</a></li>
+            
+            
+            
+
+            
+
+            
+
+            
+
+
+            
+            
+            
+            
+            <li><a href="mydoc_module_ble52_vi.html">Module VNG BLE nRF52832</a></li>
+            
+            
+            
+
+            
+
+            
+
+            
+
+
+            
+            
+        </ul>
+    </li>
+                
+        
+    
+    <li>
+        <a href="#">Bắt đầu thôi!</a>
+        <ul>
+            
+
+            
+
+            
+
+            
+
+            
+            
+            
+            <li><a href="mydoc_getstart_arduino_vi.html">Sử dụng Arduino IDE</a></li>
+            
+            
+            
+            
+            <li class="subfolders">
+                <a href="#">Sử dụng mbed-OS</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="mydoc_getstart_mbedonline_vi.html">mbed Online Compiler</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="mydoc_getstart_gnuarm_eclipse_vi.html">GNU ARM Embedded & Eclipse IDE (khuyên dùng)</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="mydoc_getstart_keil_vi.html">Keil uVision</a></li>
+                    
+                    
+                    
+                </ul>
+            </li>
+            
+            
+
+            
+
+            
+
+            
+
+
+            
+            
+            
+            
+            <li><a href="mydoc_getstart_zephyr_vi.html">Sử dụng Zephyr-OS</a></li>
+            
+            
+            
+
+            
+
+            
+
+            
+
+
+            
+            
+        </ul>
+    </li>
+                
+        
+    
+    <li>
+        <a href="#">Công nghệ Bluetooth Low Energy (BLE)</a>
+        <ul>
+            
+
+            
+
+            
+
+            
+
+            
+            
+            
+            <li><a href="mydoc_ble_vi.html">Giới thiệu công nghệ Bluetooth Low Energy</a></li>
+            
+            
+            
+
+            
+
+            
+
+            
+
+
+            
+            
+            
+            
+            <li><a href="https://goo.gl/5q7jC4" target="_blank">Hướng dẫn BLE với mbed-OS</a></li>
+            
+            
+            
+
+            
+
+            
+
+            
+
+
+            
+            
+        </ul>
+    </li>
+                
+        
+    
+    <li>
+        <a href="#">Loạt bài hướng dẫn</a>
+        <ul>
+            
+            
+            <li class="subfolders">
+                <a href="#">Adruino</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="mydoc_arduino_tut1_vi.html">Tut1 - Thiết bị đo nhịp tim (HRM) với VBLUno51</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="mydoc_arduino_tut2_vi.html">Tut2 - Thiết bị Beacons với VBLUno</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="mydoc_arduino_tut3_vi.html">Tut3 - Đo nhiệt độ bên trong chip nRF51822</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="mydoc_arduino_tut4_vi.html">Tut4 - Nhiệt kế y tế (HTM) với VBLUno</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="mydoc_arduino_tut5_vi.html">Tut5 - Truyền thông giữa Smartphone và máy tính với “UART over BLE”</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="mydoc_arduino_tut6_vi.html">Tut6 - Điều khiển/Giám sát một thiết bị bất kỳ bằng Smartphone thông qua BLE</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="mydoc_arduino_tut7_vi.html">Tut7 - Sử dụng màn hình I2C OLED</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="mydoc_arduino_tut8_vi.html">Tut8 - Sử dụng màn hình GLCD trên máy GPhone</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="mydoc_arduino_tut9_vi.html">Tut9 - Đo nhiệt độ từ cảm biến DS18B20</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="mydoc_arduino_tut10_vi.html">Tut10 - Đo nhiệt độ, độ ẩm từ cảm biến DHT11</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="mydoc_arduino_tut11_vi.html">Tut11 - Ứng dụng giám sát nhiệt độ, độ ẩm môi trường</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="mydoc_arduino_tut12_vi.html">Tut12 - Ứng dụng tránh quên chìa khóa hoặc bảo vệ tài sản</a></li>
+                    
+                    
+                    
+                </ul>
+            </li>
+            
+            
+
+            
+            
+            <li class="subfolders">
+                <a href="#">mbed-OS</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="mydoc_mbed_tut1_vi.html">Tut1 - Lập trình/Gỡ lỗi cho VBLUno bằng pyOCD, OpenOCD trên GNU ARM Embedded + Eclipse</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="mydoc_mbed_tut2_vi.html">Tut2 - BLE Beacons</a></li>
+                    
+                    
+                    
+                </ul>
+            </li>
+            
+            
+
+            
+            
+            <li class="subfolders">
+                <a href="#">Zephyr-OS</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="mydoc_zephyr_tut1_vi.html">Tut1 - BLE Beacons</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="mydoc_zephyr_tut2_vi.html">Tut2 - Điều khiển thiết bị bằng ứng dụng mobile qua BLE</a></li>
+                    
+                    
+                    
+                </ul>
+            </li>
+            
+            
+
+            
+            
+            <li class="subfolders">
+                <a href="#">Viết phần mềm trên Smartphone</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="mydoc_moibile_tut1_vi.html">Tut1 - Sử dụng Android Studio viết phần mềm thu tín hiệu Beacons</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="mydoc_mobile_tut2_vi.html">Tut2 - Sử dụng Android Studio viết phần mềm điều khiển, giám sát thiết bị qua BLE</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li class="active"><a href="mydoc_mobile_tut3_vi.html">Tut3 - Sử dụng MIT App Inventor viết phần mềm kết nối thiết bị qua BLE</a></li>
+                    
+                    
+                    
+                </ul>
+            </li>
+            
+            
+
+            
+        </ul>
+    </li>
+                
+        
+    
+    <li>
+        <a href="#">Mã nguồn ví dụ</a>
+        <ul>
+            
+
+            
+
+            
+
+            
+
+            
+            
+            
+            <li><a href="mydoc_code_arduino_vi.html">Arduino</a></li>
+            
+            
+            
+
+            
+
+            
+
+            
+
+
+            
+            
+            
+            
+            <li><a href="mydoc_code_mbed_vi.html">mbed-OS</a></li>
+            
+            
+            
+
+            
+
+            
+
+            
+
+
+            
+            
+            
+            
+            <li><a href="mydoc_code_zephyr_vi.html">Zephyr-OS</a></li>
+            
+            
+            
+
+            
+
+            
+
+            
+
+
+            
+            
+            
+            
+            <li><a href="mydoc_code_android_vi.html">Ứng dụng Android-OS</a></li>
+            
+            
+            
+
+            
+
+            
+
+            
+
+
+            
+            
+        </ul>
+    </li>
+                
+        
+    
+    <li>
+        <a href="#">Video</a>
+        <ul>
+            
+
+            
+
+            
+
+            
+
+            
+            
+            
+            <li><a href="https://goo.gl/Vi0mpo" target="_blank">Ví dụ BLE Serial</a></li>
+            
+            
+            
+
+            
+
+            
+
+            
+
+
+            
+            
+            
+            
+            <li><a href="https://goo.gl/01X4oM" target="_blank">Robot điều khiển từ xa qua BLE với VBLUno</a></li>
+            
+            
+            
+
+            
+
+            
+
+            
+
+
+            
+            
+        </ul>
+    </li>
+                
+        
+    
+    <li>
+        <a href="#">Ứng dụng mobile cho BLE</a>
+        <ul>
+            
+
+            
+
+            
+
+            
+
+            
+            
+            
+            <li><a href="https://goo.gl/i6DNtP" target="_blank">iBeacon & Eddystone Scanner (Android)</a></li>
+            
+            
+            
+            
+            <li class="subfolders">
+                <a href="#">Nordic nRF Toolbox</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="https://goo.gl/s3fbVW" target="_blank">Android</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="https://goo.gl/GH8gom" target="_blank">iOS</a></li>
+                    
+                    
+                    
+                </ul>
+            </li>
+            
+            
+
+            
+
+            
+
+            
+
+
+            
+            
+            
+            
+            <li><a href="https://goo.gl/sFbubD" target="_blank">nRF UART 2.0 (Android)</a></li>
+            
+            
+            
+            
+            <li class="subfolders">
+                <a href="#">Mã nguồn (mở)</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="https://goo.gl/Et1atP" target="_blank">Nordic nRFToolbox (Android)</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="https://goo.gl/rdTll8" target="_blank">BluetoohLeGatt Example (Android)</a></li>
+                    
+                    
+                    
+                </ul>
+            </li>
+            
+            
+
+            
+
+            
+
+            
+
+
+            
+            
+        </ul>
+    </li>
+                
+        
+    
+    <li>
+        <a href="#">Liên kết</a>
+        <ul>
+            
+
+            
+
+            
+
+            
+
+            
+            
+            
+            <li><a href="http://iotviet.com.vn" target="_blank">Cửa hàng IoTViet</a></li>
+            
+            
+            
+
+            
+
+            
+
+            
+
+
+            
+            
+            
+            
+            <li><a href="https://zalopay.vn" target="_blank">VNG ZaloPay – (Ứng dụng thanh toán tự động, có dùng BLE)</a></li>
+            
+            
+            
+
+            
+
+            
+
+            
+
+
+            
+            
+            
+            
+            <li><a href="https://goo.gl/YCxUeK" target="_blank">VNG CSM Router (Chuyên dụng cho Phòng máy)</a></li>
+            
+            
+            
+
+            
+
+            
+
+            
+
+
+            
+            
+            
+            
+            <li><a href="https://www.facebook.com/groups/iotalliancevn/" target="_blank">Vietnam IoT Alliance page</a></li>
+            
+            
+            
+
+            
+
+            
+
+            
+
+
+            
+            
+            
+            
+            <li><a href="https://developer.mbed.org/" target="_blank">ARM mbed  OS developer site</a></li>
+            
+            
+            
+
+            
+
+            
+
+            
+
+
+            
+            
+            
+            
+            <li><a href="https://iotmaker.vn" target="_blank">Cửa hàng IoTMakerVN</a></li>
+            
+            
+            
+
+            
+
+            
+
+            
+
+
+            
+            
+        </ul>
+    </li>
+                
+        
+    
+    <li>
+        <a href="#">Liên hệ</a>
+        <ul>
+            
+
+            
+
+            
+
+            
+
+            
+            
+            
+            <li><a href="https://goo.gl/c3sbnk" target="_blank">Cửa hàng</a></li>
+            
+            
+            
+
+            
+
+            
+
+            
+
+
+            
+            
+            
+            
+            <li><a href="https://www.facebook.com/bleviet/" target="_blank">Bluetooth Low Energy – BLE Vietnam page</a></li>
+            
+            
+            
+
+            
+
+            
+
+            
+
+
+            
+            
+        </ul>
+    </li>
+                
+        
+        
+        <!-- if you aren't using the accordion, uncomment this block:
+           <p class="external">
+               <a href="#" id="collapseAll">Collapse All</a> | <a href="#" id="expandAll">Expand All</a>
+           </p>
+           -->    
+</ul>
+
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+
+            </div>
+            
+        
+
+        <!-- Content Column -->
+        <div class="col-md-9" id="tg-sb-content">
+            <div class="post-header">
+   <h1 class="post-title-main">Sử dụng MIT App Inventor viết phần mềm Android kết nối thiết bị qua BLE</h1>
+</div>
+
+
+
+<div class="post-content">
+
+   
+
+    
+    
+<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
+
+
+
+	<script>
+	$( document ).ready(function() {
+	  // Handler for .ready() called.
+
+	$('#toc_vi').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2,h3,h4' });
+
+	/* this offset helps account for the space taken up by the floating toolbar. */
+	$('#toc_vi').on('click', 'a', function() {
+	  var target = $(this.getAttribute('href'))
+	    , scroll_target = target.offset().top
+
+	  $(window).scrollTop(scroll_target - 10);
+	  return false
+	})
+	  
+	});
+	</script>
+
+	<div id="toc_vi"></div>
+
+
+
+    
+
+
+    
+
+  <h2 id="1-lập-trình-phần-mềm-android-theo-kiểu-kéo-thả-drag-and-drop-với-mit-app-inventor-2">1. Lập trình phần mềm Android theo kiểu Kéo-Thả (Drag and Drop) với MIT App Inventor 2.</h2>
+
+<p><code class="highlighter-rouge">MIT App Inventor</code> dành cho Android là một ứng dụng web nguồn mở ban đầu được cung cấp bởi Google và hiện tại được duy trì bởi Viện Công nghệ Massachusetts (MIT). Nền tảng cho phép nhà lập trình tạo ra các ứng dụng phần mềm cho hệ điều hành Android (OS). Bằng cách sử dụng giao diện đồ họa, nền tảng cho phép người dùng kéo và thả các khối mã (blocks) để tạo ra các ứng dụng có thể chạy trên thiết bị Android. Đến thời điểm hiện tại 07/2017, phiên bản iOS của nền tảng này đã bắt đầu được đưa vào thử nghiệm bởi Thunkable, là một trong các nhà cung cấp ứng dụng web cho ngôn ngữ này.</p>
+
+<p>Mục tiêu cốt lõi của MIT App Inventor là giúp đỡ những người chưa có kiến thức về ngôn ngữ lập trình từ trước có thể tạo ra những ứng dụng có ích trên hệ điều hành Android. Phiên bản mới nhất là MIT App Inventor 2.</p>
+
+<p>Ngày nay, MIT đã hoàn thiện App Inventor và nó được chia sẻ ngay trên tài khoản Google. Các lập trình viên mới bắt đầu hoặc bất kỳ ai muốn tạo ra ứng dụng Android chỉ cần vào địa chỉ web của MIT, nhập thông tin tài khoản Google, và từ những mảnh ghép nhỏ, xây dựng những ý tưởng của mình. Bạn là người mới bắt đầu hoặc chưa biết gì hết về App Inventor? MIT có sẵn một loạt các hướng dẫn cụ thể cho bạn làm quen với chương trình.</p>
+
+<p>Để sử dụng được App Inventor, các bạn truy cập vào địa chỉ <a href="http://ai2.appinventor.mit.edu">http://ai2.appinventor.mit.edu</a> . Sau đó tiến hành đăng nhập bằng tài khoản Google của bạn để mở trang quản lí các project.</p>
+
+<ul>
+  <li>Giao diện quản lý project</li>
+</ul>
+
+<p><img src="images/mobile/tut3/0.png" alt="" /></p>
+
+<ul>
+  <li>Giao diện thiết kế (Design)</li>
+</ul>
+
+<p><img src="images/mobile/tut3/1.png" alt="" /></p>
+
+<ul>
+  <li>Giao diện lập trình (Blocks)</li>
+</ul>
+
+<p><img src="images/mobile/tut3/2.png" alt="" /></p>
+
+<p>Nói chung tất cả rất đơn giản là các thao tác kéo và thả, bao gồm cả phần thiết kế giao diện và viết code. Tham khảo một số bài viết giới thiệu và hướng dẫn sử dụng ứng dụng MIT App Inventor</p>
+
+<ul>
+  <li>
+    <p><a href="http://arduino.vn/bai-viet/657-huong-dan-su-dung-appinventor-lap-trinh-ung-dung-dieu-khien-xe-qua-bluetooth-ma-khong">Nguồn arduino.vn</a></p>
+  </li>
+  <li>
+    <p><a href="https://tinhte.vn/threads/gioi-thieu-ve-ngon-ngu-drag-and-drop-cua-mit-app-inventor.2714263/">Nguồn tinhte.vn</a></p>
+  </li>
+</ul>
+
+<h2 id="2-xây-dựng-ứng-dụng-điều-khiểngiám-sát-thiết-bị-qua-truyền-thông-ble">2. Xây dựng ứng dụng điều khiển/giám sát thiết bị qua truyền thông BLE.</h2>
+
+<p>Phần này trình bày các bước xây dựng một ứng dụng chạy trên Android OS để điều khiển và giám sát thiết bị thông qua giao tiếp truyền thông không dây Bluetooth Low Energy (BLE).</p>
+
+<h3 id="21-tổng-quan">2.1. Tổng quan</h3>
+
+<ul>
+  <li>
+    <p>Phần mềm:</p>
+
+    <div class="highlighter-rouge"><pre class="highlight"><code>- Chạy trên các điện thoại sử dụng hệ điều hành Android OS, với chức năng Bật / Tắt đèn led và giám sát số lần nhấn Push Button trên bo mạch VBLUno51.
+  
+- Được viết bằng MIT App Inventor 2 theo cách lập trình kéo - thả (Drag &amp; drop).
+</code></pre>
+    </div>
+  </li>
+  <li>
+    <p>Thiết bị điều khiển:</p>
+
+    <div class="highlighter-rouge"><pre class="highlight"><code>- Sử dụng bo mạch VBLUno51 của VNG, hỗ trợ giao tiếp BLE.
+  
+- Firmware: 
+       
+Sử dụng mã nguồn cho VBLUno51 **GẦN GIỐNG** trong bài viết [ Tutorial: Điều khiển và Giám sát một thiết bị bằng Smartphone qua BLE với bo mạch VBLUno51](https://vngiotlab.github.io/vbluno/vi/mydoc_arduino_tut6_vi.html)
+</code></pre>
+    </div>
+
+    <p>Chỉ khác tại dòng 85, giá trị để bật sáng Led là <code class="highlighter-rouge">0x30</code> thay vì <code class="highlighter-rouge">0x00</code>. <em>Lý do rất đơn giản: BluetoothLE extension của MIT AI2 bản hiện tại chưa hoàn thiện, còn xảy ra lỗi khi sử dụng phương thức WriteBytes. Để khắc phục điều đó, ví dụ của chúng ta sử dụng phương thức WriteStrings.</em></p>
+
+    <div class="highlighter-rouge"><pre class="highlight"><code>[Firmware sử dụng cho VBLUNO51 trong ví dụ này](https://github.com/VNGIoTLab/vbluno_ble_led_button_appinventor/blob/master/firmware_vbluno51/firmware_vbluno51.ino)
+
+- Chức năng cụ thể:
+  
+       + Điều khiển: Cho phép sử dụng ứng dụng mobile để điều khiển Bật / Tắt led có sẵn trên mạch.
+         
+       + Giám sát: Khi người dùng nhấn Push Button trên mạch, giá trị giám sát tăng dần và hiển thị trên ứng dụng mobile.
+</code></pre>
+    </div>
+  </li>
+</ul>
+
+<h3 id="22-các-bước-cụ-thể">2.2. Các bước cụ thể</h3>
+
+<h4 id="bước-1-tạo-project">Bước 1: Tạo project</h4>
+
+<p>Sau khi đăng nhập, tại cửa sổ chính (My Project), bạn chọn <code class="highlighter-rouge">Start new project</code> , sau đó đặt trên cho project bạn muốn tạo.</p>
+
+<p><img src="images/mobile/tut3/3.png" alt="" /></p>
+
+<p><img src="images/mobile/tut3/4.png" alt="" /></p>
+
+<h4 id="bước-2-thiết-kế-giao-diện">Bước 2: Thiết kế giao diện</h4>
+
+<p>Cửa sổ thiết kế gồm 4 khung chức năng chính như hình dưới đây</p>
+
+<p><img src="images/mobile/tut3/5.png" alt="" /></p>
+
+<ul>
+  <li>
+    <p>Đầu tiên, một ứng dụng có thể có nhiều cửa sổ giao diện, trong MIT AI2 gọi là các Screen.</p>
+
+    <ul>
+      <li>
+        <p><code class="highlighter-rouge">Palette</code>: Chứa các thành phần có thể đặt lên trên Screen như: Button, Label, Image, Listview, Video player, …. Đến các thanh phần chức năng không nhìn thấy trên Screen như: BLE extension, Notifier, các sensors, ….</p>
+      </li>
+      <li>
+        <p><code class="highlighter-rouge">Viewer</code>: Hiển thị giao diện screen. Kéo thả các thành phần từ khung Palette sang đây để thiết kế giao diện cho phần mềm của bạn.</p>
+      </li>
+      <li>
+        <p><code class="highlighter-rouge">Components</code>: Sơ đồ cây thể hiện cấu trúc các thành phần đã được bố trí trên Screen.</p>
+      </li>
+      <li>
+        <p><code class="highlighter-rouge">Properties</code>: Hiển thị thuộc tính của component tương ứng được chọn.</p>
+      </li>
+    </ul>
+
+    <p>Ngoài ra còn khung <code class="highlighter-rouge">Media</code> chứa các file media bạn tải lên để sử dụng trong chương trình như: Ảnh icon, ảnh nền, …</p>
+  </li>
+  <li>
+    <p>Chương trình minh họa trong bài viết được thiết kế như hình bên dưới. Bao gồm các thành phần nhìn thấy trên Screen và các thành phần chức năng không nhìn thấy trên Screen (non-visible) là:</p>
+
+    <ul>
+      <li>
+        <p><code class="highlighter-rouge">Notifier1</code>: Hiển thị các câu thông báo đến người dùng.</p>
+      </li>
+      <li>
+        <p><code class="highlighter-rouge">BluetoothLE1</code>: Đây là extension cho phép truyền thông qua giao tiếp Bluetooth Low Energy.</p>
+      </li>
+    </ul>
+
+    <p><a href="http://iot.appinventor.mit.edu/assets/resources/edu.mit.appinventor.ble.aix">Tải BluetoothLE.aix về máy tính</a></p>
+
+    <p>Để sử dụng extesion này trong project của bạn, vào <code class="highlighter-rouge">Palette -&gt; Extension -&gt; Import extension -&gt; Chọn file BluetoothLE.aix mới tải v</code></p>
+
+    <p><a href="http://iot.appinventor.mit.edu/#/bluetoothle/bluetoothleintro">Xem tài liệu mô tả để biết chi tiết</a></p>
+
+    <ul>
+      <li><code class="highlighter-rouge">BluetoothClient1</code>: Để giao tiếp với VBLUno51 qua BLE chúng ta đã sử dụng BluetoothLE extension. Tuy nhiên, do extension này chưa có thuộc tính để kiểm tra việc Điện thoại đã bật Bluetooth hay chưa nên ta sử dụng component này để giải quyết vấn đề đó.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="images/mobile/tut3/6.png" alt="" /></p>
+
+<h4 id="bước-3-lập-trình-chức-năng">Bước 3: Lập trình chức năng</h4>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>Để di chuyển qua lại giữa cửa sổ thiết kế và tạo code, nhấp chọn các nút Design, Blocks ở góc phải.
+</code></pre>
+</div>
+
+<ul>
+  <li>
+    <p>Trong MIT AI2, code chính là các <code class="highlighter-rouge">Blocks</code>, việc của chúng ta là kéo thả các blocks này sang khung Viewer và kết nối chúng theo chức năng mong muốn.</p>
+  </li>
+  <li>
+    <p>Blocks gồm 2 nhóm chính:</p>
+
+    <ul>
+      <li>Các block chức năng cơ bản của một chương trình như: điều khiển luồng, logic, toán học, ký tự, biến, …</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="images/mobile/tut3/7.png" alt="" /></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>* Các block chức năng theo từng component trong ứng dụng: Mỗi component của ứng dụng đều có các block chức năng tương ứng. 
+</code></pre>
+</div>
+
+<p><img src="images/mobile/tut3/8.png" alt="" /></p>
+
+<p>Nhóm này gồm 3 kiểu chính:</p>
+
+<p><code class="highlighter-rouge">Thuộc tính (Properties)</code>:</p>
+
+<p><img src="images/mobile/tut3/9.png" alt="" /></p>
+
+<p><code class="highlighter-rouge">Phương thức (Methods)</code>:</p>
+
+<p><img src="images/mobile/tut3/10.png" alt="" /></p>
+
+<p><code class="highlighter-rouge">Sự kiện (Events)</code>:</p>
+
+<p><img src="images/mobile/tut3/11.png" alt="" /></p>
+
+<p><strong>Các khối code của chương trình ví dụ</strong></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>* Khởi tạo 6 biến toàn cục: Các uuid của giao diện BLE, các biến điều khiển trạng thái.
+</code></pre>
+</div>
+
+<p><img src="images/mobile/tut3/12.png" alt="" /></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>* Hành động khi khởi chạy Screen: Kiểm tra đã bật Bluetooth hay chưa, nếu đã bật thì bắt đầu quét các thiết bị BLE xung quanh.
+</code></pre>
+</div>
+
+<p><img src="images/mobile/tut3/13.png" alt="" /></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>* Hành động khi phát hiện thiết bị BLE: Thêm và danh sách của ListPicker 
+</code></pre>
+</div>
+
+<p><img src="images/mobile/tut3/14.png" alt="" /></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>* Hành động sau khi user chọn một thiết bị từ ListPicker: Lấy giá trị địa chỉ của thiết bị được chọn và gán cho biến `ble_device`.
+</code></pre>
+</div>
+
+<p><img src="images/mobile/tut3/15.png" alt="" /></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>* Hành động khi phần mềm đã kết nối với VBLUno51 qua BLE: Dừng quét, đặt trạng thái kết nối, thay đổi giao diện, cho phép VBLUno51 notify dữ liệu lên phần mềm qua button characteristic.
+</code></pre>
+</div>
+
+<p><img src="images/mobile/tut3/16.png" alt="" /></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>* Hành động khi ngắt kết nối: đặt trạng thái, thay đổi giao diện, tiếp tục quét các thiết bị BLE xung quanh.
+</code></pre>
+</div>
+
+<p><img src="images/mobile/tut3/17.png" alt="" /></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>* Hành động khi nhấn nút Connect: Thực hiện kết nối / ngắt kết nối đến thiết bị BLE đã chọn từ ListPicker.
+</code></pre>
+</div>
+
+<p><img src="images/mobile/tut3/18.png" alt="" /></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>* Hành động khi nhấn nút bật/tắt đèn led: Tùy theo trạng thái Led hiện tại mà truyền lệnh bật hoặc tắt led, thay đổi các giao diện tương ứng.
+</code></pre>
+</div>
+
+<p><img src="images/mobile/tut3/19.png" alt="" /></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>* Hành động khi phần mềm nhận được dữ liệu giám sát Button do VBLUno51 gửi lên: Xử lý và hiển thị lên Screen.
+</code></pre>
+</div>
+
+<p><img src="images/mobile/tut3/20.png" alt="" /></p>
+
+<ul>
+  <li>Bạn có thể tải mã nguồn hoàn chỉnh tại <a href="https://github.com/VNGIoTLab/vbluno_ble_led_button_appinventor">vbluno51_mit_helloworld.aia</a>. Sau đó, import projects tại MIT App Inventor2 để sử dụng.</li>
+</ul>
+
+<h4 id="bước-4-biên-dịch-và-thử-nghiệm">Bước 4: Biên dịch và thử nghiệm</h4>
+
+<ul>
+  <li>
+    <p>Để biên dịch và thực thi chương trình viết trên MIT App Inventor 2 có hai cách:</p>
+
+    <ul>
+      <li>
+        <p>Cách 1: Sử dụng phần mềm MIT Companion. Với cách này, bạn cần cài đặt phần mềm MIT Companion trên điện thoại của bạn. Sau đó, kết nối với project của bạn để tự động download về và <strong>chạy bên trong phần mềm MIT Companion</strong>. Điều này gây ra nhiều sự bất tiện và phụ thuộc.</p>
+      </li>
+      <li>
+        <p>Cách 2: Biên dịch ra file apk và cài đặt, bao gồm tùy chọn download file apk về máy tính sau đó sao chép sang điện thoại để cách đặt hoặc biên dịch và tải online thông qua mã QR code.</p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p>Ở ví dụ này mình chọn Cách 2.</p>
+
+<p>Để thực hiện, bạn chọn <code class="highlighter-rouge">Build -&gt; App (provide QR code for .apk)</code></p>
+
+<p><img src="images/mobile/tut3/21.png" alt="" /></p>
+
+<p>Sau khi biên dịch xong sẽ xuất hiện một mã QR code, bạn sử dụng phần mềm quét QR code trên điện thoại để tải file apk về và cài đặt.</p>
+
+<p><img src="images/mobile/tut3/22.png" alt="" /></p>
+
+<ul>
+  <li>Bạn có thể tải file apk thực thi của ứng dụng minh họa này tại <a href="https://github.com/VNGIoTLab/vbluno_ble_led_button_appinventor">vbluno51_mit_helloworld.apk</a>.</li>
+</ul>
+
+<h3 id="23-kết-quả">2.3. Kết quả</h3>
+
+<p>Giao diện chương trình</p>
+
+<p><img src="images/mobile/tut3/23.png" alt="" /></p>
+
+<p>Nhấp chọn nút <code class="highlighter-rouge">BLE devices list</code> để lựa chọn bo mạch VBLUno51 cần kết nối.</p>
+
+<p><img src="images/mobile/tut3/24.png" alt="" /></p>
+
+<p>Nhấn <code class="highlighter-rouge">Connect</code> để kết nối thiết bị, sau khi kết nối bạn có thể bật / tắt led và giám sát giá trị mỗi lần nhấn Push button trên bo mạch VBLUno51.</p>
+
+<p><img src="images/mobile/tut3/25.png" alt="" /></p>
+
+<p><em>Có thể thấy, việc sử dụng MIT App Inventor 2 để lập trình ứng dụng mobile trên Android OS khá đơn giản, dễ dàng thực hiện được với những bạn không chuyên. MIT App Inventor2 đang ngày càng hoàn thiện hơn nữa. Mong rằng các bạn có thể tạo cho mình những phần mềm hữu ích cho học tập, giải trí và cuộc sống.</em></p>
+
+
+    <div class="tags">
+        
+        <b>Tags: </b>
+        
+        
+        
+        <a href="tag_huong_dan.html" class="btn btn-default navbar-btn cursorNorm" role="button">huong_dan</a>
+        
+        
+        
+    </div>
+
+    
+
+</div>
+
+<hr class="shaded"/>
+
+<footer>
+            <div class="row">
+                <div class="col-lg-12 footer">
+               &copy;2017 VNG Corporation. All rights reserved. <br />
+ Site last generated: Nov 2, 2017 <br />
+<p><img src="images/company_logo_medium.png" alt="Company logo"/></p>
+                </div>
+            </div>
+</footer>
+
+
+        </div>
+    <!-- /.row -->
+</div>
+<!-- /.container -->
+    </div>
+
+</body>
+
+</html>
